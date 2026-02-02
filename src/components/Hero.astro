@@ -1,0 +1,38 @@
+---
+import { SITE } from '../config/site';
+type Props = { h1: string; sub: string };
+const { h1, sub } = Astro.props;
+---
+<section class="container hero">
+  <div class="hero-grid">
+    <div class="hero-card">
+      <div class="kicker">Cẩm Phả • Quảng Ninh</div>
+      <h1>{h1}</h1>
+      <p class="lead">{sub}</p>
+      <div class="btn-row">
+        <a class="btn primary" href={`tel:${SITE.phone}`}>Gọi ngay</a>
+        <a class="btn" href={SITE.zaloUrl} rel="nofollow">Zalo</a>
+        <a class="btn" href="/lien-he/">Đặt dịch vụ</a>
+      </div>
+      <ul class="hero-points">
+        <li><span class="dot" aria-hidden="true"></span><span>Tư vấn lịch trình địa phương: Cẩm Phả – Hạ Long – Vân Đồn/Ao Tiên – Móng Cái.</span></li>
+        <li><span class="dot" aria-hidden="true"></span><span>Nhận đặt vé tàu cao tốc đi Cô Tô, Quan Lạn (tuỳ tuyến).</span></li>
+        <li><span class="dot" aria-hidden="true"></span><span>Hỗ trợ vé máy bay, khách sạn, visa – hộ chiếu trọn gói.</span></li>
+      </ul>
+    </div>
+
+    <div class="hero-card">
+      <h2 style="margin-top:0">Dịch vụ chính</h2>
+      <div class="grid-2">
+        <a class="card" href="/thue-xe-du-lich/"><h3>Thuê xe</h3><p>16–45 chỗ, theo tuyến & theo ngày</p></a>
+        <a class="card" href="/tour-du-lich/"><h3>Tour</h3><p>Nội địa • Quốc tế • Tour đoàn</p></a>
+        <a class="card" href="/ve-tau-cao-toc/"><h3>Vé tàu</h3><p>Ao Tiên/Vũng Đục ↔ đảo</p></a>
+        <a class="card" href="/ve-may-bay/"><h3>Vé máy bay</h3><p>Báo giá nhanh, hỗ trợ đổi vé</p></a>
+      </div>
+      <div class="btn-row" style="margin-top:12px">
+        <a class="btn" href="/visa-ho-chieu/">Visa – hộ chiếu</a>
+        <a class="btn" href="/khach-san/">Khách sạn</a>
+      </div>
+    </div>
+  </div>
+</section>

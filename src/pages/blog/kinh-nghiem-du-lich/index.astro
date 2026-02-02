@@ -1,0 +1,32 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import Breadcrumbs from '../../../components/Breadcrumbs.astro';
+import { getCollection } from 'astro:content';
+
+const title = 'Kinh nghiệm du lịch | Blog Datmo';
+const description = 'Kinh nghiệm du lịch, lịch trình, mẹo đi lại từ Cẩm Phả – Quảng Ninh.';
+const crumbs = [
+  { name: 'Trang chủ', href: '/' },
+  { name: 'Blog', href: '/blog/' },
+  { name: 'Kinh nghiệm du lịch', href: '/blog/kinh-nghiem-du-lich/' },
+];
+
+const posts = (await getCollection('blog', ({ data }) => !data.draft && data.category === 'kinh-nghiem-du-lich'))
+  .sort((a, b) => +new Date(b.data.publishedAt) - +new Date(a.data.publishedAt));
+---
+<BaseLayout title={title} description={description}>
+  <Breadcrumbs items={crumbs} />
+  <section class="container section">
+    <h1>Kinh nghiệm du lịch</h1>
+    <p class="lead">Tổng hợp bài viết kinh nghiệm, tips & lịch trình.</p>
+    <div class="grid-2">
+      {posts.map((p) => (
+        <a class="card post-card" href={`/blog/${p.slug}/`}>
+          <h3>{p.data.title}</h3>
+          <div class="blog-meta">{new Date(p.data.publishedAt).toLocaleDateString('vi-VN')}</div>
+          <p class="small">{p.data.description}</p>
+        </a>
+      ))}
+    </div>
+  </section>
+</BaseLayout>

@@ -1,0 +1,17 @@
+---
+const services = [
+  { title: 'Thuê xe du lịch', desc: '16 – 45 chỗ tại Cẩm Phả', href: '/thue-xe-du-lich/' },
+  { title: 'Tour du lịch', desc: 'Nội địa • Quốc tế • Tour đoàn', href: '/tour-du-lich/' },
+  { title: 'Vé tàu cao tốc', desc: 'Ao Tiên/Vũng Đục ↔ Cô Tô/Quan Lạn', href: '/ve-tau-cao-toc/' },
+  { title: 'Vé máy bay', desc: 'Báo giá nhanh, hỗ trợ đổi vé', href: '/ve-may-bay/' },
+  { title: 'Visa – hộ chiếu', desc: 'Tư vấn hồ sơ, thời gian xử lý', href: '/visa-ho-chieu/' },
+];
+---
+<div class="grid-3">
+  {services.map((s) => (
+    <a class="card" href={s.href}>
+      <h3>{s.title}</h3>
+      <p>{s.desc}</p>
+    </a>
+  ))}
+</div>

@@ -1,0 +1,55 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Breadcrumbs from '../../components/Breadcrumbs.astro';
+import FAQ from '../../components/FAQ.astro';
+import JsonLd from '../../components/JsonLd.astro';
+import { SITE } from '../../config/site';
+
+const title = 'Thuê xe du lịch 16 – 45 chỗ tại Cẩm Phả | Datmo.io.vn';
+const description = 'Dịch vụ thuê xe du lịch tại Cẩm Phả: xe 16 chỗ, 29 chỗ, 45 chỗ. Nhận tuyến Hạ Long, Vân Đồn/Ao Tiên, Móng Cái, đưa đón sân bay Nội Bài. Tư vấn nhanh qua hotline/Zalo.';
+const canonical = SITE.url + '/thue-xe-du-lich/';
+
+const crumbs = [
+  { name: 'Trang chủ', href: '/' },
+  { name: 'Thuê xe du lịch', href: '/thue-xe-du-lich/' },
+];
+
+const faqItems = [
+  { q: 'Datmo có những loại xe nào?', a: 'Tập trung xe 16 chỗ, 29 chỗ và 45 chỗ phục vụ nhóm gia đình, công ty, tour đoàn.' },
+  { q: 'Có nhận đưa đón Ao Tiên/Vũng Đục không?', a: 'Có. Bạn có thể đặt xe đi cảng Ao Tiên (Vân Đồn) hoặc Vũng Đục (Cẩm Phả) để kịp giờ tàu.' },
+];
+
+const serviceJsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'Service',
+  name: 'Thuê xe du lịch 16–45 chỗ tại Cẩm Phả',
+  areaServed: ['Cẩm Phả', 'Quảng Ninh'],
+  provider: { '@type': 'LocalBusiness', name: SITE.name, url: SITE.url, telephone: SITE.phone },
+  url: canonical,
+};
+---
+<BaseLayout title={title} description={description} canonical={canonical}>
+  <Breadcrumbs items={crumbs} />
+
+  <section class="container section">
+    <h1>Thuê xe du lịch 16 – 45 chỗ tại Cẩm Phả</h1>
+    <p class="lead">Xe phù hợp đi công tác, gia đình, tour đoàn. Tư vấn tuyến đi trong Quảng Ninh và liên tỉnh.</p>
+
+    <div class="grid-3">
+      <a class="card" href="/thue-xe-du-lich/thue-xe-16-cho-cam-pha/"><h3>Thuê xe 16 chỗ</h3><p>Đi Hạ Long, Ao Tiên, Nội Bài…</p></a>
+      <a class="card" href="/thue-xe-du-lich/thue-xe-29-cho-cam-pha/"><h3>Thuê xe 29 chỗ</h3><p>Nhóm công ty, sự kiện, tour đoàn</p></a>
+      <a class="card" href="/thue-xe-du-lich/thue-xe-45-cho-cam-pha/"><h3>Thuê xe 45 chỗ</h3><p>Đoàn đông, lịch trình dài ngày</p></a>
+    </div>
+
+    <div class="card" style="margin-top:14px">
+      <h2>Liên kết cùng SILO</h2>
+      <ul class="link-list">
+        <li><a href="/ve-tau-cao-toc/">Kết hợp đặt vé tàu cao tốc đi Cô Tô/Quan Lạn</a></li>
+        <li><a href="/tour-du-lich/">Gợi ý tour xuất phát từ Cẩm Phả</a></li>
+      </ul>
+    </div>
+  </section>
+
+  <FAQ items={faqItems} />
+  <JsonLd data={serviceJsonLd} />
+</BaseLayout>

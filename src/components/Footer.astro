@@ -1,0 +1,30 @@
+---
+import { SITE } from '../config/site';
+---
+<footer class="site-footer">
+  <div class="container footer-grid">
+    <div class="card">
+      <div class="kicker">Datmo.io.vn</div>
+      <h3 style="margin-top:6px">Dịch vụ du lịch & vận chuyển tại Cẩm Phả – Quảng Ninh</h3>
+      <p class="small">
+        Thuê xe du lịch 16–45 chỗ • Tour xuất phát từ Cẩm Phả • Vé tàu cao tốc • Vé máy bay • Khách sạn • Visa – hộ chiếu.
+      </p>
+      <p class="small">
+        Hotline: <a href={`tel:${SITE.phone}`}>{SITE.phoneDisplay}</a> • Zalo: <a href={SITE.zaloUrl} rel="nofollow">Nhắn Zalo</a>
+      </p>
+    </div>
+
+    <div class="card">
+      <h3>Liên kết nhanh</h3>
+      <ul class="link-list">
+        <li><a href="/thue-xe-du-lich/">Thuê xe du lịch</a></li>
+        <li><a href="/tour-du-lich/">Tour du lịch</a></li>
+        <li><a href="/ve-tau-cao-toc/">Vé tàu cao tốc</a></li>
+        <li><a href="/ve-may-bay/">Vé máy bay</a> • <a href="/khach-san/">Khách sạn</a></li>
+        <li><a href="/visa-ho-chieu/">Visa – hộ chiếu</a></li>
+        <li><a href="/blog/">Blog</a> • <a href="/lien-he/">Liên hệ</a></li>
+      </ul>
+      <p class="small">© {new Date().getFullYear()} Datmo.io.vn</p>
+    </div>
+  </div>
+</footer>

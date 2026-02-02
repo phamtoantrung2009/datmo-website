@@ -1,0 +1,49 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Breadcrumbs from '../../components/Breadcrumbs.astro';
+import FAQ from '../../components/FAQ.astro';
+import JsonLd from '../../components/JsonLd.astro';
+import CallToActions from '../../components/CallToActions.astro';
+import { SITE } from '../../config/site';
+
+const title = 'Dịch vụ visa – hộ chiếu tại Cẩm Phả | Datmo.io.vn';
+const description = 'Hỗ trợ tư vấn hồ sơ visa và thủ tục liên quan hộ chiếu cho khách tại Cẩm Phả, Quảng Ninh. Nhận lịch gấp tuỳ trường hợp, hướng dẫn chuẩn bị giấy tờ.';
+const canonical = SITE.url + '/visa-ho-chieu/';
+
+const crumbs = [
+  { name: 'Trang chủ', href: '/' },
+  { name: 'Dịch vụ visa – hộ chiếu tại Cẩm Phả', href: '/visa-ho-chieu/' },
+];
+
+const faqItems = [
+  { q: 'Cần cung cấp thông tin gì để đặt nhanh?', a: 'Họ tên, ngày đi (khứ hồi nếu có), tuyến/điểm đến và số điện thoại liên hệ.' },
+  { q: 'Có hỗ trợ thay đổi/hoàn huỷ không?', a: 'Tuỳ điều kiện của hãng/nhà cung cấp. Datmo hỗ trợ hướng dẫn và xử lý theo quy định.' },
+];
+
+const serviceJsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'Service',
+  name: 'Dịch vụ visa – hộ chiếu tại Cẩm Phả',
+  areaServed: ['Cẩm Phả', 'Quảng Ninh'],
+  provider: { '@type': 'LocalBusiness', name: SITE.name, url: SITE.url, telephone: SITE.phone },
+  url: canonical,
+};
+---
+<BaseLayout title={title} description={description} canonical={canonical}>
+  <Breadcrumbs items={crumbs} />
+  <section class="container section">
+    <h1>Dịch vụ visa – hộ chiếu tại Cẩm Phả</h1>
+    <p class="lead">Hỗ trợ tư vấn hồ sơ visa và thủ tục liên quan hộ chiếu cho khách tại Cẩm Phả, Quảng Ninh. Nhận lịch gấp tuỳ trường hợp, hướng dẫn chuẩn bị giấy tờ.</p>
+
+    <div class="card">
+      <h2>Liên kết cùng SILO</h2>
+      <ul class="link-list">
+        <li><a href="/tour-du-lich/tour-quoc-te/">Tour quốc tế</a></li><li><a href="/ve-may-bay/">Vé máy bay</a></li><li><a href="/lien-he/">Liên hệ tư vấn</a></li>
+      </ul>
+    </div>
+  </section>
+
+  <FAQ items={faqItems} />
+  <JsonLd data={serviceJsonLd} />
+  <CallToActions />
+</BaseLayout>

@@ -1,0 +1,63 @@
+---
+import JsonLd from '../components/JsonLd.astro';
+import Breadcrumbs from '../components/Breadcrumbs.astro';
+import { SITE } from '../config/site';
+
+type Props = { post: any };
+const { post } = Astro.props;
+const { data } = post;
+
+const published = new Date(data.publishedAt);
+const updated = data.updatedAt ? new Date(data.updatedAt) : null;
+
+const crumbs = [
+  { name: 'Trang chủ', href: '/' },
+  { name: 'Blog', href: '/blog/' },
+  { name: data.title, href: `/blog/${post.slug}/` },
+];
+
+const articleJsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'BlogPosting',
+  headline: data.title,
+  description: data.description,
+  datePublished: published.toISOString(),
+  dateModified: (updated ?? published).toISOString(),
+  mainEntityOfPage: {
+    '@type': 'WebPage',
+    '@id': SITE.url + `/blog/${post.slug}/`,
+  },
+  author: {
+    '@type': 'Organization',
+    name: SITE.name,
+  },
+  publisher: {
+    '@type': 'Organization',
+    name: SITE.name,
+  },
+};
+---
+<Breadcrumbs items={crumbs} />
+
+<article class="container section">
+  <header>
+    <h1 style="margin-bottom:8px">{data.title}</h1>
+    <div class="blog-meta">
+      <span>Chuyên mục: <a href={`/blog/${data.category}/`}>{data.category}</a></span>
+      <span> • </span>
+      <time datetime={published.toISOString()}>{published.toLocaleDateString('vi-VN')}</time>
+    </div>
+    <p class="lead" style="margin-top:10px">{data.description}</p>
+  </header>
+
+  <section>
+    <slot />
+  </section>
+
+  <hr style="border:0;border-top:1px solid rgba(255,255,255,.12); margin:24px 0" />
+  <p class="small">
+    Xem thêm: <a href="/ve-tau-cao-toc/">Vé tàu cao tốc</a> • <a href="/thue-xe-du-lich/">Thuê xe</a> • <a href="/tour-du-lich/">Tour</a>
+  </p>
+
+  <JsonLd data={articleJsonLd} />
+</article>

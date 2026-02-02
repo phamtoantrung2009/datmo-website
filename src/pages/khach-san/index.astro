@@ -1,0 +1,49 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Breadcrumbs from '../../components/Breadcrumbs.astro';
+import FAQ from '../../components/FAQ.astro';
+import JsonLd from '../../components/JsonLd.astro';
+import CallToActions from '../../components/CallToActions.astro';
+import { SITE } from '../../config/site';
+
+const title = 'Đặt phòng khách sạn tại Quảng Ninh | Datmo.io.vn';
+const description = 'Tư vấn & đặt phòng khách sạn cho khách Cẩm Phả/Quảng Ninh theo nhu cầu: vị trí, ngân sách, tiện ích. Có thể kết hợp tour và vé máy bay.';
+const canonical = SITE.url + '/khach-san/';
+
+const crumbs = [
+  { name: 'Trang chủ', href: '/' },
+  { name: 'Đặt phòng khách sạn tại Quảng Ninh', href: '/khach-san/' },
+];
+
+const faqItems = [
+  { q: 'Cần cung cấp thông tin gì để đặt nhanh?', a: 'Họ tên, ngày đi (khứ hồi nếu có), tuyến/điểm đến và số điện thoại liên hệ.' },
+  { q: 'Có hỗ trợ thay đổi/hoàn huỷ không?', a: 'Tuỳ điều kiện của hãng/nhà cung cấp. Datmo hỗ trợ hướng dẫn và xử lý theo quy định.' },
+];
+
+const serviceJsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'Service',
+  name: 'Đặt phòng khách sạn tại Quảng Ninh',
+  areaServed: ['Cẩm Phả', 'Quảng Ninh'],
+  provider: { '@type': 'LocalBusiness', name: SITE.name, url: SITE.url, telephone: SITE.phone },
+  url: canonical,
+};
+---
+<BaseLayout title={title} description={description} canonical={canonical}>
+  <Breadcrumbs items={crumbs} />
+  <section class="container section">
+    <h1>Đặt phòng khách sạn tại Quảng Ninh</h1>
+    <p class="lead">Tư vấn & đặt phòng khách sạn cho khách Cẩm Phả/Quảng Ninh theo nhu cầu: vị trí, ngân sách, tiện ích. Có thể kết hợp tour và vé máy bay.</p>
+
+    <div class="card">
+      <h2>Liên kết cùng SILO</h2>
+      <ul class="link-list">
+        <li><a href="/ve-may-bay/">Vé máy bay</a></li><li><a href="/tour-du-lich/">Tour du lịch</a></li><li><a href="/thue-xe-du-lich/">Thuê xe du lịch</a></li>
+      </ul>
+    </div>
+  </section>
+
+  <FAQ items={faqItems} />
+  <JsonLd data={serviceJsonLd} />
+  <CallToActions />
+</BaseLayout>

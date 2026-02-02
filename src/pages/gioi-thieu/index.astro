@@ -1,0 +1,28 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Breadcrumbs from '../../components/Breadcrumbs.astro';
+
+const title = 'Giới thiệu | Datmo.io.vn Cẩm Phả – Quảng Ninh';
+const description = 'Datmo.io.vn cung cấp dịch vụ du lịch & vận chuyển tại Cẩm Phả: thuê xe 16–45 chỗ, tour, vé tàu cao tốc, vé máy bay, khách sạn, visa – hộ chiếu.';
+const crumbs = [
+  { name: 'Trang chủ', href: '/' },
+  { name: 'Giới thiệu', href: '/gioi-thieu/' },
+];
+---
+<BaseLayout title={title} description={description}>
+  <Breadcrumbs items={crumbs} />
+  <section class="container section">
+    <h1>Giới thiệu Datmo.io.vn</h1>
+    <p class="lead">Website nội dung – dịch vụ địa phương cho khách tại Cẩm Phả, Quảng Ninh.</p>
+    <div class="grid-2">
+      <div class="card">
+        <h2>Mục tiêu</h2>
+        <p class="small">Cung cấp giải pháp đặt dịch vụ nhanh: thuê xe, tour, vé tàu, vé máy bay, khách sạn, visa – hộ chiếu.</p>
+      </div>
+      <div class="card">
+        <h2>Phạm vi</h2>
+        <p class="small">Tập trung Cẩm Phả và các tuyến phổ biến trong tỉnh Quảng Ninh, kết nối cảng Ao Tiên/Vũng Đục.</p>
+      </div>
+    </div>
+  </section>
+</BaseLayout>

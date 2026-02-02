@@ -1,0 +1,42 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Breadcrumbs from '../../components/Breadcrumbs.astro';
+import { SITE } from '../../config/site';
+
+const title = 'Liên hệ đặt dịch vụ | Datmo.io.vn';
+const description = 'Liên hệ Datmo.io.vn để đặt thuê xe, tour, vé tàu cao tốc, vé máy bay, khách sạn, visa – hộ chiếu tại Cẩm Phả, Quảng Ninh. Hotline & Zalo hỗ trợ nhanh.';
+const crumbs = [
+  { name: 'Trang chủ', href: '/' },
+  { name: 'Liên hệ', href: '/lien-he/' },
+];
+---
+<BaseLayout title={title} description={description}>
+  <Breadcrumbs items={crumbs} />
+  <section class="container section">
+    <h1>Liên hệ đặt dịch vụ</h1>
+    <p class="lead">Gọi/Zalo để chốt lịch, nhận báo giá và xác nhận dịch vụ.</p>
+
+    <div class="grid-2">
+      <div class="card">
+        <h2>Hotline</h2>
+        <p class="small"><a class="btn primary" href={`tel:${SITE.phone}`}>Gọi: {SITE.phoneDisplay}</a></p>
+        <p class="small">Ưu tiên cung cấp: ngày đi, số lượng khách, tuyến/điểm đón, yêu cầu đặc biệt.</p>
+      </div>
+      <div class="card">
+        <h2>Zalo</h2>
+        <p class="small"><a class="btn" href={SITE.zaloUrl} rel="nofollow">Nhắn Zalo</a></p>
+        <p class="small">Gửi tin nhắn theo mẫu: “Ngày đi – tuyến – số khách – dịch vụ cần đặt”.</p>
+      </div>
+    </div>
+
+    <div class="card" style="margin-top:14px">
+      <h2>Dịch vụ liên quan</h2>
+      <ul class="link-list">
+        <li><a href="/thue-xe-du-lich/">Thuê xe du lịch 16–45 chỗ tại Cẩm Phả</a></li>
+        <li><a href="/tour-du-lich/">Tour xuất phát từ Cẩm Phả</a></li>
+        <li><a href="/ve-tau-cao-toc/">Vé tàu cao tốc Ao Tiên/Vũng Đục</a></li>
+        <li><a href="/ve-may-bay/">Vé máy bay</a> • <a href="/khach-san/">Khách sạn</a> • <a href="/visa-ho-chieu/">Visa – hộ chiếu</a></li>
+      </ul>
+    </div>
+  </section>
+</BaseLayout>

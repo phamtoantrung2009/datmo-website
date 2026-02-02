@@ -1,0 +1,55 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Breadcrumbs from '../../components/Breadcrumbs.astro';
+import FAQ from '../../components/FAQ.astro';
+import JsonLd from '../../components/JsonLd.astro';
+import { SITE } from '../../config/site';
+
+const title = 'Tour du lịch xuất phát từ Cẩm Phả (nội địa & quốc tế) | Datmo';
+const description = 'Tổ chức tour du lịch xuất phát từ Cẩm Phả: tour nội địa, tour quốc tế, tour đoàn công ty. Kết hợp thuê xe, vé tàu, vé máy bay, khách sạn.';
+const canonical = SITE.url + '/tour-du-lich/';
+
+const crumbs = [
+  { name: 'Trang chủ', href: '/' },
+  { name: 'Tour du lịch', href: '/tour-du-lich/' },
+];
+
+const faqItems = [
+  { q: 'Có tour ghép hay tour riêng?', a: 'Tuỳ lịch. Có thể tổ chức tour đoàn riêng theo yêu cầu hoặc tư vấn lịch phù hợp.' },
+  { q: 'Có hỗ trợ vé máy bay/khách sạn không?', a: 'Có. Datmo hỗ trợ đặt vé máy bay, khách sạn, và dịch vụ visa – hộ chiếu theo tour.' },
+];
+
+const serviceJsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'Service',
+  name: 'Tour du lịch xuất phát từ Cẩm Phả',
+  areaServed: ['Cẩm Phả', 'Quảng Ninh'],
+  provider: { '@type': 'LocalBusiness', name: SITE.name, url: SITE.url, telephone: SITE.phone },
+  url: canonical,
+};
+---
+<BaseLayout title={title} description={description} canonical={canonical}>
+  <Breadcrumbs items={crumbs} />
+
+  <section class="container section">
+    <h1>Tour du lịch xuất phát từ Cẩm Phả</h1>
+    <p class="lead">Tư vấn tour phù hợp ngân sách, số lượng khách, thời gian và nhu cầu di chuyển.</p>
+
+    <div class="grid-3">
+      <a class="card" href="/tour-du-lich/tour-noi-dia/"><h3>Tour nội địa</h3><p>Trong nước, linh hoạt lịch trình</p></a>
+      <a class="card" href="/tour-du-lich/tour-quoc-te/"><h3>Tour quốc tế</h3><p>Tư vấn lịch trình & giấy tờ</p></a>
+      <a class="card" href="/tour-du-lich/tour-doan/"><h3>Tour đoàn</h3><p>Công ty, team building, sự kiện</p></a>
+    </div>
+
+    <div class="card" style="margin-top:14px">
+      <h2>Liên kết cùng SILO</h2>
+      <ul class="link-list">
+        <li><a href="/thue-xe-du-lich/">Thuê xe 16–45 chỗ phục vụ tour</a></li>
+        <li><a href="/ve-may-bay/">Đặt vé máy bay</a> • <a href="/khach-san/">Khách sạn</a> • <a href="/visa-ho-chieu/">Visa – hộ chiếu</a></li>
+      </ul>
+    </div>
+  </section>
+
+  <FAQ items={faqItems} />
+  <JsonLd data={serviceJsonLd} />
+</BaseLayout>

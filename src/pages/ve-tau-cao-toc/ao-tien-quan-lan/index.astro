@@ -1,0 +1,54 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import Breadcrumbs from '../../../components/Breadcrumbs.astro';
+import FAQ from '../../../components/FAQ.astro';
+import JsonLd from '../../../components/JsonLd.astro';
+import CallToActions from '../../../components/CallToActions.astro';
+import { SITE } from '../../../config/site';
+
+const title = 'Vé tàu cao tốc Ao Tiên ↔ Quan Lạn | Datmo';
+const description = 'Đặt vé tàu cao tốc tuyến Ao Tiên ↔ Quan Lạn. Tư vấn giờ chạy, lưu ý đi lại và hỗ trợ đặt vé theo ngày bạn đi.';
+const canonical = SITE.url + '/ve-tau-cao-toc/ao-tien-quan-lan/';
+
+const crumbs = [
+  { name: 'Trang chủ', href: '/' },
+  { name: 'Vé tàu cao tốc', href: '/ve-tau-cao-toc/' },
+  { name: 'Vé tàu cao tốc Ao Tiên ↔ Quan Lạn', href: '/ve-tau-cao-toc/ao-tien-quan-lan/' },
+];
+
+const faqItems = [
+  { q: 'Lịch tàu tuyến này xem ở đâu?', a: 'Bạn nên nhắn Zalo/Hotline để xác nhận lịch chạy theo ngày và thời tiết.' },
+  { q: 'Có hỗ trợ xe đi cảng không?', a: 'Có thể kết hợp thuê xe từ Cẩm Phả đi cảng để kịp giờ tàu.' },
+];
+
+const serviceJsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'Service',
+  name: 'Vé tàu cao tốc Ao Tiên ↔ Quan Lạn',
+  areaServed: ['Cẩm Phả', 'Quảng Ninh'],
+  provider: { '@type': 'LocalBusiness', name: SITE.name, url: SITE.url, telephone: SITE.phone },
+  url: canonical,
+};
+---
+<BaseLayout title={title} description={description} canonical={canonical}>
+  <Breadcrumbs items={crumbs} />
+
+  <section class="container section">
+    <h1>Vé tàu cao tốc Ao Tiên ↔ Quan Lạn</h1>
+    <p class="lead">Đặt vé tàu cao tốc tuyến Ao Tiên ↔ Quan Lạn. Tư vấn giờ chạy, lưu ý đi lại và hỗ trợ đặt vé theo ngày bạn đi.</p>
+
+    <div class="card">
+      <h2>Lưu ý quan trọng</h2>
+      <ul>
+        <li>Có mặt trước giờ tàu chạy 30–45 phút</li>
+        <li>Mang giấy tờ tuỳ thân theo quy định</li>
+        <li>Lịch tàu có thể thay đổi do thời tiết</li>
+      </ul>
+      <p class="small">Xem thêm: <a href="/blog/lich-tau-gia-ve/">Blog lịch tàu & giá vé</a> • <a href="/thue-xe-du-lich/">Thuê xe đi cảng</a></p>
+    </div>
+  </section>
+
+  <FAQ items={faqItems} />
+  <JsonLd data={serviceJsonLd} />
+  <CallToActions />
+</BaseLayout>

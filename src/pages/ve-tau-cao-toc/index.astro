@@ -1,0 +1,55 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Breadcrumbs from '../../components/Breadcrumbs.astro';
+import FAQ from '../../components/FAQ.astro';
+import JsonLd from '../../components/JsonLd.astro';
+import { SITE } from '../../config/site';
+
+const title = 'Đặt vé tàu cao tốc Ao Tiên/Vũng Đục đi Cô Tô – Quan Lạn | Datmo';
+const description = 'Đặt vé tàu cao tốc cho khách tại Cẩm Phả, Quảng Ninh: tuyến Ao Tiên ↔ Quan Lạn, Ao Tiên ↔ Cô Tô, Vũng Đục ↔ Cô Tô. Tư vấn lịch tàu, giá vé, lưu ý đi lại.';
+const canonical = SITE.url + '/ve-tau-cao-toc/';
+
+const crumbs = [
+  { name: 'Trang chủ', href: '/' },
+  { name: 'Vé tàu cao tốc', href: '/ve-tau-cao-toc/' },
+];
+
+const faqItems = [
+  { q: 'Lịch tàu có cố định không?', a: 'Không. Lịch tàu thay đổi theo mùa và thời tiết. Nên kiểm tra theo ngày bạn đi.' },
+  { q: 'Nên đến cảng trước bao lâu?', a: 'Nên có mặt trước giờ chạy tàu ít nhất 30–45 phút để làm thủ tục.' },
+];
+
+const serviceJsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'Service',
+  name: 'Đặt vé tàu cao tốc tại Quảng Ninh',
+  areaServed: ['Cẩm Phả', 'Quảng Ninh'],
+  provider: { '@type': 'LocalBusiness', name: SITE.name, url: SITE.url, telephone: SITE.phone },
+  url: canonical,
+};
+---
+<BaseLayout title={title} description={description} canonical={canonical}>
+  <Breadcrumbs items={crumbs} />
+
+  <section class="container section">
+    <h1>Đặt vé tàu cao tốc đi Cô Tô – Quan Lạn</h1>
+    <p class="lead">Tư vấn tuyến đi phù hợp, giờ tàu theo ngày và hỗ trợ đặt vé nhanh.</p>
+
+    <div class="grid-3">
+      <a class="card" href="/ve-tau-cao-toc/ao-tien-quan-lan/"><h3>Ao Tiên ↔ Quan Lạn</h3><p>Kiểm tra lịch tàu & giá vé theo ngày</p></a>
+      <a class="card" href="/ve-tau-cao-toc/ao-tien-co-to/"><h3>Ao Tiên ↔ Cô Tô</h3><p>Lịch tàu mùa cao điểm, lưu ý đi sớm</p></a>
+      <a class="card" href="/ve-tau-cao-toc/vung-duc-co-to/"><h3>Vũng Đục ↔ Cô Tô</h3><p>Tuyến xuất phát từ Cẩm Phả (tuỳ lịch)</p></a>
+    </div>
+
+    <div class="card" style="margin-top:14px">
+      <h2>Kết hợp di chuyển</h2>
+      <ul class="link-list">
+        <li><a href="/thue-xe-du-lich/">Thuê xe đi cảng Ao Tiên/Vũng Đục</a></li>
+        <li><a href="/blog/lich-tau-gia-ve/">Xem bài blog lịch tàu & giá vé</a></li>
+      </ul>
+    </div>
+  </section>
+
+  <FAQ items={faqItems} />
+  <JsonLd data={serviceJsonLd} />
+</BaseLayout>

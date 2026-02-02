@@ -1,17 +1,46 @@
 ---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Hero from '../components/Hero.astro';
+import ServiceCards from '../components/ServiceCards.astro';
+import CallToActions from '../components/CallToActions.astro';
 
+const title = 'Dịch vụ du lịch & vận chuyển tại Cẩm Phả – Quảng Ninh | Datmo.io.vn';
+const description =
+  'Thuê xe du lịch 16–45 chỗ tại Cẩm Phả, tour nội địa/quốc tế, vé tàu cao tốc Ao Tiên/Vũng Đục đi Cô Tô – Quan Lạn, vé máy bay, khách sạn, visa – hộ chiếu. Hỗ trợ nhanh.';
 ---
+<BaseLayout title={title} description={description}>
+  <Hero
+    h1="Dịch vụ du lịch & vận chuyển tại Cẩm Phả – Quảng Ninh"
+    sub="Thuê xe 16–45 chỗ • Tour xuất phát từ Cẩm Phả • Vé tàu cao tốc • Vé máy bay • Visa"
+  />
 
-<html lang="en">
-	<head>
-		<meta charset="utf-8" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<link rel="icon" href="/favicon.ico" />
-		<meta name="viewport" content="width=device-width" />
-		<meta name="generator" content={Astro.generator} />
-		<title>Astro</title>
-	</head>
-	<body>
-		<h1>Astro</h1>
-	</body>
-</html>
+  <section class="container section">
+    <h2>Dịch vụ nổi bật</h2>
+    <ServiceCards />
+  </section>
+
+  <section class="container section">
+    <h2>Vì sao khách tại Cẩm Phả chọn Datmo?</h2>
+    <div class="grid-3">
+      <div class="card"><h3>Tập trung địa phương</h3><p>Ưu tiên khách Cẩm Phả & Quảng Ninh, tư vấn giờ tàu/điểm đón thực tế.</p></div>
+      <div class="card"><h3>Hỗ trợ nhanh</h3><p>Hotline & Zalo phản hồi nhanh, xác nhận dịch vụ rõ ràng, minh bạch.</p></div>
+      <div class="card"><h3>Lịch trình tối ưu</h3><p>Gợi ý tuyến đi phù hợp: Hạ Long, Vân Đồn/Ao Tiên, Móng Cái, sân bay.</p></div>
+    </div>
+  </section>
+
+  <section class="container section">
+    <h2>Danh mục dịch vụ</h2>
+    <ul class="link-list">
+      <li><a href="/thue-xe-du-lich/">Thuê xe du lịch (16–45 chỗ) tại Cẩm Phả</a></li>
+      <li><a href="/tour-du-lich/">Tour du lịch xuất phát từ Cẩm Phả</a></li>
+      <li><a href="/ve-tau-cao-toc/">Vé tàu cao tốc Ao Tiên/Vũng Đục đi Cô Tô – Quan Lạn</a></li>
+      <li><a href="/ve-may-bay/">Đặt vé máy bay</a></li>
+      <li><a href="/khach-san/">Đặt phòng khách sạn</a></li>
+      <li><a href="/visa-ho-chieu/">Dịch vụ visa – hộ chiếu</a></li>
+      <li><a href="/blog/">Blog: lịch tàu, giá vé, kinh nghiệm</a></li>
+      <li><a href="/gioi-thieu/">Giới thiệu</a> • <a href="/lien-he/">Liên hệ</a></li>
+    </ul>
+  </section>
+
+  <CallToActions />
+</BaseLayout>

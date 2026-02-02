@@ -1,0 +1,53 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import Breadcrumbs from '../../../components/Breadcrumbs.astro';
+import FAQ from '../../../components/FAQ.astro';
+import JsonLd from '../../../components/JsonLd.astro';
+import CallToActions from '../../../components/CallToActions.astro';
+import { SITE } from '../../../config/site';
+
+const title = 'Tour đoàn – công ty xuất phát từ Cẩm Phả | Datmo';
+const description = 'Tổ chức tour đoàn công ty/team building: lên plan, thuê xe 29–45 chỗ, đặt khách sạn và hỗ trợ thủ tục liên quan.';
+const canonical = SITE.url + '/tour-du-lich/tour-doan/';
+
+const crumbs = [
+  { name: 'Trang chủ', href: '/' },
+  { name: 'Tour du lịch', href: '/tour-du-lich/' },
+  { name: 'Tour đoàn – công ty xuất phát từ Cẩm Phả', href: '/tour-du-lich/tour-doan/' },
+];
+
+const faqItems = [
+  { q: 'Cần cung cấp thông tin gì để báo giá tour?', a: 'Ngày đi, số khách, điểm đến mong muốn, mức ngân sách và yêu cầu khách sạn/di chuyển.' },
+  { q: 'Có hỗ trợ đưa đón từ Cẩm Phả không?', a: 'Có. Có thể kết hợp thuê xe 16–45 chỗ theo đoàn.' },
+];
+
+const serviceJsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'Service',
+  name: 'Tour đoàn – công ty xuất phát từ Cẩm Phả',
+  areaServed: ['Cẩm Phả', 'Quảng Ninh'],
+  provider: { '@type': 'LocalBusiness', name: SITE.name, url: SITE.url, telephone: SITE.phone },
+  url: canonical,
+};
+---
+<BaseLayout title={title} description={description} canonical={canonical}>
+  <Breadcrumbs items={crumbs} />
+  <section class="container section">
+    <h1>Tour đoàn – công ty xuất phát từ Cẩm Phả</h1>
+    <p class="lead">Tổ chức tour đoàn công ty/team building: lên plan, thuê xe 29–45 chỗ, đặt khách sạn và hỗ trợ thủ tục liên quan.</p>
+
+    <div class="card">
+      <h2>Gợi ý gói dịch vụ</h2>
+      <ul>
+        <li>Lịch trình linh hoạt theo ngày</li>
+        <li>Kết hợp vé máy bay/khách sạn khi cần</li>
+        <li>Hỗ trợ xe đưa đón và vé tàu (nếu đi đảo)</li>
+      </ul>
+      <p class="small">Xem thêm: <a href="/thue-xe-du-lich/">Thuê xe</a> • <a href="/ve-may-bay/">Vé máy bay</a> • <a href="/khach-san/">Khách sạn</a></p>
+    </div>
+  </section>
+
+  <FAQ items={faqItems} />
+  <JsonLd data={serviceJsonLd} />
+  <CallToActions />
+</BaseLayout>

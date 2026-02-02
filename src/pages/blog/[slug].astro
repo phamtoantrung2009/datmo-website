@@ -1,0 +1,28 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import BlogPostLayout from '../../layouts/BlogPostLayout.astro';
+import { getCollection } from 'astro:content';
+import { SITE } from '../../config/site';
+
+export async function getStaticPaths() {
+  const posts = await getCollection('blog', ({ data }) => !data.draft);
+  return posts.map((post) => ({
+    params: { slug: post.slug },
+    props: { post },
+  }));
+}
+
+const { post } = Astro.props;
+const { data } = post;
+const { Content } = await post.render();
+
+const canonical = data.canonical ?? (SITE.url + `/blog/${post.slug}/`);
+const title = `${data.title} | Datmo Blog`;
+const description = data.description;
+---
+
+<BaseLayout title={title} description={description} canonical={canonical}>
+  <BlogPostLayout post={post}>
+    <Content />
+  </BlogPostLayout>
+</BaseLayout>

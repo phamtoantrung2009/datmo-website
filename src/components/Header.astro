@@ -1,0 +1,20 @@
+---
+import { NAV, SITE } from '../config/site';
+const path = Astro.url.pathname;
+---
+<header class="site-header">
+  <div class="container header-inner">
+    <a class="brand" href="/" aria-label="Trang chủ Datmo.io.vn">
+      <span class="brand-badge" aria-hidden="true"></span>
+      <span>{SITE.name}</span>
+    </a>
+
+    <nav class="nav" aria-label="Điều hướng chính">
+      {NAV.map((item) => (
+        <a href={item.href} aria-current={path.startsWith(item.href) ? 'page' : undefined}>
+          {item.label}
+        </a>
+      ))}
+    </nav>
+  </div>
+</header>

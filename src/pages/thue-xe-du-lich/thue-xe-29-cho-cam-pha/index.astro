@@ -1,0 +1,59 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import Breadcrumbs from '../../../components/Breadcrumbs.astro';
+import FAQ from '../../../components/FAQ.astro';
+import JsonLd from '../../../components/JsonLd.astro';
+import CallToActions from '../../../components/CallToActions.astro';
+import { SITE } from '../../../config/site';
+
+const title = 'Thuê xe 29 chỗ tại Cẩm Phả (tour đoàn, công ty) | Datmo';
+const description = 'Dịch vụ thuê xe 29 chỗ tại Cẩm Phả cho nhóm công ty, sự kiện, tour đoàn. Nhận tuyến Quảng Ninh và liên tỉnh, hỗ trợ lịch trình trọn gói.';
+const canonical = SITE.url + '/thue-xe-du-lich/thue-xe-29-cho-cam-pha/';
+
+const crumbs = [
+  { name: 'Trang chủ', href: '/' },
+  { name: 'Thuê xe du lịch', href: '/thue-xe-du-lich/' },
+  { name: 'Thuê xe 29 chỗ tại Cẩm Phả', href: '/thue-xe-du-lich/thue-xe-29-cho-cam-pha/' },
+];
+
+const faqItems = [
+  { q: 'Cần đặt xe trước bao lâu?', a: 'Nên đặt trước 1–3 ngày; cuối tuần/lễ nên đặt sớm hơn để giữ lịch.' },
+  { q: 'Có hỗ trợ đi cảng/tàu không?', a: 'Có. Bạn có thể đặt xe đi Ao Tiên/Vũng Đục để kịp giờ tàu.' },
+];
+
+const serviceJsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'Service',
+  name: 'Thuê xe 29 chỗ tại Cẩm Phả',
+  areaServed: ['Cẩm Phả', 'Quảng Ninh'],
+  provider: { '@type': 'LocalBusiness', name: SITE.name, url: SITE.url, telephone: SITE.phone },
+  url: canonical,
+};
+---
+
+<BaseLayout title={title} description={description} canonical={canonical}>
+  <Breadcrumbs items={crumbs} />
+
+  <header class="container section">
+    <h1>Thuê xe 29 chỗ tại Cẩm Phả</h1>
+    <p class="lead">Dịch vụ phù hợp nhóm đi theo tuyến, theo ngày hoặc theo lịch trình tour. Báo giá nhanh qua hotline/Zalo.</p>
+
+    <div class="btn-row">
+      <a class="btn primary" href="/lien-he/">Đặt dịch vụ</a>
+      <a class="btn" href="/tour-du-lich/tour-doan/">Tour đoàn</a><a class="btn" href="/lien-he/">Nhận báo giá</a>
+    </div>
+  </header>
+
+  <section class="container section">
+    <h2>Tuyến phổ biến</h2>
+    <ul>
+      <li>Cẩm Phả ↔ Hạ Long</li>
+      <li>Cẩm Phả ↔ Vân Đồn/Ao Tiên (đi tàu ra đảo)</li>
+      <li>Cẩm Phả ↔ Nội Bài (đưa đón sân bay)</li>
+    </ul>
+  </section>
+
+  <FAQ items={faqItems} />
+  <JsonLd data={serviceJsonLd} />
+  <CallToActions />
+</BaseLayout>

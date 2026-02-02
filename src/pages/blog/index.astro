@@ -1,0 +1,45 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Breadcrumbs from '../../components/Breadcrumbs.astro';
+import { getCollection } from 'astro:content';
+
+const title = 'Blog du lịch Cẩm Phả – Quảng Ninh | Datmo';
+const description = 'Blog chia sẻ lịch tàu, giá vé, tin tức Cẩm Phả và kinh nghiệm du lịch. Tập trung nội dung hữu ích cho khách tại Quảng Ninh.';
+
+const crumbs = [
+  { name: 'Trang chủ', href: '/' },
+  { name: 'Blog', href: '/blog/' },
+];
+
+const posts = (await getCollection('blog', ({ data }) => !data.draft))
+  .sort((a, b) => +new Date(b.data.publishedAt) - +new Date(a.data.publishedAt));
+---
+<BaseLayout title={title} description={description}>
+  <Breadcrumbs items={crumbs} />
+
+  <section class="container section">
+    <h1>Blog</h1>
+    <p class="lead">Nội dung cập nhật theo mùa: lịch tàu, kinh nghiệm thuê xe, mẹo đi lại tại Quảng Ninh.</p>
+
+    <div class="grid-3">
+      <a class="card" href="/blog/kinh-nghiem-du-lich/"><h3>Kinh nghiệm du lịch</h3><p>Tips & lịch trình</p></a>
+      <a class="card" href="/blog/tin-tuc-cam-pha/"><h3>Tin tức Cẩm Phả</h3><p>Điểm đến, sự kiện</p></a>
+      <a class="card" href="/blog/lich-tau-gia-ve/"><h3>Lịch tàu & giá vé</h3><p>Ao Tiên, Quan Lạn, Cô Tô</p></a>
+    </div>
+
+    <h2 style="margin-top:26px">Bài mới</h2>
+    <div class="grid-2">
+      {posts.slice(0, 8).map((p) => (
+        <a class="card post-card" href={`/blog/${p.slug}/`}>
+          <h3>{p.data.title}</h3>
+          <div class="blog-meta">
+            <span>{new Date(p.data.publishedAt).toLocaleDateString('vi-VN')}</span>
+            <span> • </span>
+            <span>{p.data.category}</span>
+          </div>
+          <p class="small">{p.data.description}</p>
+        </a>
+      ))}
+    </div>
+  </section>
+</BaseLayout>

@@ -1,0 +1,33 @@
+---
+import JsonLd from './JsonLd.astro';
+import { SITE } from '../config/site';
+
+type QA = { q: string; a: string };
+type Props = { items: QA[]; pageUrl?: string };
+const { items, pageUrl } = Astro.props;
+
+const jsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: items.map((x) => ({
+    '@type': 'Question',
+    name: x.q,
+    acceptedAnswer: {
+      '@type': 'Answer',
+      text: x.a,
+    },
+  })),
+};
+---
+<section class="container section">
+  <h2>Câu hỏi thường gặp</h2>
+  <div class="faq">
+    {items.map((x) => (
+      <details>
+        <summary>{x.q}</summary>
+        <p>{x.a}</p>
+      </details>
+    ))}
+  </div>
+  <JsonLd data={jsonLd} />
+</section>
