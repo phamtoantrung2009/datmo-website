@@ -203,3 +203,29 @@ img{max-width:100%; height:auto}
   height: 36px;
   width: auto;
 }
+
+.mobile-cta{
+  position:fixed;
+  left:0;
+  right:0;
+  bottom:0;
+  z-index:30;
+  display:flex;
+  gap:10px;
+  padding:10px var(--container-pad);
+  background: rgba(255,255,255,.92);
+  border-top:1px solid var(--border);
+  -webkit-backdrop-filter: blur(10px);
+  backdrop-filter: blur(10px);
+}
+.mobile-cta .btn{
+  flex:1;
+}
+
+@media (min-width: 900px){
+  .mobile-cta{display:none}
+}
+
+@media (max-width: 899px){
+  body{padding-bottom:70px}
+}
