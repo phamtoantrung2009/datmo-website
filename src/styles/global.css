@@ -165,6 +165,15 @@ img{max-width:100%; height:auto}
   color:var(--muted);
   font-size:14px;
 }
+.footer-legal{
+  margin-top:10px;
+  display:grid;
+  gap:4px;
+  font-style:normal;
+  color:var(--muted);
+  font-size:14px;
+}
+.footer-legal p{margin:0}
 
 .faq{margin-top:10px}
 .faq details{border:1px solid var(--border); border-radius: 14px; padding:12px 14px; background: rgba(255,255,255,.03)}
