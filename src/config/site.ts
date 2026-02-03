@@ -8,6 +8,7 @@ export const SITE = {
   phone: '+84-911-321-578',
   phoneDisplay: '0911 321 578',
   zaloUrl: 'https://zalo.me/911321578',
+  logo: '/logo.png',
   address: {
     streetAddress: 'Cẩm Phả, Quảng Ninh',
     addressLocality: 'Cẩm Phả',
@@ -17,6 +18,7 @@ export const SITE = {
   social: {
     facebook: 'https://facebook.com/datmotravel2024',
   },
+  priceRange: '₫₫',
 } as const;
 
 export const NAV = [
