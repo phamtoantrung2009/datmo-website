@@ -1,5 +1,8 @@
-export const onRequestPost: PagesFunction = async (context) => {
+export const onRequest: PagesFunction = async (context) => {
   const { request, env } = context;
+  if (request.method !== 'POST') {
+    return json({ success: false, message: 'Method Not Allowed' }, 405);
+  }
 
   try {
     const form = await request.formData();
@@ -53,11 +56,13 @@ export const onRequestPost: PagesFunction = async (context) => {
 
     if (!resp.ok) {
       const detail = await resp.text();
+      console.error('MailChannels error', resp.status, detail);
       return json({ success: false, message: 'Gửi email thất bại.', detail }, 502);
     }
 
     return json({ success: true }, 200);
   } catch (err) {
+    console.error('Function error', err);
     return json({ success: false, message: 'Có lỗi xảy ra.' }, 500);
   }
 };
