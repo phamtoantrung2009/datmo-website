@@ -2,6 +2,7 @@
 import JsonLd from '../components/JsonLd.astro';
 import Breadcrumbs from '../components/Breadcrumbs.astro';
 import { SITE } from '../config/site';
+import { buildBlogPostingSchema } from '../utils/schema';
 
 type Props = { post: any };
 const { post } = Astro.props;
@@ -16,30 +17,13 @@ const crumbs = [
   { name: data.title, href: `/blog/${post.slug}/` },
 ];
 
-const articleJsonLd = {
-  '@context': 'https://schema.org',
-  '@type': 'BlogPosting',
-  headline: data.title,
+const articleJsonLd = buildBlogPostingSchema(SITE, {
+  title: data.title,
   description: data.description,
-  datePublished: published.toISOString(),
-  dateModified: (updated ?? published).toISOString(),
-  mainEntityOfPage: {
-    '@type': 'WebPage',
-    '@id': SITE.url + `/blog/${post.slug}/`,
-  },
-  author: {
-    '@type': 'Organization',
-    name: SITE.name,
-  },
-  publisher: {
-    '@type': 'Organization',
-    name: SITE.name,
-    logo: {
-      '@type': 'ImageObject',
-      url: SITE.url + SITE.logo,
-    },
-  },
-};
+  slug: post.slug,
+  published,
+  updated,
+});
 ---
 <Breadcrumbs items={crumbs} />
 

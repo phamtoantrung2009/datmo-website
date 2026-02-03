@@ -1,21 +1,13 @@
 ---
 import JsonLd from './JsonLd.astro';
 import { SITE } from '../config/site';
+import { buildBreadcrumbListSchema } from '../utils/schema';
 
 type Item = { name: string; href: string };
 type Props = { items: Item[] };
 const { items } = Astro.props;
 
-const jsonLd = {
-  '@context': 'https://schema.org',
-  '@type': 'BreadcrumbList',
-  itemListElement: items.map((it, idx) => ({
-    '@type': 'ListItem',
-    position: idx + 1,
-    name: it.name,
-    item: SITE.url + it.href,
-  })),
-};
+const jsonLd = buildBreadcrumbListSchema(SITE, items);
 ---
 <nav class="container breadcrumbs" aria-label="Breadcrumb">
   <ol>

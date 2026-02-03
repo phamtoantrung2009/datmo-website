@@ -3,6 +3,7 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
 import Breadcrumbs from '../../components/Breadcrumbs.astro';
 import { SITE } from '../../config/site';
 import JsonLd from '../../components/JsonLd.astro';
+import { getOrganizationId } from '../../utils/schema';
 
 // SEO: tune title/description length for SERP.
 const title = 'Liên hệ đặt dịch vụ nhanh Cẩm Phả, Quảng Ninh | Datmo';
@@ -18,17 +19,7 @@ const contactPageJsonLd = {
   name: 'Liên hệ Datmo',
   url: SITE.url + '/lien-he/',
   inLanguage: 'vi-VN',
-  mainEntity: {
-    '@type': 'LocalBusiness',
-    name: SITE.name,
-    url: SITE.url,
-    telephone: SITE.phone,
-    address: {
-      '@type': 'PostalAddress',
-      ...SITE.address,
-    },
-    sameAs: Object.values(SITE.social),
-  },
+  mainEntity: { '@id': getOrganizationId(SITE) },
 };
 ---
 <BaseLayout title={title} description={description}>

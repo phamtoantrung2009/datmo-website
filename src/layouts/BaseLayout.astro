@@ -5,6 +5,7 @@ import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
 import JsonLd from '../components/JsonLd.astro';
 import { SITE } from '../config/site';
+import { buildOrganizationSchema, buildWebSiteSchema } from '../utils/schema';
 
 type Props = {
   title?: string;
@@ -30,37 +31,9 @@ const {
   noindex = false,
 } = Astro.props;
 
-const orgId = SITE.url + '#localbusiness';
-const websiteId = SITE.url + '#website';
-
-const localBusinessJsonLd = {
-  '@context': 'https://schema.org',
-  '@type': 'LocalBusiness',
-  '@id': orgId,
-  name: SITE.name,
-  url: SITE.url,
-  telephone: SITE.phone,
-  image: SITE.url + SITE.logo,
-  logo: SITE.url + SITE.logo,
-  address: {
-    '@type': 'PostalAddress',
-    ...SITE.address,
-  },
-  areaServed: ['Cẩm Phả', 'Quảng Ninh'],
-  knowsLanguage: ['vi'],
-  priceRange: SITE.priceRange,
-  sameAs: Object.values(SITE.social),
-};
-
-const websiteJsonLd = {
-  '@context': 'https://schema.org',
-  '@type': 'WebSite',
-  '@id': websiteId,
-  url: SITE.url,
-  name: SITE.name,
-  inLanguage: 'vi-VN',
-  publisher: { '@id': orgId },
-};
+// SEO: shared Organization + WebSite schema.
+const organizationJsonLd = buildOrganizationSchema(SITE);
+const websiteJsonLd = buildWebSiteSchema(SITE);
 ---
 <!doctype html>
 <html lang="vi">
@@ -99,7 +72,7 @@ const websiteJsonLd = {
 
     <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
 
-    <JsonLd data={localBusinessJsonLd} />
+    <JsonLd data={organizationJsonLd} />
     <JsonLd data={websiteJsonLd} />
   </head>
   <body>
