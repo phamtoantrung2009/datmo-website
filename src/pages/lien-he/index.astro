@@ -120,12 +120,18 @@ const contactPageJsonLd = {
       if (ts) ts.value = Date.now().toString();
       try {
         const res = await fetch(form.action, { method: 'POST', body: fd });
-        const data = await res.json();
-        if (res.ok && data.success) {
+        let data = null;
+        try {
+          data = await res.json();
+        } catch (_) {
+          // Non-JSON response (e.g., 404 HTML) — fallback to generic message.
+        }
+        if (res.ok && data && data.success) {
           form.reset();
           if (statusEl) statusEl.textContent = 'Đã gửi yêu cầu. Datmo sẽ liên hệ sớm.';
         } else {
-          if (statusEl) statusEl.textContent = data.message || 'Gửi không thành công. Vui lòng thử lại.';
+          const msg = data && data.message ? data.message : `Gửi không thành công (HTTP ${res.status}). Vui lòng thử lại.`;
+          if (statusEl) statusEl.textContent = msg;
         }
       } catch (err) {
         if (statusEl) statusEl.textContent = 'Có lỗi kết nối. Vui lòng thử lại.';
