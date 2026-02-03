@@ -1,7 +1,7 @@
 import { SITE } from './site';
 
 export const OG = {
-  default: `${SITE.url}/og.png`,
+  default: `${SITE.url}/og/default.png`,
   blogDefault: `${SITE.url}/og/blog/default.png`,
   pages: {
     '/': `${SITE.url}/og/default.png`,
