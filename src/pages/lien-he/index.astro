@@ -43,6 +43,41 @@ const contactPageJsonLd = {
       </div>
     </div>
 
+    <div class="card" style="margin-top:14px">
+      <h2>Form liên hệ</h2>
+      <form id="contact-form" method="POST" action="/api/contact" class="form-grid">
+        <div class="form-field">
+          <label for="full_name">Họ tên *</label>
+          <input id="full_name" name="full_name" type="text" required />
+        </div>
+        <div class="form-field">
+          <label for="phone">Số điện thoại *</label>
+          <input id="phone" name="phone" type="tel" required />
+        </div>
+        <div class="form-field">
+          <label for="service">Dịch vụ cần tư vấn *</label>
+          <select id="service" name="service" required>
+            <option value="">Chọn dịch vụ</option>
+            <option value="Thuê xe du lịch">Thuê xe du lịch</option>
+            <option value="Tour du lịch">Tour du lịch</option>
+            <option value="Vé tàu cao tốc">Vé tàu cao tốc</option>
+            <option value="Vé máy bay">Vé máy bay</option>
+            <option value="Khách sạn">Khách sạn</option>
+            <option value="Visa – hộ chiếu">Visa – hộ chiếu</option>
+          </select>
+        </div>
+        <div class="form-field">
+          <label for="message">Nội dung</label>
+          <textarea id="message" name="message" rows="4" placeholder="Ngày đi – tuyến – số khách – yêu cầu..."></textarea>
+        </div>
+        <input type="text" name="company" class="hp-field" tabindex="-1" autocomplete="off" aria-hidden="true" />
+        <input type="hidden" name="ts" value="" />
+        <button class="btn primary" type="submit">Nhận tư vấn</button>
+        <p id="form-status" class="small form-status" role="status" aria-live="polite"></p>
+      </form>
+      <p class="small">Gửi form để nhận tư vấn qua email: {SITE.email}</p>
+    </div>
+
     <section class="section" aria-label="Bản đồ văn phòng">
       <h2>Bản đồ văn phòng Đất Mỏ Travel</h2>
       <div class="map-embed" aria-hidden="true">
@@ -72,3 +107,29 @@ const contactPageJsonLd = {
   </section>
   <JsonLd data={contactPageJsonLd} />
 </BaseLayout>
+
+<script is:inline>
+  const form = document.getElementById('contact-form');
+  const statusEl = document.getElementById('form-status');
+  if (form) {
+    form.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      if (statusEl) statusEl.textContent = 'Đang gửi...';
+      const fd = new FormData(form);
+      const ts = form.querySelector('input[name="ts"]');
+      if (ts) ts.value = Date.now().toString();
+      try {
+        const res = await fetch(form.action, { method: 'POST', body: fd });
+        const data = await res.json();
+        if (res.ok && data.success) {
+          form.reset();
+          if (statusEl) statusEl.textContent = 'Đã gửi yêu cầu. Datmo sẽ liên hệ sớm.';
+        } else {
+          if (statusEl) statusEl.textContent = data.message || 'Gửi không thành công. Vui lòng thử lại.';
+        }
+      } catch (err) {
+        if (statusEl) statusEl.textContent = 'Có lỗi kết nối. Vui lòng thử lại.';
+      }
+    });
+  }
+</script>

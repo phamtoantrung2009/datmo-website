@@ -191,6 +191,34 @@ img{max-width:100%; height:auto}
 .post-card{display:grid; gap:8px}
 .post-card h3{margin:0}
 
+.form-grid{display:grid; gap:12px; margin-top:8px}
+.form-field label{display:block; font-weight:600; margin-bottom:6px}
+.form-field input,
+.form-field select,
+.form-field textarea{
+  width:100%;
+  padding:10px 12px;
+  border:1px solid var(--border);
+  border-radius:12px;
+  background:#fff;
+  color:var(--text);
+  font: inherit;
+}
+.form-field input:focus,
+.form-field select:focus,
+.form-field textarea:focus{
+  outline:2px solid rgba(6,182,212,.25);
+  border-color: rgba(6,182,212,.45);
+}
+.hp-field{
+  position:absolute;
+  left:-9999px;
+  height:0;
+  width:0;
+  opacity:0;
+}
+.form-status{min-height:18px}
+
 .map-embed{
   margin-top:10px;
   width:100%;

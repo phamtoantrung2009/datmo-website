@@ -27,6 +27,7 @@ export function buildOrganizationSchema(site: SiteConfig) {
       {
         '@type': 'ContactPoint',
         telephone: site.phone,
+        email: site.email,
         contactType: 'customer service',
         areaServed: ['VN'],
         availableLanguage: ['vi'],
