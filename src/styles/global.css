@@ -172,8 +172,14 @@ img{max-width:100%; height:auto}
   font-style:normal;
   color:var(--muted);
   font-size:14px;
+  line-height:1.5;
+  word-break:break-word;
 }
 .footer-legal p{margin:0}
+
+@media (max-width: 600px){
+  .footer-legal{font-size:13px}
+}
 
 .faq{margin-top:10px}
 .faq details{border:1px solid var(--border); border-radius: 14px; padding:12px 14px; background: rgba(255,255,255,.03)}
