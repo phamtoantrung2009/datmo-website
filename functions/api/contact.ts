@@ -26,7 +26,7 @@ export const onRequestPost: PagesFunction = async (context) => {
     }
 
     const toEmail = env.CONTACT_EMAIL || 'ctcpdulich.datmo@gmail.com';
-    const fromEmail = env.CONTACT_FROM || 'ctcpdulich.datmo@gmail.com';
+    const fromEmail = env.CONTACT_FROM || 'noreply@notifications.mailchannels.net';
 
     const subject = 'Yêu cầu tư vấn từ Datmo.io.vn';
     const contentText =
