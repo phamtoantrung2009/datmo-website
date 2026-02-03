@@ -1,5 +1,6 @@
 ﻿---
-import BaseLayout from '../../layouts/BaseLayout.astro';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import { getOgImage } from '../../config/og';
 import Breadcrumbs from '../../components/Breadcrumbs.astro';
 import { SITE } from '../../config/site';
 import JsonLd from '../../components/JsonLd.astro';
@@ -8,6 +9,7 @@ import { getOrganizationId } from '../../utils/schema';
 // SEO: tune title/description length for SERP.
 const title = 'Liên hệ đặt dịch vụ nhanh Cẩm Phả, Quảng Ninh | Datmo';
 const description = 'Liên hệ Datmo để đặt thuê xe, tour, vé tàu cao tốc, vé máy bay, khách sạn, visa – hộ chiếu tại Cẩm Phả, Quảng Ninh. Hotline hỗ trợ nhanh, phản hồi nhanh.';
+const ogImage = getOgImage('/lien-he/');
 const crumbs = [
   { name: 'Trang chủ', href: '/' },
   { name: 'Liên hệ', href: '/lien-he/' },
@@ -22,7 +24,7 @@ const contactPageJsonLd = {
   mainEntity: { '@id': getOrganizationId(SITE) },
 };
 ---
-<BaseLayout title={title} description={description}>
+<BaseLayout title={title} description={description} ogImage={ogImage}>
   <Breadcrumbs items={crumbs} />
   <section class="container section">
     <h1>Liên hệ đặt dịch vụ</h1>

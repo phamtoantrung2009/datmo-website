@@ -1,11 +1,13 @@
 ﻿---
-import BaseLayout from '../../../layouts/BaseLayout.astro';
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import { getOgImage } from '../../../config/og';
 import Breadcrumbs from '../../../components/Breadcrumbs.astro';
 import { getCollection } from 'astro:content';
 
 // SEO: tune title/description length for SERP.
 const title = 'Lịch tàu & giá vé Ao Tiên, Vũng Đục Cẩm Phả | Blog Datmo';
 const description = 'Cập nhật lịch tàu cao tốc, giá vé Ao Tiên – Cô Tô, Ao Tiên – Quan Lạn; kèm lưu ý đặt vé, giờ chạy theo ngày và tình hình thời tiết, thủ tục.';
+const ogImage = getOgImage('/blog/lich-tau-gia-ve/');
 const crumbs = [
   { name: 'Trang chủ', href: '/' },
   { name: 'Blog', href: '/blog/' },
@@ -15,7 +17,7 @@ const crumbs = [
 const posts = (await getCollection('blog', ({ data }) => !data.draft && data.category === 'lich-tau-gia-ve'))
   .sort((a, b) => +new Date(b.data.publishedAt) - +new Date(a.data.publishedAt));
 ---
-<BaseLayout title={title} description={description}>
+<BaseLayout title={title} description={description} ogImage={ogImage}>
   <Breadcrumbs items={crumbs} />
   <section class="container section">
     <h1>Lịch tàu & giá vé</h1>

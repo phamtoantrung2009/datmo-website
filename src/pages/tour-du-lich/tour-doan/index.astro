@@ -1,5 +1,6 @@
 ﻿---
-import BaseLayout from '../../../layouts/BaseLayout.astro';
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import { getOgImage } from '../../../config/og';
 import Breadcrumbs from '../../../components/Breadcrumbs.astro';
 import FAQ from '../../../components/FAQ.astro';
 import JsonLd from '../../../components/JsonLd.astro';
@@ -9,6 +10,7 @@ import { SITE } from '../../../config/site';
 // SEO: tune title/description length for SERP.
 const title = 'Tour đoàn doanh nghiệp Cẩm Phả, Quảng Ninh | Datmo';
 const description = 'Tour đoàn cho công ty, trường học, nhóm gia đình: hỗ trợ xe, khách sạn, lịch trình và báo giá theo yêu cầu. Khởi hành từ Cẩm Phả, linh hoạt thời gian.';
+const ogImage = getOgImage('/tour-du-lich/tour-doan/');
 const canonical = SITE.url + '/tour-du-lich/tour-doan/';
 
 const crumbs = [
@@ -31,7 +33,7 @@ const serviceJsonLd = {
   url: canonical,
 };
 ---
-<BaseLayout title={title} description={description} canonical={canonical}>
+<BaseLayout title={title} description={description} ogImage={ogImage} canonical={canonical}>
   <Breadcrumbs items={crumbs} />
   <section class="container section">
     <h1>Tour đoàn – công ty xuất phát từ Cẩm Phả</h1>

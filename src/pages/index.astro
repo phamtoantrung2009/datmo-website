@@ -1,5 +1,6 @@
 ﻿---
-import BaseLayout from '../layouts/BaseLayout.astro';
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { getOgImage } from '../config/og';
 import Hero from '../components/Hero.astro';
 import ServiceCards from '../components/ServiceCards.astro';
 import CallToActions from '../components/CallToActions.astro';
@@ -7,8 +8,9 @@ import CallToActions from '../components/CallToActions.astro';
 // SEO: tune homepage title/description length for SERP.
 const title = 'Thuê xe & tour du lịch Cẩm Phả, Quảng Ninh | Datmo';
 const description = 'Thuê xe 16–45 chỗ, tour nội địa/quốc tế, vé tàu cao tốc Ao Tiên/Vũng Đục đi Cô Tô – Quan Lạn, vé máy bay, khách sạn, visa. Hỗ trợ nhanh tại Cẩm Phả, Quảng Ninh.';
+const ogImage = getOgImage('/');
 ---
-<BaseLayout title={title} description={description}>
+<BaseLayout title={title} description={description} ogImage={ogImage}>
   <Hero
     h1="Dịch vụ du lịch & vận chuyển tại Cẩm Phả – Quảng Ninh"
     sub="Thuê xe 16–45 chỗ • Tour xuất phát từ Cẩm Phả • Vé tàu cao tốc • Vé máy bay • Visa"

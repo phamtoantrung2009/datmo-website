@@ -1,5 +1,6 @@
 ﻿---
-import BaseLayout from '../../layouts/BaseLayout.astro';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import { getOgImage } from '../../config/og';
 import Breadcrumbs from '../../components/Breadcrumbs.astro';
 import FAQ from '../../components/FAQ.astro';
 import JsonLd from '../../components/JsonLd.astro';
@@ -9,6 +10,7 @@ import { SITE } from '../../config/site';
 // SEO: tune title/description length for SERP.
 const title = 'Dịch vụ visa – hộ chiếu Cẩm Phả, Quảng Ninh | Datmo';
 const description = 'Hỗ trợ làm visa – hộ chiếu cho khách Cẩm Phả/Quảng Ninh: tư vấn hồ sơ, thời gian xử lý, chi phí dự kiến và dịch vụ kèm theo khi cần. Hỗ trợ trọn gói.';
+const ogImage = getOgImage('/visa-ho-chieu/');
 const canonical = SITE.url + '/visa-ho-chieu/';
 
 const crumbs = [
@@ -30,7 +32,7 @@ const serviceJsonLd = {
   url: canonical,
 };
 ---
-<BaseLayout title={title} description={description} canonical={canonical}>
+<BaseLayout title={title} description={description} ogImage={ogImage} canonical={canonical}>
   <Breadcrumbs items={crumbs} />
   <section class="container section">
     <h1>Dịch vụ visa – hộ chiếu tại Cẩm Phả</h1>

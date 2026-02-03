@@ -1,5 +1,6 @@
 ﻿---
-import BaseLayout from '../../layouts/BaseLayout.astro';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import { getOgImage } from '../../config/og';
 import Breadcrumbs from '../../components/Breadcrumbs.astro';
 import FAQ from '../../components/FAQ.astro';
 import JsonLd from '../../components/JsonLd.astro';
@@ -8,6 +9,7 @@ import { SITE } from '../../config/site';
 // SEO: tune title/description length for SERP.
 const title = 'Tour du lịch trọn gói tại Cẩm Phả, Quảng Ninh | Datmo';
 const description = 'Tư vấn tour theo ngân sách và thời gian: nội địa, quốc tế, tour đoàn. Xuất phát từ Cẩm Phả, tối ưu lịch trình, hỗ trợ xe, khách sạn và vé. Giá minh bạch.';
+const ogImage = getOgImage('/tour-du-lich/');
 const canonical = SITE.url + '/tour-du-lich/';
 
 const crumbs = [
@@ -29,7 +31,7 @@ const serviceJsonLd = {
   url: canonical,
 };
 ---
-<BaseLayout title={title} description={description} canonical={canonical}>
+<BaseLayout title={title} description={description} ogImage={ogImage} canonical={canonical}>
   <Breadcrumbs items={crumbs} />
 
   <section class="container section">

@@ -1,5 +1,6 @@
 ﻿---
-import BaseLayout from '../../layouts/BaseLayout.astro';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import { getOgImage } from '../../config/og';
 import Breadcrumbs from '../../components/Breadcrumbs.astro';
 import FAQ from '../../components/FAQ.astro';
 import JsonLd from '../../components/JsonLd.astro';
@@ -8,6 +9,7 @@ import { SITE } from '../../config/site';
 // SEO: tune title/description length for SERP.
 const title = 'Vé tàu cao tốc Ao Tiên/Vũng Đục Cẩm Phả, Quảng Ninh | Datmo';
 const description = 'Đặt vé tàu cao tốc tuyến Ao Tiên/Vũng Đục đi Cô Tô – Quan Lạn; hỗ trợ kiểm tra lịch tàu, giờ chạy, thủ tục và nhắc giờ có mặt. Hỗ trợ nhắc giờ ra cảng.';
+const ogImage = getOgImage('/ve-tau-cao-toc/');
 const canonical = SITE.url + '/ve-tau-cao-toc/';
 
 const crumbs = [
@@ -29,7 +31,7 @@ const serviceJsonLd = {
   url: canonical,
 };
 ---
-<BaseLayout title={title} description={description} canonical={canonical}>
+<BaseLayout title={title} description={description} ogImage={ogImage} canonical={canonical}>
   <Breadcrumbs items={crumbs} />
 
   <section class="container section">

@@ -1,5 +1,6 @@
 ﻿---
-import BaseLayout from '../../layouts/BaseLayout.astro';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import { getOgImage } from '../../config/og';
 import Breadcrumbs from '../../components/Breadcrumbs.astro';
 import FAQ from '../../components/FAQ.astro';
 import JsonLd from '../../components/JsonLd.astro';
@@ -9,6 +10,7 @@ import { SITE } from '../../config/site';
 // SEO: tune title/description length for SERP.
 const title = 'Tư vấn đặt phòng khách sạn Cẩm Phả, Quảng Ninh | Datmo';
 const description = 'Tư vấn & đặt phòng khách sạn cho khách Cẩm Phả/Quảng Ninh theo nhu cầu vị trí, ngân sách, tiện ích; có thể kết hợp tour hoặc vé máy bay. Hỗ trợ nhanh.';
+const ogImage = getOgImage('/khach-san/');
 const canonical = SITE.url + '/khach-san/';
 
 const crumbs = [
@@ -30,7 +32,7 @@ const serviceJsonLd = {
   url: canonical,
 };
 ---
-<BaseLayout title={title} description={description} canonical={canonical}>
+<BaseLayout title={title} description={description} ogImage={ogImage} canonical={canonical}>
   <Breadcrumbs items={crumbs} />
   <section class="container section">
     <h1>Đặt phòng khách sạn tại Quảng Ninh</h1>

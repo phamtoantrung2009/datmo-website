@@ -1,16 +1,18 @@
 ﻿---
-import BaseLayout from '../../layouts/BaseLayout.astro';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import { getOgImage } from '../../config/og';
 import Breadcrumbs from '../../components/Breadcrumbs.astro';
 
 // SEO: tune title/description length for SERP.
 const title = 'Giới thiệu Datmo – dịch vụ Cẩm Phả, Quảng Ninh | Datmo';
 const description = 'Datmo cung cấp dịch vụ du lịch & vận chuyển tại Cẩm Phả: thuê xe 16–45 chỗ, tour, vé tàu cao tốc, vé máy bay, khách sạn, visa. Hỗ trợ nhanh qua hotline/Zalo.';
+const ogImage = getOgImage('/gioi-thieu/');
 const crumbs = [
   { name: 'Trang chủ', href: '/' },
   { name: 'Giới thiệu', href: '/gioi-thieu/' },
 ];
 ---
-<BaseLayout title={title} description={description}>
+<BaseLayout title={title} description={description} ogImage={ogImage}>
   <Breadcrumbs items={crumbs} />
   <section class="container section">
     <h1>Giới thiệu Datmo.io.vn</h1>
