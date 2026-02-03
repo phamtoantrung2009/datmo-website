@@ -1,14 +1,35 @@
----
+﻿---
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import Breadcrumbs from '../../components/Breadcrumbs.astro';
 import { SITE } from '../../config/site';
+import JsonLd from '../../components/JsonLd.astro';
 
-const title = 'Liên hệ đặt dịch vụ | Datmo.io.vn';
-const description = 'Liên hệ Datmo.io.vn để đặt thuê xe, tour, vé tàu cao tốc, vé máy bay, khách sạn, visa – hộ chiếu tại Cẩm Phả, Quảng Ninh. Hotline & Zalo hỗ trợ nhanh.';
+// SEO: tune title/description length for SERP.
+const title = 'Liên hệ đặt dịch vụ nhanh Cẩm Phả, Quảng Ninh | Datmo';
+const description = 'Liên hệ Datmo để đặt thuê xe, tour, vé tàu cao tốc, vé máy bay, khách sạn, visa – hộ chiếu tại Cẩm Phả, Quảng Ninh. Hotline hỗ trợ nhanh, phản hồi nhanh.';
 const crumbs = [
   { name: 'Trang chủ', href: '/' },
   { name: 'Liên hệ', href: '/lien-he/' },
 ];
+
+const contactPageJsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'ContactPage',
+  name: 'Liên hệ Datmo',
+  url: SITE.url + '/lien-he/',
+  inLanguage: 'vi-VN',
+  mainEntity: {
+    '@type': 'LocalBusiness',
+    name: SITE.name,
+    url: SITE.url,
+    telephone: SITE.phone,
+    address: {
+      '@type': 'PostalAddress',
+      ...SITE.address,
+    },
+    sameAs: Object.values(SITE.social),
+  },
+};
 ---
 <BaseLayout title={title} description={description}>
   <Breadcrumbs items={crumbs} />
@@ -30,7 +51,8 @@ const crumbs = [
     </div>
 
     <section class="section" aria-label="Bản đồ văn phòng">
-        <div class="map-embed" aria-hidden="true">
+      <h2>Bản đồ văn phòng Đất Mỏ Travel</h2>
+      <div class="map-embed" aria-hidden="true">
         <iframe
           src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3723.94538987109!2d107.36213077609592!3d21.034870980616034!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x314b014cda277013%3A0xe92d70a486faea99!2zxJDhuqRUIE3hu44gVFJBVkVM!5e0!3m2!1svi!2s!4v1770093139683!5m2!1svi!2s"
           width="600"
@@ -42,7 +64,8 @@ const crumbs = [
           title="Bản đồ văn phòng Đất Mỏ Travel"
         ></iframe>
       </div>
-      </section>
+      <p class="small">Số nhà 56, tổ 51, khu 4B2, Phường Cửa Ông, Cẩm Phả, Quảng Ninh, Việt Nam</p>
+    </section>
 
     <div class="card" style="margin-top:14px">
       <h2>Dịch vụ liên quan</h2>
@@ -54,4 +77,5 @@ const crumbs = [
       </ul>
     </div>
   </section>
+  <JsonLd data={contactPageJsonLd} />
 </BaseLayout>

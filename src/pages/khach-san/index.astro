@@ -1,4 +1,4 @@
----
+﻿---
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import Breadcrumbs from '../../components/Breadcrumbs.astro';
 import FAQ from '../../components/FAQ.astro';
@@ -6,8 +6,9 @@ import JsonLd from '../../components/JsonLd.astro';
 import CallToActions from '../../components/CallToActions.astro';
 import { SITE } from '../../config/site';
 
-const title = 'Đặt phòng khách sạn tại Quảng Ninh | Datmo.io.vn';
-const description = 'Tư vấn & đặt phòng khách sạn cho khách Cẩm Phả/Quảng Ninh theo nhu cầu: vị trí, ngân sách, tiện ích. Có thể kết hợp tour và vé máy bay.';
+// SEO: tune title/description length for SERP.
+const title = 'Tư vấn đặt phòng khách sạn Cẩm Phả, Quảng Ninh | Datmo';
+const description = 'Tư vấn & đặt phòng khách sạn cho khách Cẩm Phả/Quảng Ninh theo nhu cầu vị trí, ngân sách, tiện ích; có thể kết hợp tour hoặc vé máy bay. Hỗ trợ nhanh.';
 const canonical = SITE.url + '/khach-san/';
 
 const crumbs = [
@@ -33,7 +34,7 @@ const serviceJsonLd = {
   <Breadcrumbs items={crumbs} />
   <section class="container section">
     <h1>Đặt phòng khách sạn tại Quảng Ninh</h1>
-    <p class="lead">Tư vấn & đặt phòng khách sạn cho khách Cẩm Phả/Quảng Ninh theo nhu cầu: vị trí, ngân sách, tiện ích. Có thể kết hợp tour và vé máy bay.</p>
+    <p class="lead">Tư vấn & đặt phòng khách sạn cho khách Cẩm Phả/Quảng Ninh theo nhu cầu vị trí, ngân sách, tiện ích. Có thể kết hợp tour và vé máy bay.</p>
 
     <div class="card">
       <h2>Liên kết cùng SILO</h2>

@@ -1,10 +1,11 @@
----
+﻿---
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import Breadcrumbs from '../../components/Breadcrumbs.astro';
 import { getCollection } from 'astro:content';
 
-const title = 'Blog du lịch Cẩm Phả – Quảng Ninh | Datmo';
-const description = 'Blog chia sẻ lịch tàu, giá vé, tin tức Cẩm Phả và kinh nghiệm du lịch. Tập trung nội dung hữu ích cho khách tại Quảng Ninh.';
+// SEO: tune title/description length for SERP.
+const title = 'Blog du lịch & kinh nghiệm hữu ích Cẩm Phả | Datmo';
+const description = 'Chia sẻ lịch tàu, giá vé, tin tức Cẩm Phả và kinh nghiệm du lịch; nội dung ngắn gọn, cập nhật theo mùa và nhu cầu thực tế cho khách đi Quảng Ninh.';
 
 const crumbs = [
   { name: 'Trang chủ', href: '/' },

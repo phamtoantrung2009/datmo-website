@@ -30,9 +30,13 @@ const {
   noindex = false,
 } = Astro.props;
 
+const orgId = SITE.url + '#localbusiness';
+const websiteId = SITE.url + '#website';
+
 const localBusinessJsonLd = {
   '@context': 'https://schema.org',
   '@type': 'LocalBusiness',
+  '@id': orgId,
   name: SITE.name,
   url: SITE.url,
   telephone: SITE.phone,
@@ -46,6 +50,16 @@ const localBusinessJsonLd = {
   knowsLanguage: ['vi'],
   priceRange: SITE.priceRange,
   sameAs: Object.values(SITE.social),
+};
+
+const websiteJsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'WebSite',
+  '@id': websiteId,
+  url: SITE.url,
+  name: SITE.name,
+  inLanguage: 'vi-VN',
+  publisher: { '@id': orgId },
 };
 ---
 <!doctype html>
@@ -86,6 +100,7 @@ const localBusinessJsonLd = {
     <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
 
     <JsonLd data={localBusinessJsonLd} />
+    <JsonLd data={websiteJsonLd} />
   </head>
   <body>
     <Header />

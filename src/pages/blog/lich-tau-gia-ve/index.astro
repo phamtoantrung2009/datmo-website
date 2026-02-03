@@ -1,10 +1,11 @@
----
+﻿---
 import BaseLayout from '../../../layouts/BaseLayout.astro';
 import Breadcrumbs from '../../../components/Breadcrumbs.astro';
 import { getCollection } from 'astro:content';
 
-const title = 'Lịch tàu & giá vé | Blog Datmo';
-const description = 'Tổng hợp bài viết lịch tàu cao tốc, giá vé Ao Tiên – Cô Tô, Ao Tiên – Quan Lạn, và thông tin liên quan.';
+// SEO: tune title/description length for SERP.
+const title = 'Lịch tàu & giá vé Ao Tiên, Vũng Đục Cẩm Phả | Blog Datmo';
+const description = 'Cập nhật lịch tàu cao tốc, giá vé Ao Tiên – Cô Tô, Ao Tiên – Quan Lạn; kèm lưu ý đặt vé, giờ chạy theo ngày và tình hình thời tiết, thủ tục.';
 const crumbs = [
   { name: 'Trang chủ', href: '/' },
   { name: 'Blog', href: '/blog/' },

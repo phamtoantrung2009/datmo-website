@@ -1,0 +1,21 @@
+﻿---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Breadcrumbs from '../components/Breadcrumbs.astro';
+
+// SEO: mark 404 as noindex to avoid indexing.
+// SEO: tune title/description length for SERP.
+const title = 'Không tìm thấy trang (404) | Datmo Cẩm Phả, Quảng Ninh';
+const description = 'Trang bạn yêu cầu không tồn tại hoặc đã được di chuyển. Vui lòng quay lại trang chủ hoặc chọn dịch vụ du lịch, thuê xe, vé tàu, vé máy bay tại Datmo.';
+const crumbs = [
+  { name: 'Trang chủ', href: '/' },
+  { name: '404', href: '/404/' },
+];
+---
+<BaseLayout title={title} description={description} noindex={true}>
+  <Breadcrumbs items={crumbs} />
+  <section class="container section">
+    <h1>Không tìm thấy trang</h1>
+    <p class="lead">Đường dẫn này không còn tồn tại hoặc đã thay đổi.</p>
+    <p><a class="btn primary" href="/">Quay về trang chủ</a></p>
+  </section>
+</BaseLayout>
