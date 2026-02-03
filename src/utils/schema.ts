@@ -17,6 +17,7 @@ export function buildOrganizationSchema(site: SiteConfig) {
     logo: `${site.url}${site.logo}`,
     image: `${site.url}${site.logo}`,
     telephone: site.phone,
+    email: site.email,
     address: {
       '@type': 'PostalAddress',
       ...site.address,

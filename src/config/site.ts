@@ -7,6 +7,7 @@ export const SITE = {
     'Thuê xe du lịch 16–45 chỗ, tour xuất phát từ Cẩm Phả, vé tàu cao tốc Ao Tiên/Vũng Đục đi Cô Tô – Quan Lạn, vé máy bay, khách sạn, visa – hộ chiếu. Hỗ trợ nhanh, giá tốt.',
   phone: '+84-911-321-578',
   phoneDisplay: '0911 321 578',
+  email: 'ctcpdulich.datmo@gmail.com',
   zaloUrl: 'https://zalo.me/911321578',
   logo: '/logo.png',
   address: {
