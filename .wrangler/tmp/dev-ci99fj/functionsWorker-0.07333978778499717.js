@@ -46,9 +46,13 @@ N\u1ED9i dung: ${message || "\u2014"}
       subject,
       content: [{ type: "text/plain", value: contentText }]
     };
+    const headers = { "content-type": "application/json" };
+    if (env.MAILCHANNELS_API_KEY) {
+      headers.authorization = `Bearer ${env.MAILCHANNELS_API_KEY}`;
+    }
     const resp = await fetch("https://api.mailchannels.net/tx/v1/send", {
       method: "POST",
-      headers: { "content-type": "application/json" },
+      headers,
       body: JSON.stringify(mail)
     });
     if (!resp.ok) {

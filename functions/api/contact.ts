@@ -48,9 +48,14 @@ export const onRequest: PagesFunction = async (context) => {
       content: [{ type: 'text/plain', value: contentText }],
     };
 
+    const headers: Record<string, string> = { 'content-type': 'application/json' };
+    if (env.MAILCHANNELS_API_KEY) {
+      headers.authorization = `Bearer ${env.MAILCHANNELS_API_KEY}`;
+    }
+
     const resp = await fetch('https://api.mailchannels.net/tx/v1/send', {
       method: 'POST',
-      headers: { 'content-type': 'application/json' },
+      headers,
       body: JSON.stringify(mail),
     });
 

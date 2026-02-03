@@ -44,9 +44,13 @@ N\u1ED9i dung: ${message || "\u2014"}
       subject,
       content: [{ type: "text/plain", value: contentText }]
     };
+    const headers = { "content-type": "application/json" };
+    if (env.MAILCHANNELS_API_KEY) {
+      headers.authorization = `Bearer ${env.MAILCHANNELS_API_KEY}`;
+    }
     const resp = await fetch("https://api.mailchannels.net/tx/v1/send", {
       method: "POST",
-      headers: { "content-type": "application/json" },
+      headers,
       body: JSON.stringify(mail)
     });
     if (!resp.ok) {
@@ -566,7 +570,7 @@ var jsonError = /* @__PURE__ */ __name(async (request, env, _ctx, middlewareCtx)
 }, "jsonError");
 var middleware_miniflare3_json_error_default = jsonError;
 
-// ../.wrangler/tmp/bundle-21fCZ7/middleware-insertion-facade.js
+// ../.wrangler/tmp/bundle-bkJjOi/middleware-insertion-facade.js
 var __INTERNAL_WRANGLER_MIDDLEWARE__ = [
   middleware_ensure_req_body_drained_default,
   middleware_miniflare3_json_error_default
@@ -598,7 +602,7 @@ function __facade_invoke__(request, env, ctx, dispatch, finalMiddleware) {
 }
 __name(__facade_invoke__, "__facade_invoke__");
 
-// ../.wrangler/tmp/bundle-21fCZ7/middleware-loader.entry.ts
+// ../.wrangler/tmp/bundle-bkJjOi/middleware-loader.entry.ts
 var __Facade_ScheduledController__ = class ___Facade_ScheduledController__ {
   constructor(scheduledTime, cron, noRetry) {
     this.scheduledTime = scheduledTime;
