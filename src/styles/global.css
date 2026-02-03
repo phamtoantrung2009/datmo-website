@@ -224,7 +224,27 @@ img{max-width:100%; height:auto}
   box-shadow: 0 12px 24px rgba(6,182,212,.28);
   text-decoration:none;
 }
+.mobile-cta-icon{
+  width:26px;
+  height:26px;
+}
 .mobile-cta-btn:hover{filter:brightness(1.05)}
+
+@keyframes cta-ring {
+  0%{transform:scale(1) rotate(0)}
+  20%{transform:scale(1.06) rotate(-8deg)}
+  40%{transform:scale(1.06) rotate(8deg)}
+  60%{transform:scale(1.04) rotate(-6deg)}
+  80%{transform:scale(1.02) rotate(4deg)}
+  100%{transform:scale(1) rotate(0)}
+}
+.mobile-cta-btn{
+  animation: cta-ring 700ms ease-out 300ms 1;
+}
+
+@media (prefers-reduced-motion: reduce){
+  .mobile-cta-btn{animation:none}
+}
 
 @media (min-width: 900px){
   .mobile-cta{display:none}

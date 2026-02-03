@@ -93,7 +93,11 @@ const localBusinessJsonLd = {
       <slot />
     </main>
     <div class="mobile-cta" role="region" aria-label="Liên hệ nhanh">
-      <a class="mobile-cta-btn" href={`tel:${SITE.phone}`} aria-label="Gọi ngay">Gọi ngay</a>
+      <a class="mobile-cta-btn" href={`tel:${SITE.phone}`} aria-label="Gọi ngay">
+        <svg class="mobile-cta-icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+          <path d="M21 16.5v3.25a1.25 1.25 0 0 1-1.37 1.24A18.8 18.8 0 0 1 3 4.37 1.25 1.25 0 0 1 4.24 3H7.5A1.25 1.25 0 0 1 8.75 4.1c.1.9.3 1.78.6 2.63a1.25 1.25 0 0 1-.28 1.31L7.9 9.2a15.5 15.5 0 0 0 6.9 6.9l1.16-1.17a1.25 1.25 0 0 1 1.31-.28c.85.3 1.73.5 2.63.6A1.25 1.25 0 0 1 21 16.5z" fill="currentColor"/>
+        </svg>
+      </a>
     </div>
     <Footer />
   </body>
