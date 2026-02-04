@@ -1,11 +1,15 @@
 ﻿---
-import BaseLayout from '../../../layouts/BaseLayout.astro';
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+
+
+
 import { getOgImage } from '../../../config/og';
 import Breadcrumbs from '../../../components/Breadcrumbs.astro';
 import FAQ from '../../../components/FAQ.astro';
 import JsonLd from '../../../components/JsonLd.astro';
 import CallToActions from '../../../components/CallToActions.astro';
 import { SITE } from '../../../config/site';
+import QuoteForm from '../../../components/QuoteForm.astro';
 
 // SEO: tune title/description length for SERP.
 const title = 'Thuê xe du lịch 29 chỗ Cẩm Phả, Quảng Ninh | Datmo';
@@ -40,7 +44,9 @@ const serviceJsonLd = {
   <header class="container section">
     <h1>Thuê xe 29 chỗ tại Cẩm Phả</h1>
     <p class="lead">Dịch vụ phù hợp nhóm đi theo tuyến, theo ngày hoặc theo lịch trình tour. Báo giá nhanh qua hotline/Zalo.</p>
-
+<section class="container section">
+    <QuoteForm />
+  </section>
     <div class="btn-row">
       <a class="btn primary" href="/lien-he/">Đặt dịch vụ</a>
       <a class="btn" href="/tour-du-lich/tour-doan/">Tour đoàn</a><a class="btn" href="/lien-he/">Nhận báo giá</a>
