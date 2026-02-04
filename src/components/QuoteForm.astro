@@ -1,128 +1,152 @@
 ---
-const {
-  endpoint = 'https://dark-hat-f96f.phamtoantrung2009.workers.dev/quote',
-  title = 'Nhận báo giá thuê xe du lịch nhanh',
-} = Astro.props;
-
-const formId = `quote-${Math.random().toString(36).slice(2, 8)}`;
+const LOCATIONS_URL = "/data/locations.json";
+const API_URL =
+  "https://dark-hat-f96f.phamtoantrung2009.workers.dev/quote";
 ---
 
-<section class="container section">
-  <div class="card">
-    <h2>{title}</h2>
+<form id="quote-form" class="quote-form">
+  <h3>Yêu cầu báo giá thuê xe</h3>
 
-    <form id={formId} class="quote-form" novalidate>
-      <!-- ROW 1 -->
-      <div class="row">
-        <div class="field">
-          <label>Điểm đón *</label>
-          <input name="from" required placeholder="Cẩm Phả / Cửa Ông / nhập tay" />
-        </div>
+  <!-- Điểm đi / đến -->
+  <div class="row">
+    <select name="from" id="from" required>
+      <option value="">Điểm đón</option>
+    </select>
 
-        <div class="field">
-          <label>Điểm đến *</label>
-          <input name="to" required placeholder="Hà Nội / Hải Phòng / ..." />
-        </div>
-      </div>
-
-      <!-- ROW 2 -->
-      <div class="row">
-        <div class="field">
-          <label>Ngày đi *</label>
-          <input type="date" name="start_date" required />
-        </div>
-
-        <div class="field">
-          <label>Ngày về *</label>
-          <input type="date" name="end_date" required />
-        </div>
-      </div>
-
-      <!-- ROW 3 -->
-      <div class="row">
-        <div class="field">
-          <label>Loại xe *</label>
-          <select name="vehicle" required>
-            <option value="">Chọn loại xe</option>
-            <option>16 chỗ</option>
-            <option>29 chỗ</option>
-            <option>45 chỗ</option>
-          </select>
-        </div>
-
-        <div class="field">
-          <label>Số điện thoại *</label>
-          <input
-            name="phone"
-            type="tel"
-            required
-            inputmode="tel"
-            placeholder="VD: 0989 123 456"
-          />
-        </div>
-      </div>
-
-      <button type="submit" class="btn primary full">
-        Yêu cầu báo giá
-      </button>
-
-      <p class="status" aria-live="polite"></p>
-    </form>
+    <select name="to" id="to" required>
+      <option value="">Điểm đến</option>
+    </select>
   </div>
-</section>
 
-<script is:inline>
-  const form = document.getElementById('{formId}');
-  const status = form.querySelector('.status');
+  <!-- Ngày -->
+  <div class="row">
+    <input type="date" name="start_date" required />
+    <input type="date" name="end_date" />
+  </div>
 
-  form.addEventListener('submit', async (e) => {
-    e.preventDefault(); // 🔴 QUAN TRỌNG
+  <!-- Xe + SĐT -->
+  <div class="row">
+    <select name="vehicle">
+      <option value="">Loại xe</option>
+      <option>16 chỗ</option>
+      <option>29 chỗ</option>
+      <option>35 chỗ</option>
+      <option>45 chỗ</option>
+    </select>
 
-    status.textContent = 'Đang gửi...';
+    <input
+      type="tel"
+      name="phone"
+      placeholder="Số điện thoại"
+      required
+    />
+  </div>
 
-    if (!form.reportValidity()) {
-      status.textContent = 'Vui lòng điền đủ thông tin bắt buộc.';
-      return;
-    }
+  <button type="submit">Yêu cầu báo giá</button>
+  <p id="quote-status" class="status"></p>
+</form>
 
-    const fd = new FormData(form);
+<script>
+  const form = document.getElementById("quote-form");
+  const status = document.getElementById("quote-status");
+  const fromSelect = document.getElementById("from");
+  const toSelect = document.getElementById("to");
+
+  // Load locations
+  fetch("/data/locations.json")
+    .then((r) => r.json())
+    .then((data) => {
+      Object.entries(data).forEach(([province, districts]) => {
+        districts.forEach((d) => {
+          const value = `${d}, ${province}`;
+          fromSelect.add(new Option(value, value));
+          toSelect.add(new Option(value, value));
+        });
+      });
+    });
+
+  form.addEventListener("submit", async (e) => {
+    e.preventDefault();
+    status.textContent = "Đang gửi yêu cầu...";
+
+    const payload = Object.fromEntries(new FormData(form).entries());
 
     try {
-      const res = await fetch('{endpoint}', {
-        method: 'POST',
-        body: fd,
-      });
+      const res = await fetch(
+        "https://dark-hat-f96f.phamtoantrung2009.workers.dev/quote",
+        {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify(payload),
+        }
+      );
 
       const data = await res.json();
 
-      if (res.ok && data.success) {
+      if (data.success) {
+        status.textContent = "✅ Gửi yêu cầu thành công!";
         form.reset();
-        status.textContent = 'Đã gửi yêu cầu. Datmo sẽ liên hệ sớm.';
       } else {
-        status.textContent = data.error || 'Gửi không thành công.';
+        status.textContent = "❌ " + (data.error || "Có lỗi xảy ra");
       }
-    } catch {
-      status.textContent = 'Lỗi kết nối. Vui lòng thử lại.';
+    } catch (err) {
+      status.textContent = "❌ Không kết nối được máy chủ";
     }
   });
 </script>
 
 <style>
-.quote-form .row {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 12px;
-}
-.quote-form .field {
-  display: flex;
-  flex-direction: column;
-}
-.quote-form .full {
-  width: 100%;
-}
-@media (max-width: 768px) {
-  .quote-form .row {
-    grid-template-columns: 1fr;
+  .quote-form {
+    background: #fff;
+    padding: 20px;
+    border-radius: 12px;
+    max-width: 720px;
+    margin: auto;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
   }
-}
+
+  .quote-form h3 {
+    margin-bottom: 16px;
+  }
+
+  .row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+    margin-bottom: 12px;
+  }
+
+  input,
+  select {
+    padding: 10px;
+    border-radius: 8px;
+    border: 1px solid #ddd;
+    font-size: 14px;
+  }
+
+  button {
+    width: 100%;
+    padding: 12px;
+    border: none;
+    border-radius: 10px;
+    background: #ff7a00;
+    color: #fff;
+    font-size: 16px;
+    cursor: pointer;
+  }
+
+  button:hover {
+    background: #e56f00;
+  }
+
+  .status {
+    margin-top: 10px;
+    font-size: 14px;
+  }
+
+  @media (max-width: 640px) {
+    .row {
+      grid-template-columns: 1fr;
+    }
+  }
 </style>
