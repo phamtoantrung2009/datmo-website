@@ -1,0 +1,348 @@
+---
+import provinces from '../data/vietnam-provinces.json';
+---
+<div class="card" style="margin-top:14px">
+  <h2>Nhận báo giá nhanh</h2>
+  <form id="quote-form" method="POST" action="https://dark-hat-f96f.phamtoantrung2009.workers.dev/quote" class="form-grid" novalidate>
+    <div class="form-field">
+      <label for="from_select">Điểm khởi hành *</label>
+      <select id="from_select" required>
+        <option value="">Chọn điểm khởi hành</option>
+        <option value="Cẩm Phả">Cẩm Phả</option>
+        <option value="Cửa Ông">Cửa Ông</option>
+        <option value="Vân Đồn">Vân Đồn</option>
+        <option value="Mông Dương">Mông Dương</option>
+        <option value="Hạ Long">Hạ Long</option>
+        <option value="Khác">Khác</option>
+      </select>
+      <input type="hidden" name="from" id="from_value" value="" />
+    </div>
+
+    <div class="form-field from-other" data-hidden="true">
+      <label for="from_other">Nhập điểm khởi hành khác *</label>
+      <input id="from_other" type="text" placeholder="Ví dụ: Uông Bí" />
+    </div>
+
+    <div class="form-field">
+      <label for="to_province">Tỉnh / Thành phố *</label>
+      <input id="to_province" type="text" list="province-list" placeholder="Nhập để tìm" autocomplete="off" required />
+      <datalist id="province-list">
+        {provinces.map((p) => (
+          <option value={p.name} />
+        ))}
+      </datalist>
+    </div>
+
+    <div class="form-field">
+      <label for="to_district">Quận / Huyện *</label>
+      <select id="to_district" disabled required>
+        <option value="">Chọn quận / huyện</option>
+      </select>
+      <input type="hidden" name="to" id="to_value" value="" />
+    </div>
+
+    <div class="form-field">
+      <label for="start_date">Ngày khởi hành *</label>
+      <input id="start_date" name="start_date" type="date" required />
+    </div>
+
+    <div class="form-field">
+      <label for="end_date">Ngày về *</label>
+      <input id="end_date" name="end_date" type="date" required />
+    </div>
+
+    <div class="form-field">
+      <label for="vehicle">Loại phương tiện *</label>
+      <select id="vehicle" name="vehicle" required>
+        <option value="">Chọn loại xe</option>
+        <option value="16 chỗ">16 chỗ</option>
+        <option value="29 chỗ">29 chỗ</option>
+        <option value="45 chỗ">45 chỗ</option>
+      </select>
+    </div>
+
+    <div class="form-field">
+      <label for="full_name">Họ và tên *</label>
+      <input id="full_name" name="full_name" type="text" required />
+    </div>
+
+    <div class="form-field">
+      <label for="phone">Số điện thoại nhận báo giá *</label>
+      <input id="phone" name="phone" type="tel" inputmode="numeric" autocomplete="tel" required />
+      <p class="hint">Số điện thoại bắt đầu bằng 0 và gồm 10 chữ số.</p>
+    </div>
+
+    <button class="btn primary" type="submit">Nhận báo giá</button>
+    <p id="quote-status" class="small form-status" role="status" aria-live="polite"></p>
+  </form>
+</div>
+
+<style>
+  .form-grid {
+    display: grid;
+    gap: 10px;
+  }
+
+  .form-grid .form-field {
+    margin: 0;
+  }
+
+  .form-grid .btn {
+    width: 100%;
+    justify-self: start;
+  }
+
+  .form-grid .hint {
+    margin: 6px 0 0;
+    font-size: 0.85rem;
+    opacity: 0.8;
+  }
+
+  .from-other[data-hidden="true"] {
+    display: none;
+  }
+
+  @media (min-width: 768px) {
+    .form-grid {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 12px 16px;
+    }
+
+    .form-grid .btn,
+    .form-grid .form-status {
+      grid-column: 1 / -1;
+    }
+
+    .form-grid .btn {
+      width: auto;
+    }
+  }
+</style>
+
+<script is:inline>
+  const provinces = ${JSON.stringify(provinces)};
+  const form = document.getElementById('quote-form');
+  const statusEl = document.getElementById('quote-status');
+  const fromSelect = document.getElementById('from_select');
+  const fromOtherWrap = document.querySelector('.from-other');
+  const fromOther = document.getElementById('from_other');
+  const fromValue = document.getElementById('from_value');
+  const provinceInput = document.getElementById('to_province');
+  const districtSelect = document.getElementById('to_district');
+  const toValue = document.getElementById('to_value');
+  const startDate = document.getElementById('start_date');
+  const endDate = document.getElementById('end_date');
+  const phoneInput = document.getElementById('phone');
+  const submitBtn = form ? form.querySelector('button[type="submit"]') : null;
+
+  const provinceMap = new Map(provinces.map((p) => [p.name, p.districts || []]));
+
+  const setStatus = (msg) => {
+    if (statusEl) statusEl.textContent = msg || '';
+  };
+
+  const setTodayMin = () => {
+    const today = new Date();
+    const iso = today.toISOString().slice(0, 10);
+    if (startDate) startDate.min = iso;
+    if (endDate) endDate.min = iso;
+  };
+
+  const syncFromValue = () => {
+    if (!fromSelect || !fromValue) return;
+    const val = fromSelect.value.trim();
+    if (val === 'Khác') {
+      if (fromOtherWrap) fromOtherWrap.setAttribute('data-hidden', 'false');
+      if (fromOther) {
+        fromOther.required = true;
+        fromOther.focus();
+        fromValue.value = fromOther.value.trim();
+      }
+    } else {
+      if (fromOtherWrap) fromOtherWrap.setAttribute('data-hidden', 'true');
+      if (fromOther) {
+        fromOther.required = false;
+        fromOther.value = '';
+      }
+      fromValue.value = val;
+    }
+  };
+
+  const populateDistricts = (provinceName) => {
+    if (!districtSelect) return;
+    const districts = provinceMap.get(provinceName) || [];
+    districtSelect.innerHTML = '<option value="">Chọn quận / huyện</option>';
+    if (!districts.length) {
+      districtSelect.disabled = true;
+      return;
+    }
+    districts.forEach((d) => {
+      const opt = document.createElement('option');
+      opt.value = d;
+      opt.textContent = d;
+      districtSelect.appendChild(opt);
+    });
+    districtSelect.disabled = false;
+  };
+
+  const syncToValue = () => {
+    if (!toValue || !provinceInput || !districtSelect) return;
+    const province = provinceInput.value.trim();
+    const district = districtSelect.value.trim();
+    if (province && district) {
+      toValue.value = `${district}, ${province}`;
+    } else {
+      toValue.value = '';
+    }
+  };
+
+  const validatePhone = () => {
+    if (!phoneInput) return true;
+    const value = phoneInput.value.trim();
+    const ok = /^0\\d{9}$/.test(value);
+    phoneInput.setCustomValidity(ok ? '' : 'Số điện thoại phải bắt đầu bằng 0 và đủ 10 chữ số.');
+    return ok;
+  };
+
+  const validateDates = () => {
+    if (!startDate || !endDate) return true;
+    const start = startDate.value;
+    const end = endDate.value;
+    if (start && end && end < start) {
+      endDate.setCustomValidity('Ngày về phải bằng hoặc sau ngày khởi hành.');
+      return false;
+    }
+    endDate.setCustomValidity('');
+    return true;
+  };
+
+  if (fromSelect) {
+    fromSelect.addEventListener('change', () => {
+      fromSelect.setCustomValidity('');
+      syncFromValue();
+    });
+  }
+
+  if (fromOther) {
+    fromOther.addEventListener('input', () => {
+      fromOther.setCustomValidity('');
+      if (fromValue) fromValue.value = fromOther.value.trim();
+    });
+  }
+
+  if (provinceInput) {
+    provinceInput.addEventListener('input', () => {
+      const name = provinceInput.value.trim();
+      if (name && !provinceMap.has(name)) {
+        provinceInput.setCustomValidity('Vui lòng chọn tỉnh/thành phố hợp lệ.');
+      } else {
+        provinceInput.setCustomValidity('');
+      }
+      populateDistricts(name);
+      syncToValue();
+    });
+  }
+
+  if (districtSelect) {
+    districtSelect.addEventListener('change', syncToValue);
+  }
+
+  if (startDate) {
+    startDate.addEventListener('change', () => {
+      if (endDate && startDate.value) {
+        endDate.min = startDate.value;
+      }
+      validateDates();
+    });
+  }
+
+  if (endDate) {
+    endDate.addEventListener('change', validateDates);
+  }
+
+  if (phoneInput) {
+    phoneInput.addEventListener('input', validatePhone);
+  }
+
+  if (form) {
+    setTodayMin();
+    syncFromValue();
+    form.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      setStatus('');
+      const phoneOk = validatePhone();
+      const dateOk = validateDates();
+      syncFromValue();
+      syncToValue();
+
+      const fromOk = fromValue && fromValue.value.trim() !== '';
+      const fromOtherOk = !(fromSelect && fromSelect.value === 'Khác') || (fromOther && fromOther.value.trim() !== '');
+      const toOk = toValue && toValue.value.trim() !== '';
+
+      if (!fromOk) {
+        fromSelect.setCustomValidity('Vui lòng chọn điểm khởi hành.');
+      } else {
+        fromSelect.setCustomValidity('');
+      }
+
+      if (!fromOtherOk && fromOther) {
+        fromOther.setCustomValidity('Vui lòng nhập điểm khởi hành.');
+      } else if (fromOther) {
+        fromOther.setCustomValidity('');
+      }
+
+      if (!toOk) {
+        if (provinceInput) {
+          provinceInput.setCustomValidity('Vui lòng chọn tỉnh/thành phố hợp lệ.');
+        }
+        districtSelect.setCustomValidity('Vui lòng chọn quận / huyện.');
+      } else {
+        if (provinceInput) {
+          provinceInput.setCustomValidity('');
+        }
+        districtSelect.setCustomValidity('');
+      }
+
+      if (!form.reportValidity() || !phoneOk || !dateOk || !fromOk || !fromOtherOk || !toOk) {
+        setStatus('Vui lòng kiểm tra lại các trường bắt buộc.');
+        return;
+      }
+
+      if (submitBtn) {
+        submitBtn.disabled = true;
+        submitBtn.textContent = 'Đang gửi...';
+      }
+
+      try {
+        const fd = new FormData(form);
+        const res = await fetch(form.action, { method: 'POST', body: fd });
+        let data = null;
+        try {
+          data = await res.json();
+        } catch (_) {
+          // Non-JSON response.
+        }
+        if (res.ok && data && data.success) {
+          form.reset();
+          if (districtSelect) {
+            districtSelect.innerHTML = '<option value="">Chọn quận / huyện</option>';
+            districtSelect.disabled = true;
+          }
+          syncFromValue();
+          setTodayMin();
+          setStatus('Đã gửi yêu cầu báo giá. Datmo sẽ liên hệ sớm.');
+        } else {
+          const msg = data && data.message ? data.message : `Gửi không thành công (HTTP ${res.status}). Vui lòng thử lại.`;
+          setStatus(msg);
+        }
+      } catch (err) {
+        setStatus('Có lỗi kết nối. Vui lòng thử lại.');
+      } finally {
+        if (submitBtn) {
+          submitBtn.disabled = false;
+          submitBtn.textContent = 'Nhận báo giá';
+        }
+      }
+    });
+  }
+</script>
