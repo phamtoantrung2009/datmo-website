@@ -120,7 +120,7 @@ import provinces from '../data/vietnam-provinces.json';
 </style>
 
 <script is:inline>
-  const provinces = `${JSON.stringify(provinces)}`;
+  const provinces = /** @type {{name:string, districts:string[]}[]} */ (JSON.parse(`JSON.stringify(provinces)`));
   const form = document.getElementById('quote-form');
   const statusEl = document.getElementById('quote-status');
   const fromSelect = document.getElementById('from_select');
