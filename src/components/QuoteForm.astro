@@ -1,238 +1,196 @@
 ---
 const {
-  title = 'Yêu cầu báo giá thuê xe du lịch',
+  title = 'Nhận báo giá thuê xe du lịch nhanh',
   ctaText = 'Nhận báo giá',
-  source = 'homepage',
   endpoint = 'https://dark-hat-f96f.phamtoantrung2009.workers.dev/quote',
+  source = 'homepage',
 } = Astro.props;
-
-const formId = `quote-form-${Math.random().toString(36).slice(2, 8)}`;
-const statusId = `${formId}-status`;
-const phoneId = `${formId}-phone`;
-const departId = `${formId}-depart`;
-const departCustomId = `${formId}-depart-custom`;
-const provinceId = `${formId}-province`;
-const districtId = `${formId}-district`;
-const departDateId = `${formId}-depart-date`;
-const returnDateId = `${formId}-return-date`;
-const vehicleId = `${formId}-vehicle`;
 ---
-<section class="container section" aria-label="Yêu cầu báo giá">
+
+<section class="container section" aria-label="Form báo giá thuê xe">
   <div class="card">
-    <h2 style="margin-top:0">{title}</h2>
-    <form id={formId} class="form-grid" method="POST" action={endpoint} novalidate>
+    <h2>{title}</h2>
+
+    <form id="quote-form" class="form-grid" method="POST" action={endpoint} novalidate>
+      <!-- Điểm đón -->
       <div class="form-field">
-        <label for={departId}>Điểm đón *</label>
-        <select id={departId} name="departure_location" required>
+        <label>Điểm đón *</label>
+        <select id="departure" required>
           <option value="">Chọn điểm đón</option>
-          <option value="Cẩm Phả">Cẩm Phả</option>
-          <option value="Cửa Ông">Cửa Ông</option>
-          <option value="Vân Đồn">Vân Đồn</option>
-          <option value="Mông Dương">Mông Dương</option>
-          <option value="Hạ Long">Hạ Long</option>
-          <option value="Khác">Khác (nhập tay)</option>
+          <option>Cẩm Phả</option>
+          <option>Cửa Ông</option>
+          <option>Vân Đồn</option>
+          <option>Mông Dương</option>
+          <option>Hạ Long</option>
+          <option value="custom">Khác (nhập tay)</option>
         </select>
+
         <input
-          id={departCustomId}
-          name="departure_location_custom"
+          id="departure-custom"
           type="text"
           placeholder="Nhập điểm đón"
-          autocomplete="off"
-          disabled
-          aria-disabled="true"
+          class="mt-2"
+          hidden
         />
+
+        <input type="hidden" name="from" id="departure-value" />
       </div>
 
+      <!-- Điểm đến -->
       <div class="form-field">
-        <label for={provinceId}>Điểm đến (tỉnh/thành) *</label>
-        <select id={provinceId} name="destination_province" required>
+        <label>Điểm đến (tỉnh/thành) *</label>
+        <select id="province" required>
           <option value="">Chọn tỉnh/thành</option>
         </select>
       </div>
 
       <div class="form-field">
-        <label for={districtId}>Điểm đến (quận/huyện) *</label>
-        <select id={districtId} name="destination_district" required disabled aria-disabled="true">
+        <label>Quận / Huyện *</label>
+        <select id="district" required disabled>
           <option value="">Chọn quận/huyện</option>
         </select>
+
+        <input type="hidden" name="to" id="destination-value" />
+      </div>
+
+      <!-- Ngày -->
+      <div class="form-field">
+        <label>Ngày đi *</label>
+        <input type="date" name="start_date" id="start_date" required />
       </div>
 
       <div class="form-field">
-        <label for={departDateId}>Ngày đi *</label>
-        <input id={departDateId} name="departure_date" type="date" required />
+        <label>Ngày về *</label>
+        <input type="date" name="end_date" id="end_date" required />
       </div>
 
+      <!-- Loại xe -->
       <div class="form-field">
-        <label for={returnDateId}>Ngày về *</label>
-        <input id={returnDateId} name="return_date" type="date" required />
-      </div>
-
-      <div class="form-field">
-        <label for={vehicleId}>Loại xe *</label>
-        <select id={vehicleId} name="vehicle_type" required>
+        <label>Loại xe *</label>
+        <select name="vehicle" required>
           <option value="">Chọn loại xe</option>
-          <option value="16 chỗ">16 chỗ</option>
-          <option value="29 chỗ">29 chỗ</option>
-          <option value="45 chỗ">45 chỗ</option>
+          <option>16 chỗ</option>
+          <option>29 chỗ</option>
+          <option>45 chỗ</option>
         </select>
       </div>
 
+      <!-- Phone -->
       <div class="form-field">
-        <label for={phoneId}>Số điện thoại *</label>
+        <label>Số điện thoại *</label>
         <input
-          id={phoneId}
-          name="phone"
           type="tel"
+          name="phone"
           required
-          autocomplete="tel"
           inputmode="tel"
-          aria-describedby={statusId}
+          autocomplete="tel"
         />
       </div>
 
       <input type="hidden" name="source" value={source} />
 
       <button class="btn primary" type="submit">{ctaText}</button>
-      <p id={statusId} class="small form-status" role="status" aria-live="polite"></p>
+      <p id="quote-status" class="small" aria-live="polite"></p>
     </form>
   </div>
 </section>
 
-<script type="module" define:vars={{ formId, statusId, endpoint, departId, departCustomId, provinceId, districtId, departDateId, returnDateId }}>
-  import { getAllProvincesSorted, getDistrictsByProvinceId } from 'vietnam-provinces-js/provinces';
+<script type="module">
+  import { getAllProvincesSorted } from 'vietnam-provinces-js/provinces';
+  import { getDistrictsByProvinceId } from 'vietnam-provinces-js/districts';
 
-  const form = document.getElementById(formId);
-  const statusEl = document.getElementById(statusId);
-  const departSelect = document.getElementById(departId);
-  const departCustom = document.getElementById(departCustomId);
-  const provinceSelect = document.getElementById(provinceId);
-  const districtSelect = document.getElementById(districtId);
-  const departDate = document.getElementById(departDateId);
-  const returnDate = document.getElementById(returnDateId);
+  const form = document.getElementById('quote-form');
+  const statusEl = document.getElementById('quote-status');
 
-  const setStatus = (msg) => {
-    if (statusEl) statusEl.textContent = msg;
-  };
+  const departureSelect = document.getElementById('departure');
+  const departureCustom = document.getElementById('departure-custom');
+  const departureValue = document.getElementById('departure-value');
 
-  const toggleCustomDeparture = () => {
-    if (!departSelect || !departCustom) return;
-    const isCustom = departSelect.value === 'Khác';
-    departCustom.disabled = !isCustom;
-    departCustom.setAttribute('aria-disabled', String(!isCustom));
-    if (isCustom) {
-      departCustom.required = true;
-      departCustom.focus();
+  const provinceSelect = document.getElementById('province');
+  const districtSelect = document.getElementById('district');
+  const destinationValue = document.getElementById('destination-value');
+
+  // Điểm đón
+  departureSelect.addEventListener('change', () => {
+    if (departureSelect.value === 'custom') {
+      departureCustom.hidden = false;
+      departureCustom.required = true;
+      departureValue.value = '';
+      departureCustom.focus();
     } else {
-      departCustom.required = false;
-      departCustom.value = '';
+      departureCustom.hidden = true;
+      departureCustom.required = false;
+      departureValue.value = departureSelect.value;
     }
-  };
+  });
 
-  const ensureReturnDateMin = () => {
-    if (!departDate || !returnDate) return;
-    if (departDate.value) {
-      returnDate.min = departDate.value;
-      if (returnDate.value && returnDate.value < departDate.value) {
-        returnDate.value = departDate.value;
-      }
-    }
-  };
+  departureCustom.addEventListener('input', () => {
+    departureValue.value = departureCustom.value.trim();
+  });
 
-  const loadProvinces = async () => {
-    if (!provinceSelect) return;
+  // Load tỉnh
+  (async () => {
     const provinces = await getAllProvincesSorted();
-    provinces.forEach((p) => {
+    provinces.forEach(p => {
       const opt = document.createElement('option');
       opt.value = p.idProvince;
       opt.textContent = p.name;
       provinceSelect.appendChild(opt);
     });
-  };
+  })();
 
-  const loadDistricts = async (provinceIdValue) => {
-    if (!districtSelect) return;
+  // Load huyện
+  provinceSelect.addEventListener('change', async () => {
     districtSelect.innerHTML = '<option value="">Chọn quận/huyện</option>';
     districtSelect.disabled = true;
-    districtSelect.setAttribute('aria-disabled', 'true');
-    if (!provinceIdValue) return;
-    const districts = await getDistrictsByProvinceId(provinceIdValue);
-    districts.forEach((d) => {
+    destinationValue.value = '';
+
+    if (!provinceSelect.value) return;
+
+    const districts = await getDistrictsByProvinceId(provinceSelect.value);
+    districts.forEach(d => {
       const opt = document.createElement('option');
-      opt.value = d.idDistrict;
+      opt.value = d.name;
       opt.textContent = d.name;
       districtSelect.appendChild(opt);
     });
+
     districtSelect.disabled = false;
-    districtSelect.setAttribute('aria-disabled', 'false');
-  };
+  });
 
-  const validateDates = () => {
-    if (!departDate || !returnDate) return true;
-    if (!departDate.value || !returnDate.value) return true;
-    if (returnDate.value < departDate.value) {
-      setStatus('Ngày về phải sau hoặc bằng ngày đi.');
-      return false;
+  districtSelect.addEventListener('change', () => {
+    destinationValue.value =
+      provinceSelect.options[provinceSelect.selectedIndex].text +
+      ' - ' +
+      districtSelect.value;
+  });
+
+  // Submit
+  form.addEventListener('submit', async (e) => {
+    e.preventDefault();
+    statusEl.textContent = 'Đang gửi...';
+
+    if (!form.reportValidity()) {
+      statusEl.textContent = 'Vui lòng nhập đầy đủ thông tin bắt buộc.';
+      return;
     }
-    return true;
-  };
 
-  if (departSelect) {
-    departSelect.addEventListener('change', toggleCustomDeparture);
-    toggleCustomDeparture();
-  }
+    const fd = new FormData(form);
 
-  if (departDate) {
-    departDate.addEventListener('change', ensureReturnDateMin);
-  }
-  if (returnDate) {
-    returnDate.addEventListener('change', validateDates);
-  }
+    try {
+      const res = await fetch(form.action, { method: 'POST', body: fd });
+      const data = await res.json();
 
-  if (provinceSelect) {
-    loadProvinces();
-    provinceSelect.addEventListener('change', (e) => {
-      const id = e.target.value;
-      loadDistricts(id);
-    });
-  }
-
-  if (form) {
-    form.addEventListener('submit', async (e) => {
-      e.preventDefault();
-      setStatus('Đang gửi...');
-
-      if (!form.reportValidity()) {
-        setStatus('Vui lòng kiểm tra lại thông tin bắt buộc.');
-        return;
+      if (res.ok && data.success) {
+        form.reset();
+        departureCustom.hidden = true;
+        districtSelect.disabled = true;
+        statusEl.textContent = 'Đã gửi yêu cầu. Datmo sẽ liên hệ sớm.';
+      } else {
+        statusEl.textContent = 'Gửi không thành công. Vui lòng thử lại.';
       }
-
-      if (!validateDates()) return;
-
-      const fd = new FormData(form);
-      if (departSelect && departCustom && departSelect.value === 'Khác' && departCustom.value.trim()) {
-        fd.set('departure_location', departCustom.value.trim());
-      }
-
-      try {
-        const res = await fetch(endpoint, { method: 'POST', body: fd });
-        let data = null;
-        try {
-          data = await res.json();
-        } catch (_) {
-          // Non-JSON response fallback.
-        }
-        if (res.ok && data && data.success) {
-          form.reset();
-          toggleCustomDeparture();
-          ensureReturnDateMin();
-          setStatus('Đã gửi yêu cầu. Datmo sẽ liên hệ sớm.');
-        } else {
-          const msg = data && data.message ? data.message : `Gửi không thành công (HTTP ${res.status}). Vui lòng thử lại.`;
-          setStatus(msg);
-        }
-      } catch (err) {
-        setStatus('Có lỗi kết nối. Vui lòng thử lại.');
-      }
-    });
-  }
+    } catch {
+      statusEl.textContent = 'Lỗi kết nối. Vui lòng thử lại.';
+    }
+  });
 </script>
