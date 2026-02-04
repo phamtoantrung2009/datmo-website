@@ -1,5 +1,7 @@
 ﻿---
-import BaseLayout from '../../layouts/BaseLayout.astro';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+
+
 import { getOgImage } from '../../config/og';
 import Breadcrumbs from '../../components/Breadcrumbs.astro';
 import { SITE } from '../../config/site';
@@ -56,14 +58,14 @@ const contactPageJsonLd = {
         </div>
         <div class="form-field">
           <label for="service">Dịch vụ cần tư vấn *</label>
-          <select id="service" name="service" required>
-            <option value="">Chọn dịch vụ</option>
-            <option value="Thuê xe du lịch">Thuê xe du lịch</option>
-            <option value="Tour du lịch">Tour du lịch</option>
-            <option value="Vé tàu cao tốc">Vé tàu cao tốc</option>
-            <option value="Vé máy bay">Vé máy bay</option>
-            <option value="Khách sạn">Khách sạn</option>
-            <option value="Visa – Hộ chiếu">Visa – Hộ chiếu</option>
+          <select id="service" name="service">
+              <option value="">Chưa chọn dịch vụ</option>
+              <option value="Thuê xe du lịch">Thuê xe du lịch</option>
+              <option value="Tour du lịch">Tour du lịch</option>
+              <option value="Vé tàu cao tốc">Vé tàu cao tốc</option>
+              <option value="Vé máy bay">Vé máy bay</option>
+              <option value="Khách sạn">Khách sạn</option>
+              <option value="Visa – Hộ chiếu">Visa – Hộ chiếu</option>
           </select>
         </div>
         <div class="form-field">
