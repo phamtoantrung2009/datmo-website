@@ -24,8 +24,23 @@ import provinces from '../data/vietnam-provinces.json';
     </div>
 
     <div class="form-field">
-      <label for="to_province">Tỉnh / Thành phố *</label>
-      <input id="to_province" type="text" list="province-list" placeholder="Nhập để tìm" autocomplete="off" required />
+      <label for="to_province" class="province-label province-desktop">Tỉnh / Thành phố *</label>
+      <label for="to_province_select" class="province-label province-mobile">Tỉnh / Thành phố *</label>
+      <input
+        id="to_province"
+        class="province-input province-desktop"
+        type="text"
+        list="province-list"
+        placeholder="Nhập để tìm"
+        autocomplete="off"
+        required
+      />
+      <select id="to_province_select" class="province-select province-mobile">
+        <option value="">Chọn tỉnh / thành phố</option>
+        {provinces.map((p) => (
+          <option value={p.name}>{p.name}</option>
+        ))}
+      </select>
       <datalist id="province-list">
         {provinces.map((p) => (
           <option value={p.name} />
@@ -102,6 +117,10 @@ import provinces from '../data/vietnam-provinces.json';
     display: none;
   }
 
+  .province-mobile {
+    display: none;
+  }
+
   @media (min-width: 768px) {
     .form-grid {
       grid-template-columns: repeat(2, minmax(0, 1fr));
@@ -117,6 +136,16 @@ import provinces from '../data/vietnam-provinces.json';
       width: auto;
     }
   }
+
+  @media (max-width: 767px) {
+    .province-desktop {
+      display: none;
+    }
+
+    .province-mobile {
+      display: block;
+    }
+  }
 </style>
 
 <script is:inline define:vars={{ provinces }}>
@@ -127,6 +156,7 @@ import provinces from '../data/vietnam-provinces.json';
   const fromOther = document.getElementById('from_other');
   const fromValue = document.getElementById('from_value');
   const provinceInput = document.getElementById('to_province');
+  const provinceSelect = document.getElementById('to_province_select');
   const districtSelect = document.getElementById('to_district');
   const toValue = document.getElementById('to_value');
   const startDate = document.getElementById('start_date');
@@ -154,7 +184,6 @@ import provinces from '../data/vietnam-provinces.json';
       if (fromOtherWrap) fromOtherWrap.setAttribute('data-hidden', 'false');
       if (fromOther) {
         fromOther.required = true;
-        fromOther.focus();
         fromValue.value = fromOther.value.trim();
       }
     } else {
@@ -197,9 +226,8 @@ import provinces from '../data/vietnam-provinces.json';
 
   const validatePhone = () => {
     if (!phoneInput) return true;
-    const value = phoneInput.value.trim();
-    const ok = /^(0|\+84)\d{9}$/.test(value);
-    const value = phoneInput.value.replace(/\s+/g, '');
+    const value = phoneInput.value.replace(/\\s+/g, '').trim();
+    const ok = /^0\\d{9}$/.test(value);
     phoneInput.setCustomValidity(ok ? '' : 'Số điện thoại phải bắt đầu bằng 0 và đủ 10 chữ số.');
     return ok;
   };
@@ -230,19 +258,50 @@ import provinces from '../data/vietnam-provinces.json';
     });
   }
 
-  if (provinceInput) {
-    const handleProvince = () => {
-      const name = provinceInput.value.trim();
-      if (name && !provinceMap.has(name)) {
-        provinceInput.setCustomValidity('Vui lòng chọn tỉnh/thành phố hợp lệ.');
-      } else {
-        provinceInput.setCustomValidity('');
+  const handleProvince = () => {
+    if (!provinceInput) return;
+    const name = provinceInput.value.trim();
+    if (name && !provinceMap.has(name)) {
+      provinceInput.setCustomValidity('Vui lòng chọn tỉnh/thành phố hợp lệ.');
+    } else {
+      provinceInput.setCustomValidity('');
+    }
+    populateDistricts(name);
+    syncToValue();
+  };
+
+  const syncProvinceMode = () => {
+    if (!provinceInput || !provinceSelect) return;
+    const isMobile = window.matchMedia('(max-width: 767px)').matches;
+    if (isMobile) {
+      provinceInput.disabled = true;
+      provinceInput.required = false;
+      provinceSelect.disabled = false;
+      provinceSelect.required = true;
+      if (provinceSelect.value && provinceInput.value !== provinceSelect.value) {
+        provinceInput.value = provinceSelect.value;
+        handleProvince();
       }
-      populateDistricts(name);
-      syncToValue();
-    };
+    } else {
+      provinceInput.disabled = false;
+      provinceInput.required = true;
+      provinceSelect.disabled = true;
+      provinceSelect.required = false;
+    }
+  };
+
+  if (provinceInput) {
     provinceInput.addEventListener('input', handleProvince);
     provinceInput.addEventListener('change', handleProvince);
+  }
+
+  if (provinceSelect) {
+    provinceSelect.addEventListener('change', () => {
+      if (provinceInput) {
+        provinceInput.value = provinceSelect.value;
+        handleProvince();
+      }
+    });
   }
 
   if (districtSelect) {
@@ -269,6 +328,15 @@ import provinces from '../data/vietnam-provinces.json';
   if (form) {
     setTodayMin();
     syncFromValue();
+    syncProvinceMode();
+    if (provinceSelect) {
+      const mq = window.matchMedia('(max-width: 767px)');
+      if (mq.addEventListener) {
+        mq.addEventListener('change', syncProvinceMode);
+      } else if (mq.addListener) {
+        mq.addListener(syncProvinceMode);
+      }
+    }
     form.addEventListener('submit', async (e) => {
       e.preventDefault();
       setStatus('');
