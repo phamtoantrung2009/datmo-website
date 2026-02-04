@@ -119,8 +119,7 @@ import provinces from '../data/vietnam-provinces.json';
   }
 </style>
 
-<script is:inline>
-  const provinces = /** @type {{name:string, districts:string[]}[]} */ (JSON.parse(`JSON.stringify(provinces)`));
+<script is:inline define:vars={{ provinces }}>
   const form = document.getElementById('quote-form');
   const statusEl = document.getElementById('quote-status');
   const fromSelect = document.getElementById('from_select');
@@ -231,7 +230,7 @@ import provinces from '../data/vietnam-provinces.json';
   }
 
   if (provinceInput) {
-    provinceInput.addEventListener('input', () => {
+    const handleProvince = () => {
       const name = provinceInput.value.trim();
       if (name && !provinceMap.has(name)) {
         provinceInput.setCustomValidity('Vui lòng chọn tỉnh/thành phố hợp lệ.');
@@ -240,7 +239,9 @@ import provinces from '../data/vietnam-provinces.json';
       }
       populateDistricts(name);
       syncToValue();
-    });
+    };
+    provinceInput.addEventListener('input', handleProvince);
+    provinceInput.addEventListener('change', handleProvince);
   }
 
   if (districtSelect) {
