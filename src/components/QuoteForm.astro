@@ -198,7 +198,8 @@ import provinces from '../data/vietnam-provinces.json';
   const validatePhone = () => {
     if (!phoneInput) return true;
     const value = phoneInput.value.trim();
-    const ok = /^0\d{9}$/.test(value);
+    const ok = /^(0|\+84)\d{9}$/.test(value);
+    const value = phoneInput.value.replace(/\s+/g, '');
     phoneInput.setCustomValidity(ok ? '' : 'Số điện thoại phải bắt đầu bằng 0 và đủ 10 chữ số.');
     return ok;
   };
