@@ -1,0 +1,109 @@
+---
+import { SITE } from '../config/site';
+---
+<div class="card" style="margin-top:14px">
+  <h2>Form liên hệ</h2>
+  <form id="contact-form" method="POST" action="https://dark-hat-f96f.phamtoantrung2009.workers.dev/" class="form-grid">
+    <div class="form-field">
+      <label for="full_name">Họ tên *</label>
+      <input id="full_name" name="full_name" type="text" required />
+    </div>
+    <div class="form-field">
+      <label for="phone">Số điện thoại *</label>
+      <input id="phone" name="phone" type="tel" required />
+    </div>
+    <div class="form-field">
+      <label for="email">Email (không bắt buộc)</label>
+      <input id="email" name="email" type="email" placeholder="email@example.com" />
+    </div>
+    <div class="form-field">
+      <label for="service">Dịch vụ cần tư vấn *</label>
+      <select id="service" name="service">
+        <option value="">Chưa chọn dịch vụ</option>
+        <option value="Thuê xe du lịch">Thuê xe du lịch</option>
+        <option value="Tour du lịch">Tour du lịch</option>
+        <option value="Vé tàu cao tốc">Vé tàu cao tốc</option>
+        <option value="Vé máy bay">Vé máy bay</option>
+        <option value="Khách sạn">Khách sạn</option>
+        <option value="Visa – Hộ chiếu">Visa – Hộ chiếu</option>
+      </select>
+    </div>
+    <div class="form-field">
+      <label for="message">Nội dung</label>
+      <textarea id="message" name="message" rows="4" placeholder="Ngày đi – tuyến – số khách – yêu cầu..."></textarea>
+    </div>
+    <input type="text" name="company" class="hp-field" tabindex="-1" autocomplete="off" aria-hidden="true" />
+    <input type="hidden" name="ts" value="" />
+    <button class="btn primary" type="submit">Nhận tư vấn</button>
+    <p id="form-status" class="small form-status" role="status" aria-live="polite"></p>
+  </form>
+  <p class="small">Gửi form để nhận tư vấn qua email: {SITE.email}</p>
+</div>
+
+<style>
+  .form-grid {
+    display: grid;
+    gap: 10px;
+  }
+
+  .form-grid .form-field {
+    margin: 0;
+  }
+
+  .form-grid .btn {
+    width: 100%;
+    justify-self: start;
+  }
+
+  @media (min-width: 768px) {
+    .form-grid {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 12px 16px;
+    }
+
+    .form-grid .form-field:nth-of-type(5) {
+      grid-column: 1 / -1;
+    }
+
+    .form-grid .btn,
+    .form-grid .form-status {
+      grid-column: 1 / -1;
+    }
+
+    .form-grid .btn {
+      width: auto;
+    }
+  }
+</style>
+
+<script is:inline>
+  const form = document.getElementById('contact-form');
+  const statusEl = document.getElementById('form-status');
+  if (form) {
+    form.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      if (statusEl) statusEl.textContent = 'Đang gửi...';
+      const fd = new FormData(form);
+      const ts = form.querySelector('input[name="ts"]');
+      if (ts) ts.value = Date.now().toString();
+      try {
+        const res = await fetch(form.action, { method: 'POST', body: fd });
+        let data = null;
+        try {
+          data = await res.json();
+        } catch (_) {
+          // Non-JSON response (e.g., 404 HTML) — fallback to generic message.
+        }
+        if (res.ok && data && data.success) {
+          form.reset();
+          if (statusEl) statusEl.textContent = 'Đã gửi yêu cầu. Datmo sẽ liên hệ sớm.';
+        } else {
+          const msg = data && data.message ? data.message : `Gửi không thành công (HTTP ${res.status}). Vui lòng thử lại.`;
+          if (statusEl) statusEl.textContent = msg;
+        }
+      } catch (err) {
+        if (statusEl) statusEl.textContent = 'Có lỗi kết nối. Vui lòng thử lại.';
+      }
+    });
+  }
+</script>
