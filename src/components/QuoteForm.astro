@@ -1,196 +1,128 @@
 ---
 const {
-  title = 'Nhận báo giá thuê xe du lịch nhanh',
-  ctaText = 'Nhận báo giá',
   endpoint = 'https://dark-hat-f96f.phamtoantrung2009.workers.dev/quote',
-  source = 'homepage',
+  title = 'Nhận báo giá thuê xe du lịch nhanh',
 } = Astro.props;
+
+const formId = `quote-${Math.random().toString(36).slice(2, 8)}`;
 ---
 
-<section class="container section" aria-label="Form báo giá thuê xe">
+<section class="container section">
   <div class="card">
     <h2>{title}</h2>
 
-    <form id="quote-form" class="form-grid" method="POST" action={endpoint} novalidate>
-      <!-- Điểm đón -->
-      <div class="form-field">
-        <label>Điểm đón *</label>
-        <select id="departure" required>
-          <option value="">Chọn điểm đón</option>
-          <option>Cẩm Phả</option>
-          <option>Cửa Ông</option>
-          <option>Vân Đồn</option>
-          <option>Mông Dương</option>
-          <option>Hạ Long</option>
-          <option value="custom">Khác (nhập tay)</option>
-        </select>
+    <form id={formId} class="quote-form" novalidate>
+      <!-- ROW 1 -->
+      <div class="row">
+        <div class="field">
+          <label>Điểm đón *</label>
+          <input name="from" required placeholder="Cẩm Phả / Cửa Ông / nhập tay" />
+        </div>
 
-        <input
-          id="departure-custom"
-          type="text"
-          placeholder="Nhập điểm đón"
-          class="mt-2"
-          hidden
-        />
-
-        <input type="hidden" name="from" id="departure-value" />
+        <div class="field">
+          <label>Điểm đến *</label>
+          <input name="to" required placeholder="Hà Nội / Hải Phòng / ..." />
+        </div>
       </div>
 
-      <!-- Điểm đến -->
-      <div class="form-field">
-        <label>Điểm đến (tỉnh/thành) *</label>
-        <select id="province" required>
-          <option value="">Chọn tỉnh/thành</option>
-        </select>
+      <!-- ROW 2 -->
+      <div class="row">
+        <div class="field">
+          <label>Ngày đi *</label>
+          <input type="date" name="start_date" required />
+        </div>
+
+        <div class="field">
+          <label>Ngày về *</label>
+          <input type="date" name="end_date" required />
+        </div>
       </div>
 
-      <div class="form-field">
-        <label>Quận / Huyện *</label>
-        <select id="district" required disabled>
-          <option value="">Chọn quận/huyện</option>
-        </select>
+      <!-- ROW 3 -->
+      <div class="row">
+        <div class="field">
+          <label>Loại xe *</label>
+          <select name="vehicle" required>
+            <option value="">Chọn loại xe</option>
+            <option>16 chỗ</option>
+            <option>29 chỗ</option>
+            <option>45 chỗ</option>
+          </select>
+        </div>
 
-        <input type="hidden" name="to" id="destination-value" />
+        <div class="field">
+          <label>Số điện thoại *</label>
+          <input
+            name="phone"
+            type="tel"
+            required
+            inputmode="tel"
+            placeholder="VD: 0989 123 456"
+          />
+        </div>
       </div>
 
-      <!-- Ngày -->
-      <div class="form-field">
-        <label>Ngày đi *</label>
-        <input type="date" name="start_date" id="start_date" required />
-      </div>
+      <button type="submit" class="btn primary full">
+        Yêu cầu báo giá
+      </button>
 
-      <div class="form-field">
-        <label>Ngày về *</label>
-        <input type="date" name="end_date" id="end_date" required />
-      </div>
-
-      <!-- Loại xe -->
-      <div class="form-field">
-        <label>Loại xe *</label>
-        <select name="vehicle" required>
-          <option value="">Chọn loại xe</option>
-          <option>16 chỗ</option>
-          <option>29 chỗ</option>
-          <option>45 chỗ</option>
-        </select>
-      </div>
-
-      <!-- Phone -->
-      <div class="form-field">
-        <label>Số điện thoại *</label>
-        <input
-          type="tel"
-          name="phone"
-          required
-          inputmode="tel"
-          autocomplete="tel"
-        />
-      </div>
-
-      <input type="hidden" name="source" value={source} />
-
-      <button class="btn primary" type="submit">{ctaText}</button>
-      <p id="quote-status" class="small" aria-live="polite"></p>
+      <p class="status" aria-live="polite"></p>
     </form>
   </div>
 </section>
 
-<script type="module">
-  import { getAllProvincesSorted } from 'vietnam-provinces-js/provinces';
-  import { getDistrictsByProvinceId } from 'vietnam-provinces-js/districts';
+<script is:inline>
+  const form = document.getElementById('{formId}');
+  const status = form.querySelector('.status');
 
-  const form = document.getElementById('quote-form');
-  const statusEl = document.getElementById('quote-status');
-
-  const departureSelect = document.getElementById('departure');
-  const departureCustom = document.getElementById('departure-custom');
-  const departureValue = document.getElementById('departure-value');
-
-  const provinceSelect = document.getElementById('province');
-  const districtSelect = document.getElementById('district');
-  const destinationValue = document.getElementById('destination-value');
-
-  // Điểm đón
-  departureSelect.addEventListener('change', () => {
-    if (departureSelect.value === 'custom') {
-      departureCustom.hidden = false;
-      departureCustom.required = true;
-      departureValue.value = '';
-      departureCustom.focus();
-    } else {
-      departureCustom.hidden = true;
-      departureCustom.required = false;
-      departureValue.value = departureSelect.value;
-    }
-  });
-
-  departureCustom.addEventListener('input', () => {
-    departureValue.value = departureCustom.value.trim();
-  });
-
-  // Load tỉnh
-  (async () => {
-    const provinces = await getAllProvincesSorted();
-    provinces.forEach(p => {
-      const opt = document.createElement('option');
-      opt.value = p.idProvince;
-      opt.textContent = p.name;
-      provinceSelect.appendChild(opt);
-    });
-  })();
-
-  // Load huyện
-  provinceSelect.addEventListener('change', async () => {
-    districtSelect.innerHTML = '<option value="">Chọn quận/huyện</option>';
-    districtSelect.disabled = true;
-    destinationValue.value = '';
-
-    if (!provinceSelect.value) return;
-
-    const districts = await getDistrictsByProvinceId(provinceSelect.value);
-    districts.forEach(d => {
-      const opt = document.createElement('option');
-      opt.value = d.name;
-      opt.textContent = d.name;
-      districtSelect.appendChild(opt);
-    });
-
-    districtSelect.disabled = false;
-  });
-
-  districtSelect.addEventListener('change', () => {
-    destinationValue.value =
-      provinceSelect.options[provinceSelect.selectedIndex].text +
-      ' - ' +
-      districtSelect.value;
-  });
-
-  // Submit
   form.addEventListener('submit', async (e) => {
-    e.preventDefault();
-    statusEl.textContent = 'Đang gửi...';
+    e.preventDefault(); // 🔴 QUAN TRỌNG
+
+    status.textContent = 'Đang gửi...';
 
     if (!form.reportValidity()) {
-      statusEl.textContent = 'Vui lòng nhập đầy đủ thông tin bắt buộc.';
+      status.textContent = 'Vui lòng điền đủ thông tin bắt buộc.';
       return;
     }
 
     const fd = new FormData(form);
 
     try {
-      const res = await fetch(form.action, { method: 'POST', body: fd });
+      const res = await fetch('{endpoint}', {
+        method: 'POST',
+        body: fd,
+      });
+
       const data = await res.json();
 
       if (res.ok && data.success) {
         form.reset();
-        departureCustom.hidden = true;
-        districtSelect.disabled = true;
-        statusEl.textContent = 'Đã gửi yêu cầu. Datmo sẽ liên hệ sớm.';
+        status.textContent = 'Đã gửi yêu cầu. Datmo sẽ liên hệ sớm.';
       } else {
-        statusEl.textContent = 'Gửi không thành công. Vui lòng thử lại.';
+        status.textContent = data.error || 'Gửi không thành công.';
       }
     } catch {
-      statusEl.textContent = 'Lỗi kết nối. Vui lòng thử lại.';
+      status.textContent = 'Lỗi kết nối. Vui lòng thử lại.';
     }
   });
 </script>
+
+<style>
+.quote-form .row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+}
+.quote-form .field {
+  display: flex;
+  flex-direction: column;
+}
+.quote-form .full {
+  width: 100%;
+}
+@media (max-width: 768px) {
+  .quote-form .row {
+    grid-template-columns: 1fr;
+  }
+}
+</style>
