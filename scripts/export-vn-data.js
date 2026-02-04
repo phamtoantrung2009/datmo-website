@@ -1,22 +1,27 @@
-import fs from 'fs';
-import {
-  getAllProvinces,
-  getAllDistricts
-} from 'vietnam-provinces-js';
+import fs from "fs";
+import path from "path";
 
-const provinces = getAllProvinces();
-const districts = getAllDistricts();
+import { getAllProvinces } from "vietnam-provinces-js/provinces";
+import { getAllDistricts } from "vietnam-provinces-js/districts";
 
-fs.mkdirSync('public/data', { recursive: true });
+const provinces = await getAllProvinces();
+const districts = await getAllDistricts();
 
-fs.writeFileSync(
-  'public/data/vn-provinces.json',
-  JSON.stringify(provinces, null, 2)
-);
+const data = provinces.map((p) => ({
+  code: p.idProvince,
+  name: p.name,
+  districts: districts
+    .filter((d) => d.idProvince === p.idProvince)
+    .map((d) => ({
+      code: d.idDistrict,
+      name: d.name,
+    })),
+}));
 
-fs.writeFileSync(
-  'public/data/vn-districts.json',
-  JSON.stringify(districts, null, 2)
-);
+const outDir = path.resolve("public/data");
+const outFile = path.join(outDir, "vietnam-provinces.json");
 
-console.log('✅ Export xong dữ liệu VN');
+fs.mkdirSync(outDir, { recursive: true });
+fs.writeFileSync(outFile, JSON.stringify(data, null, 2), "utf-8");
+
+console.log("✅ Exported vietnam-provinces.json → public/data/");
