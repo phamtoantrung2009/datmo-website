@@ -1,9 +1,12 @@
 ﻿---
-import BaseLayout from '../layouts/BaseLayout.astro';
+import BaseLayout from '../layouts/BaseLayout.astro';
+
+
 import { getOgImage } from '../config/og';
 import Hero from '../components/Hero.astro';
 import ServiceCards from '../components/ServiceCards.astro';
 import CallToActions from '../components/CallToActions.astro';
+import QuoteForm from '../components/QuoteForm.astro';
 
 // SEO: tune homepage title/description length for SERP.
 const title = 'Thuê xe & tour du lịch Cẩm Phả, Quảng Ninh | Datmo';
@@ -15,7 +18,7 @@ const ogImage = getOgImage('/');
     h1="Dịch vụ du lịch & vận chuyển tại Cẩm Phả – Quảng Ninh"
     sub="Thuê xe 16–45 chỗ • Tour xuất phát từ Cẩm Phả • Vé tàu cao tốc • Vé máy bay • Visa"
   />
-
+<QuoteForm />
   <section class="container section">
     <h2>Dịch vụ nổi bật</h2>
     <ServiceCards />
