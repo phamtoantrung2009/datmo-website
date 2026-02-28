@@ -1,12 +1,12 @@
 ---
-title: "Đặt vé máy bay giá rẻ từ Cẩm Phả – Quảng Ninh: Sân bay, hãng bay & mẹo săn vé"
-description: "Hướng dẫn đặt vé máy bay giá rẻ từ Quảng Ninh qua sân bay Vân Đồn: các hãng bay, đường bay, cách săn vé rẻ và combo xe đưa đón sân bay tiện lợi."
+title: "Đặt vé máy bay từ Cẩm Phả – Quảng Ninh qua sân bay Vân Đồn (cập nhật 2026)"
+description: "Hướng dẫn đặt vé máy bay từ Quảng Ninh qua sân bay Vân Đồn: tuyến bay, lịch bay, giá vé, mẹo săn vé rẻ và dịch vụ xe đưa đón sân bay."
 publishedAt: 2026-02-28
 category: "ve-may-bay"
-tags: ["ve-may-bay", "van-don", "quang-ninh", "cam-pha"]
+tags: ["ve-may-bay", "van-don", "quang-ninh", "cam-pha", "san-bay-van-don"]
 ---
 
-Từ khi sân bay Vân Đồn đi vào hoạt động, người dân Cẩm Phả và Quảng Ninh không cần phải chạy hơn 200 km ra Nội Bài nữa. Sân bay nằm ngay tại huyện Vân Đồn, cách Cẩm Phả chỉ khoảng 50 km — tiết kiệm thời gian và chi phí đáng kể. Bài viết này chia sẻ kinh nghiệm đặt vé máy bay giá rẻ từ Quảng Ninh, cùng mẹo săn vé và dịch vụ hỗ trợ từ Datmo.
+Từ khi sân bay Vân Đồn đi vào hoạt động, người dân Cẩm Phả và Quảng Ninh không cần phải chạy hơn 200 km ra Nội Bài nữa. Sân bay nằm ngay tại huyện Vân Đồn, cách Cẩm Phả chỉ khoảng 50 km — tiết kiệm thời gian và chi phí đáng kể.
 
 ## Sân bay Vân Đồn — sân bay gần Cẩm Phả nhất
 
@@ -24,60 +24,53 @@ So với sân bay Nội Bài (Hà Nội) cách Cẩm Phả hơn 200 km, bay từ
 
 Sân bay Vân Đồn có nhà ga hiện đại, đủ tiện nghi: quầy check-in, phòng chờ, cửa hàng miễn thuế, quán cà phê. Bãi đỗ xe rộng rãi, có dịch vụ taxi và xe đưa đón.
 
-## Các hãng bay & đường bay từ Vân Đồn
+## Đường bay đang khai thác từ Vân Đồn (cập nhật 2026)
 
-Hiện tại, sân bay Vân Đồn có các đường bay nội địa chính:
+Hiện tại, sân bay Vân Đồn **chỉ đang khai thác 1 tuyến nội địa duy nhất:**
 
-### Vân Đồn – TP. Hồ Chí Minh
+### ✈️ Vân Đồn – TP. Hồ Chí Minh (Tân Sơn Nhất)
 
-- **Hãng bay:** Vietjet Air, Bamboo Airways
-- **Tần suất:** Hàng ngày hoặc cách ngày
-- **Thời gian bay:** ~2 tiếng 15 phút
+- **Ngày bay:** Thứ 3, Thứ 5 và Thứ 7 hàng tuần
+- **Chiều đi SGN → VDO:** khởi hành 6:00 – hạ cánh 8:00
+- **Chiều về VDO → SGN:** khởi hành 8:40 – hạ cánh 10:50
+- **Nhà ga tại TP.HCM:** Nhà ga **T3 Tân Sơn Nhất** (nhà ga mới)
+- **Thời gian bay:** ~2 tiếng
 - **Giá vé tham khảo:** 800.000 – 2.500.000 đ/chiều (tuỳ thời điểm đặt)
 
-### Vân Đồn – Đà Nẵng
+> ⚠️ **Lưu ý:** Lịch bay và tần suất có thể thay đổi theo mùa. Luôn kiểm tra lịch bay mới nhất trước khi đặt vé, hoặc liên hệ Datmo để được hỗ trợ.
 
-- **Hãng bay:** Vietjet Air
-- **Tần suất:** 3–4 chuyến/tuần
-- **Thời gian bay:** ~1 tiếng 30 phút
-- **Giá vé tham khảo:** 600.000 – 1.800.000 đ/chiều
+### Các tuyến khác?
 
-### Vân Đồn – Các điểm đến khác
+Tính đến đầu 2026, sân bay Vân Đồn chưa khai thác trở lại các tuyến đi Đà Nẵng, Nha Trang hay các điểm đến khác. Nếu bạn cần bay đến những nơi này, sẽ phải đi qua sân bay Nội Bài (Hà Nội) hoặc nối chuyến tại TP.HCM.
 
-Tuỳ mùa, có thể có thêm đường bay đến Nha Trang, Đà Lạt, Phú Quốc. Kiểm tra lịch bay cập nhật trên website hãng hoặc liên hệ Datmo.
+👉 Xem chi tiết: [Lịch bay Vân Đồn – TP.HCM: giờ bay, giá vé & kinh nghiệm](/blog/lich-bay-van-don-tp-hcm-gio-bay-gia-ve/)
 
 ## Cách đặt vé máy bay giá rẻ
 
 ### 1. Đặt sớm
 
-Quy tắc vàng: đặt trước 2–4 tuần để có giá tốt nhất. Vé rẻ nhất thường bán hết trong 1–3 ngày đầu mở bán. Đặt trước 2 tháng còn có cơ hội trúng vé 0 đồng (chỉ trả thuế phí).
+Quy tắc vàng: đặt trước 2–4 tuần để có giá tốt nhất. Vé rẻ nhất thường bán hết trong 1–3 ngày đầu mở bán. Đặt trước 2 tháng có cơ hội trúng vé khuyến mãi.
 
-### 2. Bay giữa tuần
+### 2. Chọn đúng ngày bay
 
-Thứ 3, thứ 4, thứ 5 thường có vé rẻ hơn cuối tuần (thứ 6–Chủ nhật). Nếu lịch trình linh hoạt, ưu tiên bay ngày thường.
+Tuyến Vân Đồn chỉ bay thứ 3, 5, 7. Nếu lịch trình linh hoạt, bay thứ 3 hoặc thứ 5 thường có vé rẻ hơn thứ 7.
 
-### 3. So sánh giá giữa các hãng
+### 3. Theo dõi khuyến mãi
 
-Mỗi hãng có chính sách giá khác nhau. Kiểm tra Vietjet, Bamboo Airways, Vietnam Airlines (nếu có chặng). Đôi khi hãng giá rẻ lại đắt hơn hãng truyền thống khi cộng thêm phí hành lý, chọn ghế.
+Các hãng bay thường xuyên có flash sale, đặc biệt khi mở bán lịch bay mùa mới. Đăng ký nhận thông báo từ hãng hoặc nhờ Datmo theo dõi giúp.
 
-### 4. Theo dõi khuyến mãi
+### 4. Đặt qua Datmo
 
-Các hãng bay thường xuyên có flash sale:
-- **Vietjet:** "Bay là thích ngay" — vé từ 0 đồng, thường vào thứ 4–5 hàng tuần.
-- **Bamboo Airways:** Khuyến mãi theo mùa, đặc biệt khi mở đường bay mới.
-
-### 5. Đặt qua Datmo
-
-[Datmo](/ve-may-bay/) hỗ trợ đặt vé máy bay từ sân bay Vân Đồn. Ưu điểm khi đặt qua Datmo:
-- So sánh giá nhiều hãng, chọn chuyến tối ưu.
-- Hỗ trợ đổi/huỷ vé khi cần.
-- Combo xe đưa đón sân bay + vé máy bay — tiện lợi, không lo di chuyển.
+[Datmo](/ve-may-bay/) hỗ trợ đặt vé máy bay từ sân bay Vân Đồn:
+- So sánh giá, chọn chuyến tối ưu
+- Hỗ trợ đổi/huỷ vé khi cần
+- Combo xe đưa đón sân bay + vé máy bay — tiện lợi, không lo di chuyển
 
 ## Combo xe + vé máy bay
 
-Một trong những vấn đề lớn nhất khi bay từ Vân Đồn là di chuyển từ Cẩm Phả ra sân bay. Đi taxi riêng tốn 400.000–500.000 đ 1 chiều. Giải pháp: đặt combo qua Datmo.
+Một trong những vấn đề khi bay từ Vân Đồn là di chuyển từ Cẩm Phả ra sân bay. Đi taxi riêng tốn 400.000–500.000 đ 1 chiều.
 
-### Combo bao gồm:
+### Combo Datmo bao gồm:
 - Vé máy bay (đã chọn chuyến, giá tốt nhất)
 - Xe đưa đón Cẩm Phả ↔ sân bay Vân Đồn
 - Hỗ trợ check-in online, gửi boarding pass qua Zalo
@@ -85,29 +78,29 @@ Một trong những vấn đề lớn nhất khi bay từ Vân Đồn là di chu
 ### Ưu điểm:
 - **Tiện lợi:** Xe đón tận nhà, đưa đến sảnh sân bay. Về cũng đón tại sân bay.
 - **Tiết kiệm:** Giá combo rẻ hơn đặt riêng xe + vé.
-- **An tâm:** Không lo trễ chuyến bay vì tài xế sẽ tính toán giờ đi phù hợp.
+- **An tâm:** Tài xế tính toán giờ đi phù hợp với giờ bay, không lo trễ chuyến.
 
 Nếu đi nhóm, có thể đặt [xe 16 chỗ](/thue-xe-du-lich/thue-xe-16-cho-cam-pha/) đưa cả nhóm ra sân bay, chia đầu người rất rẻ.
 
 ## Lưu ý khi bay từ Vân Đồn
 
-1. **Đến sân bay sớm 1,5–2 tiếng:** Sân bay nhỏ nên thủ tục nhanh, nhưng vẫn nên đến sớm phòng trường hợp đông khách.
-2. **Hành lý xách tay:** Hãng giá rẻ thường chỉ cho 7 kg xách tay. Mua thêm hành lý ký gửi khi đặt vé sẽ rẻ hơn mua tại sân bay.
+1. **Đến sân bay sớm 1,5–2 tiếng:** Sân bay nhỏ nên thủ tục nhanh, nhưng vẫn nên đến sớm.
+2. **Hành lý:** Hãng giá rẻ thường chỉ cho 7 kg xách tay. Mua thêm hành lý ký gửi khi đặt vé sẽ rẻ hơn mua tại sân bay.
 3. **Thời tiết:** Mùa đông Quảng Ninh hay có sương mù, có thể ảnh hưởng đến lịch bay. Theo dõi thông báo từ hãng.
-4. **Đặt phòng tại điểm đến:** Bay buổi tối đến TP.HCM hoặc Đà Nẵng, nên đặt sẵn khách sạn gần sân bay đến.
-5. **Giấy tờ:** Mang CCCD gốc (hoặc hộ chiếu cho chuyến quốc tế). Trẻ em dưới 14 tuổi cần giấy khai sinh bản gốc.
+4. **Nhà ga T3 tại TP.HCM:** Tuyến Vân Đồn bay đến/đi từ nhà ga T3 Tân Sơn Nhất — lưu ý khi đặt xe đón tại sân bay Tân Sơn Nhất.
+5. **Giấy tờ:** Mang CCCD gốc. Trẻ em dưới 14 tuổi cần giấy khai sinh bản gốc.
 
 ## So sánh: Bay từ Vân Đồn hay đi xe ra Nội Bài?
 
 | Tiêu chí | Bay từ Vân Đồn | Xe ra Nội Bài rồi bay |
 |----------|----------------|----------------------|
 | Thời gian đến sân bay | 50–60 phút | 3,5–4,5 tiếng |
-| Chi phí di chuyển | 200.000–300.000 đ (combo) | 2.800.000–3.500.000 đ (xe riêng) |
+| Chi phí di chuyển | 200–300k (combo) | 2,8–3,5 triệu (xe riêng) |
 | Sự mệt mỏi | Thấp | Cao |
-| Đường bay | Hạn chế hơn | Đa dạng |
-| Phù hợp | Bay đi TP.HCM, Đà Nẵng | Bay đi bất kỳ nơi nào |
+| Đường bay | Chỉ TP.HCM (2026) | Đa dạng |
+| Phù hợp | Bay đi TP.HCM | Bay đi nơi khác |
 
-**Kết luận:** Nếu điểm đến có đường bay từ Vân Đồn, bay từ đây là lựa chọn tối ưu. Nếu cần bay đi điểm Vân Đồn chưa có đường bay, mới cân nhắc ra Nội Bài.
+**Kết luận:** Nếu đi TP.HCM, bay từ Vân Đồn là lựa chọn tối ưu. Nếu cần bay đến nơi khác, cân nhắc ra Nội Bài hoặc nối chuyến qua TP.HCM.
 
 ## Liên hệ đặt vé
 
@@ -117,4 +110,4 @@ Nếu đi nhóm, có thể đặt [xe 16 chỗ](/thue-xe-du-lich/thue-xe-16-cho-
 
 ---
 
-✈️ **Xem thêm:** [Dịch vụ vé máy bay Datmo](/ve-may-bay/) | [Thuê xe đi sân bay](/thue-xe-du-lich/thue-xe-16-cho-cam-pha/)
+✈️ **Xem thêm:** [Dịch vụ vé máy bay Datmo](/ve-may-bay/) | [Thuê xe đi sân bay](/thue-xe-du-lich/thue-xe-16-cho-cam-pha/) | [Lịch bay Vân Đồn – TP.HCM chi tiết](/blog/lich-bay-van-don-tp-hcm-gio-bay-gia-ve/)
