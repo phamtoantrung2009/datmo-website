@@ -54,10 +54,16 @@ Xe 29 chỗ cũng phù hợp cho tour 2–3 ngày: Cẩm Phả → Hà Nội →
 
 ## Giá thuê xe 29 chỗ tham khảo
 
-- **Cẩm Phả – Hà Nội (1 chiều):** 3.500.000 – 4.500.000 đ
+Giá dựa trên các chuyến thực tế gần đây, có thể thay đổi theo mùa và ngày lễ:
+
+- **Cẩm Phả – Hạ Long (khứ hồi):** 2.000.000 – 2.500.000 đ
+- **Cẩm Phả – Vân Đồn (khứ hồi):** 2.000.000 đ
+- **Cẩm Phả – Móng Cái (khứ hồi):** 3.800.000 – 7.000.000 đ
+- **Cẩm Phả – Hải Phòng (khứ hồi):** 4.000.000 – 5.000.000 đ
+- **Cẩm Phả – Hà Nội (khứ hồi):** 5.000.000 – 7.500.000 đ
 - **Cẩm Phả – Nội Bài (1 chiều):** 4.000.000 – 5.000.000 đ
-- **Cẩm Phả – Hạ Long (nội ngày):** 2.000.000 – 2.500.000 đ
-- **Tour 2 ngày 1 đêm (Quảng Ninh – Hà Nội):** 6.000.000 – 8.000.000 đ
+- **Tour 2 ngày liên tỉnh (Thanh Hoá, Vĩnh Phúc...):** 6.000.000 – 6.500.000 đ
+- **Tour dài ngày (Mộc Châu, Hà Giang, Đà Nẵng...):** 10.500.000 – 25.500.000 đ
 
 Giá đã bao gồm xăng, phí cầu đường, lái xe. Lưu ý: giá có thể thay đổi vào dịp lễ, Tết.
 
@@ -85,7 +91,7 @@ Chuyến dài 3–4 tiếng, nên chuẩn bị nước uống, bánh kẹo. Hầ
 
 ## Đặt xe 29 chỗ tại Datmo
 
-[Datmo](/thue-xe-du-lich/thue-xe-29-cho-cam-pha/) chuyên cung cấp xe 29 chỗ đời mới tại Cẩm Phả – Quảng Ninh. Xe sạch sẽ, bảo dưỡng định kỳ, lái xe kinh nghiệm và thạo đường.
+[Datmo](/thue-xe-du-lich/thue-xe-29-cho-cam-pha/) chuyên cung cấp xe 29 chỗ đời mới tại Cẩm Phả – Quảng Ninh. Xe **Tracomeco Global Nobel K29W** — ghế ngồi êm ái, điều hoà 2 dàn mát đều, khoang hành lý rộng. Lái xe kinh nghiệm, thạo đường.
 
 Đội xe hiện có cả [xe 16 chỗ](/thue-xe-du-lich/thue-xe-16-cho-cam-pha/) cho nhóm nhỏ và [xe 45 chỗ](/thue-xe-du-lich/thue-xe-45-cho-cam-pha/) cho đoàn lớn hơn, đáp ứng mọi nhu cầu di chuyển.
 

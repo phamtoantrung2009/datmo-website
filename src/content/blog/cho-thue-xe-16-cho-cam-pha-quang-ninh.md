@@ -10,7 +10,7 @@ Xe 16 chỗ là lựa chọn quen thuộc cho gia đình, nhóm bạn hoặc đ�
 
 ## Ưu điểm của xe 16 chỗ
 
-Xe 16 chỗ (thường là Ford Transit hoặc Hyundai Solati) có một số lợi thế rõ ràng:
+Xe 16 chỗ Hyundai Solati 2024 có một số lợi thế rõ ràng:
 
 - **Kích thước vừa phải:** Dễ dàng di chuyển trong nội thành, đi vào ngõ hẹp, đỗ ở các nhà hàng hay khách sạn mà xe 29–45 chỗ không vào được.
 - **Chi phí hợp lý:** Tính trên đầu người, giá thuê xe 16 chỗ thường rẻ hơn nhiều so với đi taxi hoặc xe ghép.
@@ -37,12 +37,16 @@ Xe 16 chỗ rất được ưa chuộng cho đám cưới, đưa đón khách ho
 
 ## Giá thuê xe 16 chỗ tham khảo
 
-Giá có thể thay đổi theo mùa, ngày lễ và lộ trình cụ thể. Dưới đây là mức tham khảo:
+Giá có thể thay đổi theo mùa, ngày lễ và lộ trình cụ thể. Dưới đây là mức tham khảo dựa trên các chuyến thực tế:
 
-- **Cẩm Phả – Hà Nội (1 chiều):** 2.500.000 – 3.000.000 đ
-- **Cẩm Phả – Nội Bài (1 chiều):** 2.800.000 – 3.500.000 đ
-- **Cẩm Phả – Hạ Long (nội ngày):** 1.200.000 – 1.500.000 đ
-- **Đám cưới (nội thành Cẩm Phả):** 1.500.000 – 2.000.000 đ/ngày
+- **Cẩm Phả / Cửa Ông – Hạ Long (khứ hồi):** 1.200.000 – 2.200.000 đ
+- **Cẩm Phả – Sân bay Vân Đồn:** 1.500.000 đ
+- **Cẩm Phả – Tiên Yên (khứ hồi):** 1.500.000 đ
+- **Cẩm Phả – Yên Tử (khứ hồi):** 2.200.000 – 3.000.000 đ
+- **Cẩm Phả – Sân bay Cát Bi (khứ hồi):** 1.700.000 – 3.200.000 đ
+- **Cẩm Phả – Nội Bài (1 chiều):** 3.000.000 – 3.700.000 đ
+- **Cẩm Phả – Hà Nội (khứ hồi):** 4.000.000 – 7.500.000 đ
+- **Cẩm Phả – Tà Xùa (khứ hồi, 2 ngày):** 7.300.000 – 8.500.000 đ
 
 Giá trên đã bao gồm xăng dầu, phí cầu đường, lái xe. Không phát sinh thêm trừ trường hợp thay đổi lộ trình lớn.
 
@@ -56,7 +60,7 @@ Giá trên đã bao gồm xăng dầu, phí cầu đường, lái xe. Không ph�
 
 ## Vì sao nên thuê xe qua Datmo?
 
-[Datmo](/thue-xe-du-lich/thue-xe-16-cho-cam-pha/) là đơn vị tại Cẩm Phả chuyên cho thuê xe du lịch với đội xe đời mới, lái xe kinh nghiệm. Một số lý do khách chọn Datmo:
+[Datmo](/thue-xe-du-lich/thue-xe-16-cho-cam-pha/) là đơn vị tại Cẩm Phả chuyên cho thuê xe du lịch với đội xe đời mới, lái xe kinh nghiệm. Hiện tại, Datmo sử dụng xe **Hyundai Solati 2024** cho dòng 16 chỗ — xe mới, êm ái, tiết kiệm nhiên liệu. Một số lý do khách chọn Datmo:
 
 - Báo giá nhanh qua điện thoại hoặc Zalo, không phải chờ đợi.
 - Xe sạch sẽ, bảo dưỡng định kỳ, đầy đủ bảo hiểm.

@@ -39,11 +39,14 @@ Cẩm Phả → Yên Tử → Hạ Long → Vân Đồn. Đoàn doanh nghiệp t
 
 ## Giá thuê xe 45 chỗ tham khảo
 
-- **Cẩm Phả – Hà Nội (1 chiều):** 5.000.000 – 6.500.000 đ
+Giá dựa trên các chuyến thực tế gần đây, có thể thay đổi theo mùa và ngày lễ:
+
+- **Nội tỉnh Quảng Ninh (Hạ Long, Vân Đồn, An Lạc Viên...):** 1.500.000 – 3.000.000 đ
+- **Cẩm Phả – Hà Nội (khứ hồi):** 5.000.000 – 9.500.000 đ
 - **Cẩm Phả – Nội Bài (1 chiều):** 5.500.000 – 7.000.000 đ
-- **Tour Hạ Long nội ngày:** 3.000.000 – 3.500.000 đ
-- **Tour 2 ngày 1 đêm (Hà Nội/Ninh Bình):** 9.000.000 – 12.000.000 đ
-- **Tour 3 ngày 2 đêm:** 13.000.000 – 16.000.000 đ
+- **Cẩm Phả – Móng Cái (khứ hồi):** 4.000.000 đ
+- **Tour 2 ngày 1 đêm (Ninh Bình, Lạng Sơn...):** 7.000.000 – 9.600.000 đ
+- **Tour dài ngày (Hà Giang, Tam Đảo, Lào Cai...):** 12.500.000 – 21.000.000 đ
 
 Giá bao gồm xăng dầu, cầu đường, bãi đỗ xe, lái xe. Tính ra mỗi người chỉ từ 150.000–350.000 đ tuỳ tuyến — rẻ hơn nhiều so với đi xe khách hay tự túc.
 
