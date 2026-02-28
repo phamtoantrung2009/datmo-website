@@ -1,0 +1,35 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import { getOgImage } from '../../../config/og';
+import Breadcrumbs from '../../../components/Breadcrumbs.astro';
+import { getCollection } from 'astro:content';
+
+// SEO: tune title/description length for SERP.
+const title = 'Blog vé máy bay giá rẻ từ Quảng Ninh | Datmo';
+const description = 'Kinh nghiệm đặt vé máy bay giá rẻ từ sân bay Vân Đồn (Quảng Ninh): so sánh hãng bay, mẹo săn vé rẻ, combo xe đưa đón + vé máy bay tiện lợi.';
+const ogImage = getOgImage('/blog/ve-may-bay/');
+const crumbs = [
+  { name: 'Trang chủ', href: '/' },
+  { name: 'Blog', href: '/blog/' },
+  { name: 'Vé máy bay', href: '/blog/ve-may-bay/' },
+];
+
+const posts = (await getCollection('blog', ({ data }) => !data.draft && data.category === 've-may-bay'))
+  .sort((a, b) => +new Date(b.data.publishedAt) - +new Date(a.data.publishedAt));
+---
+<BaseLayout title={title} description={description} ogImage={ogImage}>
+  <Breadcrumbs items={crumbs} />
+  <section class="container section">
+    <h1>Vé máy bay</h1>
+    <p class="lead">Tips đặt vé máy bay giá rẻ, combo xe + bay từ Quảng Ninh.</p>
+    <div class="grid-2">
+      {posts.map((p) => (
+        <a class="card post-card" href={`/blog/${p.slug}/`}>
+          <h3>{p.data.title}</h3>
+          <div class="blog-meta">{new Date(p.data.publishedAt).toLocaleDateString('vi-VN')}</div>
+          <p class="small">{p.data.description}</p>
+        </a>
+      ))}
+    </div>
+  </section>
+</BaseLayout>

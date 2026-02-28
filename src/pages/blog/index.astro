@@ -1,5 +1,5 @@
-﻿---
-import BaseLayout from '../../layouts/BaseLayout.astro';
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
 import { getOgImage } from '../../config/og';
 import Breadcrumbs from '../../components/Breadcrumbs.astro';
 import { getCollection } from 'astro:content';
@@ -28,6 +28,9 @@ const posts = (await getCollection('blog', ({ data }) => !data.draft))
       <a class="card" href="/blog/kinh-nghiem-du-lich/"><h3>Kinh nghiệm du lịch</h3><p>Tips & lịch trình</p></a>
       <a class="card" href="/blog/tin-tuc-cam-pha/"><h3>Tin tức Cẩm Phả</h3><p>Điểm đến, sự kiện</p></a>
       <a class="card" href="/blog/lich-tau-gia-ve/"><h3>Lịch tàu & giá vé</h3><p>Ao Tiên, Quan Lạn, Cô Tô</p></a>
+      <a class="card" href="/blog/cho-thue-xe/"><h3>Cho thuê xe</h3><p>Bảng giá, tuyến đường</p></a>
+      <a class="card" href="/blog/ve-tau-cao-toc/"><h3>Vé tàu cao tốc</h3><p>Lịch tàu, đặt vé</p></a>
+      <a class="card" href="/blog/ve-may-bay/"><h3>Vé máy bay</h3><p>Săn vé rẻ, combo</p></a>
     </div>
 
     <h2 style="margin-top:26px">Bài mới</h2>

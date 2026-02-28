@@ -1,0 +1,35 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import { getOgImage } from '../../../config/og';
+import Breadcrumbs from '../../../components/Breadcrumbs.astro';
+import { getCollection } from 'astro:content';
+
+// SEO: tune title/description length for SERP.
+const title = 'Blog cho thuê xe du lịch Cẩm Phả – Quảng Ninh | Datmo';
+const description = 'Tổng hợp kinh nghiệm thuê xe du lịch tại Cẩm Phả, Quảng Ninh: bảng giá tham khảo, các tuyến phổ biến, lưu ý chọn xe 16 chỗ, 29 chỗ, 45 chỗ cho mọi nhu cầu.';
+const ogImage = getOgImage('/blog/cho-thue-xe/');
+const crumbs = [
+  { name: 'Trang chủ', href: '/' },
+  { name: 'Blog', href: '/blog/' },
+  { name: 'Cho thuê xe', href: '/blog/cho-thue-xe/' },
+];
+
+const posts = (await getCollection('blog', ({ data }) => !data.draft && data.category === 'cho-thue-xe'))
+  .sort((a, b) => +new Date(b.data.publishedAt) - +new Date(a.data.publishedAt));
+---
+<BaseLayout title={title} description={description} ogImage={ogImage}>
+  <Breadcrumbs items={crumbs} />
+  <section class="container section">
+    <h1>Cho thuê xe du lịch</h1>
+    <p class="lead">Kinh nghiệm, bảng giá & tuyến đường thuê xe tại Cẩm Phả – Quảng Ninh.</p>
+    <div class="grid-2">
+      {posts.map((p) => (
+        <a class="card post-card" href={`/blog/${p.slug}/`}>
+          <h3>{p.data.title}</h3>
+          <div class="blog-meta">{new Date(p.data.publishedAt).toLocaleDateString('vi-VN')}</div>
+          <p class="small">{p.data.description}</p>
+        </a>
+      ))}
+    </div>
+  </section>
+</BaseLayout>
