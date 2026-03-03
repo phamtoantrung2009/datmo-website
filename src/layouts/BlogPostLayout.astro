@@ -4,8 +4,8 @@ import Breadcrumbs from '../components/Breadcrumbs.astro';
 import { SITE } from '../config/site';
 import { buildBlogPostingSchema } from '../utils/schema';
 
-type Props = { post: any };
-const { post } = Astro.props;
+type Props = { post: any; blogImage?: string | null };
+const { post, blogImage = null } = Astro.props;
 const { data } = post;
 
 const published = new Date(data.publishedAt);
@@ -17,13 +17,18 @@ const crumbs = [
   { name: data.title, href: `/blog/${post.slug}/` },
 ];
 
+const resolvedImage = blogImage || data.image || null;
+
 const articleJsonLd = buildBlogPostingSchema(SITE, {
   title: data.title,
   description: data.description,
   slug: post.slug,
   published,
   updated,
+  image: resolvedImage,
 });
+
+const hasImage = !!resolvedImage;
 ---
 <Breadcrumbs items={crumbs} />
 
@@ -36,6 +41,17 @@ const articleJsonLd = buildBlogPostingSchema(SITE, {
       <time datetime={published.toISOString()}>{published.toLocaleDateString('vi-VN')}</time>
     </div>
     <p class="lead" style="margin-top:10px">{data.description}</p>
+    {hasImage && (
+      <img
+        src={resolvedImage}
+        alt={data.title}
+        width="1200"
+        height="675"
+        loading="eager"
+        decoding="async"
+        style="width:100%;height:auto;border-radius:8px;margin-top:16px"
+      />
+    )}
   </header>
 
   <section>

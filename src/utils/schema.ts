@@ -67,10 +67,11 @@ export function buildBlogPostingSchema(site: SiteConfig, data: {
   slug: string;
   published: Date;
   updated?: Date | null;
+  image?: string | null;
 }) {
   const published = data.published.toISOString();
   const modified = (data.updated ?? data.published).toISOString();
-  return {
+  const schema: Record<string, any> = {
     '@context': 'https://schema.org',
     '@type': 'BlogPosting',
     headline: data.title,
@@ -96,4 +97,13 @@ export function buildBlogPostingSchema(site: SiteConfig, data: {
       },
     },
   };
+  if (data.image) {
+    schema.image = {
+      '@type': 'ImageObject',
+      url: `${site.url}${data.image}`,
+      width: 1200,
+      height: 675,
+    };
+  }
+  return schema;
 }
