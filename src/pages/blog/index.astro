@@ -1,22 +1,44 @@
 ---
+import { getCollection } from 'astro:content';
+
+export async function getStaticPaths() {
+  const posts = (await getCollection('blog', ({ data }) => !data.draft))
+    .sort((a, b) => +new Date(b.data.publishedAt) - +new Date(a.data.publishedAt));
+  
+  // Generate pages: page 1 at /blog/, page 2+ at /blog/page/n/
+  const pageSize = 8;
+  const totalPages = Math.ceil(posts.length / pageSize);
+  
+  const paths = [];
+  
+  // Page 1 - serve at /blog/
+  paths.push({
+    params: {},
+    props: { pageNum: 1, posts: posts.slice(0, pageSize), total: posts.length, totalPages }
+  });
+  
+  // Pages 2+
+  for (let i = 2; i <= totalPages; i++) {
+    const start = (i - 1) * pageSize;
+    paths.push({
+      params: { page: String(i) },
+      props: { pageNum: i, posts: posts.slice(start, start + pageSize), total: posts.length, totalPages }
+    });
+  }
+  
+  return paths;
+}
+
+const { pageNum, posts, total, totalPages } = Astro.props;
+
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import { getOgImage } from '../../config/og';
 import Breadcrumbs from '../../components/Breadcrumbs.astro';
 import { getCollection } from 'astro:content';
 
-export async function getStaticPaths({ paginate }) {
-  const posts = (await getCollection('blog', ({ data }) => !data.draft))
-    .sort((a, b) => +new Date(b.data.publishedAt) - +new Date(a.data.publishedAt));
-  
-  return paginate(posts, { pageSize: 8 });
-}
-
-const { page } = Astro.props;
-
-// SEO
-const title = page.currentPage === 1 
+const title = pageNum === 1 
   ? 'Blog du lịch & kinh nghiệm hữu ích Cẩm Phả | Datmo'
-  : `Blog - Trang ${page.currentPage} | Datmo`;
+  : `Blog - Trang ${pageNum} | Datmo`;
   
 const description = 'Chia sẻ lịch tàu, giá vé, tin tức Cẩm Phả và kinh nghiệm du lịch; nội dung ngắn gọn, cập nhật theo mùa và nhu cầu thực tế cho khách đi Quảng Ninh.';
 const ogImage = getOgImage('/blog/');
@@ -30,7 +52,7 @@ const crumbs = [
   <Breadcrumbs items={crumbs} />
 
   <section class="container section">
-    <h1>Blog</h1>
+    <h1>Blog {pageNum > 1 && `- Trang ${pageNum}`}</h1>
     <p class="lead">Nội dung cập nhật theo mùa: lịch tàu, kinh nghiệm thuê xe, mẹo đi lại tại Quảng Ninh.</p>
 
     <div class="grid-3" style="margin-bottom:24px">
@@ -42,9 +64,9 @@ const crumbs = [
       <a class="card" href="/blog/ve-may-bay/"><h3>Vé máy bay</h3><p>Săn vé rẻ, combo</p></a>
     </div>
 
-    <h2 style="margin-top:26px">Bài viết ({page.total})</h2>
+    <h2 style="margin-top:26px">Bài viết ({total})</h2>
     <div class="grid-2">
-      {page.data.map((p) => (
+      {posts.map((p) => (
         <a class="card post-card" href={`/blog/${p.slug}/`}>
           <h3>{p.data.title}</h3>
           <div class="blog-meta">
@@ -57,27 +79,27 @@ const crumbs = [
       ))}
     </div>
 
-    {/* Pagination */}
+    {totalPages > 1 && (
     <nav class="pagination" style="margin-top:32px; display:flex; justify-content:center; gap:8px; flex-wrap:wrap; align-items:center">
-      {page.url.prev && (
-        <a href={page.url.prev} class="page-btn">← Trang trước</a>
+      {pageNum > 1 && (
+        <a href={pageNum === 2 ? '/blog/' : `/blog/page/${pageNum - 1}/`} class="page-btn">← Trang trước</a>
       )}
       
-      {page.lastPage > 1 && Array.from({ length: page.lastPage }, (_, i) => i + 1).map((pageNum) => (
+      {Array.from({ length: totalPages }, (_, i) => i + 1).map((pn) => (
         <a 
-          href={pageNum === 1 ? '/blog/' : `/blog/page/${pageNum}/`}
-          class:list={['page-num', { active: pageNum === page.currentPage }]}
+          href={pn === 1 ? '/blog/' : `/blog/page/${pn}/`}
+          class:list={['page-num', { active: pn === pageNum }]}
         >
-          {pageNum}
+          {pn}
         </a>
       ))}
       
-      {page.url.next && (
-        <a href={page.url.next} class="page-btn">Trang sau →</a>
+      {pageNum < totalPages && (
+        <a href={`/blog/page/${pageNum + 1}/`} class="page-btn">Trang sau →</a>
       )}
     </nav>
+    )}
 
-    {/* Short list of all posts */}
     <h3 style="margin-top:40px; margin-bottom:16px">Danh sách tất cả bài viết</h3>
     <div class="short-list">
       {(await getCollection('blog', ({ data }) => !data.draft))
@@ -95,9 +117,7 @@ const crumbs = [
 </BaseLayout>
 
 <style>
-  .pagination {
-    gap: 6px;
-  }
+  .pagination { gap: 6px; }
   .page-btn {
     padding: 10px 16px;
     background: #0f2a44;
@@ -106,11 +126,6 @@ const crumbs = [
     text-decoration: none;
     font-weight: 500;
     font-size: 14px;
-    transition: background 0.2s;
-  }
-  .page-btn:hover {
-    background: #1a3d5c;
-    text-decoration: none;
   }
   .page-num {
     display: inline-flex;
@@ -125,17 +140,11 @@ const crumbs = [
     text-decoration: none;
     font-weight: 500;
     font-size: 14px;
-    transition: all 0.2s;
-  }
-  .page-num:hover {
-    background: #d0dbe6;
-    text-decoration: none;
   }
   .page-num.active {
     background: #0f2a44;
     color: #fff !important;
   }
-  
   .short-list {
     display: flex;
     flex-direction: column;
@@ -152,26 +161,9 @@ const crumbs = [
     padding: 10px 12px;
     border-radius: 8px;
     text-decoration: none;
-    transition: background 0.15s;
   }
-  .short-item:hover {
-    background: #f0f7fb;
-    text-decoration: none;
-  }
-  .short-num {
-    color: var(--muted);
-    font-size: 13px;
-    min-width: 24px;
-  }
-  .short-title {
-    flex: 1;
-    color: var(--text);
-    font-size: 14px;
-    font-weight: 500;
-  }
-  .short-date {
-    color: var(--muted);
-    font-size: 12px;
-    white-space: nowrap;
-  }
+  .short-item:hover { background: #f0f7fb; }
+  .short-num { color: var(--muted); font-size: 13px; min-width: 24px; }
+  .short-title { flex: 1; color: var(--text); font-size: 14px; font-weight: 500; }
+  .short-date { color: var(--muted); font-size: 12px; }
 </style>
