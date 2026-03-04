@@ -1,9 +1,10 @@
 ---
-title: "Tour 3 dao Co To: Trai nghiem tron goi tu A-Z [2026]"
+title: "Tour 3 dao Co To: Trai nghiem tron goi tu A-Z [2026] - Updated"
 description: "Tour 3 dao Co To 2026: Bai Dau Dong, Hon Su Tu, Dao Ca Chep. Gia tour, lich trinh chi tiet, hoat dong va dat tour ngay cung Datmo."
 publishedAt: 2026-03-04
 category: "kinh-nghiem-du-lich"
 tags: ["tour-3-dao-co-to", "du-lich-co-to", "dao-co-to-con", "tour-bien-co-to", "du-lich-2026", "hoat-dong-bien"]
+draft: false
 ---
 
 Neu da dat chan len dao Co To ma chua trai nghiem **Tour 3 dao** -- coi nhu chuyen di con thieu mot nua. Tour nay dua ban kham pha tron bo nhung diem dep nhat quan dao Co To: bien bien hoang son, hon dao ki thu, va nhung trai nghiem bien ma khong noi nao co duoc.
