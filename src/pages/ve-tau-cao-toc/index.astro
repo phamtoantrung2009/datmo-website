@@ -1,18 +1,12 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
-
-
-
-import { getOgImage } from '../../config/og';
 import Breadcrumbs from '../../components/Breadcrumbs.astro';
 import FAQ from '../../components/FAQ.astro';
 import JsonLd from '../../components/JsonLd.astro';
 import { SITE } from '../../config/site';
 
-// SEO: tune title/description length for SERP.
-const title = 'Vé tàu cao tốc Ao Tiên/Vũng Đục Cẩm Phả, Quảng Ninh | Datmo';
-const description = 'Đặt vé tàu cao tốc tuyến Ao Tiên/Vũng Đục đi Cô Tô – Quan Lạn; hỗ trợ kiểm tra lịch tàu, giờ chạy, thứ tự và nhờ giữ chỗ có mặt. Hỗ trợ nhờ giữ ra cảng.';
-const ogImage = getOgImage('/ve-tau-cao-toc/');
+const title = 'Đặt vé tàu cao tốc Ao Tiên/Vũng Đục đi Cô Tô – Quan Lạn | Datmo';
+const description = 'Đặt vé tàu cao tốc cho khách tại Cẩm Phả, Quảng Ninh: tuyến Ao Tiên ↔ Quan Lạn, Ao Tiên ↔ Cô Tô, Vũng Đục ↔ Cô Tô. Tư vấn lịch tàu, giá vé, lưu ý đi lại.';
 const canonical = SITE.url + '/ve-tau-cao-toc/';
 
 const crumbs = [
@@ -34,24 +28,24 @@ const serviceJsonLd = {
   url: canonical,
 };
 ---
-<BaseLayout title={title} description={description} ogImage={ogImage} canonical={canonical} breadcrumb={crumbs}>
+<BaseLayout title={title} description={description} canonical={canonical} breadcrumb={crumbs}>
   <Breadcrumbs items={crumbs} />
 
   <section class="container section">
-    <h1>�?t v� t�u cao t?c di C� T� � Quan L?n</h1>
-    <p class="lead">Tu v?n tuy?n di ph� h?p, gi? t�u theo ng�y v� h? tr? d?t v� nhanh.</p>
+    <h1>Đặt vé tàu cao tốc đi Cô Tô – Quan Lạn</h1>
+    <p class="lead">Tư vấn tuyến đi phù hợp, giờ tàu theo ngày và hỗ trợ đặt vé nhanh.</p>
 
     <div class="grid-3">
-      <a class="card" href="/ve-tau-cao-toc/ao-tien-quan-lan/"><h3>Ao Ti�n ? Quan L?n</h3><p>Ki?m tra l?ch t�u & gi� v� theo ng�y</p></a>
-      <a class="card" href="/ve-tau-cao-toc/ao-tien-co-to/"><h3>Ao Ti�n ? C� T�</h3><p>L?ch t�u m�a cao di?m, luu � di s?m</p></a>
-      <a class="card" href="/ve-tau-cao-toc/vung-duc-co-to/"><h3>Vung �?c ? C� T�</h3><p>Tuy?n xu?t ph�t t? C?m Ph? (tu? l?ch)</p></a>
+      <a class="card" href="/ve-tau-cao-toc/ao-tien-quan-lan/"><h3>Ao Tiên ↔ Quan Lạn</h3><p>Kiểm tra lịch tàu & giá vé theo ngày</p></a>
+      <a class="card" href="/ve-tau-cao-toc/ao-tien-co-to/"><h3>Ao Tiên ↔ Cô Tô</h3><p>Lịch tàu mùa cao điểm, lưu ý đi sớm</p></a>
+      <a class="card" href="/ve-tau-cao-toc/vung-duc-co-to/"><h3>Vũng Đục ↔ Cô Tô</h3><p>Tuyến xuất phát từ Cẩm Phả (tuỳ lịch)</p></a>
     </div>
 
     <div class="card" style="margin-top:14px">
-      <h2>K?t h?p di chuy?n</h2>
+      <h2>Kết hợp di chuyển</h2>
       <ul class="link-list">
-        <li><a href="/thue-xe-du-lich/">Thu� xe di c?ng Ao Ti�n/Vung �?c</a></li>
-        <li><a href="/blog/lich-tau-gia-ve/">Xem b�i blog l?ch t�u & gi� v�</a></li>
+        <li><a href="/thue-xe-du-lich/">Thuê xe đi cảng Ao Tiên/Vũng Đục</a></li>
+        <li><a href="/blog/lich-tau-gia-ve/">Xem bài blog lịch tàu & giá vé</a></li>
       </ul>
     </div>
   </section>
@@ -59,3 +53,4 @@ const serviceJsonLd = {
   <FAQ items={faqItems} />
   <JsonLd data={serviceJsonLd} />
 </BaseLayout>
+

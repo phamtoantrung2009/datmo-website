@@ -1,19 +1,13 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
-
-
-
-import { getOgImage } from '../../config/og';
 import Breadcrumbs from '../../components/Breadcrumbs.astro';
 import FAQ from '../../components/FAQ.astro';
 import JsonLd from '../../components/JsonLd.astro';
 import CallToActions from '../../components/CallToActions.astro';
 import { SITE } from '../../config/site';
 
-// SEO: tune title/description length for SERP.
-const title = 'Đặt vé máy bay nhanh tại Cẩm Phả, Quảng Ninh | Datmo';
-const description = 'Nhận đặt vé máy bay cho khách Cẩm Phả – Quảng Ninh: tư vấn hành trình, báo giá nhanh, hỗ trợ đổi vé theo điều kiện hãng. Hỗ trợ nhanh qua hotline.';
-const ogImage = getOgImage('/ve-may-bay/');
+const title = 'Đặt vé máy bay tại Cẩm Phả | Datmo.io.vn';
+const description = 'Nhận đặt vé máy bay cho khách tại Cẩm Phả – Quảng Ninh: tư vấn hành trình, báo giá nhanh, hỗ trợ đổi vé theo điều kiện hãng.';
 const canonical = SITE.url + '/ve-may-bay/';
 
 const crumbs = [
@@ -22,29 +16,29 @@ const crumbs = [
 ];
 
 const faqItems = [
-  { q: 'C?n cung c?p th�ng tin g� d? d?t nhanh?', a: 'H? t�n, ng�y di (kh? h?i n?u c�), tuy?n/di?m d?n v� s? di?n tho?i li�n h?.' },
-  { q: 'C� h? tr? thay d?i/ho�n hu? kh�ng?', a: 'Tu? di?u ki?n c?a h�ng/nh� cung c?p. Datmo h? tr? hu?ng d?n v� x? l� theo quy d?nh.' },
+  { q: 'Cần cung cấp thông tin gì để đặt nhanh?', a: 'Họ tên, ngày đi (khứ hồi nếu có), tuyến/điểm đến và số điện thoại liên hệ.' },
+  { q: 'Có hỗ trợ thay đổi/hoàn huỷ không?', a: 'Tuỳ điều kiện của hãng/nhà cung cấp. Datmo hỗ trợ hướng dẫn và xử lý theo quy định.' },
 ];
 
 const serviceJsonLd = {
   '@context': 'https://schema.org',
   '@type': 'Service',
-  name: '�?t v� m�y bay t?i C?m Ph?',
-  areaServed: ['C?m Ph?', 'Qu?ng Ninh'],
+  name: 'Đặt vé máy bay tại Cẩm Phả',
+  areaServed: ['Cẩm Phả', 'Quảng Ninh'],
   provider: { '@type': 'LocalBusiness', name: SITE.name, url: SITE.url, telephone: SITE.phone },
   url: canonical,
 };
 ---
-<BaseLayout title={title} description={description} ogImage={ogImage} canonical={canonical} breadcrumb={crumbs}>
+<BaseLayout title={title} description={description} canonical={canonical} breadcrumb={crumbs}>
   <Breadcrumbs items={crumbs} />
   <section class="container section">
-    <h1>�?t v� m�y bay t?i C?m Ph?</h1>
-    <p class="lead">Nh?n d?t v� m�y bay cho kh�ch t?i C?m Ph? � Qu?ng Ninh: tu v?n h�nh tr�nh, b�o gi� nhanh, h? tr? d?i v� theo di?u ki?n h�ng.</p>
+    <h1>Đặt vé máy bay tại Cẩm Phả</h1>
+    <p class="lead">Nhận đặt vé máy bay cho khách tại Cẩm Phả – Quảng Ninh: tư vấn hành trình, báo giá nhanh, hỗ trợ đổi vé theo điều kiện hãng.</p>
 
     <div class="card">
-      <h2>Li�n k?t c�ng SILO</h2>
+      <h2>Liên kết cùng SILO</h2>
       <ul class="link-list">
-        <li><a href="/khach-san/">�?t ph�ng kh�ch s?n</a></li><li><a href="/tour-du-lich/">Tour du l?ch</a></li><li><a href="/visa-ho-chieu/">Visa � h? chi?u</a></li>
+        <li><a href="/khach-san/">Đặt phòng khách sạn</a></li><li><a href="/tour-du-lich/">Tour du lịch</a></li><li><a href="/visa-ho-chieu/">Visa – hộ chiếu</a></li>
       </ul>
     </div>
   </section>
@@ -53,3 +47,4 @@ const serviceJsonLd = {
   <JsonLd data={serviceJsonLd} />
   <CallToActions />
 </BaseLayout>
+

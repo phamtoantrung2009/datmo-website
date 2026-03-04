@@ -1,20 +1,13 @@
 ---
 import BaseLayout from '../../../layouts/BaseLayout.astro';
-
-
-
-import { getOgImage } from '../../../config/og';
 import Breadcrumbs from '../../../components/Breadcrumbs.astro';
 import FAQ from '../../../components/FAQ.astro';
 import JsonLd from '../../../components/JsonLd.astro';
 import CallToActions from '../../../components/CallToActions.astro';
 import { SITE } from '../../../config/site';
-import QuoteForm from '../../../components/QuoteForm.astro';
 
-// SEO: tune title/description length for SERP.
-const title = 'Thuê xe du lịch 16 chỗ Cẩm Phả, Quảng Ninh | Datmo';
-const description = 'Thuê xe 16 chỗ tại Cẩm Phả đi Hạ Long, Ao Tiên/Vân Đồn, Móng Cái hoặc sân bay Nội Bài. Xe sạch, tài xế rành tuyến, đón đúng giờ, hỗ trợ đổi lịch.';
-const ogImage = getOgImage('/thue-xe-du-lich/thue-xe-16-cho-cam-pha/');
+const title = 'Thuê xe 16 chỗ tại Cẩm Phả (đi Hạ Long, Nội Bài, Ao Tiên) | Datmo';
+const description = 'Dịch vụ thuê xe 16 chỗ tại Cẩm Phả, Quảng Ninh: đi Hạ Long, Ao Tiên/Vân Đồn, đưa đón sân bay Nội Bài, tour đoàn. Tư vấn nhanh qua hotline/Zalo.';
 const canonical = SITE.url + '/thue-xe-du-lich/thue-xe-16-cho-cam-pha/';
 
 const crumbs = [
@@ -25,40 +18,38 @@ const crumbs = [
 
 const faqItems = [
   { q: 'Cần đặt xe trước bao lâu?', a: 'Nên đặt trước 1–3 ngày; cuối tuần/lễ nên đặt sớm hơn để giữ lịch.' },
-  { q: 'C� h? tr? di c?ng/t�u kh�ng?', a: 'C�. B?n c� th? d?t xe di Ao Ti�n/Vung �?c d? k?p gi? t�u.' },
+  { q: 'Có hỗ trợ đi cảng/tàu không?', a: 'Có. Bạn có thể đặt xe đi Ao Tiên/Vũng Đục để kịp giờ tàu.' },
 ];
 
 const serviceJsonLd = {
   '@context': 'https://schema.org',
   '@type': 'Service',
-  name: 'Thu� xe 16 ch? t?i C?m Ph?',
-  areaServed: ['C?m Ph?', 'Qu?ng Ninh'],
+  name: 'Thuê xe 16 chỗ tại Cẩm Phả',
+  areaServed: ['Cẩm Phả', 'Quảng Ninh'],
   provider: { '@type': 'LocalBusiness', name: SITE.name, url: SITE.url, telephone: SITE.phone },
   url: canonical,
 };
 ---
 
-<BaseLayout title={title} description={description} ogImage={ogImage} canonical={canonical} breadcrumb={crumbs}>
+<BaseLayout title={title} description={description} canonical={canonical} breadcrumb={crumbs}>
   <Breadcrumbs items={crumbs} />
 
   <header class="container section">
-    <h1>Thu� xe 16 ch? t?i C?m Ph?</h1>
-    <p class="lead">D?ch v? ph� h?p nh�m di theo tuy?n, theo ng�y ho?c theo l?ch tr�nh tour. B�o gi� nhanh qua hotline/Zalo.</p>
-<section class="container section">
-    <QuoteForm />
-  </section>
+    <h1>Thuê xe 16 chỗ tại Cẩm Phả</h1>
+    <p class="lead">Dịch vụ phù hợp nhóm đi theo tuyến, theo ngày hoặc theo lịch trình tour. Báo giá nhanh qua hotline/Zalo.</p>
+
     <div class="btn-row">
-      <a class="btn primary" href="/lien-he/">�?t d?ch v?</a>
-      <a class="btn" href="/ve-tau-cao-toc/ao-tien-co-to/">V� t�u Ao Ti�n ? C� T�</a><a class="btn" href="/tour-du-lich/tour-doan/">Tour do�n</a>
+      <a class="btn primary" href="/lien-he/">Đặt dịch vụ</a>
+      <a class="btn" href="/ve-tau-cao-toc/ao-tien-co-to/">Vé tàu Ao Tiên ↔ Cô Tô</a><a class="btn" href="/tour-du-lich/tour-doan/">Tour đoàn</a>
     </div>
   </header>
 
   <section class="container section">
-    <h2>Tuy?n ph? bi?n</h2>
+    <h2>Tuyến phổ biến</h2>
     <ul>
-      <li>C?m Ph? ? H? Long</li>
-      <li>C?m Ph? ? V�n �?n/Ao Ti�n (di t�u ra d?o)</li>
-      <li>C?m Ph? ? N?i B�i (dua d�n s�n bay)</li>
+      <li>Cẩm Phả ↔ Hạ Long</li>
+      <li>Cẩm Phả ↔ Vân Đồn/Ao Tiên (đi tàu ra đảo)</li>
+      <li>Cẩm Phả ↔ Nội Bài (đưa đón sân bay)</li>
     </ul>
   </section>
 
@@ -66,3 +57,4 @@ const serviceJsonLd = {
   <JsonLd data={serviceJsonLd} />
   <CallToActions />
 </BaseLayout>
+

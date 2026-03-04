@@ -1,25 +1,19 @@
 ---
 import BaseLayout from '../../../layouts/BaseLayout.astro';
-
-
-
-import { getOgImage } from '../../../config/og';
 import Breadcrumbs from '../../../components/Breadcrumbs.astro';
 import FAQ from '../../../components/FAQ.astro';
 import JsonLd from '../../../components/JsonLd.astro';
 import CallToActions from '../../../components/CallToActions.astro';
 import { SITE } from '../../../config/site';
 
-// SEO: tune title/description length for SERP.
-const title = 'Vé tàu Vũng Đục – Cô Tô Cẩm Phả, Quảng Ninh | Datmo';
-const description = 'Đặt vé tàu cao tốc tuyến Vũng Đục – Cô Tô; phù hợp khách đi từ Cẩm Phả, hỗ trợ kiểm tra lịch tàu, thủ tục và lưu ý an toàn, tư vấn giữ chỗ có mặt tại cảng.';
-const ogImage = getOgImage('/ve-tau-cao-toc/vung-duc-co-to/');
+const title = 'Vé tàu cao tốc Vũng Đục ↔ Cô Tô | Datmo';
+const description = 'Tư vấn/đặt vé tàu cao tốc tuyến Vũng Đục ↔ Cô Tô (tuỳ lịch khai thác). Hỗ trợ kiểm tra lịch, thời tiết và phương án di chuyển.';
 const canonical = SITE.url + '/ve-tau-cao-toc/vung-duc-co-to/';
 
 const crumbs = [
   { name: 'Trang chủ', href: '/' },
   { name: 'Vé tàu cao tốc', href: '/ve-tau-cao-toc/' },
-  { name: 'Vé tàu cao tốc Vũng Đục – Cô Tô', href: '/ve-tau-cao-toc/vung-duc-co-to/' },
+  { name: 'Vé tàu cao tốc Vũng Đục ↔ Cô Tô', href: '/ve-tau-cao-toc/vung-duc-co-to/' },
 ];
 
 const faqItems = [
@@ -30,27 +24,27 @@ const faqItems = [
 const serviceJsonLd = {
   '@context': 'https://schema.org',
   '@type': 'Service',
-  name: 'V� t�u cao t?c Vung �?c ? C� T�',
-  areaServed: ['C?m Ph?', 'Qu?ng Ninh'],
+  name: 'Vé tàu cao tốc Vũng Đục ↔ Cô Tô',
+  areaServed: ['Cẩm Phả', 'Quảng Ninh'],
   provider: { '@type': 'LocalBusiness', name: SITE.name, url: SITE.url, telephone: SITE.phone },
   url: canonical,
 };
 ---
-<BaseLayout title={title} description={description} ogImage={ogImage} canonical={canonical} breadcrumb={crumbs}>
+<BaseLayout title={title} description={description} canonical={canonical} breadcrumb={crumbs}>
   <Breadcrumbs items={crumbs} />
 
   <section class="container section">
-    <h1>V� t�u cao t?c Vung �?c ? C� T�</h1>
-    <p class="lead">Tu v?n/d?t v� t�u cao t?c tuy?n Vung �?c ? C� T� (tu? l?ch khai th�c). H? tr? ki?m tra l?ch, th?i ti?t v� phuong �n di chuy?n.</p>
+    <h1>Vé tàu cao tốc Vũng Đục ↔ Cô Tô</h1>
+    <p class="lead">Tư vấn/đặt vé tàu cao tốc tuyến Vũng Đục ↔ Cô Tô (tuỳ lịch khai thác). Hỗ trợ kiểm tra lịch, thời tiết và phương án di chuyển.</p>
 
     <div class="card">
-      <h2>Luu � quan tr?ng</h2>
+      <h2>Lưu ý quan trọng</h2>
       <ul>
-        <li>C� m?t tru?c gi? t�u ch?y 30�45 ph�t</li>
-        <li>Mang gi?y t? tu? th�n theo quy d?nh</li>
-        <li>L?ch t�u c� th? thay d?i do th?i ti?t</li>
+        <li>Có mặt trước giờ tàu chạy 30–45 phút</li>
+        <li>Mang giấy tờ tuỳ thân theo quy định</li>
+        <li>Lịch tàu có thể thay đổi do thời tiết</li>
       </ul>
-      <p class="small">Xem th�m: <a href="/blog/lich-tau-gia-ve/">Blog l?ch t�u & gi� v�</a> � <a href="/thue-xe-du-lich/">Thu� xe di c?ng</a></p>
+      <p class="small">Xem thêm: <a href="/blog/lich-tau-gia-ve/">Blog lịch tàu & giá vé</a> • <a href="/thue-xe-du-lich/">Thuê xe đi cảng</a></p>
     </div>
   </section>
 
@@ -58,3 +52,4 @@ const serviceJsonLd = {
   <JsonLd data={serviceJsonLd} />
   <CallToActions />
 </BaseLayout>
+

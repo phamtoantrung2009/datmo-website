@@ -1,19 +1,13 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
-
-
-
-import { getOgImage } from '../../config/og';
 import Breadcrumbs from '../../components/Breadcrumbs.astro';
 import FAQ from '../../components/FAQ.astro';
 import JsonLd from '../../components/JsonLd.astro';
 import CallToActions from '../../components/CallToActions.astro';
 import { SITE } from '../../config/site';
 
-// SEO: tune title/description length for SERP.
-const title = 'Dịch vụ visa – hộ chiếu Cẩm Phả, Quảng Ninh | Datmo';
-const description = 'Hỗ trợ làm visa – hộ chiếu cho khách Cẩm Phả/Quảng Ninh: tư vấn hồ sơ, thời gian xử lý, chi phí dự kiến và dịch vụ kèm theo khi cần. Hỗ trợ trọn gói.';
-const ogImage = getOgImage('/visa-ho-chieu/');
+const title = 'Dịch vụ visa – hộ chiếu tại Cẩm Phả | Datmo.io.vn';
+const description = 'Hỗ trợ tư vấn hồ sơ visa và thủ tục liên quan hộ chiếu cho khách tại Cẩm Phả, Quảng Ninh. Nhận lịch gấp tuỳ trường hợp, hướng dẫn chuẩn bị giấy tờ.';
 const canonical = SITE.url + '/visa-ho-chieu/';
 
 const crumbs = [
@@ -22,29 +16,29 @@ const crumbs = [
 ];
 
 const faqItems = [
-  { q: 'C?n cung c?p th�ng tin g� d? d?t nhanh?', a: 'H? t�n, ng�y di (kh? h?i n?u c�), tuy?n/di?m d?n v� s? di?n tho?i li�n h?.' },
-  { q: 'C� h? tr? thay d?i/ho�n hu? kh�ng?', a: 'Tu? di?u ki?n c?a h�ng/nh� cung c?p. Datmo h? tr? hu?ng d?n v� x? l� theo quy d?nh.' },
+  { q: 'Cần cung cấp thông tin gì để đặt nhanh?', a: 'Họ tên, ngày đi (khứ hồi nếu có), tuyến/điểm đến và số điện thoại liên hệ.' },
+  { q: 'Có hỗ trợ thay đổi/hoàn huỷ không?', a: 'Tuỳ điều kiện của hãng/nhà cung cấp. Datmo hỗ trợ hướng dẫn và xử lý theo quy định.' },
 ];
 
 const serviceJsonLd = {
   '@context': 'https://schema.org',
   '@type': 'Service',
-  name: 'D?ch v? visa � h? chi?u t?i C?m Ph?',
-  areaServed: ['C?m Ph?', 'Qu?ng Ninh'],
+  name: 'Dịch vụ visa – hộ chiếu tại Cẩm Phả',
+  areaServed: ['Cẩm Phả', 'Quảng Ninh'],
   provider: { '@type': 'LocalBusiness', name: SITE.name, url: SITE.url, telephone: SITE.phone },
   url: canonical,
 };
 ---
-<BaseLayout title={title} description={description} ogImage={ogImage} canonical={canonical} breadcrumb={crumbs}>
+<BaseLayout title={title} description={description} canonical={canonical} breadcrumb={crumbs}>
   <Breadcrumbs items={crumbs} />
   <section class="container section">
-    <h1>D?ch v? visa � h? chi?u t?i C?m Ph?</h1>
-    <p class="lead">H? tr? tu v?n h? so visa v� th? t?c li�n quan h? chi?u cho kh�ch t?i C?m Ph?, Qu?ng Ninh. Nh?n l?ch g?p tu? tru?ng h?p, hu?ng d?n chu?n b? gi?y t?.</p>
+    <h1>Dịch vụ visa – hộ chiếu tại Cẩm Phả</h1>
+    <p class="lead">Hỗ trợ tư vấn hồ sơ visa và thủ tục liên quan hộ chiếu cho khách tại Cẩm Phả, Quảng Ninh. Nhận lịch gấp tuỳ trường hợp, hướng dẫn chuẩn bị giấy tờ.</p>
 
     <div class="card">
-      <h2>Li�n k?t c�ng SILO</h2>
+      <h2>Liên kết cùng SILO</h2>
       <ul class="link-list">
-        <li><a href="/tour-du-lich/tour-quoc-te/">Tour qu?c t?</a></li><li><a href="/ve-may-bay/">V� m�y bay</a></li><li><a href="/lien-he/">Li�n h? tu v?n</a></li>
+        <li><a href="/tour-du-lich/tour-quoc-te/">Tour quốc tế</a></li><li><a href="/ve-may-bay/">Vé máy bay</a></li><li><a href="/lien-he/">Liên hệ tư vấn</a></li>
       </ul>
     </div>
   </section>
@@ -53,3 +47,4 @@ const serviceJsonLd = {
   <JsonLd data={serviceJsonLd} />
   <CallToActions />
 </BaseLayout>
+

@@ -1,15 +1,10 @@
 ---
 import BaseLayout from '../../../layouts/BaseLayout.astro';
-
-
-import { getOgImage } from '../../../config/og';
 import Breadcrumbs from '../../../components/Breadcrumbs.astro';
 import { getCollection } from 'astro:content';
 
-// SEO: tune title/description length for SERP.
-const title = 'Kinh nghiệm du lịch thực tế Cẩm Phả, Quảng Ninh | Blog Datmo';
-const description = 'Kinh nghiệm, lịch trình, mẹo di chuyển và chi phí cho khách đi Cẩm Phả, Quảng Ninh; cập nhật theo mùa, kèm gợi ý lịch trình tối ưu và lưu ý đặt dịch vụ.';
-const ogImage = getOgImage('/blog/kinh-nghiem-du-lich/');
+const title = 'Kinh nghiệm du lịch | Blog Datmo';
+const description = 'Kinh nghiệm du lịch, lịch trình, mẹo đi lại từ Cẩm Phả – Quảng Ninh.';
 const crumbs = [
   { name: 'Trang chủ', href: '/' },
   { name: 'Blog', href: '/blog/' },
@@ -19,11 +14,11 @@ const crumbs = [
 const posts = (await getCollection('blog', ({ data }) => !data.draft && data.category === 'kinh-nghiem-du-lich'))
   .sort((a, b) => +new Date(b.data.publishedAt) - +new Date(a.data.publishedAt));
 ---
-<BaseLayout title={title} description={description} ogImage={ogImage} breadcrumb={crumbs}>
+<BaseLayout title={title} description={description} breadcrumb={crumbs}>
   <Breadcrumbs items={crumbs} />
   <section class="container section">
-    <h1>Kinh nghi?m du l?ch</h1>
-    <p class="lead">T?ng h?p b�i vi?t kinh nghi?m, tips & l?ch tr�nh.</p>
+    <h1>Kinh nghiệm du lịch</h1>
+    <p class="lead">Tổng hợp bài viết kinh nghiệm, tips & lịch trình.</p>
     <div class="grid-2">
       {posts.map((p) => (
         <a class="card post-card" href={`/blog/${p.slug}/`}>
@@ -35,3 +30,4 @@ const posts = (await getCollection('blog', ({ data }) => !data.draft && data.cat
     </div>
   </section>
 </BaseLayout>
+

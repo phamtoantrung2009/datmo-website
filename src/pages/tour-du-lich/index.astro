@@ -1,18 +1,12 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
-
-
-
-import { getOgImage } from '../../config/og';
 import Breadcrumbs from '../../components/Breadcrumbs.astro';
 import FAQ from '../../components/FAQ.astro';
 import JsonLd from '../../components/JsonLd.astro';
 import { SITE } from '../../config/site';
 
-// SEO: tune title/description length for SERP.
-const title = 'Tour du lịch trọn gói tại Cẩm Phả, Quảng Ninh | Datmo';
-const description = 'Tư vấn tour theo ngân sách và thời gian: nội địa, quốc tế, tour đoàn. Xuất phát từ Cẩm Phả, tối ưu lịch trình, hỗ trợ xe, khách sạn và vé. Giá minh bạch.';
-const ogImage = getOgImage('/tour-du-lich/');
+const title = 'Tour du lịch xuất phát từ Cẩm Phả (nội địa & quốc tế) | Datmo';
+const description = 'Tổ chức tour du lịch xuất phát từ Cẩm Phả: tour nội địa, tour quốc tế, tour đoàn công ty. Kết hợp thuê xe, vé tàu, vé máy bay, khách sạn.';
 const canonical = SITE.url + '/tour-du-lich/';
 
 const crumbs = [
@@ -21,37 +15,37 @@ const crumbs = [
 ];
 
 const faqItems = [
-  { q: 'C� tour gh�p hay tour ri�ng?', a: 'Tu? l?ch. C� th? t? ch?c tour do�n ri�ng theo y�u c?u ho?c tu v?n l?ch ph� h?p.' },
-  { q: 'C� h? tr? v� m�y bay/kh�ch s?n kh�ng?', a: 'C�. Datmo h? tr? d?t v� m�y bay, kh�ch s?n, v� d?ch v? visa � h? chi?u theo tour.' },
+  { q: 'Có tour ghép hay tour riêng?', a: 'Tuỳ lịch. Có thể tổ chức tour đoàn riêng theo yêu cầu hoặc tư vấn lịch phù hợp.' },
+  { q: 'Có hỗ trợ vé máy bay/khách sạn không?', a: 'Có. Datmo hỗ trợ đặt vé máy bay, khách sạn, và dịch vụ visa – hộ chiếu theo tour.' },
 ];
 
 const serviceJsonLd = {
   '@context': 'https://schema.org',
   '@type': 'Service',
-  name: 'Tour du l?ch xu?t ph�t t? C?m Ph?',
-  areaServed: ['C?m Ph?', 'Qu?ng Ninh'],
+  name: 'Tour du lịch xuất phát từ Cẩm Phả',
+  areaServed: ['Cẩm Phả', 'Quảng Ninh'],
   provider: { '@type': 'LocalBusiness', name: SITE.name, url: SITE.url, telephone: SITE.phone },
   url: canonical,
 };
 ---
-<BaseLayout title={title} description={description} ogImage={ogImage} canonical={canonical} breadcrumb={crumbs}>
+<BaseLayout title={title} description={description} canonical={canonical} breadcrumb={crumbs}>
   <Breadcrumbs items={crumbs} />
 
   <section class="container section">
-    <h1>Tour du l?ch xu?t ph�t t? C?m Ph?</h1>
-    <p class="lead">Tu v?n tour ph� h?p ng�n s�ch, s? lu?ng kh�ch, th?i gian v� nhu c?u di chuy?n.</p>
+    <h1>Tour du lịch xuất phát từ Cẩm Phả</h1>
+    <p class="lead">Tư vấn tour phù hợp ngân sách, số lượng khách, thời gian và nhu cầu di chuyển.</p>
 
     <div class="grid-3">
-      <a class="card" href="/tour-du-lich/tour-noi-dia/"><h3>Tour n?i d?a</h3><p>Trong nu?c, linh ho?t l?ch tr�nh</p></a>
-      <a class="card" href="/tour-du-lich/tour-quoc-te/"><h3>Tour qu?c t?</h3><p>Tu v?n l?ch tr�nh & gi?y t?</p></a>
-      <a class="card" href="/tour-du-lich/tour-doan/"><h3>Tour do�n</h3><p>C�ng ty, team building, s? ki?n</p></a>
+      <a class="card" href="/tour-du-lich/tour-noi-dia/"><h3>Tour nội địa</h3><p>Trong nước, linh hoạt lịch trình</p></a>
+      <a class="card" href="/tour-du-lich/tour-quoc-te/"><h3>Tour quốc tế</h3><p>Tư vấn lịch trình & giấy tờ</p></a>
+      <a class="card" href="/tour-du-lich/tour-doan/"><h3>Tour đoàn</h3><p>Công ty, team building, sự kiện</p></a>
     </div>
 
     <div class="card" style="margin-top:14px">
-      <h2>Li�n k?t c�ng SILO</h2>
+      <h2>Liên kết cùng SILO</h2>
       <ul class="link-list">
-        <li><a href="/thue-xe-du-lich/">Thu� xe 16�45 ch? ph?c v? tour</a></li>
-        <li><a href="/ve-may-bay/">�?t v� m�y bay</a> � <a href="/khach-san/">Kh�ch s?n</a> � <a href="/visa-ho-chieu/">Visa � h? chi?u</a></li>
+        <li><a href="/thue-xe-du-lich/">Thuê xe 16–45 chỗ phục vụ tour</a></li>
+        <li><a href="/ve-may-bay/">Đặt vé máy bay</a> • <a href="/khach-san/">Khách sạn</a> • <a href="/visa-ho-chieu/">Visa – hộ chiếu</a></li>
       </ul>
     </div>
   </section>
@@ -59,3 +53,4 @@ const serviceJsonLd = {
   <FAQ items={faqItems} />
   <JsonLd data={serviceJsonLd} />
 </BaseLayout>
+

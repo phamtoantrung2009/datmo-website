@@ -1,21 +1,22 @@
-﻿---
+---
 import BaseLayout from '../layouts/BaseLayout.astro';
 import Breadcrumbs from '../components/Breadcrumbs.astro';
 
 // SEO: mark 404 as noindex to avoid indexing.
 // SEO: tune title/description length for SERP.
-const title = 'Không tìm thấy trang (404) | Datmo Cẩm Phả, Quảng Ninh';
-const description = 'Trang bạn yêu cầu không tồn tại hoặc đã được di chuyển. Vui lòng quay lại trang chủ hoặc chọn dịch vụ du lịch, thuê xe, vé tàu, vé máy bay tại Datmo.';
+const title = 'Kh�ng t�m th?y trang (404) | Datmo C?m Ph?, Qu?ng Ninh';
+const description = 'Trang b?n y�u c?u kh�ng t?n t?i ho?c d� du?c di chuy?n. Vui l�ng quay l?i trang ch? ho?c ch?n d?ch v? du l?ch, thu� xe, v� t�u, v� m�y bay t?i Datmo.';
 const crumbs = [
-  { name: 'Trang chủ', href: '/' },
+  { name: 'Trang ch?', href: '/' },
   { name: '404', href: '/404/' },
 ];
 ---
-<BaseLayout title={title} description={description} noindex={true}>
+<BaseLayout title={title} description={description} noindex={true} breadcrumb={crumbs}>
   <Breadcrumbs items={crumbs} />
   <section class="container section">
-    <h1>Không tìm thấy trang</h1>
-    <p class="lead">Đường dẫn này không còn tồn tại hoặc đã thay đổi.</p>
-    <p><a class="btn primary" href="/">Quay về trang chủ</a></p>
+    <h1>Kh�ng t�m th?y trang</h1>
+    <p class="lead">�u?ng d?n n�y kh�ng c�n t?n t?i ho?c d� thay d?i.</p>
+    <p><a class="btn primary" href="/">Quay v? trang ch?</a></p>
   </section>
 </BaseLayout>
+

@@ -1,19 +1,13 @@
 ---
 import BaseLayout from '../../../layouts/BaseLayout.astro';
-
-
-
-import { getOgImage } from '../../../config/og';
 import Breadcrumbs from '../../../components/Breadcrumbs.astro';
 import FAQ from '../../../components/FAQ.astro';
 import JsonLd from '../../../components/JsonLd.astro';
 import CallToActions from '../../../components/CallToActions.astro';
 import { SITE } from '../../../config/site';
 
-// SEO: tune title/description length for SERP.
-const title = 'Tour quốc tế trọn gói từ Cẩm Phả, Quảng Ninh | Datmo';
-const description = 'Tư vấn tour quốc tế theo nhu cầu: lịch trình, visa, khách sạn, vé máy bay và bảo hiểm. Hỗ trợ hồ sơ, khởi hành từ Cẩm Phả, tư vấn lịch khởi hành phù hợp.';
-const ogImage = getOgImage('/tour-du-lich/tour-quoc-te/');
+const title = 'Tour quốc tế xuất phát từ Cẩm Phả | Datmo';
+const description = 'Tư vấn tour quốc tế từ Cẩm Phả: lịch trình, vé máy bay, khách sạn và hỗ trợ visa – hộ chiếu tuỳ điểm đến.';
 const canonical = SITE.url + '/tour-du-lich/tour-quoc-te/';
 
 const crumbs = [
@@ -30,26 +24,26 @@ const faqItems = [
 const serviceJsonLd = {
   '@context': 'https://schema.org',
   '@type': 'Service',
-  name: 'Tour qu?c t? xu?t ph�t t? C?m Ph?',
-  areaServed: ['C?m Ph?', 'Qu?ng Ninh'],
+  name: 'Tour quốc tế xuất phát từ Cẩm Phả',
+  areaServed: ['Cẩm Phả', 'Quảng Ninh'],
   provider: { '@type': 'LocalBusiness', name: SITE.name, url: SITE.url, telephone: SITE.phone },
   url: canonical,
 };
 ---
-<BaseLayout title={title} description={description} ogImage={ogImage} canonical={canonical} breadcrumb={crumbs}>
+<BaseLayout title={title} description={description} canonical={canonical} breadcrumb={crumbs}>
   <Breadcrumbs items={crumbs} />
   <section class="container section">
-    <h1>Tour qu?c t? xu?t ph�t t? C?m Ph?</h1>
-    <p class="lead">Tu v?n tour qu?c t? t? C?m Ph?: l?ch tr�nh, v� m�y bay, kh�ch s?n v� h? tr? visa � h? chi?u tu? di?m d?n.</p>
+    <h1>Tour quốc tế xuất phát từ Cẩm Phả</h1>
+    <p class="lead">Tư vấn tour quốc tế từ Cẩm Phả: lịch trình, vé máy bay, khách sạn và hỗ trợ visa – hộ chiếu tuỳ điểm đến.</p>
 
     <div class="card">
-      <h2>G?i � g�i d?ch v?</h2>
+      <h2>Gợi ý gói dịch vụ</h2>
       <ul>
-        <li>L?ch tr�nh linh ho?t theo ng�y</li>
-        <li>K?t h?p v� m�y bay/kh�ch s?n khi c?n</li>
-        <li>H? tr? xe dua d�n v� v� t�u (n?u di d?o)</li>
+        <li>Lịch trình linh hoạt theo ngày</li>
+        <li>Kết hợp vé máy bay/khách sạn khi cần</li>
+        <li>Hỗ trợ xe đưa đón và vé tàu (nếu đi đảo)</li>
       </ul>
-      <p class="small">Xem th�m: <a href="/thue-xe-du-lich/">Thu� xe</a> � <a href="/ve-may-bay/">V� m�y bay</a> � <a href="/khach-san/">Kh�ch s?n</a></p>
+      <p class="small">Xem thêm: <a href="/thue-xe-du-lich/">Thuê xe</a> • <a href="/ve-may-bay/">Vé máy bay</a> • <a href="/khach-san/">Khách sạn</a></p>
     </div>
   </section>
 
@@ -57,3 +51,4 @@ const serviceJsonLd = {
   <JsonLd data={serviceJsonLd} />
   <CallToActions />
 </BaseLayout>
+

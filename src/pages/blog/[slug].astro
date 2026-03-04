@@ -3,19 +3,6 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
 import BlogPostLayout from '../../layouts/BlogPostLayout.astro';
 import { getCollection } from 'astro:content';
 import { SITE } from '../../config/site';
-import fs from 'node:fs';
-import path from 'node:path';
-
-// Auto-detect blog image: check public/images/blog/{slug}.jpg/.png/.webp
-function findBlogImage(slug: string): string | null {
-  const dir = path.resolve('public/images/blog');
-  for (const ext of ['.jpg', '.jpeg', '.png', '.webp']) {
-    if (fs.existsSync(path.join(dir, slug + ext))) {
-      return `/images/blog/${slug}${ext}`;
-    }
-  }
-  return null;
-}
 
 export async function getStaticPaths() {
   const posts = await getCollection('blog', ({ data }) => !data.draft);
@@ -29,26 +16,12 @@ const { post } = Astro.props;
 const { data } = post;
 const { Content } = await post.render();
 
-// Priority: frontmatter image > auto-detect by slug > default og.png
-const blogImage = data.image || findBlogImage(post.slug);
-const ogImage = blogImage ? SITE.url + blogImage : SITE.url + '/og.png';
 const canonical = data.canonical ?? (SITE.url + `/blog/${post.slug}/`);
 const title = `${data.title} | Datmo Blog`;
 const description = data.description;
-const published = new Date(data.publishedAt).toISOString();
-const updated = data.updatedAt ? new Date(data.updatedAt).toISOString() : published;
 ---
 
-<BaseLayout
-  title={title}
-  description={description}
-  canonical={canonical}
-  ogImage={ogImage}
-  ogType="article"
-  articlePublishedTime={published}
-  articleModifiedTime={updated}
-  articleSection={data.category}
->
+<BaseLayout title={title} description={description} canonical={canonical}>
   <BlogPostLayout post={post}>
     <Content />
   </BlogPostLayout>

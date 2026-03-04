@@ -1,33 +1,26 @@
-﻿---
+---
 import BaseLayout from '../layouts/BaseLayout.astro';
-
-
-import { getOgImage } from '../config/og';
 import Hero from '../components/Hero.astro';
 import ServiceCards from '../components/ServiceCards.astro';
 import CallToActions from '../components/CallToActions.astro';
-import QuoteForm from '../components/QuoteForm.astro';
 
-// SEO: tune homepage title/description length for SERP.
-const title = 'Thuê xe & tour du lịch Cẩm Phả, Quảng Ninh | Datmo';
-const description = 'Thuê xe 16–45 chỗ, tour nội địa/quốc tế, vé tàu cao tốc Ao Tiên/Vũng Đục đi Cô Tô – Quan Lạn, vé máy bay, khách sạn, visa. Hỗ trợ nhanh tại Cẩm Phả, Quảng Ninh.';
-const ogImage = getOgImage('/');
+const title = 'Dịch vụ du lịch & vận chuyển tại Cẩm Phả – Quảng Ninh | Datmo.io.vn';
+const description =
+  'Thuê xe du lịch 16–45 chỗ tại Cẩm Phả, tour nội địa/quốc tế, vé tàu cao tốc Ao Tiên/Vũng Đục đi Cô Tô – Quan Lạn, vé máy bay, khách sạn, visa – hộ chiếu. Hỗ trợ nhanh.';
 ---
-<BaseLayout title={title} description={description} ogImage={ogImage}>
+<BaseLayout title={title} description={description}>
   <Hero
     h1="Dịch vụ du lịch & vận chuyển tại Cẩm Phả – Quảng Ninh"
     sub="Thuê xe 16–45 chỗ • Tour xuất phát từ Cẩm Phả • Vé tàu cao tốc • Vé máy bay • Visa"
   />
-  <section class="container section">
-    <QuoteForm />
-  </section>
+
   <section class="container section">
     <h2>Dịch vụ nổi bật</h2>
     <ServiceCards />
   </section>
 
   <section class="container section">
-    <h2>Vì sao khách tại Cẩm Phả chọn Đất Mỏ Travel?</h2>
+    <h2>Vì sao khách tại Cẩm Phả chọn Datmo?</h2>
     <div class="grid-3">
       <div class="card"><h3>Tập trung địa phương</h3><p>Ưu tiên khách Cẩm Phả & Quảng Ninh, tư vấn giờ tàu/điểm đón thực tế.</p></div>
       <div class="card"><h3>Hỗ trợ nhanh</h3><p>Hotline & Zalo phản hồi nhanh, xác nhận dịch vụ rõ ràng, minh bạch.</p></div>
