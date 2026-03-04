@@ -2,7 +2,7 @@
 title: "Tour 3 đảo Cô Tô: Trải nghiệm trọn gói từ A-Z [2026]"
 description: "Tour 3 đảo Cô Tô 2026: Bãi Đầu Đông, Hòn Sư Tử, Đảo Cá Chép. Giá tour, lịch trình chi tiết, hoạt động và đặt tour ngay cùng Datmo."
 publishedAt: 2026-03-04
-category: "tour-du-lich"
+category: "kinh-nghiem-du-lich"
 tags: ["tour-3-dao-co-to", "du-lich-co-to", "dao-co-to-con", "tour-bien-co-to", "du-lich-2026", "hoat-dong-bien"]
 ---
 
