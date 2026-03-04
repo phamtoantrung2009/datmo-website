@@ -1,202 +1,202 @@
 ---
-title: "Tour 3 dao Co To: Trai nghiem tron goi tu A-Z [2026] - Updated"
-description: "Tour 3 dao Co To 2026: Bai Dau Dong, Hon Su Tu, Dao Ca Chep. Gia tour, lich trinh chi tiet, hoat dong va dat tour ngay cung Datmo."
+title: "Tour 3 đảo Cô Tô: Trải nghiệm trọn gói từ A-Z [2026] - Updated"
+description: "Tour 3 đảo Cô Tô 2026: Bãi Đầu Đông, Hòn Sư Tử, Đảo Cá Chép. Giá tour, lịch trình chi tiết, hoạt động và đặt tour ngay cùng Đatmo."
 publishedAt: 2026-03-04
 category: "kinh-nghiem-du-lich"
 tags: ["tour-3-dao-co-to", "du-lich-co-to", "dao-co-to-con", "tour-bien-co-to", "du-lich-2026", "hoat-dong-bien"]
 draft: false
 ---
 
-Neu da dat chan len dao Co To ma chua trai nghiem **Tour 3 dao** -- coi nhu chuyen di con thieu mot nua. Tour nay dua ban kham pha tron bo nhung diem dep nhat quan dao Co To: bien bien hoang son, hon dao ki thu, va nhung trai nghiem bien ma khong noi nao co duoc.
+Nếu đã đặt chân lên đảo Cô Tô mà chưa trải nghiệm **Tour 3 đảo** -- coi như chuyến đi còn thiếu một nửa. Tour này đưa bạn khám phá trọn bộ những điểm đẹp nhất quần đảo Cô Tô: biển biếc hoang sơ, hòn đảo kỳ thú, và những trải nghiệm biển mà không nơi nào có được.
 
-Bai viet nay se tong hop **chi tiet Tour 3 dao Co To** -- gia ca, lich trinh, cac diem den -- va huong dan cach dat tour nhanh nhat cung **Datmo**.
+Bài viết này sẽ tổng hợp **chi tiết Tour 3 đảo Cô Tô** -- giá cả, lịch trình, các điểm đến -- và hướng dẫn cách đặt tour nhanh nhất cùng **Datmo**.
 
 ---
 
-## Tour 3 dao Co To -- Tong quan
+## Tour 3 đảo Cô Tô -- Tổng quan
 
-### Gia tour & phuong tien
+### Giá tour & phương tiện
 
-| Loai tour | Gia (VND) | Phuong tien | So nguoi toi thieu |
+| Loại tour | Giá (VND) | Phương tiện | Số người tối thiểu |
 |-----------|-----------|-------------|---------------------|
-| Buoi sang | 690.000 | Tau go | 4 nguoi |
-| Buoi sang | 1.090.000 | Tau Cano | 6 nguoi |
-| Buoi chieu | 540.000 | Tau go | 4 nguoi |
-| Buoi chieu | 940.000 | Tau Cano | 6 nguoi |
+| Buổi sáng | 690.000 | Tàu gỗ | 4 người |
+| Buổi sáng | 1.090.000 | Tàu Cano | 6 người |
+| Buổi chiều | 540.000 | Tàu gỗ | 4 người |
+| Buổi chiều | 940.000 | Tàu Cano | 6 người |
 
-**Ghi chu:**
-- Gia tour **buoi sang** bao gom bua trua tren dao (gia tri 150.000 d/khach)
-- Gia tour **buoi chieu** khong bao gom bua an
-- Gia chua bao gom VAT
+**Ghi chú:**
+- Giá tour **buổi sáng** bao gồm bữa trưa trên đảo (giá trị 150.000 đ/khách)
+- Giá tour **buổi chiều** không bao gồm bữa ăn
+- Giá chưa bao gồm VAT
 
-### Nen chon buoi sang hay buoi chieu?
+### Nên chọn buổi sáng hay buổi chiều?
 
-- **Buoi sang (07h00 - 13h30):** Phu hop ai muon kham pha tron vang, co bua tren dao, ve som nghi ngioi
-- **Buoi chieu (13h00 - 18h30):** Neu ban den Co To muon, hoac muon ngam hoang hon tren bien
+- **Buổi sáng (07h00 - 13h30):** Phù hợp ai muốn khám phá trọn vẹn, có bữa trên đảo, về sớm nghỉ ngơi
+- **Buổi chiều (13h00 - 18h30):** Nếu bạn đến Cô Tô muộn, hoặc muốn ngắm hoàng hôn trên biển
 
 ---
 
-## Lich trinh chi tiet
+## Lịch trình chi tiết
 
-### Tour khoi hanh buoi sang
+### Tour khởi hành buổi sáng
 
-| Gio | Hoat dong |
+| Giờ | Hoạt động |
 |-----|-----------|
-| 06:30 - 07:00 | Xe dien don khach tai khach san tren dao Co To |
-| 07:15 | Lam thu tuc len tau tai ben |
-| 07:15 - 07:30 | Khoi hanh ra dao |
-| 08:00 - 08:45 | **Diem 1:** Bai bien Dau Dong Co To Con -- tam bien, lan ngam san ho |
-| 08:45 - 10:00 | **Diem 2:** Hon Su Tu -- chup anh, cau ca, bat oc, danh ha |
-| 10:00 - 10:30 | **Diem 3:** Dao Ca Chep -- di bo tren "con duong cat" giua bien |
-| 10:30 - 12:00 | **Diem 4:** Bai bien Co To Con dau nam -- an trua, nghi ngoi, SUP, kayak (tu tuc) |
-| 12:00 - 12:30 | Tau quay ve Co To lon |
-| 12:30 - 13:00 | Xe dua ve diem don ban dau |
-| 13:30 | Ket thuc tour |
+| 06:30 - 07:00 | Xe điện đón khách tại khách sạn trên đảo Cô Tô |
+| 07:15 | Làm thủ tục lên tàu tại bến |
+| 07:15 - 07:30 | Khởi hành ra đảo |
+| 08:00 - 08:45 | **Điểm 1:** Bãi biển Đầu Đông Cô Tô Con -- tắm biển, lặn ngắm san hô |
+| 08:45 - 10:00 | **Điểm 2:** Hòn Sư Tử -- chụp ảnh, câu cá, bắt ốc, đánh hà |
+| 10:00 - 10:30 | **Điểm 3:** Đảo Cá Chép -- đi bộ trên "con đường cát" giữa biển |
+| 10:30 - 12:00 | **Điểm 4:** Bãi biển Cô Tô Con đầu nam -- ăn trưa, nghỉ ngơi, SUP, kayak (tự túc) |
+| 12:00 - 12:30 | Tàu quay về Cô Tô lớn |
+| 12:30 - 13:00 | Xe đưa về điểm đón ban đầu |
+| 13:30 | Kết thúc tour |
 
-### Tour khoi hanh buoi chieu
+### Tour khởi hành buổi chiều
 
-| Gio | Hoat dong |
+| Giờ | Hoạt động |
 |-----|-----------|
-| 12:00 - 13:00 | Xe dien don khach tai khach san |
-| 13:15 | Lam thu tuc len tau |
-| 13:15 - 13:30 | Khoi hanh ra dao |
-| 14:00 - 14:45 | **Diem 1:** Bai bien Dau Dong Co To Con |
-| 14:45 - 15:45 | **Diem 2:** Hon Su Tu |
-| 16:00 - 16:30 | **Diem 3:** Dao Ca Chep |
-| 17:30 - 17:00 | **Diem 4:** Bai bien Co To Con dau nam -- an toi (tu tuc), ngam hoang hon |
-| 17:00 - 17:30 | Tau quay ve |
-| 17:30 - 18:00 | Xe dua ve diem don |
-| 18:30 | Ket thuc tour |
+| 12:00 - 13:00 | Xe điện đón khách tại khách sạn |
+| 13:15 | Làm thủ tục lên tàu |
+| 13:15 - 13:30 | Khởi hành ra đảo |
+| 14:00 - 14:45 | **Điểm 1:** Bãi biển Đầu Đông Cô Tô Con |
+| 14:45 - 15:45 | **Điểm 2:** Hòn Sư Tử |
+| 16:00 - 16:30 | **Điểm 3:** Đảo Cá Chép |
+| 17:30 - 17:00 | **Điểm 4:** Bãi biển Cô Tô Con đầu nam -- ăn tối (tự túc), ngắm hoàng hôn |
+| 17:00 - 17:30 | Tàu quay về |
+| 17:30 - 18:00 | Xe đưa về điểm đón |
+| 18:30 | Kết thúc tour |
 
 ---
 
-## Cac diem den trong Tour 3 dao
+## Các điểm đến trong Tour 3 đảo
 
-### 1. Bai bien Dau Dong Co To Con
+### 1. Bãi biển Đầu Đông Cô Tô Con
 
-Duoc menh danh la **bai bien dep nhat quan dao Co To** -- noi nay so huu lan nuoc trong xanh nhu ngoc, cat minh mam va khong khi hoang so chua bi khai thac du lich hoa.
+Được mệnh danh là **bãi biển đẹp nhất quần đảo Cô Tô** -- nơi này sở hữu làn nước trong xanh như ngọc, cát mịn mịn và không khí hoang sơ chưa bị khai thác du lịch hóa.
 
-**Hoat dong:**
-- Tam bien, boi loi an toan (co the loai xa vai tram met)
-- **Lan ngam san ho** -- HDV ban dia cung cap kinh lan, huong dan cach quan sat sinh vat bien
-- Quay video duoi nuoc voi dien thoai -- HDV ho tro quay mien phi
+**Hoạt động:**
+- Tắm biển, bơi lội an toàn (có thể lội xa vài trăm mét)
+- **Lặn ngắm san hô** -- HDV bản địa cung cấp kính lặn, hướng dẫn cách quan sát sinh vật biển
+- Quay video dưới nước với điện thoại -- HDV hỗ trợ quay miễn phí
 
-> **Luu y:** Viec nhin thay san ho phu thuoc vao thuy trieu -- nen hoi HDV truoc de duoc tu van thoi diem tot nhat.
+> **Lưu ý:** Việc nhìn thấy san hô phụ thuộc vào thủy triều -- nên hỏi HDV trước để được tư vấn thời điểm tốt nhất.
 
-### 2. Hon Su Tu
+### 2. Hòn Sư Tử
 
-Diem dung chan voi **tuyet tac thien nhien** -- mot tang da lon tu nhien co hinh con su tu dang nam, duoc menh danh la "bieu tuong" cua Co To.
+Điểm dừng chân với **tuyệt tác thiên nhiên** -- một tảng đá lớn tự nhiên có hình con sư tử đang nằm, được mệnh danh là "biểu tượng" của Cô Tô.
 
-**Hoat dong:**
-- Check-in voi hon da doc dao
-- Bat oc, danh ha, cao nga -- trai nghiem "bien dung nghia"
-- **Cau ca tren bien** -- HDV dung tau cho du khach thu van may
+**Hoạt động:**
+- Check-in với hòn đá độc đáo
+- Bắt ốc, đánh hà, cào ngao -- trải nghiệm "biển đúng nghĩa"
+- **Câu cá trên biển** -- HDV dùng tàu cho du khách thử vận may
 
-### 3. Dao Ca Chep (Hon Ca Chep)
+### 3. Đảo Cá Chép (Hòn Cá Chép)
 
-Diem den **doc dao nhat** cua tour -- noi co mot "con duong cat" (roi cat) nho len khi thuy trieu ha xuong, tao thanh loi di giua bien khoi.
+Điểm đến **độc đáo nhất** của tour -- nơi có một "con đường cát" (rời cát) nhô lên khi thủy triều hạ xuống, tạo thành lối đi giữa biển khơi.
 
-- Chi xuat hien **2 tieng/ngay** -- vi vay day la khoanh khac "must-capture" cho tin doi song ao
-- Ben can con co **hon da thung** voi nhieu phien da mau sac -- background "song ao" cuc chill
+- Chỉ xuất hiện **2 tiếng/ngày** -- vì vậy đây là khoảnh khắc "must-capture" cho tín đồ sống ảo
+- Bên cạnh còn có **hòn đá thùng** với nhiều phiến đá màu sắc -- background "sống ảo" cực chill
 
-### 4. Bai bien Co To Con dau Nam
+### 4. Bãi biển Cô Tô Con đầu Nam
 
-Diem dung chan cuoi cung de **nghi ngoi, an uong va tan huong**:
+Điểm dừng chân cuối cùng để **nghỉ ngơi, ăn uống và tận hưởng**:
 
-**Buoi sang:** An bua trua voi menu:
-- Ngo chien
-- Hau nuong mo hanh
-- Oc hap
-- So hap
-- Thit ga rang gung
-- Trung ran
-- Rau muong xao toi
-- Com trang
-- Canh ha nau chua
-- Trang mieng
-- Thuong thien "chinh lo pham" da bat duoc trong ngay
+**Buổi sáng:** Ăn bữa trưa với menu:
+- Ngô chiên
+- Hàu nướng mỡ hành
+- Ốc hấp
+- Sò hấp
+- Thịt gà rang gừng
+- Trứng rán
+- Rau muống xào tỏi
+- Cơm trắng
+- Canh hà nấu chua
+- Tráng miệng
+- Thưởng thức "chiến lợi phẩm" đã bắt được trong ngày
 
-**Hoat dong tu tuc (phi rieng):**
-- Chup hinh phao SUP (mien phi)
-- Cheo thuyen kayak
-- Cuoi chuoi vuot song
-- Mo to nuoc
-
----
-
-## Dich vu bao gom trong tour
-
-✅ Bao hiem hanh khach  
-✅ Tau go hoac Cano (tuy chon)  
-✅ Ao phao va dung cu an toan  
-✅ Huong dan vien ban dia nhiet tinh, co nghiệp vo boi loi  
-✅ Chup hinh phao SUP mien phi  
-✅ Xe dien dua don tai khach san  
-✅ Nuoc uong trong suot chuyen di  
-✅ Bua trua tren dao (tour buoi sang, gia tri 150.000 d)  
+**Hoạt động tự túc (phí riêng):**
+- Chụp hình phao SUP (miễn phí)
+- Chèo thuyền kayak
+- Cưỡi chuối vượt sóng
+- Mô tô nước
 
 ---
 
-## Dich vu KHONG bao gom
+## Dịch vụ bao gồm trong tour
 
-❌ Thue VAT  
-❌ Cheo kayak, mo to nuoc, thuyen chuoi  
-❌ Cac dich vu tai nha hang bai bien Co To Con  
-❌ Phu thu trai nghiem bang Cano: 400.000 d/nguoi  
-
----
-
-## Luu y quan trong khi tham gia tour
-
-### Ve thuy trieu & lich trinh
-- Lich trinh cac diem co the thay doi do thuy trieu moi ngay khac nhau
-- HDV se sap xep thu tu hop ly nhung van dam bao day du cac diem tham quan
-
-### Ve moi truong
-- **Tuyet doi khong duoc dam, dap len san ho**
-- Khong xa rac nilon ra bien -- phai mang tui rac ve khach san
-- Bao ve moi truong la trach nhiem cua moi du khach
-
-### Ve suc khoe
-- Nen mang theo thuoc dau bung, thuoc cam sot thong thuong
-- Khach co benh man tinh (tim mach, huyet ap, tieu duong, xuong khop...), phu nu mang thai can viet cam ket truoc khi tham gia
-- Cac benh nam ngoai pham vi bao hiem du lich
-
-### Ve tai san
-- Khach hang tu bao quan tai san rieng
-- Don vi to chuc khong chiu trach nhiem mat mat ve tien bac, tu trang quy
+✅ Bảo hiểm hành khách  
+✅ Tàu gỗ hoặc Cano (tùy chọn)  
+✅ Áo phao và dụng cụ an toàn  
+✅ Hướng dẫn viên bản địa nhiệt tình, có nghiệp vụ bơi lội  
+✅ Chụp hình phao SUP miễn phí  
+✅ Xe điện đưa đón tại khách sạn  
+✅ Nước uống trong suốt chuyến đi  
+✅ Bữa trưa trên đảo (tour buổi sáng, giá trị 150.000 đ)  
 
 ---
 
-## Tai sao nen dat Tour 3 dao Co To cung Datmo?
+## Dịch vụ KHÔNG bao gồm
 
-### Cam ket cua Datmo
-
-- **Ho tro dat tour nhanh chong** -- chi can 1 cuoc goi, tat ca lo liệu
-- **Gia canh tranh** -- khong phat sinh chi phi trung gian
-- **Tu van tan tinh** -- giup ban chon tour phu hop voi thoi gian va ngan sach
-- **Dat xe kem theo** -- thue xe dua don tu Cam Pha/Van Don ra cang Cai Rong, tron goi tien loi
-
-### Quy trinh dat tour cung Datmo
-
-1. **Lien he:** Goi 0911 321 578 hoac nhac Zalo
-2. **Tu van:** Datmo hoi ngay di, so nguoi, loai tour mong muon
-3. **Xac nhan:** Bao gia chi tiet, xac nhan dat tour
-4. **Thanh toan:** Dat coc theo yeu cau, con lai thanh toan khi len tau
-5. **Trai nghiem:** Xe don tan khach san, tan huong tour -- khong lo gi ca!
+❌ Thuế VAT  
+❌ Chèo kayak, mô tô nước, thuyền chuối  
+❌ Các dịch vụ tại nhà hàng bãi biển Cô Tô Con  
+❌ Phụ thu trải nghiệm bằng Cano: 400.000 đ/người  
 
 ---
 
-## Dat tour ngay voi Datmo
+## Lưu ý quan trọng khi tham gia tour
 
-Tour 3 dao Co To la trai nghiem **khong the bo lo** khi den huyen dao xinh dep nay. Tu bai bien Dau Dong trong xanh, hon Su Tu ki thu, con duong cat doc dao cua Dao Ca Chep den bai bien Co To Con dau nam -- moi diem dung chan deu de lai nhung ky niem kho quen.
+### Về thủy triều & lịch trình
+- Lịch trình các điểm có thể thay đổi do thủy triều mỗi ngày khác nhau
+- HDV sẽ sắp xếp thứ tự hợp lý nhưng vẫn đảm bảo đầy đủ các điểm tham quan
 
-**De khong biet "full" -- hay dat ngay hom nay!**
+### Về môi trường
+- **Tuyệt đối không được dẫm, đạp lên san hô**
+- Không xả rác nilon ra biển -- phải mang túi rác về khách sạn
+- Bảo vệ môi trường là trách nhiệm của mỗi du khách
+
+### Về sức khỏe
+- Nên mang theo thuốc đau bụng, thuốc cảm sốt thông thường
+- Khách có bệnh mãn tính (tim mạch, huyết áp, tiểu đường, xương khớp...), phụ nữ mang thai cần viết cam kết trước khi tham gia
+- Các bệnh nằm ngoài phạm vi bảo hiểm du lịch
+
+### Về tài sản
+- Khách hàng tự bảo quản tài sản riêng
+- Đơn vị tổ chức không chịu trách nhiệm mất mát về tiền bạc, tư trang quý
+
+---
+
+## Tại sao nên đặt Tour 3 đảo Cô Tô cùng Datmo?
+
+### Cam kết của Datmo
+
+- **Hỗ trợ đặt tour nhanh chóng** -- chỉ cần 1 cuộc gọi, tất cả lo liệu
+- **Giá cạnh tranh** -- không phát sinh chi phí trung gian
+- **Tư vấn tận tình** -- giúp bạn chọn tour phù hợp với thời gian và ngân sách
+- **Đặt xe kèm theo** -- thuê xe đưa đón từ Cẩm Phả/Vân Đồn ra cảng Cái Rồng, trọn gói tiện lợi
+
+### Quy trình đặt tour cùng Datmo
+
+1. **Liên hệ:** Gọi 0911 321 578 hoặc nhắn Zalo
+2. **Tư vấn:** Datmo hỏi ngày đi, số người, loại tour mong muốn
+3. **Xác nhận:** Báo giá chi tiết, xác nhận đặt tour
+4. **Thanh toán:** Đặt cọc theo yêu cầu, còn lại thanh toán khi lên tàu
+5. **Trải nghiệm:** Xe đón tận khách sạn, tận hưởng tour -- không lo gì cả!
+
+---
+
+## Đặt tour ngay với Datmo
+
+Tour 3 đảo Cô Tô là trải nghiệm **không thể bỏ lỡ** khi đến huyện đảo xinh đẹp này. Từ bãi biển Đầu Đông trong xanh, hòn Sư Tử kỳ thú, con đường cát độc đáo của Đảo Cá Chép đến bãi biển Cô Tô Con đầu Nam -- mỗi điểm dừng chân đều để lại những kỷ niệm khó quên.
+
+**Để không bị "full" -- hãy đặt ngay hôm nay!**
 
 📞 **Hotline: 0911 321 578**  
 💬 **Zalo: [911321578](https://zalo.me/911321578)**  
-📍 Dat tour nhanh -- co xe dua don tan noi!
+📍 Đặt tour nhanh -- có xe đưa đón tận nơi!
 
 ---
 
-📖 Xem them: [Cam nang du lich Co To 2026](/blog/cam-nang-du-lich-dao-co-to-2026/) | [Thue xe du lich Cam Pha](/thue-xe-du-lich/)
+📖 Xem thêm: [Cẩm nang du lịch Cô Tô 2026](/blog/cam-nang-du-lich-dao-co-to-2026/) | [Thuê xe du lịch Cẩm Phả](/thue-xe-du-lich/)
