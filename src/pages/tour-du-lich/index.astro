@@ -1,5 +1,8 @@
 ---
-import BaseLayout from '../../layouts/BaseLayout.astro';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+
+
+
 import { getOgImage } from '../../config/og';
 import Breadcrumbs from '../../components/Breadcrumbs.astro';
 import FAQ from '../../components/FAQ.astro';
@@ -7,25 +10,25 @@ import JsonLd from '../../components/JsonLd.astro';
 import { SITE } from '../../config/site';
 
 // SEO: tune title/description length for SERP.
-const title = 'Tour du l?ch tr?n gói t?i C?m Ph?, Qu?ng Ninh | Datmo';
-const description = 'Tu v?n tour theo ngân sách và th?i gian: n?i d?a, qu?c t?, tour doàn. Xu?t phát t? C?m Ph?, t?i uu l?ch trình, h? tr? xe, khách s?n và vé. Giá minh b?ch.';
+const title = 'Tour du lá»‹ch trá»n gÃ³i táº¡i Cáº©m Pháº£, Quáº£ng Ninh | Datmo';
+const description = 'TÆ° váº¥n tour theo ngÃ¢n sÃ¡ch vÃ  thá»i gian: ná»™i Ä‘á»‹a, quá»‘c táº¿, tour Ä‘oÃ n. Xuáº¥t phÃ¡t tá»« Cáº©m Pháº£, tá»‘i Æ°u lá»‹ch trÃ¬nh, há»— trá»£ xe, khÃ¡ch sáº¡n vÃ  vÃ©. GiÃ¡ minh báº¡ch.';
 const ogImage = getOgImage('/tour-du-lich/');
 const canonical = SITE.url + '/tour-du-lich/';
 
 const crumbs = [
-  { name: 'Trang ch?', href: '/' },
-  { name: 'Tour du l?ch', href: '/tour-du-lich/' },
+  { name: 'Trang chá»§', href: '/' },
+  { name: 'Tour du lá»‹ch', href: '/tour-du-lich/' },
 ];
 
 const faqItems = [
-  { q: 'Có tour ghép hay tour riêng?', a: 'Tu? l?ch. Có th? t? ch?c tour doàn riêng theo yêu c?u ho?c tu v?n l?ch phù h?p.' },
-  { q: 'Có h? tr? vé máy bay/khách s?n không?', a: 'Có. Datmo h? tr? d?t vé máy bay, khách s?n, và d?ch v? visa – h? chi?u theo tour.' },
+  { q: 'Cï¿½ tour ghï¿½p hay tour riï¿½ng?', a: 'Tu? l?ch. Cï¿½ th? t? ch?c tour doï¿½n riï¿½ng theo yï¿½u c?u ho?c tu v?n l?ch phï¿½ h?p.' },
+  { q: 'Cï¿½ h? tr? vï¿½ mï¿½y bay/khï¿½ch s?n khï¿½ng?', a: 'Cï¿½. Datmo h? tr? d?t vï¿½ mï¿½y bay, khï¿½ch s?n, vï¿½ d?ch v? visa ï¿½ h? chi?u theo tour.' },
 ];
 
 const serviceJsonLd = {
   '@context': 'https://schema.org',
   '@type': 'Service',
-  name: 'Tour du l?ch xu?t phát t? C?m Ph?',
+  name: 'Tour du l?ch xu?t phï¿½t t? C?m Ph?',
   areaServed: ['C?m Ph?', 'Qu?ng Ninh'],
   provider: { '@type': 'LocalBusiness', name: SITE.name, url: SITE.url, telephone: SITE.phone },
   url: canonical,
@@ -35,20 +38,20 @@ const serviceJsonLd = {
   <Breadcrumbs items={crumbs} />
 
   <section class="container section">
-    <h1>Tour du l?ch xu?t phát t? C?m Ph?</h1>
-    <p class="lead">Tu v?n tour phù h?p ngân sách, s? lu?ng khách, th?i gian và nhu c?u di chuy?n.</p>
+    <h1>Tour du l?ch xu?t phï¿½t t? C?m Ph?</h1>
+    <p class="lead">Tu v?n tour phï¿½ h?p ngï¿½n sï¿½ch, s? lu?ng khï¿½ch, th?i gian vï¿½ nhu c?u di chuy?n.</p>
 
     <div class="grid-3">
-      <a class="card" href="/tour-du-lich/tour-noi-dia/"><h3>Tour n?i d?a</h3><p>Trong nu?c, linh ho?t l?ch trình</p></a>
-      <a class="card" href="/tour-du-lich/tour-quoc-te/"><h3>Tour qu?c t?</h3><p>Tu v?n l?ch trình & gi?y t?</p></a>
-      <a class="card" href="/tour-du-lich/tour-doan/"><h3>Tour doàn</h3><p>Công ty, team building, s? ki?n</p></a>
+      <a class="card" href="/tour-du-lich/tour-noi-dia/"><h3>Tour n?i d?a</h3><p>Trong nu?c, linh ho?t l?ch trï¿½nh</p></a>
+      <a class="card" href="/tour-du-lich/tour-quoc-te/"><h3>Tour qu?c t?</h3><p>Tu v?n l?ch trï¿½nh & gi?y t?</p></a>
+      <a class="card" href="/tour-du-lich/tour-doan/"><h3>Tour doï¿½n</h3><p>Cï¿½ng ty, team building, s? ki?n</p></a>
     </div>
 
     <div class="card" style="margin-top:14px">
-      <h2>Liên k?t cùng SILO</h2>
+      <h2>Liï¿½n k?t cï¿½ng SILO</h2>
       <ul class="link-list">
-        <li><a href="/thue-xe-du-lich/">Thuê xe 16–45 ch? ph?c v? tour</a></li>
-        <li><a href="/ve-may-bay/">Ğ?t vé máy bay</a> • <a href="/khach-san/">Khách s?n</a> • <a href="/visa-ho-chieu/">Visa – h? chi?u</a></li>
+        <li><a href="/thue-xe-du-lich/">Thuï¿½ xe 16ï¿½45 ch? ph?c v? tour</a></li>
+        <li><a href="/ve-may-bay/">ï¿½?t vï¿½ mï¿½y bay</a> ï¿½ <a href="/khach-san/">Khï¿½ch s?n</a> ï¿½ <a href="/visa-ho-chieu/">Visa ï¿½ h? chi?u</a></li>
       </ul>
     </div>
   </section>

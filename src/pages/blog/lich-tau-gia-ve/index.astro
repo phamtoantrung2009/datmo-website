@@ -1,17 +1,19 @@
 ---
-import BaseLayout from '../../../layouts/BaseLayout.astro';
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+
+
 import { getOgImage } from '../../../config/og';
 import Breadcrumbs from '../../../components/Breadcrumbs.astro';
 import { getCollection } from 'astro:content';
 
 // SEO: tune title/description length for SERP.
-const title = 'L?ch tàu & giá vé Ao Tiên, Vung Ð?c C?m Ph? | Blog Datmo';
-const description = 'C?p nh?t l?ch tàu cao t?c, giá vé Ao Tiên – Cô Tô, Ao Tiên – Quan L?n; kèm luu ý d?t vé, gi? ch?y theo ngày và tình hình th?i ti?t, th? t?c.';
+const title = 'Lá»‹ch tÃ u & giÃ¡ vÃ© Ao TiÃªn, VÅ©ng Äá»¥c Cáº©m Pháº£ | Blog Datmo';
+const description = 'Cáº­p nháº­t lá»‹ch tÃ u cao tá»‘c, giÃ¡ vÃ© Ao TiÃªn â€“ CÃ´ TÃ´, Ao TiÃªn â€“ Quan Láº¡n; kÃ¨m lÆ°u Ã½ Ä‘áº·t vÃ©, giá» cháº¡y theo ngÃ y vÃ  tÃ¬nh hÃ¬nh thá»i tiáº¿t, thá»§ tá»¥c.';
 const ogImage = getOgImage('/blog/lich-tau-gia-ve/');
 const crumbs = [
-  { name: 'Trang ch?', href: '/' },
+  { name: 'Trang chá»§', href: '/' },
   { name: 'Blog', href: '/blog/' },
-  { name: 'L?ch tàu & giá vé', href: '/blog/lich-tau-gia-ve/' },
+  { name: 'Lá»‹ch tÃ u & giÃ¡ vÃ©', href: '/blog/lich-tau-gia-ve/' },
 ];
 
 const posts = (await getCollection('blog', ({ data }) => !data.draft && data.category === 'lich-tau-gia-ve'))
@@ -20,8 +22,8 @@ const posts = (await getCollection('blog', ({ data }) => !data.draft && data.cat
 <BaseLayout title={title} description={description} ogImage={ogImage} breadcrumb={crumbs}>
   <Breadcrumbs items={crumbs} />
   <section class="container section">
-    <h1>L?ch tàu & giá vé</h1>
-    <p class="lead">Bài vi?t t?p trung thông tin l?ch tàu/giá vé và luu ý d?t vé.</p>
+    <h1>L?ch tï¿½u & giï¿½ vï¿½</h1>
+    <p class="lead">Bï¿½i vi?t t?p trung thï¿½ng tin l?ch tï¿½u/giï¿½ vï¿½ vï¿½ luu ï¿½ d?t vï¿½.</p>
     <div class="grid-2">
       {posts.map((p) => (
         <a class="card post-card" href={`/blog/${p.slug}/`}>

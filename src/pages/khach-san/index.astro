@@ -1,5 +1,7 @@
 ---
-import BaseLayout from '../../layouts/BaseLayout.astro';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+
+
 import { getOgImage } from '../../config/og';
 import Breadcrumbs from '../../components/Breadcrumbs.astro';
 import FAQ from '../../components/FAQ.astro';
@@ -8,25 +10,25 @@ import CallToActions from '../../components/CallToActions.astro';
 import { SITE } from '../../config/site';
 
 // SEO: tune title/description length for SERP.
-const title = 'Tu v?n d?t phòng khách s?n C?m Ph?, Qu?ng Ninh | Datmo';
-const description = 'Tu v?n & d?t phòng khách s?n cho khách C?m Ph?/Qu?ng Ninh theo nhu c?u v? trí, ngân sách, ti?n ích; có th? k?t h?p tour ho?c vé máy bay. H? tr? nhanh.';
+const title = 'TÆ° váº¥n Ä‘áº·t phÃ²ng khÃ¡ch sáº¡n Cáº©m Pháº£, Quáº£ng Ninh | Datmo';
+const description = 'TÆ° váº¥n & Ä‘áº·t phÃ²ng khÃ¡ch sáº¡n cho khÃ¡ch Cáº©m Pháº£/Quáº£ng Ninh theo nhu cáº§u vá» vá»‹ trÃ­, ngÃ¢n sÃ¡ch, tiá»‡n Ã­ch; cÃ³ thá»ƒ káº¿t há»£p tour hoáº·c vÃ© mÃ¡y bay. Há»— trá»£ nhanh.';
 const ogImage = getOgImage('/khach-san/');
 const canonical = SITE.url + '/khach-san/';
 
 const crumbs = [
-  { name: 'Trang ch?', href: '/' },
-  { name: 'Ğ?t phòng khách s?n t?i Qu?ng Ninh', href: '/khach-san/' },
+  { name: 'Trang chá»§', href: '/' },
+  { name: 'Äáº·t phÃ²ng khÃ¡ch sáº¡n táº¡i Quáº£ng Ninh', href: '/khach-san/' },
 ];
 
 const faqItems = [
-  { q: 'C?n cung c?p thông tin gì d? d?t nhanh?', a: 'H? tên, ngày di (kh? h?i n?u có), tuy?n/di?m d?n và s? di?n tho?i liên h?.' },
-  { q: 'Có h? tr? thay d?i/hoàn hu? không?', a: 'Tu? di?u ki?n c?a hãng/nhà cung c?p. Datmo h? tr? hu?ng d?n và x? lı theo quy d?nh.' },
+  { q: 'C?n cung c?p thï¿½ng tin gï¿½ d? d?t nhanh?', a: 'H? tï¿½n, ngï¿½y di (kh? h?i n?u cï¿½), tuy?n/di?m d?n vï¿½ s? di?n tho?i liï¿½n h?.' },
+  { q: 'Cï¿½ h? tr? thay d?i/hoï¿½n hu? khï¿½ng?', a: 'Tu? di?u ki?n c?a hï¿½ng/nhï¿½ cung c?p. Datmo h? tr? hu?ng d?n vï¿½ x? lï¿½ theo quy d?nh.' },
 ];
 
 const serviceJsonLd = {
   '@context': 'https://schema.org',
   '@type': 'Service',
-  name: 'Ğ?t phòng khách s?n t?i Qu?ng Ninh',
+  name: 'ï¿½?t phï¿½ng khï¿½ch s?n t?i Qu?ng Ninh',
   areaServed: ['C?m Ph?', 'Qu?ng Ninh'],
   provider: { '@type': 'LocalBusiness', name: SITE.name, url: SITE.url, telephone: SITE.phone },
   url: canonical,
@@ -35,13 +37,13 @@ const serviceJsonLd = {
 <BaseLayout title={title} description={description} ogImage={ogImage} canonical={canonical} breadcrumb={crumbs}>
   <Breadcrumbs items={crumbs} />
   <section class="container section">
-    <h1>Ğ?t phòng khách s?n t?i Qu?ng Ninh</h1>
-    <p class="lead">Tu v?n & d?t phòng khách s?n cho khách C?m Ph?/Qu?ng Ninh theo nhu c?u v? trí, ngân sách, ti?n ích. Có th? k?t h?p tour và vé máy bay.</p>
+    <h1>ï¿½?t phï¿½ng khï¿½ch s?n t?i Qu?ng Ninh</h1>
+    <p class="lead">Tu v?n & d?t phï¿½ng khï¿½ch s?n cho khï¿½ch C?m Ph?/Qu?ng Ninh theo nhu c?u v? trï¿½, ngï¿½n sï¿½ch, ti?n ï¿½ch. Cï¿½ th? k?t h?p tour vï¿½ vï¿½ mï¿½y bay.</p>
 
     <div class="card">
-      <h2>Liên k?t cùng SILO</h2>
+      <h2>Liï¿½n k?t cï¿½ng SILO</h2>
       <ul class="link-list">
-        <li><a href="/ve-may-bay/">Vé máy bay</a></li><li><a href="/tour-du-lich/">Tour du l?ch</a></li><li><a href="/thue-xe-du-lich/">Thuê xe du l?ch</a></li>
+        <li><a href="/ve-may-bay/">Vï¿½ mï¿½y bay</a></li><li><a href="/tour-du-lich/">Tour du l?ch</a></li><li><a href="/thue-xe-du-lich/">Thuï¿½ xe du l?ch</a></li>
       </ul>
     </div>
   </section>

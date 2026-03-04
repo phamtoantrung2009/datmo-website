@@ -1,5 +1,8 @@
 ---
-import BaseLayout from '../../layouts/BaseLayout.astro';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+
+
+
 import { getOgImage } from '../../config/og';
 import Breadcrumbs from '../../components/Breadcrumbs.astro';
 import FAQ from '../../components/FAQ.astro';
@@ -8,25 +11,25 @@ import CallToActions from '../../components/CallToActions.astro';
 import { SITE } from '../../config/site';
 
 // SEO: tune title/description length for SERP.
-const title = 'Ğ?t vé máy bay nhanh t?i C?m Ph?, Qu?ng Ninh | Datmo';
-const description = 'Nh?n d?t vé máy bay cho khách C?m Ph? – Qu?ng Ninh: tu v?n hành trình, báo giá nhanh, h? tr? d?i vé theo di?u ki?n hãng. H? tr? nhanh qua hotline.';
+const title = 'Äáº·t vÃ© mÃ¡y bay nhanh táº¡i Cáº©m Pháº£, Quáº£ng Ninh | Datmo';
+const description = 'Nháº­n Ä‘áº·t vÃ© mÃ¡y bay cho khÃ¡ch Cáº©m Pháº£ â€“ Quáº£ng Ninh: tÆ° váº¥n hÃ nh trÃ¬nh, bÃ¡o giÃ¡ nhanh, há»— trá»£ Ä‘á»•i vÃ© theo Ä‘iá»u kiá»‡n hÃ£ng. Há»— trá»£ nhanh qua hotline.';
 const ogImage = getOgImage('/ve-may-bay/');
 const canonical = SITE.url + '/ve-may-bay/';
 
 const crumbs = [
-  { name: 'Trang ch?', href: '/' },
-  { name: 'Ğ?t vé máy bay t?i C?m Ph?', href: '/ve-may-bay/' },
+  { name: 'Trang chá»§', href: '/' },
+  { name: 'Äáº·t vÃ© mÃ¡y bay táº¡i Cáº©m Pháº£', href: '/ve-may-bay/' },
 ];
 
 const faqItems = [
-  { q: 'C?n cung c?p thông tin gì d? d?t nhanh?', a: 'H? tên, ngày di (kh? h?i n?u có), tuy?n/di?m d?n và s? di?n tho?i liên h?.' },
-  { q: 'Có h? tr? thay d?i/hoàn hu? không?', a: 'Tu? di?u ki?n c?a hãng/nhà cung c?p. Datmo h? tr? hu?ng d?n và x? lı theo quy d?nh.' },
+  { q: 'C?n cung c?p thï¿½ng tin gï¿½ d? d?t nhanh?', a: 'H? tï¿½n, ngï¿½y di (kh? h?i n?u cï¿½), tuy?n/di?m d?n vï¿½ s? di?n tho?i liï¿½n h?.' },
+  { q: 'Cï¿½ h? tr? thay d?i/hoï¿½n hu? khï¿½ng?', a: 'Tu? di?u ki?n c?a hï¿½ng/nhï¿½ cung c?p. Datmo h? tr? hu?ng d?n vï¿½ x? lï¿½ theo quy d?nh.' },
 ];
 
 const serviceJsonLd = {
   '@context': 'https://schema.org',
   '@type': 'Service',
-  name: 'Ğ?t vé máy bay t?i C?m Ph?',
+  name: 'ï¿½?t vï¿½ mï¿½y bay t?i C?m Ph?',
   areaServed: ['C?m Ph?', 'Qu?ng Ninh'],
   provider: { '@type': 'LocalBusiness', name: SITE.name, url: SITE.url, telephone: SITE.phone },
   url: canonical,
@@ -35,13 +38,13 @@ const serviceJsonLd = {
 <BaseLayout title={title} description={description} ogImage={ogImage} canonical={canonical} breadcrumb={crumbs}>
   <Breadcrumbs items={crumbs} />
   <section class="container section">
-    <h1>Ğ?t vé máy bay t?i C?m Ph?</h1>
-    <p class="lead">Nh?n d?t vé máy bay cho khách t?i C?m Ph? – Qu?ng Ninh: tu v?n hành trình, báo giá nhanh, h? tr? d?i vé theo di?u ki?n hãng.</p>
+    <h1>ï¿½?t vï¿½ mï¿½y bay t?i C?m Ph?</h1>
+    <p class="lead">Nh?n d?t vï¿½ mï¿½y bay cho khï¿½ch t?i C?m Ph? ï¿½ Qu?ng Ninh: tu v?n hï¿½nh trï¿½nh, bï¿½o giï¿½ nhanh, h? tr? d?i vï¿½ theo di?u ki?n hï¿½ng.</p>
 
     <div class="card">
-      <h2>Liên k?t cùng SILO</h2>
+      <h2>Liï¿½n k?t cï¿½ng SILO</h2>
       <ul class="link-list">
-        <li><a href="/khach-san/">Ğ?t phòng khách s?n</a></li><li><a href="/tour-du-lich/">Tour du l?ch</a></li><li><a href="/visa-ho-chieu/">Visa – h? chi?u</a></li>
+        <li><a href="/khach-san/">ï¿½?t phï¿½ng khï¿½ch s?n</a></li><li><a href="/tour-du-lich/">Tour du l?ch</a></li><li><a href="/visa-ho-chieu/">Visa ï¿½ h? chi?u</a></li>
       </ul>
     </div>
   </section>

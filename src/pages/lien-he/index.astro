@@ -10,18 +10,18 @@ import JsonLd from '../../components/JsonLd.astro';
 import { getOrganizationId } from '../../utils/schema';
 
 // SEO: tune title/description length for SERP.
-const title = 'Li�n h? d?t d?ch v? nhanh C?m Ph?, Qu?ng Ninh | Datmo';
-const description = 'Li�n h? Datmo d? d?t thu� xe, tour, v� t�u cao t?c, v� m�y bay, kh�ch s?n, visa � h? chi?u t?i C?m Ph?, Qu?ng Ninh. Hotline h? tr? nhanh, ph?n h?i nhanh.';
+const title = 'Liên hệ đặt dịch vụ nhanh Cẩm Phả, Quảng Ninh | Datmo';
+const description = 'Liên hệ Datmo để đặt thuê xe, tour, vé tàu cao tốc, vé máy bay, khách sạn, visa – hộ chiếu tại Cẩm Phả, Quảng Ninh. Hotline hỗ trợ nhanh, phản hồi nhanh.';
 const ogImage = getOgImage('/lien-he/');
 const crumbs = [
-  { name: 'Trang ch?', href: '/' },
-  { name: 'Li�n h?', href: '/lien-he/' },
+  { name: 'Trang chủ', href: '/' },
+  { name: 'Liên hệ', href: '/lien-he/' },
 ];
 
 const contactPageJsonLd = {
   '@context': 'https://schema.org',
   '@type': 'ContactPage',
-  name: 'Li�n h? Datmo',
+  name: 'Liên hệ Datmo',
   url: SITE.url + '/lien-he/',
   inLanguage: 'vi-VN',
   mainEntity: { '@id': getOrganizationId(SITE) },
@@ -30,26 +30,26 @@ const contactPageJsonLd = {
 <BaseLayout title={title} description={description} ogImage={ogImage} breadcrumb={crumbs}>
   <Breadcrumbs items={crumbs} />
   <section class="container section">
-    <h1>Li�n h? d?t d?ch v?</h1>
-    <p class="lead">G?i/Zalo d? ch?t l?ch, nh?n b�o gi� v� x�c nh?n d?ch v?.</p>
+    <h1>Liên hệ đặt dịch vụ</h1>
+    <p class="lead">Gọi/Zalo để chốt lịch, nhận báo giá và xác nhận dịch vụ.</p>
 
     <div class="grid-2">
       <div class="card">
         <h2>Hotline</h2>
         <p class="small"><a class="btn primary" href={`tel:${SITE.phone}`}>G?i: {SITE.phoneDisplay}</a></p>
-        <p class="small">Uu ti�n cung c?p: ng�y di, s? lu?ng kh�ch, tuy?n/di?m d�n, y�u c?u d?c bi?t.</p>
+        <p class="small">Ưu tiên cung cấp: ngày đi, số lượng khách, tuyến/điểm đón, yêu cầu đặc biệt.</p>
       </div>
       <div class="card">
         <h2>Zalo</h2>
-        <p class="small"><a class="btn" href={SITE.zaloUrl} rel="nofollow">Nh?n Zalo</a></p>
-        <p class="small">G?i tin nh?n theo m?u: �Ng�y di � tuy?n � s? kh�ch � d?ch v? c?n d?t�.</p>
+        <p class="small"><a class="btn" href={SITE.zaloUrl} rel="nofollow">Nhắn Zalo</a></p>
+        <p class="small">Gửi tin nhắn theo mẫu: "Ngày đi – tuyến – số khách – dịch vụ cần đặt".</p>
       </div>
     </div>
 
     <ContactForm />
 
-    <section class="section" aria-label="B?n d? van ph�ng">
-      <h2>B?n d? van ph�ng �?t M? Travel</h2>
+    <section class="section" aria-label="Bản đồ văn phòng">
+      <h2>Bản đồ văn phòng Đất Mỏ Travel</h2>
       <div class="map-embed" aria-hidden="true">
         <iframe
           src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3723.94538987109!2d107.36213077609592!3d21.034870980616034!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x314b014cda277013%3A0xe92d70a486faea99!2zxJDhuqRUIE3hu44gVFJBVkVM!5e0!3m2!1svi!2s!4v1770093139683!5m2!1svi!2s"
@@ -59,19 +59,19 @@ const contactPageJsonLd = {
           allowfullscreen=""
           loading="lazy"
           referrerpolicy="no-referrer-when-downgrade"
-          title="B?n d? van ph�ng �?t M? Travel"
+          title="B?n d? van ph�ng �?t M? Travel"
         ></iframe>
       </div>
-      <p class="small">S? nh� 56, t? 51, khu 4B2, Phu?ng C?a �ng, C?m Ph?, Qu?ng Ninh, Vi?t Nam</p>
+      <p class="small">S? nh� 56, t? 51, khu 4B2, Phu?ng C?a �ng, C?m Ph?, Qu?ng Ninh, Vi?t Nam</p>
     </section>
 
     <div class="card" style="margin-top:14px">
-      <h2>D?ch v? li�n quan</h2>
+      <h2>D?ch v? li�n quan</h2>
       <ul class="link-list">
-        <li><a href="/thue-xe-du-lich/">Thu� xe du l?ch 16�45 ch? t?i C?m Ph?</a></li>
-        <li><a href="/tour-du-lich/">Tour xu?t ph�t t? C?m Ph?</a></li>
-        <li><a href="/ve-tau-cao-toc/">V� t�u cao t?c Ao Ti�n/Vung �?c</a></li>
-        <li><a href="/ve-may-bay/">V� m�y bay</a> � <a href="/khach-san/">Kh�ch s?n</a> � <a href="/visa-ho-chieu/">Visa � h? chi?u</a></li>
+        <li><a href="/thue-xe-du-lich/">Thu� xe du l?ch 16�45 ch? t?i C?m Ph?</a></li>
+        <li><a href="/tour-du-lich/">Tour xu?t ph�t t? C?m Ph?</a></li>
+        <li><a href="/ve-tau-cao-toc/">V� t�u cao t?c Ao Ti�n/Vung �?c</a></li>
+        <li><a href="/ve-may-bay/">V� m�y bay</a> � <a href="/khach-san/">Kh�ch s?n</a> � <a href="/visa-ho-chieu/">Visa � h? chi?u</a></li>
       </ul>
     </div>
   </section>

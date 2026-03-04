@@ -1,30 +1,32 @@
 ---
-import BaseLayout from '../../layouts/BaseLayout.astro';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+
+
 import { getOgImage } from '../../config/og';
 import Breadcrumbs from '../../components/Breadcrumbs.astro';
 
 // SEO: tune title/description length for SERP.
-const title = 'Gi?i thi?u Datmo � d?ch v? C?m Ph?, Qu?ng Ninh | Datmo';
-const description = 'Datmo cung c?p d?ch v? du l?ch & v?n chuy?n t?i C?m Ph?: thu� xe 16�45 ch?, tour, v� t�u cao t?c, v� m�y bay, kh�ch s?n, visa. H? tr? nhanh qua hotline/Zalo.';
+const title = 'Giới thiệu Datmo – dịch vụ Cẩm Phả, Quảng Ninh | Datmo';
+const description = 'Datmo cung cấp dịch vụ du lịch & vận chuyển tại Cẩm Phả: thuê xe 16–45 chỗ, tour, vé tàu cao tốc, vé máy bay, khách sạn, visa. Hỗ trợ nhanh qua hotline/Zalo.';
 const ogImage = getOgImage('/gioi-thieu/');
 const crumbs = [
-  { name: 'Trang ch?', href: '/' },
-  { name: 'Gi?i thi?u', href: '/gioi-thieu/' },
+  { name: 'Trang chủ', href: '/' },
+  { name: 'Giới thiệu', href: '/gioi-thieu/' },
 ];
 ---
 <BaseLayout title={title} description={description} ogImage={ogImage} breadcrumb={crumbs}>
   <Breadcrumbs items={crumbs} />
   <section class="container section">
-    <h1>Gi?i thi?u Datmo.io.vn</h1>
-    <p class="lead">Website n?i dung � d?ch v? d?a phuong cho kh�ch t?i C?m Ph?, Qu?ng Ninh.</p>
+    <h1>Giới thiệu Datmo.io.vn</h1>
+    <p class="lead">Website nội dung – dịch vụ địa phương cho khách tại Cẩm Phả, Quảng Ninh.</p>
     <div class="grid-2">
       <div class="card">
-        <h2>M?c ti�u</h2>
-        <p class="small">Cung c?p gi?i ph�p d?t d?ch v? nhanh: thu� xe, tour, v� t�u, v� m�y bay, kh�ch s?n, visa � h? chi?u.</p>
+        <h2>M?c ti�u</h2>
+        <p class="small">Cung c?p gi?i ph�p d?t d?ch v? nhanh: thu� xe, tour, v� t�u, v� m�y bay, kh�ch s?n, visa � h? chi?u.</p>
       </div>
       <div class="card">
         <h2>Ph?m vi</h2>
-        <p class="small">T?p trung C?m Ph? v� c�c tuy?n ph? bi?n trong t?nh Qu?ng Ninh, k?t n?i c?ng Ao Ti�n/Vung �?c.</p>
+        <p class="small">T?p trung C?m Ph? v� c�c tuy?n ph? bi?n trong t?nh Qu?ng Ninh, k?t n?i c?ng Ao Ti�n/Vung �?c.</p>
       </div>
     </div>
   </section>
