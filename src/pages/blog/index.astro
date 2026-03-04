@@ -16,6 +16,13 @@ const crumbs = [
 
 const posts = (await getCollection('blog', ({ data }) => !data.draft))
   .sort((a, b) => +new Date(b.data.publishedAt) - +new Date(a.data.publishedAt));
+
+const POSTS_PER_PAGE = 8;
+const totalPages = Math.ceil(posts.length / POSTS_PER_PAGE);
+const currentPage = Number(Astro.url.searchParams.get('page')) || 1;
+const startIndex = (currentPage - 1) * POSTS_PER_PAGE;
+const endIndex = startIndex + POSTS_PER_PAGE;
+const paginatedPosts = posts.slice(startIndex, endIndex);
 ---
 <BaseLayout title={title} description={description} ogImage={ogImage}>
   <Breadcrumbs items={crumbs} />
@@ -33,9 +40,9 @@ const posts = (await getCollection('blog', ({ data }) => !data.draft))
       <a class="card" href="/blog/ve-may-bay/"><h3>Vé máy bay</h3><p>Săn vé rẻ, combo</p></a>
     </div>
 
-    <h2 style="margin-top:26px">Bài mới</h2>
+    <h2 style="margin-top:26px">Tất cả bài viết ({posts.length})</h2>
     <div class="grid-2">
-      {posts.slice(0, 8).map((p) => (
+      {paginatedPosts.map((p) => (
         <a class="card post-card" href={`/blog/${p.slug}/`}>
           <h3>{p.data.title}</h3>
           <div class="blog-meta">
@@ -47,5 +54,19 @@ const posts = (await getCollection('blog', ({ data }) => !data.draft))
         </a>
       ))}
     </div>
+
+    {totalPages > 1 && (
+      <nav style="margin-top:32px; display:flex; justify-content:center; gap:8px; flex-wrap:wrap">
+        {currentPage > 1 && (
+          <a href={`/blog/?page=${currentPage - 1}`} style="padding:8px 16px; background:var(--color-primary); color:white; border-radius:4px; text-decoration:none">← Trang trước</a>
+        )}
+        {Array.from({ length: totalPages }, (_, i) => i + 1).map((page) => (
+          <a href={`/blog/?page=${page}`} style={`padding:8px 12px; border-radius:4px; text-decoration:none; ${page === currentPage ? 'background:var(--color-primary); color:white' : 'background:#eee; color:#333'}`}>{page}</a>
+        ))}
+        {currentPage < totalPages && (
+          <a href={`/blog/?page=${currentPage + 1}`} style="padding:8px 16px; background:var(--color-primary); color:white; border-radius:4px; text-decoration:none">Trang sau →</a>
+        )}
+      </nav>
+    )}
   </section>
 </BaseLayout>
