@@ -1,30 +1,43 @@
 ---
-import BaseLayout from '../../layouts/BaseLayout.astro';
-import { getOgImage } from '../../config/og';
-import Breadcrumbs from '../../components/Breadcrumbs.astro';
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import { getOgImage } from '../../../config/og';
+import Breadcrumbs from '../../../components/Breadcrumbs.astro';
 import { getCollection } from 'astro:content';
 
-const title = 'Blog du lịch & kinh nghiệm hữu ích Cẩm Phả | Datmo';
+export async function getStaticPaths() {
+  const allPosts = (await getCollection('blog', ({ data }) => !data.draft))
+    .sort((a, b) => +new Date(b.data.publishedAt) - +new Date(a.data.publishedAt));
+  
+  const pageSize = 8;
+  const totalPages = Math.ceil(allPosts.length / pageSize);
+  
+  return Array.from({ length: totalPages - 1 }, (_, i) => {
+    const pageNum = i + 2;
+    const start = (pageNum - 1) * pageSize;
+    return {
+      params: { page: String(pageNum) },
+      props: { pageNum, posts: allPosts.slice(start, start + pageSize), total: allPosts.length, totalPages }
+    };
+  });
+}
+
+const { pageNum, posts, total, totalPages } = Astro.props;
+
+const title = `Blog - Trang ${pageNum} | Datmo`;
 const description = 'Chia sẻ lịch tàu, giá vé, tin tức Cẩm Phả và kinh nghiệm du lịch; nội dung ngắn gọn, cập nhật theo mùa và nhu cầu thực tế cho khách đi Quảng Ninh.';
 const ogImage = getOgImage('/blog/');
 
 const crumbs = [
   { name: 'Trang chủ', href: '/' },
   { name: 'Blog', href: '/blog/' },
+  { name: `Trang ${pageNum}`, href: `/blog/page/${pageNum}/` },
 ];
-
-const allPosts = (await getCollection('blog', ({ data }) => !data.draft))
-  .sort((a, b) => +new Date(b.data.publishedAt) - +new Date(a.data.publishedAt));
-
-const pageSize = 8;
-const totalPages = Math.ceil(allPosts.length / pageSize);
-const posts = allPosts.slice(0, pageSize);
 ---
 <BaseLayout title={title} description={description} ogImage={ogImage}>
   <Breadcrumbs items={crumbs} />
 
   <section class="container section">
-    <h1>Blog</h1>
+    <h1>Blog - Trang {pageNum}</h1>
     <p class="lead">Nội dung cập nhật theo mùa: lịch tàu, kinh nghiệm thuê xe, mẹo đi lại tại Quảng Ninh.</p>
 
     <div class="grid-3" style="margin-bottom:24px">
@@ -36,7 +49,7 @@ const posts = allPosts.slice(0, pageSize);
       <a class="card" href="/blog/ve-may-bay/"><h3>Vé máy bay</h3><p>Săn vé rẻ, combo</p></a>
     </div>
 
-    <h2 style="margin-top:26px">Bài viết ({allPosts.length})</h2>
+    <h2 style="margin-top:26px">Bài viết ({total})</h2>
     <div class="grid-2">
       {posts.map((p) => (
         <a class="card post-card" href={`/blog/${p.slug}/`}>
@@ -51,25 +64,34 @@ const posts = allPosts.slice(0, pageSize);
       ))}
     </div>
 
-    {totalPages > 1 && (
     <nav class="pagination" style="margin-top:32px; display:flex; justify-content:center; gap:8px; flex-wrap:wrap; align-items:center">
-      <span class="page-num active">1</span>
+      <a href="/blog/" class="page-btn">← Trang trước</a>
+      <a href="/blog/" class="page-num">1</a>
       {Array.from({ length: totalPages - 1 }, (_, i) => i + 2).map((pn) => (
-        <a href={`/blog/page/${pn}/`} class="page-num">{pn}</a>
+        <a 
+          href={pn === pageNum ? '#' : (pn === pageNum - 1 ? '/blog/' : `/blog/page/${pn}/`)}
+          class:list={['page-num', { active: pn === pageNum }]}
+        >
+          {pn}
+        </a>
       ))}
-      <a href="/blog/page/2/" class="page-btn">Trang sau →</a>
+      {pageNum < totalPages && (
+        <a href={`/blog/page/${pageNum + 1}/`} class="page-btn">Trang sau →</a>
+      )}
     </nav>
-    )}
 
     <h3 style="margin-top:40px; margin-bottom:16px">Danh sách tất cả bài viết</h3>
     <div class="short-list">
-      {allPosts.map((p, i) => (
-        <a href={`/blog/${p.slug}/`} class="short-item">
-          <span class="short-num">{i + 1}.</span>
-          <span class="short-title">{p.data.title}</span>
-          <span class="short-date">{new Date(p.data.publishedAt).toLocaleDateString('vi-VN')}</span>
-        </a>
-      ))}
+      {(await getCollection('blog', ({ data }) => !data.draft))
+        .sort((a, b) => +new Date(b.data.publishedAt) - +new Date(a.data.publishedAt))
+        .map((p, i) => (
+          <a href={`/blog/${p.slug}/`} class="short-item">
+            <span class="short-num">{i + 1}.</span>
+            <span class="short-title">{p.data.title}</span>
+            <span class="short-date">{new Date(p.data.publishedAt).toLocaleDateString('vi-VN')}</span>
+          </a>
+        ))
+      }
     </div>
   </section>
 </BaseLayout>
