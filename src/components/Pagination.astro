@@ -1,0 +1,135 @@
+---
+type Props = {
+  currentPage: number;
+  totalPages: number;
+  baseUrl: string;
+};
+
+const { currentPage, totalPages, baseUrl } = Astro.props;
+
+// Build pagination URL
+const getPageUrl = (page: number) => {
+  if (page === 1) return baseUrl;
+  return `${baseUrl}/page/${page}/`;
+};
+
+// Calculate visible page numbers
+const getVisiblePages = (current: number, total: number) => {
+  const delta = 2;
+  const range: (number | string)[] = [];
+  const rangeWithDots: (number | string)[] = [];
+
+  for (let i = 1; i <= total; i++) {
+    if (i === 1 || i === total || (i >= current - delta && i <= current + delta)) {
+      range.push(i);
+    }
+  }
+
+  let prev = 0;
+  for (const i of range) {
+    if (typeof i === 'number' && prev) {
+      if (i - prev === 2) {
+        rangeWithDots.push(prev + 1);
+      } else if (i - prev !== 1) {
+        rangeWithDots.push('...');
+      }
+    }
+    rangeWithDots.push(i);
+    prev = typeof i === 'number' ? i : prev;
+  }
+
+  return rangeWithDots;
+};
+
+const visiblePages = getVisiblePages(currentPage, totalPages);
+---
+
+<nav class="pagination" aria-label="Phân trang">
+  {/* Previous button */}
+  {currentPage > 1 ? (
+    <a href={getPageUrl(currentPage - 1)} class="page-btn" aria-label="Trang trước">
+      ← Trang trước
+    </a>
+  ) : (
+    <span class="page-btn disabled" aria-disabled="true">← Trang trước</span>
+  )}
+
+  {/* Page numbers */}
+  {visiblePages.map((page) => (
+    typeof page === 'number' ? (
+      page === currentPage ? (
+        <span class="page-num active" aria-current="page">{page}</span>
+      ) : (
+        <a href={getPageUrl(page)} class="page-num">{page}</a>
+      )
+    ) : (
+      <span class="page-dots">{page}</span>
+    )
+  ))}
+
+  {/* Next button */}
+  {currentPage < totalPages ? (
+    <a href={getPageUrl(currentPage + 1)} class="page-btn" aria-label="Trang sau">
+      Trang sau →
+    </a>
+  ) : (
+    <span class="page-btn disabled" aria-disabled="true">Trang sau →</span>
+  )}
+</nav>
+
+<style>
+  .pagination {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 8px;
+    flex-wrap: wrap;
+    margin-top: 32px;
+  }
+  .page-btn {
+    display: inline-flex;
+    align-items: center;
+    padding: 10px 16px;
+    background: #0f2a44;
+    color: #fff !important;
+    border-radius: 8px;
+    text-decoration: none;
+    font-weight: 500;
+    font-size: 14px;
+    transition: background 0.2s;
+  }
+  .page-btn:hover:not(.disabled) {
+    background: #1a3d5c;
+  }
+  .page-btn.disabled {
+    background: #ccc;
+    color: #666 !important;
+    cursor: not-allowed;
+  }
+  .page-num {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 40px;
+    height: 40px;
+    padding: 0 10px;
+    background: #e8eef4;
+    color: #0f2a44;
+    border-radius: 8px;
+    text-decoration: none;
+    font-weight: 500;
+    font-size: 14px;
+    transition: all 0.2s;
+  }
+  .page-num:hover {
+    background: #d0dee6;
+  }
+  .page-num.active {
+    background: #0f2a44;
+    color: #fff !important;
+  }
+  .page-dots {
+    padding: 0 8px;
+    color: #666;
+  }
+</style>

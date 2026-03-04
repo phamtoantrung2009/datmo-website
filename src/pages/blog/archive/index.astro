@@ -1,0 +1,124 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import Breadcrumbs from '../../../components/Breadcrumbs.astro';
+import Pagination from '../../../components/Pagination.astro';
+import { getCollection } from 'astro:content';
+
+const POSTS_PER_PAGE = 50;
+
+// Get all posts
+const allPosts = (await getCollection('blog', ({ data }) => !data.draft))
+  .sort((a, b) => +new Date(b.data.publishedAt) - +new Date(a.data.publishedAt));
+
+const totalPosts = allPosts.length;
+const totalPages = Math.ceil(totalPosts / POSTS_PER_PAGE);
+
+// Get page number from URL, default to 1
+const currentPage = Number(Astro.url.searchParams.get('page')) || 1;
+const start = (currentPage - 1) * POSTS_PER_PAGE;
+const posts = allPosts.slice(start, start + POSTS_PER_PAGE);
+
+const title = 'Tất cả bài viết | Datmo Blog';
+const description = `Danh sách tất cả ${totalPosts} bài viết về du lịch Cẩm Phả, Quảng Ninh. Lịch tàu, kinh nghiệm, tin tức và hướng dẫn.`;
+
+// SEO: add canonical for archive pages
+const canonical = currentPage === 1 
+  ? 'https://datmo.io.vn/blog/archive/'
+  : `https://datmo.io.vn/blog/archive/?page=${currentPage}`;
+
+const crumbs = [
+  { name: 'Trang chủ', href: '/' },
+  { name: 'Blog', href: '/blog/' },
+  { name: 'Tất cả bài viết', href: '/blog/archive/' },
+];
+---
+<BaseLayout title={title} description={description} canonical={canonical} breadcrumb={crumbs}>
+  <Breadcrumbs items={crumbs} />
+
+  <section class="container section">
+    <h1>📚 Tất cả bài viết</h1>
+    <p class="lead">Danh sách {totalPosts} bài viết về du lịch tại Cẩm Phả và Quảng Ninh.</p>
+
+    <div class="archive-list">
+      {posts.map((p, i) => (
+        <a href={`/blog/${p.slug}/`} class="archive-item">
+          <span class="archive-num">{start + i + 1}.</span>
+          <span class="archive-title">{p.data.title}</span>
+          <span class="archive-date">{new Date(p.data.publishedAt).toLocaleDateString('vi-VN')}</span>
+          <span class="archive-cat">{p.data.category}</span>
+        </a>
+      ))}
+    </div>
+
+    {/* Archive pagination */}
+    {totalPages > 1 && (
+      <>
+        <Pagination currentPage={currentPage} totalPages={totalPages} baseUrl="/blog/archive" />
+        
+        <p style="margin-top:16px;text-align:center;color:var(--muted);font-size:14px">
+          Trang {currentPage} / {totalPages}
+        </p>
+      </>
+    )}
+  </section>
+</BaseLayout>
+
+<style>
+  .archive-list {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    background: #fff;
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 8px;
+    margin-top: 16px;
+  }
+  .archive-item {
+    display: grid;
+    grid-template-columns: 40px 1fr auto auto;
+    align-items: center;
+    gap: 16px;
+    padding: 12px 16px;
+    border-radius: 8px;
+    text-decoration: none;
+    transition: background 0.2s;
+  }
+  .archive-item:hover {
+    background: #f0f7fb;
+  }
+  .archive-num {
+    color: var(--muted);
+    font-size: 13px;
+    font-weight: 500;
+  }
+  .archive-title {
+    color: var(--text);
+    font-size: 15px;
+    font-weight: 500;
+  }
+  .archive-date {
+    color: var(--muted);
+    font-size: 13px;
+    white-space: nowrap;
+  }
+  .archive-cat {
+    background: #e8eef4;
+    color: #0f2a44;
+    padding: 4px 10px;
+    border-radius: 4px;
+    font-size: 12px;
+    font-weight: 500;
+    white-space: nowrap;
+  }
+
+  @media (max-width: 640px) {
+    .archive-item {
+      grid-template-columns: 32px 1fr;
+      gap: 8px;
+    }
+    .archive-date, .archive-cat {
+      display: none;
+    }
+  }
+</style>
