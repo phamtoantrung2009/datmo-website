@@ -5,7 +5,7 @@ import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
 import JsonLd from '../components/JsonLd.astro';
 import { SITE } from '../config/site';
-import { buildOrganizationSchema, buildWebSiteSchema } from '../utils/schema';
+import { buildOrganizationSchema, buildWebSiteSchema, buildBreadcrumbListSchema } from '../utils/schema';
 
 type Props = {
   title?: string;
@@ -17,6 +17,7 @@ type Props = {
   articleModifiedTime?: string;
   articleSection?: string;
   noindex?: boolean;
+  breadcrumb?: { name: string; href: string }[];
 };
 
 const {
@@ -29,11 +30,13 @@ const {
   articleModifiedTime,
   articleSection,
   noindex = false,
+  breadcrumb,
 } = Astro.props;
 
 // SEO: shared Organization + WebSite schema.
 const organizationJsonLd = buildOrganizationSchema(SITE);
 const websiteJsonLd = buildWebSiteSchema(SITE);
+const breadcrumbJsonLd = breadcrumb ? buildBreadcrumbListSchema(SITE, breadcrumb) : null;
 ---
 <!doctype html>
 <html lang="vi">
@@ -72,8 +75,14 @@ const websiteJsonLd = buildWebSiteSchema(SITE);
 
     <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
 
+    <meta name="geo.region" content="VN-QN" />
+    <meta name="geo.placename" content="Cẩm Phả, Quảng Ninh" />
+    <meta name="geo.position" content="21.01;107.31" />
+    <meta name="ICBM" content="21.01, 107.31" />
+
     <JsonLd data={organizationJsonLd} />
     <JsonLd data={websiteJsonLd} />
+    {breadcrumbJsonLd && <JsonLd data={breadcrumbJsonLd} />}
   </head>
   <body>
     <Header />

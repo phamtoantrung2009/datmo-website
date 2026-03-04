@@ -33,7 +33,7 @@ const crumbs = [
   { name: `Trang ${pageNum}`, href: `/blog/page/${pageNum}/` },
 ];
 ---
-<BaseLayout title={title} description={description} ogImage={ogImage}>
+<BaseLayout title={title} description={description} ogImage={ogImage} breadcrumb={crumbs}>
   <Breadcrumbs items={crumbs} />
 
   <section class="container section">

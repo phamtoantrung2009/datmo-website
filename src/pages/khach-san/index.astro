@@ -1,4 +1,4 @@
-﻿---
+---
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import { getOgImage } from '../../config/og';
 import Breadcrumbs from '../../components/Breadcrumbs.astro';
@@ -8,40 +8,40 @@ import CallToActions from '../../components/CallToActions.astro';
 import { SITE } from '../../config/site';
 
 // SEO: tune title/description length for SERP.
-const title = 'Tư vấn đặt phòng khách sạn Cẩm Phả, Quảng Ninh | Datmo';
-const description = 'Tư vấn & đặt phòng khách sạn cho khách Cẩm Phả/Quảng Ninh theo nhu cầu vị trí, ngân sách, tiện ích; có thể kết hợp tour hoặc vé máy bay. Hỗ trợ nhanh.';
+const title = 'Tu v?n d?t ph�ng kh�ch s?n C?m Ph?, Qu?ng Ninh | Datmo';
+const description = 'Tu v?n & d?t ph�ng kh�ch s?n cho kh�ch C?m Ph?/Qu?ng Ninh theo nhu c?u v? tr�, ng�n s�ch, ti?n �ch; c� th? k?t h?p tour ho?c v� m�y bay. H? tr? nhanh.';
 const ogImage = getOgImage('/khach-san/');
 const canonical = SITE.url + '/khach-san/';
 
 const crumbs = [
-  { name: 'Trang chủ', href: '/' },
-  { name: 'Đặt phòng khách sạn tại Quảng Ninh', href: '/khach-san/' },
+  { name: 'Trang ch?', href: '/' },
+  { name: '�?t ph�ng kh�ch s?n t?i Qu?ng Ninh', href: '/khach-san/' },
 ];
 
 const faqItems = [
-  { q: 'Cần cung cấp thông tin gì để đặt nhanh?', a: 'Họ tên, ngày đi (khứ hồi nếu có), tuyến/điểm đến và số điện thoại liên hệ.' },
-  { q: 'Có hỗ trợ thay đổi/hoàn huỷ không?', a: 'Tuỳ điều kiện của hãng/nhà cung cấp. Datmo hỗ trợ hướng dẫn và xử lý theo quy định.' },
+  { q: 'C?n cung c?p th�ng tin g� d? d?t nhanh?', a: 'H? t�n, ng�y di (kh? h?i n?u c�), tuy?n/di?m d?n v� s? di?n tho?i li�n h?.' },
+  { q: 'C� h? tr? thay d?i/ho�n hu? kh�ng?', a: 'Tu? di?u ki?n c?a h�ng/nh� cung c?p. Datmo h? tr? hu?ng d?n v� x? l� theo quy d?nh.' },
 ];
 
 const serviceJsonLd = {
   '@context': 'https://schema.org',
   '@type': 'Service',
-  name: 'Đặt phòng khách sạn tại Quảng Ninh',
-  areaServed: ['Cẩm Phả', 'Quảng Ninh'],
+  name: '�?t ph�ng kh�ch s?n t?i Qu?ng Ninh',
+  areaServed: ['C?m Ph?', 'Qu?ng Ninh'],
   provider: { '@type': 'LocalBusiness', name: SITE.name, url: SITE.url, telephone: SITE.phone },
   url: canonical,
 };
 ---
-<BaseLayout title={title} description={description} ogImage={ogImage} canonical={canonical}>
+<BaseLayout title={title} description={description} ogImage={ogImage} canonical={canonical} breadcrumb={crumbs}>
   <Breadcrumbs items={crumbs} />
   <section class="container section">
-    <h1>Đặt phòng khách sạn tại Quảng Ninh</h1>
-    <p class="lead">Tư vấn & đặt phòng khách sạn cho khách Cẩm Phả/Quảng Ninh theo nhu cầu vị trí, ngân sách, tiện ích. Có thể kết hợp tour và vé máy bay.</p>
+    <h1>�?t ph�ng kh�ch s?n t?i Qu?ng Ninh</h1>
+    <p class="lead">Tu v?n & d?t ph�ng kh�ch s?n cho kh�ch C?m Ph?/Qu?ng Ninh theo nhu c?u v? tr�, ng�n s�ch, ti?n �ch. C� th? k?t h?p tour v� v� m�y bay.</p>
 
     <div class="card">
-      <h2>Liên kết cùng SILO</h2>
+      <h2>Li�n k?t c�ng SILO</h2>
       <ul class="link-list">
-        <li><a href="/ve-may-bay/">Vé máy bay</a></li><li><a href="/tour-du-lich/">Tour du lịch</a></li><li><a href="/thue-xe-du-lich/">Thuê xe du lịch</a></li>
+        <li><a href="/ve-may-bay/">V� m�y bay</a></li><li><a href="/tour-du-lich/">Tour du l?ch</a></li><li><a href="/thue-xe-du-lich/">Thu� xe du l?ch</a></li>
       </ul>
     </div>
   </section>

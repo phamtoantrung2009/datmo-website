@@ -1,4 +1,4 @@
-﻿---
+---
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import { getOgImage } from '../../config/og';
 import Breadcrumbs from '../../components/Breadcrumbs.astro';
@@ -7,48 +7,48 @@ import JsonLd from '../../components/JsonLd.astro';
 import { SITE } from '../../config/site';
 
 // SEO: tune title/description length for SERP.
-const title = 'Vé tàu cao tốc Ao Tiên/Vũng Đục Cẩm Phả, Quảng Ninh | Datmo';
-const description = 'Đặt vé tàu cao tốc tuyến Ao Tiên/Vũng Đục đi Cô Tô – Quan Lạn; hỗ trợ kiểm tra lịch tàu, giờ chạy, thủ tục và nhắc giờ có mặt. Hỗ trợ nhắc giờ ra cảng.';
+const title = 'V� t�u cao t?c Ao Ti�n/Vung �?c C?m Ph?, Qu?ng Ninh | Datmo';
+const description = '�?t v� t�u cao t?c tuy?n Ao Ti�n/Vung �?c di C� T� � Quan L?n; h? tr? ki?m tra l?ch t�u, gi? ch?y, th? t?c v� nh?c gi? c� m?t. H? tr? nh?c gi? ra c?ng.';
 const ogImage = getOgImage('/ve-tau-cao-toc/');
 const canonical = SITE.url + '/ve-tau-cao-toc/';
 
 const crumbs = [
-  { name: 'Trang chủ', href: '/' },
-  { name: 'Vé tàu cao tốc', href: '/ve-tau-cao-toc/' },
+  { name: 'Trang ch?', href: '/' },
+  { name: 'V� t�u cao t?c', href: '/ve-tau-cao-toc/' },
 ];
 
 const faqItems = [
-  { q: 'Lịch tàu có cố định không?', a: 'Không. Lịch tàu thay đổi theo mùa và thời tiết. Nên kiểm tra theo ngày bạn đi.' },
-  { q: 'Nên đến cảng trước bao lâu?', a: 'Nên có mặt trước giờ chạy tàu ít nhất 30–45 phút để làm thủ tục.' },
+  { q: 'L?ch t�u c� c? d?nh kh�ng?', a: 'Kh�ng. L?ch t�u thay d?i theo m�a v� th?i ti?t. N�n ki?m tra theo ng�y b?n di.' },
+  { q: 'N�n d?n c?ng tru?c bao l�u?', a: 'N�n c� m?t tru?c gi? ch?y t�u �t nh?t 30�45 ph�t d? l�m th? t?c.' },
 ];
 
 const serviceJsonLd = {
   '@context': 'https://schema.org',
   '@type': 'Service',
-  name: 'Đặt vé tàu cao tốc tại Quảng Ninh',
-  areaServed: ['Cẩm Phả', 'Quảng Ninh'],
+  name: '�?t v� t�u cao t?c t?i Qu?ng Ninh',
+  areaServed: ['C?m Ph?', 'Qu?ng Ninh'],
   provider: { '@type': 'LocalBusiness', name: SITE.name, url: SITE.url, telephone: SITE.phone },
   url: canonical,
 };
 ---
-<BaseLayout title={title} description={description} ogImage={ogImage} canonical={canonical}>
+<BaseLayout title={title} description={description} ogImage={ogImage} canonical={canonical} breadcrumb={crumbs}>
   <Breadcrumbs items={crumbs} />
 
   <section class="container section">
-    <h1>Đặt vé tàu cao tốc đi Cô Tô – Quan Lạn</h1>
-    <p class="lead">Tư vấn tuyến đi phù hợp, giờ tàu theo ngày và hỗ trợ đặt vé nhanh.</p>
+    <h1>�?t v� t�u cao t?c di C� T� � Quan L?n</h1>
+    <p class="lead">Tu v?n tuy?n di ph� h?p, gi? t�u theo ng�y v� h? tr? d?t v� nhanh.</p>
 
     <div class="grid-3">
-      <a class="card" href="/ve-tau-cao-toc/ao-tien-quan-lan/"><h3>Ao Tiên ↔ Quan Lạn</h3><p>Kiểm tra lịch tàu & giá vé theo ngày</p></a>
-      <a class="card" href="/ve-tau-cao-toc/ao-tien-co-to/"><h3>Ao Tiên ↔ Cô Tô</h3><p>Lịch tàu mùa cao điểm, lưu ý đi sớm</p></a>
-      <a class="card" href="/ve-tau-cao-toc/vung-duc-co-to/"><h3>Vũng Đục ↔ Cô Tô</h3><p>Tuyến xuất phát từ Cẩm Phả (tuỳ lịch)</p></a>
+      <a class="card" href="/ve-tau-cao-toc/ao-tien-quan-lan/"><h3>Ao Ti�n ? Quan L?n</h3><p>Ki?m tra l?ch t�u & gi� v� theo ng�y</p></a>
+      <a class="card" href="/ve-tau-cao-toc/ao-tien-co-to/"><h3>Ao Ti�n ? C� T�</h3><p>L?ch t�u m�a cao di?m, luu � di s?m</p></a>
+      <a class="card" href="/ve-tau-cao-toc/vung-duc-co-to/"><h3>Vung �?c ? C� T�</h3><p>Tuy?n xu?t ph�t t? C?m Ph? (tu? l?ch)</p></a>
     </div>
 
     <div class="card" style="margin-top:14px">
-      <h2>Kết hợp di chuyển</h2>
+      <h2>K?t h?p di chuy?n</h2>
       <ul class="link-list">
-        <li><a href="/thue-xe-du-lich/">Thuê xe đi cảng Ao Tiên/Vũng Đục</a></li>
-        <li><a href="/blog/lich-tau-gia-ve/">Xem bài blog lịch tàu & giá vé</a></li>
+        <li><a href="/thue-xe-du-lich/">Thu� xe di c?ng Ao Ti�n/Vung �?c</a></li>
+        <li><a href="/blog/lich-tau-gia-ve/">Xem b�i blog l?ch t�u & gi� v�</a></li>
       </ul>
     </div>
   </section>

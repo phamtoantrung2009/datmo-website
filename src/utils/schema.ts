@@ -22,6 +22,15 @@ export function buildOrganizationSchema(site: SiteConfig) {
       '@type': 'PostalAddress',
       ...site.address,
     },
+    areaServed: {
+      '@type': 'GeoCircle',
+      geoMidpoint: {
+        '@type': 'GeoCoordinates',
+        latitude: 21.01,
+        longitude: 107.31,
+      },
+      geoRadius: '50000',
+    },
     sameAs: Object.values(site.social),
     contactPoint: [
       {

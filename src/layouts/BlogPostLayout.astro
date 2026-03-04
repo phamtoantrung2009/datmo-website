@@ -2,7 +2,7 @@
 import JsonLd from '../components/JsonLd.astro';
 import Breadcrumbs from '../components/Breadcrumbs.astro';
 import { SITE } from '../config/site';
-import { buildBlogPostingSchema } from '../utils/schema';
+import { buildBlogPostingSchema, buildBreadcrumbListSchema } from '../utils/schema';
 
 type Props = { post: any; blogImage?: string | null };
 const { post, blogImage = null } = Astro.props;
@@ -64,4 +64,5 @@ const hasImage = !!resolvedImage;
   </p>
 
   <JsonLd data={articleJsonLd} />
+  <JsonLd data={buildBreadcrumbListSchema(SITE, crumbs)} />
 </article>

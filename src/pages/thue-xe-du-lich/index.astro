@@ -1,4 +1,4 @@
-﻿---
+---
 import BaseLayout from '../../layouts/BaseLayout.astro';
 
 
@@ -11,50 +11,50 @@ import { SITE } from '../../config/site';
 import QuoteForm from '../../components/QuoteForm.astro';
 
 // SEO: tune title/description length for SERP.
-const title = 'Thuê xe du lịch 16–45 chỗ Cẩm Phả, Quảng Ninh | Datmo';
-const description = 'Dịch vụ thuê xe du lịch 16–45 chỗ tại Cẩm Phả: nhận tuyến Hạ Long, Vân Đồn/Ao Tiên, Móng Cái, đưa đón sân bay Nội Bài. Tư vấn nhanh, giá rõ.';
+const title = 'Thu� xe du l?ch 16�45 ch? C?m Ph?, Qu?ng Ninh | Datmo';
+const description = 'D?ch v? thu� xe du l?ch 16�45 ch? t?i C?m Ph?: nh?n tuy?n H? Long, V�n �?n/Ao Ti�n, M�ng C�i, dua d�n s�n bay N?i B�i. Tu v?n nhanh, gi� r�.';
 const ogImage = getOgImage('/thue-xe-du-lich/');
 const canonical = SITE.url + '/thue-xe-du-lich/';
 
 const crumbs = [
-  { name: 'Trang chủ', href: '/' },
-  { name: 'Thuê xe du lịch', href: '/thue-xe-du-lich/' },
+  { name: 'Trang ch?', href: '/' },
+  { name: 'Thu� xe du l?ch', href: '/thue-xe-du-lich/' },
 ];
 
 const faqItems = [
-  { q: 'Datmo có những loại xe nào?', a: 'Tập trung xe 16 chỗ, 29 chỗ và 45 chỗ phục vụ nhóm gia đình, công ty, tour đoàn.' },
-  { q: 'Có nhận đưa đón Ao Tiên/Vũng Đục không?', a: 'Có. Bạn có thể đặt xe đi cảng Ao Tiên (Vân Đồn) hoặc Vũng Đục (Cẩm Phả) để kịp giờ tàu.' },
+  { q: 'Datmo c� nh?ng lo?i xe n�o?', a: 'T?p trung xe 16 ch?, 29 ch? v� 45 ch? ph?c v? nh�m gia d�nh, c�ng ty, tour do�n.' },
+  { q: 'C� nh?n dua d�n Ao Ti�n/Vung �?c kh�ng?', a: 'C�. B?n c� th? d?t xe di c?ng Ao Ti�n (V�n �?n) ho?c Vung �?c (C?m Ph?) d? k?p gi? t�u.' },
 ];
 
 const serviceJsonLd = {
   '@context': 'https://schema.org',
   '@type': 'Service',
-  name: 'Thuê xe du lịch 16–45 chỗ tại Cẩm Phả',
-  areaServed: ['Cẩm Phả', 'Quảng Ninh'],
+  name: 'Thu� xe du l?ch 16�45 ch? t?i C?m Ph?',
+  areaServed: ['C?m Ph?', 'Qu?ng Ninh'],
   provider: { '@type': 'LocalBusiness', name: SITE.name, url: SITE.url, telephone: SITE.phone },
   url: canonical,
 };
 ---
-<BaseLayout title={title} description={description} ogImage={ogImage} canonical={canonical}>
+<BaseLayout title={title} description={description} ogImage={ogImage} canonical={canonical} breadcrumb={crumbs}>
   <Breadcrumbs items={crumbs} />
 
   <section class="container section">
-    <h1>Thuê xe du lịch 16 – 45 chỗ tại Cẩm Phả</h1>
-    <p class="lead">Xe phù hợp đi công tác, gia đình, tour đoàn. Tư vấn tuyến đi trong Quảng Ninh và liên tỉnh.</p>
+    <h1>Thu� xe du l?ch 16 � 45 ch? t?i C?m Ph?</h1>
+    <p class="lead">Xe ph� h?p di c�ng t�c, gia d�nh, tour do�n. Tu v?n tuy?n di trong Qu?ng Ninh v� li�n t?nh.</p>
   <section class="container section">
     <QuoteForm />
   </section>
     <div class="grid-3">
-      <a class="card" href="/thue-xe-du-lich/thue-xe-16-cho-cam-pha/"><h3>Thuê xe 16 chỗ</h3><p>Đi Hạ Long, Ao Tiên, Nội Bài…</p></a>
-      <a class="card" href="/thue-xe-du-lich/thue-xe-29-cho-cam-pha/"><h3>Thuê xe 29 chỗ</h3><p>Nhóm công ty, sự kiện, tour đoàn</p></a>
-      <a class="card" href="/thue-xe-du-lich/thue-xe-45-cho-cam-pha/"><h3>Thuê xe 45 chỗ</h3><p>Đoàn đông, lịch trình dài ngày</p></a>
+      <a class="card" href="/thue-xe-du-lich/thue-xe-16-cho-cam-pha/"><h3>Thu� xe 16 ch?</h3><p>�i H? Long, Ao Ti�n, N?i B�i�</p></a>
+      <a class="card" href="/thue-xe-du-lich/thue-xe-29-cho-cam-pha/"><h3>Thu� xe 29 ch?</h3><p>Nh�m c�ng ty, s? ki?n, tour do�n</p></a>
+      <a class="card" href="/thue-xe-du-lich/thue-xe-45-cho-cam-pha/"><h3>Thu� xe 45 ch?</h3><p>�o�n d�ng, l?ch tr�nh d�i ng�y</p></a>
     </div>
 
     <div class="card" style="margin-top:14px">
-      <h2>Liên kết cùng SILO</h2>
+      <h2>Li�n k?t c�ng SILO</h2>
       <ul class="link-list">
-        <li><a href="/ve-tau-cao-toc/">Kết hợp đặt vé tàu cao tốc đi Cô Tô/Quan Lạn</a></li>
-        <li><a href="/tour-du-lich/">Gợi ý tour xuất phát từ Cẩm Phả</a></li>
+        <li><a href="/ve-tau-cao-toc/">K?t h?p d?t v� t�u cao t?c di C� T�/Quan L?n</a></li>
+        <li><a href="/tour-du-lich/">G?i � tour xu?t ph�t t? C?m Ph?</a></li>
       </ul>
     </div>
   </section>

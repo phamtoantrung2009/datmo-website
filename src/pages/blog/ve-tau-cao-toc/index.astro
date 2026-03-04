@@ -17,7 +17,7 @@ const crumbs = [
 const posts = (await getCollection('blog', ({ data }) => !data.draft && data.category === 've-tau-cao-toc'))
   .sort((a, b) => +new Date(b.data.publishedAt) - +new Date(a.data.publishedAt));
 ---
-<BaseLayout title={title} description={description} ogImage={ogImage}>
+<BaseLayout title={title} description={description} ogImage={ogImage} breadcrumb={crumbs}>
   <Breadcrumbs items={crumbs} />
   <section class="container section">
     <h1>Vé tàu cao tốc</h1>

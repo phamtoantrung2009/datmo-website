@@ -5,5 +5,11 @@ export default defineConfig({
   site: 'https://datmo.io.vn',
   output: 'static',
   trailingSlash: 'always',
-  integrations: [sitemap()],
+  integrations: [
+    sitemap({
+      lastmod: new Date(),
+      changefreq: 'weekly',
+      priority: 0.7,
+    }),
+  ],
 });
