@@ -1,178 +1,178 @@
 ---
-title: "Yoko Onsen Quang Hanh - Trải nghiệm Onsen Nhật Bản giữa lòng Quang Ninh"
-description: "Yoko Onsen Quang Hanh - khu onsen theo phong cách Nhật Bản tại Quang Ninh. Giá vé, các loại bể, trải nghiệm và đặt vé ngay cùng Datmo."
+title: "Yoko Onsen Quang Hanh - Trai nghiem Onsen Nhat Ban giua long Quang Ninh"
+description: "Yoko Onsen Quang Hanh - khu onsen theo phong cach Nhat Ban tai Quang Ninh. Gia ve, cac loai be, trai nghiem va dat ve ngay cung Datmo."
 publishedAt: 2026-03-04
 category: "kinh-nghiem-du-lich"
 tags: ["yoko-onsen-quang-hanh", "onsen-quang-ninh", "nuoc-nong-nhat-ban", "du-lich-quang-ninh", "cam-pha", "wellness", "spa"]
 ---
 
-Nếu bạn đang tìm kiếm một trải nghiệm thư giãn đích thực theo phong cách Nhật Bản ngay tại Quảng Ninh, thì **Yoko Onsen Quang Hanh** chính là điểm đến hoàn hảo. Với không gian yên bình, suối nước nóng tự nhiên và văn hóa onsen đậm chất xứ sở hoa anh đào — đây là nơi lý tưởng để bạn "reset" cơ thể và tâm trí sau những ngày làm việc mệt mỏi.
+Neu ban dang tim kiem mot trai nghiem thu gian dich that theo phong cach Nhat Ban ngay tai Quang Ninh, thi Yoko Onsen Quang Hanh chinh la diem den hoan hao. Voi khong gian yeu tĩnh, suoi nuoc nong tu nhien va van hoa onsen dập chất xu so hoa anh dao — day la noi ly tuong de ban "reset" co the va tam tri sau nhung ngay lam viec met moi.
 
-Trong bài viết này, Datmo sẽ tổng hợp tất tần tật về Yoko Onsen Quang Hanh — từ giá vé, các loại bể onsen, đến trải nghiệm và cách đặt vé nhanh nhất!
-
----
-
-## Yoko Onsen Quang Hanh ở đâu?
-
-**Yoko Onsen Quang Hanh** tọa lạc tại thị trấn Quang Hanh, thành phố Cẩm Phả, tỉnh Quảng Ninh. Đây là khu suối nước nóng theo phong cách Nhật Bản đầu tiên và duy nhất tại khu vực miền Bắc Việt Nam, được xây dựng với tiêu chuẩn chất lượng Nhật Bản.
-
-Khuôn viên onsen nằm giữa thiên nhiên yên bình, với không gian xanh mát, kiến trúc đậm chất Á Đông — mang đến cảm giác như đang lạc vào một resort ở Kyoto hay Hokkaido.
+Trong bai viet nay, Datmo se tong hop tat tan tan ve Yoko Onsen Quang Hanh — tu gia ve, cac loai be onsen, den trai nghiem va cach dat ve nhanh nhat!
 
 ---
 
-## Giá vé Yoko Onsen Quang Hanh 2026
+## Yoko Onsen Quang Hanh o dau?
 
-### Bảng giá chi tiết
+Yoko Onsen Quang Hanh toa lac tai thi tran Quang Hanh, thanh pho Cam Pha, tinh Quang Ninh. Day la khu suoi nuoc nong theo phong cach Nhat Ban dau tien va duy nhat tai khu vuc mien Bac Viet Nam, duoc xay dung voi tieu chuan chat luong Nhat Ban.
 
-| Ngày | Khung giờ | Giá vé khách lẻ | Giá vé combo (3 khách trở lên) |
-|------|-----------|-----------------|--------------------------------|
-| **Ngày thường** (Thứ 2 - Thứ 6) | Sáng (09h00-21h00) | 1.050.000đ | 930.000đ |
-| | Chiều (14h00-21h00) | 1.000.000đ | - |
-| | Tối (18h00-21h00) | 480.000đ | - |
-| **Cuối tuần** (Thứ 7 & CN) | Sáng (09h00-21h00) | 1.470.000đ | - |
-| | Chiều (14h00-21h00) | 1.320.000đ | - |
-
-**Giá đã bao gồm:**
-- ✅ Vào cửa suối nước nóng (Onsen)
-- ✅ Buffet ăn uống (sáng & chiều)
-- ✅ Sử dụng tiện nghi khu nghỉ dưỡng
-
-**Lưu ý:**
-- Giá vé Tối (18h00-21h00) chỉ bao gồm Onsen, không có buffet
-- Khách hàng cao trên 140cm mới được sử dụng dịch vụ
+Khuon vien onsen nam giua thien nhien yeu tĩnh, voi khong gian xanh mat, kien trac dập chat Au Dong — mang den cam giac nhu dang lac vao mot resort o Kyoto hay Hokkaido.
 
 ---
 
-## Các loại bể Onsen tại Yoko Quang Hanh
+## Gia ve Yoko Onsen Quang Hanh 2026
 
-### 1. Bể Onsen trong nhà (Indoor Onsen)
+### Bang gia chi tiet
 
-Các bể suối nước nóng trong nhà được thiết kế theo phong cách truyền thống Nhật Bản, với tường gỗ, ánh sáng dịu nhẹ và không gian yên tĩnh. Nước nóng giàu khoáng chất giúp thư giãn cơ bắp, cải thiện tuần hoàn máu.
+| Ngay | Khung gio | Gia ve khach le | Gia ve combo (3 khach tro len) |
+|------|-----------|------------------|--------------------------------|
+| **Ngay thuong** (Thu 2 - Thu 6) | Sang (09h00-21h00) | 1.050.000d | 930.000d |
+| | Chieu (14h00-21h00) | 1.000.000d | - |
+| | Toi (18h00-21h00) | 480.000d | - |
+| **Cuoi tuan** (Thu 7 & CN) | Sang (09h00-21h00) | 1.470.000d | - |
+| | Chieu (14h00-21h00) | 1.320.000d | - |
 
-### 2. Bể Onsen ngoài trời (Outdoor Onsen / Rotenburo)
+**Gia da bao gom:**
+- ✅ Vao cua suoi nuoc nong (Onsen)
+- ✅ Buffet an uong (sang & chieu)
+- ✅ Su dung tien nghi khu nghi duong
 
-Điểm nhấn của Yoko Onsen — ngâm mình trong bể nước nóng giữa thiên nhiên, ngắm nhìn cây cối xanh mát và trời xanh. Cảm giác mát lạnh bên ngoài, ấm áp bên trong — đặc biệt tuyệt vời vào mùa đông.
-
-### 3. Bể ngâm lạnh (Cold Bath)
-
-Sau khi ngâm nước nóng, bạn có thể nhảy vào bể nước lạnh để "shock" cơ thể, giúp se lỗ chân lông, tăng cường tuần hoàn và mang lại cảm giác tươi mát.
-
-### 4. Bể sục (Jacuzzi / Jet Bath)
-
-Bể sục với dòng nước mạnh giúp massage cơ thể, giảm đau nhức xương khớp và thư giãn tối đa.
-
-### 5. Phòng xông hơi (Sauna)
-
-Khu vực xông hơi khô theo phong cách Phần Lan, giúp thải độc tố, giãn nở lỗ chân lông và thư giãn toàn diện.
+**Luu y:**
+- Gia ve Toi (18h00-21h00) chi bao gom Onsen, khong co buffet
+- Khach hang cao tren 140cm moi duoc su dung dich vu
 
 ---
 
-## Trải nghiệm tại Yoko Onsen Quang Hanh
+## Cac loai be Onsen tai Yoko Quang Hanh
 
-### Không gian & Kiến trúc
+### 1. Be Onsen trong nha (Indoor Onsen)
 
-Yoko Onsen Quang Hanh được thiết kế với tông màu gỗ ấm áp, ánh đèn vàng dịu nhẹ, mang đến cảm giác thư giãn ngay từ khi bước vào. Mỗi chi tiết đều được chăm chút — từ đồng phục Yukata của nhân viên đến cách bài trí cây cảnh, đá cuội.
+Cac be suoi nuoc nong trong nha duoc thiet ke theo phong cach truyen thong Nhat Ban, voi tuong go, anh sang du nhẹ, va khong gian yeu tĩnh. Nuoc nong giau khoang chat giup thu gian co bac, cai thien tuan hoan mau.
 
-### Buffet ẩm thực
+### 2. Be Onsen ngoai troi (Outdoor Onsen / Rotenburo)
 
-Một điểm cộng lớn của Yoko Onsen là **buffet ăn uống** bao gồm trong vé:
+Diem nhan cua Yoko Onsen — ngam minh trong be nuoc nong giua thien nhien, ngam nhin cay co xanh mat va troi xanh. Cam giac mat lanh ben ngoai, am ap ben trong — dac biet tuyet voi vao mua dong.
 
-- **Buổi trưa:** 11h30 - 14h00
-- **Buổi tối:** 17h00 - 19h30
+### 3. Be ngam lanh (Cold Bath)
 
-Thực đơn buffet đa dạng với các món ăn Nhật Bản và Việt Nam, hải sản tươi ngon, salad, soup và tráng miệng.
+Sau khi ngam nuoc nong, ban co the nhay vao be nuoc lanh de "shock" co the, giup se long chan long, tang cuong tuan hoan va mang lai cam giac tuoi mat.
 
-### Dịch vụ thư giãn bổ sung
+### 4. Be suc (Jacuzzi / Jet Bath)
 
-Ngoài onsen, Yoko còn cung cấp các dịch vụ:
+Be suc voi dong nuoc manh giup massage co the, giam dau nhuc xuong khop va thu gian toi da.
+
+### 5. Phong xong hoi (Sauna)
+
+Khu vuc xong hoi kho theo phong cach Phan Lan, giup thai dot tuyen, gian no long chan long va thu gian toan dien.
+
+---
+
+## Trai nghiem tai Yoko Onsen Quang Hanh
+
+### Khong gian & Kien trac
+
+Yoko Onsen Quang Hanh duoc thiet ke voi tong mau go am ap, anh den vang du nhẹ, mang den cam giac thu gian ngay tu khi buoc vao. Moi chi tiet deu duoc cham chut — tu dong phuc Yukata cua nhan vien den cach bai tri cay canh, da cuoi.
+
+### Buffet am thuc
+
+Mot diem cong lon cua Yoko Onsen la buffet an uong bao gom trong ve:
+
+- **Buoi trua:** 11h30 - 14h00
+- **Buoi toi:** 17h00 - 19h30
+
+Thuc don buffet da dang voi cac mon an Nhat Ban va Viet Nam, hai san tuoi ngon, salad, soup va trang mieng.
+
+### Dich vu thu gian bo sung
+
+Ngoai onsen c, Yoko conung cap cac dich vu:
 - Massage body
-- Chăm sóc da mặt
-- Trị liệu (spa treatment)
+- Cham soc da mat
+- Tri liep (spa treatment)
 
 ---
 
-## Lợi ích của việc ngâm Onsen
+## Loi ich cua viec ngam Onsen
 
-### Về sức khỏe
+### Ve suc khoe
 
-🌿 **Giảm stress:** Nước nóng giúp thư giãn thần kinh, giảm cortisol  
-🌿 **Cải thiện tuần hoàn máu:** Nhiệt độ nước nóng làm giãn mạch máu  
-🌿 **Giảm đau cơ xương khớp:** Tốt cho người làm việc văn phòng, đau lưng  
-🌿 **Thải độc tố:** Ra mồ hôi giúp loại bỏ chất độc  
-🌿 **Làm đẹp da:** Nước khoáng giúp se lỗ chân lông, da mịn màng  
+🌿 **Giam stress:** Nuoc nong giup thu gian than kinh, giam cortisol  
+🌿 **Cai thien tuan hoan mau:** Nhiet do nuoc nong lam gian mach mau  
+🌿 **Giam dau co xuong khop:** Tot cho nguoi lam viec van phong, dau lung  
+🌿 **Thai dot tuyen:** Ra moi hoi giup loai bo chat doc  
+🌿 **Lam dep da:** Nuoc khoang giup se long chan long, da min mat màng  
 
-### Về tinh thần
+### Ve tam tri
 
-Ngâm onsen không chỉ là "tắm nước nóng" — đây là một **nghi thức thư giãn** theo văn hóa Nhật Bản. Thảo luận nhẹ nhàng trong bể, ngắm nhìn thiên nhiên, uống trà sau khi ngâm — tất cả tạo nên trải nghiệm "digital detox" hoàn hảo.
-
----
-
-## Hướng dẫn di chuyển đến Yoko Onsen Quang Hanh
-
-### Từ Hà Nội
-
-- **Khoảng cách:** ~150 km
-- **Thời gian:** 2.5 - 3 tiếng lái xe
-- **Đường đi:** Cao tốc Hà Nội - Hải Phòng → QL18 → Cẩm Phả → Quang Hanh
-
-### Từ Hạ Long
-
-- **Khoảng cách:** ~30 km
-- **Thời gian:** 45 phút - 1 tiếng
-
-### Từ Cẩm Phả
-
-- **Khoảng cách:** ~10 km
-- **Thời gian:** 15-20 phút
-
-> **Mẹo từ Datmo:** Bạn có thể thuê xe 16 chỗ hoặc 29 chỗ đi theo nhóm đông — vừa tiện lợi, vừa có thể chia sẻ chi phí xăng và gửi xe.
+Ngam onsen khong chi la "tam nuoc nong" — day la mot nghi thuc thu gian theo van hoa Nhat Ban. Thao luan nhe nhang trong be, ngam nhin thien nhien, uong tra sau khi ngam — tat ca tao nen trai nghiem "digital detox" hoan hao.
 
 ---
 
-## Tại sao nên đặt vé Onsen cùng Datmo?
+## Huong dan di chuyen den Yoko Onsen Quang Hanh
 
-### Cam kết của Datmo
+### Tu Ha Noi
 
-- ✅ **Đặt vé nhanh chóng** — chỉ cần 1 cuộc gọi, Datmo lo tất cả
-- ✅ **Giá cạnh tranh** — hỗ trợ tư vấn gói phù hợp với nhu cầu và ngân sách
-- ✅ **Hỗ trợ 24/7** — sẵn sàng tư vấn mọi lúc
-- ✅ **Kết hợp thuê xe** — đặt xe + vé Onsen trọn gói, tiện lợi từ A-Z
+- **Khoang cach:** ~150 km
+- **Thoi gian:** 2.5 - 3 tieng lai xe
+- **Duong di:** Cao toc Ha Noi - Hai Phong → QL18 → Cam Pha → Quang Hanh
 
-### Quy trình đặt vé cùng Datmo
+### Tu Ha Long
 
-1. **Liên hệ:** Gọi 0911 321 578 hoặc nhắn Zalo
-2. **Tư vấn:** Datmo hỏi ngày đi, số lượng người, khung giờ mong muốn
-3. **Báo giá:** Chi tiết giá vé, các gói combo (nếu có)
-4. **Xác nhận & thanh toán:** Đặt cọc, nhận vé xác nhận
-5. **Trải nghiệm:** Đến Yoko Onsen tận hưởng — không lo gì cả!
+- **Khoang cach:** ~30 km
+- **Thoi gian:** 45 phut - 1 tieng
+
+### Tu Cam Pha
+
+- **Khoang cach:** ~10 km
+- **Thoi gian:** 15-20 phut
+
+> **Meo tu Datmo:** Ban co the thue xe 16 cho hoac 29 cho di theo nhom dong — vua tien loi, vua co the chia se chi phi xang va gui xe.
 
 ---
 
-## Bảng so sánh giá
+## Tai sao nen dat ve Onsen cung Datmo?
 
-| Đơn vị | Giá ngày thường (Sáng) | Ghi chú |
+### Cam ket cua Datmo
+
+- ✅ **Dat ve nhanh chong** — chi can 1 cuoc goi, Datmo lo tat ca
+- ✅ **Gia canh tranh** — ho tro tu van goi phu hop voi nhu cau va ngan sach
+- ✅ **Ho tro 24/7** — san sang tu van moi luc
+- ✅ **Ket hop thue xe** — dat xe + ve Onsen tron goi, tien loi tu A-Z
+
+### Quy trinh dat ve cung Datmo
+
+1. **Lien he:** Goa 0911 321 578 hoac nhac Zalo
+2. **Tu van:** Datmo hoi ngay di, so luong nguoi, khung gio mong muon
+3. **Bao gia:** Chi tiet gia ve, cac goi combo (neu co)
+4. **Xac nhan & thanh toan:** Dat coc, nhan ve xac nhan
+5. **Trai nghiem:** Den Yoko Onsen tan huong — khong lo gi ca!
+
+---
+
+## Bang so sanh gia
+
+| Don vi | Gia ngay thuong (Sang) | Ghi chu |
 |--------|------------------------|---------|
-| **Datmo** | **Liên hệ** | Đặt nhanh, hỗ trợ 24/7 |
-| Yoko Onsen (web) | 1.050.000đ | Giá niêm yết |
+| **Datmo** | **Lien he** | Dat nhanh, ho tro 24/7 |
+| Yoko Onsen (web) | 1.050.000d | Gia niem yet |
 
-> Gọi Datmo để được báo giá mới nhất và các ưu đãi đặc biệt!
+> Goa Datmo de duoc bao gia moi nhat va cac uu dai dac biet!
 
 ---
 
-## Đặt vé Yoko Onsen Quang Hanh ngay hôm nay!
+## Dat ve Yoko Onsen Quang Hanh ngay hom nay!
 
-Yoko Onsen Quang Hanh là điểm đến lý tưởng cho:
-- 💆 Couples muốn có ngày nghỉ lãng mạn
-- 👨‍👩‍👧‍👦 Gia đình muốn cuối tuần thư giãn cùng nhau
-- 👯 Nhóm bạn muốn "detox" khỏi city life
-- 🧘 Người muốn chăm sóc sức khỏe và làm đẹp da
+Yoko Onsen Quang Hanh la diem den ly tuong cho:
+- 💆 Couples muon co ngay nghi lang man
+- 👨‍👩‍👧‍👦 Gia dinh muon cuoi tuan thu gian cung nhau
+- 👯 Nhom ban muon "detox" khoi city life
+- 🧘 Nguoi muon cham soc suc khoe va lam dep da
 
-**Đừng chờ đợi — cuối tuần này, hãy để Datmo đưa bạn đến Yoko Onsen!**
+**Cuoi tuan nay, hay de Datmo dua ban den Yoko Onsen!**
 
 📞 **Hotline: 0911 321 578**  
 💬 **Zalo: [911321578](https://zalo.me/911321578)**  
-📍 Đặt vé nhanh — có xe đưa đón tận nơi!
+📍 Dat ve nhanh — co xe dua don tan noi!
 
 ---
 
-📖 Xem thêm: [Thuê xe du lịch Cẩm Phả](/thue-xe-du-lich/) | [Cẩm nang du lịch Cô Tô 2026](/blog/cam-nang-du-lich-dao-co-to-2026/)
+📖 Xem them: [Thue xe du lich Cam Pha](/thue-xe-du-lich/) | [Cam nang du lich Co To 2026](/blog/cam-nang-du-lich-dao-co-to-2026/)
