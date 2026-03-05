@@ -40,6 +40,18 @@ const crumbs = [
         </p>
       </div>
     </div>
+    <div class="map-container" style="margin-top: 2rem;">
+      <h2>Vị trí của chúng tôi</h2>
+      <iframe 
+        src="https://maps.app.goo.gl/qustZ7RbM3CNmgFfA" 
+        width="100%" 
+        height="450" 
+        style="border:0; border-radius: 12px;" 
+        allowfullscreen="" 
+        loading="lazy" 
+        referrerpolicy="no-referrer-when-downgrade">
+      </iframe>
+    </div>
     <ContactForm />
     <div class="card" style="margin-top:14px">
       <h2>Dịch vụ liên quan</h2>
@@ -58,3 +70,10 @@ const crumbs = [
     </div>
   </section>
 </BaseLayout>
+<style>
+  /* Đảm bảo bản đồ co giãn tốt trên di động */
+  .map-container iframe {
+    box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1);
+    min-height: 300px;
+  }
+</style>
