@@ -135,17 +135,20 @@ Nhập URL của trang và xem OG image hiển thị đúng chưa.
 
 ### OG Images đang tồn tại:
 - `public/og/default.png` ✅
-- `public/og/thue-xe-du-lich/index.png` ✅
+- `public/og/thue-xe-du-lich/index.png` ✅ (file cũ - vẫn hoạt động nhưng nên đổi tên)
 
 ### OG Images cần tạo thêm (nếu muốn):
-- `public/og/gioi-thieu.png`
-- `public/og/lien-he.png`
-- `public/og/khach-san.png`
-- `public/og/visa-ho-chieu.png`
-- `public/og/ve-may-bay.png`
-- `public/og/ve-tau-cao-toc.png`
-- `public/og/blog/default.png` (cho blog fallback)
+- `public/og/gioi-thieu.png` - cho trang /gioi-thieu/
+- `public/og/lien-he.png` - cho trang /lien-he/
+- `public/og/khach-san.png` - cho trang /khach-san/
+- `public/og/visa-ho-chieu.png` - cho trang /visa-ho-chieu/
+- `public/og/ve-may-bay.png` - cho trang /ve-may-bay/
+- `public/og/ve-tau-cao-toc.png` - cho trang /ve-tau-cao-toc/
+- `public/og/blog/default.png` - OG mặc định cho blog
 - Và các trang khác...
+
+### Lưu ý về file cũ:
+File `public/og/thue-xe-du-lich/index.png` đang tồn tại nhưng không theo naming convention mới. Hệ thống mới expect file là `public/og/thue-xe-du-lich.png`. Nên đổi tên hoặc tạo file mới theo đúng convention.
 
 ---
 

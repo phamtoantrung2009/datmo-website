@@ -179,38 +179,35 @@ Dùng đường dẫn bắt đầu bằng `/`:
 
 Là hình hiển thị khi bạn chia sẻ link lên Facebook, Zalo, Twitter.
 
-### Nơi lưu hình OG
+### Hệ thống OG tự động (KHÔNG cần sửa code)
 
-Tất cả hình OG lưu trong `public/og/blog/`.
+Từ giờ hệ thống sẽ **tự động phát hiện** OG image dựa trên đường dẫn. Bạn chỉ cần đặt file đúng vị trí.
 
-### Cách thêm OG cho bài blog (KHÔNG cần sửa code)
+#### Quy tắc đặt tên OG Image:
 
-**Bước 1:** Tạo hình OG cho bài viết
+| Loại trang | Đường dẫn | File OG cần tạo |
+|------------|------------|-----------------|
+| Trang chủ | `/` | `public/og/default.png` |
+| Trang con | `/gioi-thieu/` | `public/og/gioi-thieu.png` |
+| Trang dịch vụ | `/thue-xe-du-lich/` | `public/og/thue-xe-du-lich.png` |
+| Bài blog | `/blog/kinh-nghiem/` | `public/og/blog/kinh-nghiem.png` |
 
-- Kích thước khuyến nghị: **1200 x 630 pixel**
-- Format: `.png`
-- Đặt tên = slug bài viết (không cần thêm đường dẫn trong code)
+#### Cách thêm OG cho bài blog:
 
-**Bước 2:** Lưu vào `public/og/blog/`
+1. Tạo hình OG (1200x630px)
+2. Lưu vào `public/og/blog/{slug-bai-viet}.png`
+3. Xong! Không cần sửa code.
 
-```
-public/og/blog/
-├── default.png                        # Hình mặc định
-└── kinh-nghiem-ha-long.png           # OG cho bài viết cụ thể
-```
+#### Cách thêm OG cho trang mới:
 
-**Bước 3:** Xong! Không cần sửa gì thêm.
+1. Tạo hình OG (1200x630px)
+2. Lưu vào `public/og/{slug-trang}.png`
+3. Xong!
 
-Hệ thống sẽ tự động tìm hình OG theo slug:
-
-- Bài `kinh-nghiem-ha-long.md` → tự tìm `/og/blog/kinh-nghiem-ha-long.png`
-- Nếu không có → dùng `/og/blog/default.png`
-
-### Cách OG hoạt động (tự động)
-
-1. Khi một bài viết được chia sẻ, hệ thống sẽ tìm hình OG theo slug: `/og/blog/{slug}.png`
-2. Nếu file không tồn tại → dùng `/og/blog/default.png`
-3. Nếu default cũng không có → dùng `og.png` ở thư mục gốc `public/`
+#### Fallback tự động:
+- Nếu file không tồn tại → dùng ảnh mặc định
+- Trang thường: `/og/default.png`
+- Trang blog: `/og/blog/default.png`
 
 ---
 
@@ -226,13 +223,14 @@ public/
 │       └── du-thuyen-ha-long/
 │           └── thuyen.jpg
 ├── og/
-│   ├── default.png
-│   ├── blog/
-│   │   ├── default.png
-│   │   ├── kinh-nghiem-ha-long.png
-│   │   └── du-thuyen-ha-long.png
-│   └── thue-xe-du-lich/
-│       └── index.png
+│   ├── default.png                    # OG mặc định cho website
+│   ├── gioi-thieu.png                 # OG cho /gioi-thieu/
+│   ├── lien-he.png                    # OG cho /lien-he/
+│   ├── thue-xe-du-lich.png           # OG cho /thue-xe-du-lich/
+│   └── blog/
+│       ├── default.png                # OG mặc định cho blog
+│       ├── kinh-nghiem-ha-long.png    # OG cho bài viết
+│       └── cho-thue-xe.png            # OG cho category
 ├── favicon.svg
 ├── logo.png
 └── og.png
@@ -324,13 +322,10 @@ draft: true
 ## 8. Checklist Đăng Bài Blog Mới
 
 - [ ] Đặt tên file theo slug (ví dụ: `kinh-nghiem-ha-long.md`)
-- [ ] Tạo thư mục hình trong `public/images/blog/{slug}/`
 - [ ] Thêm frontmatter đầy đủ (title, description, publishedAt, category, tags)
 - [ ] Viết nội dung bài viết
-- [ ] Thêm hình ảnh vào thư mục riêng
-- [ ] Chèn hình vào bài viết
-- [ ] Tạo OG image (1200x630px) và lưu vào `public/og/blog/{slug}.png`
-- [ ] Kiểm tra đường dẫn hình ảnh
+- [ ] (Tùy chọn) Thêm hình ảnh vào `public/images/blog/{slug}/`
+- [ ] (Tùy chọn) Tạo OG image (1200x630px) tại `public/og/blog/{slug}.png`
 - [ ] Commit và push lên GitHub
 - [ ] Chờ deploy (1-3 phút)
 - [ ] Kiểm tra website https://datmo.io.vn
@@ -342,9 +337,11 @@ draft: true
 | Task | Location |
 |------|----------|
 | Tạo bài viết mới | `src/content/blog/{slug}.md` |
-| Thêm hình nội dung | `public/images/blog/{slug}/` |
-| Thêm OG image | `public/og/blog/{slug}.png` |
+| Thêm hình nội dung (tùy chọn) | `public/images/blog/{slug}/` |
+| Thêm OG image (tùy chọn) | `public/og/blog/{slug}.png` |
 | Deploy | `git push` → Cloudflare tự deploy |
+
+**Lưu ý:** Hệ thống OG đã được tối ưu - chỉ cần đặt file đúng vị trí, không cần sửa code!
 
 ---
 

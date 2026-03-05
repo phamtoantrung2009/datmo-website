@@ -144,17 +144,18 @@ Chọn **một** trong các giá trị sau:
 - Đặt tên file có ý nghĩa: `xe-16-cho-cam-pha.jpg`
 - Nén hình dưới 200KB
 
-### 4. Cấu Trúc Khuyến Nghị
+### 4. Cấu Trúc File Blog
+
+Blog posts được lưu dạng file phẳng trong `src/content/blog/`:
 
 ```
 src/content/blog/
-├── slug-bai-viet/
-│   ├── index.md          # Bài viết chính
-│   ├── image-1.jpg       # Hình trong bài
-│   └── image-2.jpg
-└── another-post/
-    └── index.md
+├── kinh-nghiem-ha-long.md    # File bài viết
+├── cho-thue-xe-16-cho.md
+└── du-thuyen-ha-long.md
 ```
+
+**Lưu ý:** Không tạo thư mục con cho mỗi bài viết - chỉ cần 1 file `.md` duy nhất.
 
 ### 5. Checklist trước khi publish
 
