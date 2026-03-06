@@ -106,4 +106,4 @@ export function getBlogDefaultOgImage(): string {
 }
 
 // Export OG_CONFIG để các component có thể sử dụng nếu cần
-export { OG_CONFIG };
+// (already exported at line 19)

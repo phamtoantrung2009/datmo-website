@@ -24,7 +24,7 @@ const description = data.description;
 const ogImage = getOgImage(`/blog/${post.slug}/`);
 ---
 
-<BaseLayout title={title} description={description} canonical={canonical}>
+<BaseLayout title={title} description={description} canonical={canonical} ogImage={ogImage}>
   <BlogPostLayout post={post}>
     <Content />
   </BlogPostLayout>
