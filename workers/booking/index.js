@@ -4,19 +4,31 @@
  * Supports both one-way and round-trip bookings
  */
 
-// CORS headers
-const CORS_HEADERS = {
-  'Access-Control-Allow-Origin': 'https://datmo.io.vn',
-  'Access-Control-Allow-Methods': 'GET, POST, OPTIONS',
-  'Access-Control-Allow-Headers': 'Content-Type, X-Admin-Token, X-Pii-Token',
-};
+// CORS headers — allow both main site and booking subdomain
+const ALLOWED_ORIGINS = [
+  'https://datmo.io.vn',
+  'https://booking.datmo.io.vn',
+];
+
+function getCorsHeaders(request) {
+  const origin = request?.headers?.get('Origin') || '';
+  const allowedOrigin = ALLOWED_ORIGINS.includes(origin) ? origin : ALLOWED_ORIGINS[0];
+  return {
+    'Access-Control-Allow-Origin': allowedOrigin,
+    'Access-Control-Allow-Methods': 'GET, POST, OPTIONS',
+    'Access-Control-Allow-Headers': 'Content-Type, X-Admin-Token, X-Pii-Token',
+  };
+}
+
+// Store request reference for CORS header generation
+let _currentRequest = null;
 
 function corsResponse(body, status = 200) {
   return new Response(body, {
     status,
     headers: {
       'Content-Type': 'application/json; charset=utf-8',
-      ...CORS_HEADERS,
+      ...getCorsHeaders(_currentRequest),
     },
   });
 }
@@ -133,9 +145,12 @@ export default {
       return token === PII_TOKEN && PII_TOKEN !== '';
     }
 
+    // Store request for CORS headers
+    _currentRequest = request;
+
     // Handle CORS preflight
     if (request.method === 'OPTIONS') {
-      return new Response(null, { headers: CORS_HEADERS });
+      return new Response(null, { headers: getCorsHeaders(request) });
     }
 
     const url = new URL(request.url);
@@ -518,8 +533,8 @@ export default {
         });
       }
 
-      // 404 for unmatched routes
-      return errorResponse('Not found', 404);
+      // Serve static assets for non-API routes (booking frontend)
+      return env.ASSETS.fetch(request);
 
     } catch (error) {
       console.error('Worker error:', error);
