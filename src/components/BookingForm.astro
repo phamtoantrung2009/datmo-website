@@ -1,0 +1,288 @@
+---
+// BookingForm.astro - Speedboat booking form component
+// Accepts optional route prop to pre-select a specific route
+
+// Try to use custom domain first, fall back to workers.dev
+const API_BASE = "https://datmo-booking.phamtoantrung2009.workers.dev";
+
+// Available routes
+const routes = [
+  { value: "ao-tien-co-to", label: "Ao Tiên → Cô Tô", price: 280000, childPrice: 140000 },
+  { value: "co-to-ao-tien", label: "Cô Tô → Ao Tiên", price: 280000, childPrice: 140000 },
+  { value: "ao-tien-quan-lan", label: "Ao Tiên → Quan Lạn", price: 250000, childPrice: 125000 },
+  { value: "ao-tien-minh-chau", label: "Ao Tiên → Minh Châu", price: 250000, childPrice: 125000 },
+  { value: "minh-chau-ao-tien", label: "Minh Châu → Ao Tiên", price: 250000, childPrice: 125000 },
+];
+
+// Get route prop if passed
+const { route: selectedRoute } = Astro.props;
+---
+
+<div class="card booking-form-card">
+  <h2>Đặt vé tàu cao tốc</h2>
+  <p class="small" style="margin-bottom: 16px;">Điền thông tin để đặt vé. Vé sẽ được xác nhận sau khi thanh toán.</p>
+  
+  <form id="booking-form" class="booking-grid" data-preselected-route={selectedRoute || ''}>
+    <!-- Route Selection -->
+    <div class="form-field full-width">
+      <label for="route">Tuyến đi *</label>
+      <select id="route" name="route" required>
+        <option value="">-- Chọn tuyến --</option>
+        {routes.map(r => (
+          <option value={r.value} data-adult-price={r.price} data-child-price={r.childPrice}>
+            {r.label} ({r.price.toLocaleString('vi-VN')}đ/người lớn)
+          </option>
+        ))}
+      </select>
+    </div>
+
+    <!-- Travel Date -->
+    <div class="form-field">
+      <label for="travel_date">Ngày đi *</label>
+      <input 
+        type="date" 
+        id="travel_date" 
+        name="travel_date" 
+        required 
+        min={new Date().toISOString().split('T')[0]}
+      />
+    </div>
+
+    <!-- Departure Time -->
+    <div class="form-field">
+      <label for="departure_time">Giờ khởi hành</label>
+      <select id="departure_time" name="departure_time">
+        <option value="">-- Chọn giờ --</option>
+        <option value="07:30">07:30</option>
+        <option value="08:00">08:00</option>
+        <option value="08:30">08:30</option>
+        <option value="13:00">13:00</option>
+        <option value="13:30">13:30</option>
+        <option value="14:00">14:00</option>
+      </select>
+    </div>
+
+    <!-- Adults -->
+    <div class="form-field">
+      <label for="adults">Người lớn *</label>
+      <input type="number" id="adults" name="adults" min="1" max="20" value="1" required />
+    </div>
+
+    <!-- Children -->
+    <div class="form-field">
+      <label for="children">Trẻ em</label>
+      <input type="number" id="children" name="children" min="0" max="10" value="0" />
+    </div>
+
+    <!-- Passenger Name -->
+    <div class="form-field full-width">
+      <label for="passenger_name">Họ tên người đặt *</label>
+      <input type="text" id="passenger_name" name="passenger_name" required placeholder="Nguyễn Văn A" />
+    </div>
+
+    <!-- Passenger Phone -->
+    <div class="form-field">
+      <label for="passenger_phone">Số điện thoại *</label>
+      <input type="tel" id="passenger_phone" name="passenger_phone" required placeholder="0912 345 678" />
+    </div>
+
+    <!-- Passenger Email -->
+    <div class="form-field">
+      <label for="passenger_email">Email</label>
+      <input type="email" id="passenger_email" name="passenger_email" placeholder="email@example.com" />
+    </div>
+
+    <!-- Price Display -->
+    <div class="price-display full-width">
+      <span class="price-label">Tổng cộng:</span>
+      <span class="price-amount" id="total-amount">0 đ</span>
+    </div>
+
+    <button type="submit" class="btn primary full-width">Tiếp tục thanh toán</button>
+    
+    <p id="booking-status" class="small form-status full-width" role="status" aria-live="polite"></p>
+  </form>
+</div>
+
+<style>
+  .booking-form-card {
+    max-width: 600px;
+    margin: 0 auto;
+  }
+
+  .booking-grid {
+    display: grid;
+    gap: 12px;
+  }
+
+  .form-field {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+  }
+
+  .form-field.full-width {
+    grid-column: 1 / -1;
+  }
+
+  .form-field label {
+    font-weight: 500;
+    font-size: 0.9rem;
+  }
+
+  .form-field input,
+  .form-field select {
+    padding: 10px 12px;
+    border: 1px solid #ddd;
+    border-radius: 6px;
+    font-size: 1rem;
+  }
+
+  .form-field input:focus,
+  .form-field select:focus {
+    outline: none;
+    border-color: #0066cc;
+    box-shadow: 0 0 0 2px rgba(0, 102, 204, 0.1);
+  }
+
+  .price-display {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 12px 16px;
+    background: #f8f9fa;
+    border-radius: 6px;
+    font-weight: 600;
+  }
+
+  .price-amount {
+    font-size: 1.25rem;
+    color: #0066cc;
+  }
+
+  .form-status {
+    text-align: center;
+    padding: 8px;
+  }
+
+  .form-status.error {
+    color: #dc3545;
+  }
+
+  .form-status.success {
+    color: #28a745;
+  }
+
+  .btn.full-width {
+    width: 100%;
+    padding: 14px 24px;
+    font-size: 1.1rem;
+  }
+
+  @media (min-width: 600px) {
+    .booking-grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+
+    .booking-grid .form-field:nth-child(1),
+    .booking-grid .form-field:nth-child(5),
+    .booking-grid .form-field:nth-child(6),
+    .booking-grid .form-field.full-width,
+    .booking-grid .price-display,
+    .booking-grid .btn,
+    .booking-grid .form-status {
+      grid-column: 1 / -1;
+    }
+  }
+</style>
+
+<script is:inline>
+  // Use workers.dev URL - custom domain booking.datmo.io.vn will work after DNS propagates
+  const API_BASE = "https://datmo-booking.phamtoantrung2009.workers.dev";
+  
+  const form = document.getElementById('booking-form');
+  const routeSelect = document.getElementById('route');
+  const adultsInput = document.getElementById('adults');
+  const childrenInput = document.getElementById('children');
+  const totalAmountEl = document.getElementById('total-amount');
+  const statusEl = document.getElementById('booking-status');
+
+  // Pre-select route if passed via data attribute
+  const preselectedRoute = form?.dataset.preselectedRoute;
+  if (preselectedRoute && routeSelect) {
+    routeSelect.value = preselectedRoute;
+    // Trigger price calculation after setting route
+    setTimeout(calculateTotal, 0);
+  }
+
+  // Calculate total price
+  function calculateTotal() {
+    const selectedOption = routeSelect?.selectedOptions[0];
+    const adultPrice = parseInt(selectedOption?.dataset.adultPrice) || 0;
+    const childPrice = parseInt(selectedOption?.dataset.childPrice) || 0;
+    const adults = parseInt(adultsInput?.value) || 1;
+    const children = parseInt(childrenInput?.value) || 0;
+    
+    const total = (adults * adultPrice) + (children * childPrice);
+    if (totalAmountEl) {
+      totalAmountEl.textContent = total.toLocaleString('vi-VN') + ' đ';
+    }
+    return total;
+  }
+
+  // Event listeners for price calculation
+  if (routeSelect) routeSelect.addEventListener('change', calculateTotal);
+  if (adultsInput) adultsInput.addEventListener('input', calculateTotal);
+  if (childrenInput) childrenInput.addEventListener('input', calculateTotal);
+
+  // Form submission
+  if (form) {
+    form.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      
+      if (statusEl) {
+        statusEl.textContent = 'Đang xử lý...';
+        statusEl.className = 'small form-status';
+      }
+
+      const formData = new FormData(form);
+      const data = {
+        route: formData.get('route'),
+        travel_date: formData.get('travel_date'),
+        departure_time: formData.get('departure_time') || null,
+        adults: parseInt(formData.get('adults')) || 1,
+        children: parseInt(formData.get('children')) || 0,
+        passenger_name: formData.get('passenger_name'),
+        passenger_phone: formData.get('passenger_phone'),
+        passenger_email: formData.get('passenger_email') || null
+      };
+
+      try {
+        const res = await fetch(API_BASE + '/api/booking/create', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json'
+          },
+          body: JSON.stringify(data)
+        });
+
+        const result = await res.json();
+
+        if (result.success) {
+          // Redirect to confirmation page
+          window.location.href = '/dat-ve/xac-nhan?id=' + result.booking_id;
+        } else {
+          if (statusEl) {
+            statusEl.textContent = result.error || 'Có lỗi xảy ra. Vui lòng thử lại.';
+            statusEl.className = 'small form-status error';
+          }
+        }
+      } catch (err) {
+        if (statusEl) {
+          statusEl.textContent = 'Lỗi kết nối. Vui lòng thử lại.';
+          statusEl.className = 'small form-status error';
+        }
+      }
+    });
+  }
+</script>

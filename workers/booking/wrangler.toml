@@ -1,0 +1,13 @@
+name = "datmo-booking"
+main = "index.js"
+compatibility_date = "2024-01-01"
+
+[[d1_databases]]
+binding = "DB"
+database_name = "datmo-bookings"
+database_id = "abe5a6cc-f8be-40c8-8de2-dc9871def3c0"
+
+[vars]
+ALLOWED_ORIGIN = "https://datmo.io.vn"
+
+routes = [{ pattern = "booking.datmo.io.vn/*", zone_name = "datmo.io.vn" }]

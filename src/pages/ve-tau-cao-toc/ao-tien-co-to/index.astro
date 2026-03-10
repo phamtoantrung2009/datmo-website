@@ -4,6 +4,7 @@ import Breadcrumbs from '../../../components/Breadcrumbs.astro';
 import FAQ from '../../../components/FAQ.astro';
 import JsonLd from '../../../components/JsonLd.astro';
 import CallToActions from '../../../components/CallToActions.astro';
+import BookingForm from '../../../components/BookingForm.astro';
 import { SITE } from '../../../config/site';
 
 const title = 'Vé tàu cao tốc Ao Tiên ↔ Cô Tô | Datmo';
@@ -36,6 +37,8 @@ const serviceJsonLd = {
   <section class="container section">
     <h1>Vé tàu cao tốc Ao Tiên ↔ Cô Tô</h1>
     <p class="lead">Đặt vé tàu cao tốc tuyến Ao Tiên ↔ Cô Tô. Phù hợp khách đi từ Vân Đồn/Ao Tiên ra đảo, hỗ trợ kiểm tra lịch tàu theo ngày.</p>
+
+    <BookingForm route="ao-tien-co-to" />
 
     <div class="card">
       <h2>Lưu ý quan trọng</h2>

@@ -1,0 +1,446 @@
+---
+// dat-ve/xac-nhan.astro - Booking confirmation page
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import Breadcrumbs from "../../components/Breadcrumbs.astro";
+
+const API_BASE = "https://booking.datmo.io.vn";
+const bookingId = Astro.url.searchParams.get('id') || '';
+
+const crumbs = [
+  { name: "Trang chủ", href: "/" },
+  { name: "Đặt vé", href: "/ve-tau-cao-toc/" },
+  { name: "Xác nhận", href: "/dat-ve/xac-nhan/" },
+];
+
+const title = bookingId ? `Xác nhận đặt vé ${bookingId}` : "Xác nhận đặt vé";
+---
+
+<BaseLayout title={title} breadcrumb={crumbs}>
+  <Breadcrumbs items={crumbs} />
+
+  <section class="container section">
+    <div class="booking-confirmation" id="booking-app">
+      <div class="loading" id="loading">
+        <p>Đang tải thông tin đặt vé...</p>
+      </div>
+
+      <div class="booking-details hidden" id="booking-details">
+        <!-- Booking Info -->
+        <div class="card">
+          <h2>Thông tin đặt vé</h2>
+          <div class="info-grid">
+            <div class="info-row">
+              <span class="info-label">Mã đặt vé:</span>
+              <span class="info-value booking-id" id="booking-id">-</span>
+            </div>
+            <div class="info-row">
+              <span class="info-label">Tuyến:</span>
+              <span class="info-value" id="route-label">-</span>
+            </div>
+            <div class="info-row">
+              <span class="info-label">Ngày đi:</span>
+              <span class="info-value" id="travel-date">-</span>
+            </div>
+            <div class="info-row">
+              <span class="info-label">Giờ khởi hành:</span>
+              <span class="info-value" id="departure-time">-</span>
+            </div>
+            <div class="info-row">
+              <span class="info-label">Số khách:</span>
+              <span class="info-value" id="passenger-count">-</span>
+            </div>
+            <div class="info-row">
+              <span class="info-label">Hành khách:</span>
+              <span class="info-value" id="passenger-name">-</span>
+            </div>
+            <div class="info-row">
+              <span class="info-label">Điện thoại:</span>
+              <span class="info-value" id="passenger-phone">-</span>
+            </div>
+            <div class="info-row total-row">
+              <span class="info-label">Tổng tiền:</span>
+              <span class="info-value" id="total-amount">-</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Payment Section -->
+        <div class="card payment-section" id="payment-section">
+          <h2>Thanh toán</h2>
+          <p class="small">Quý khách vui lòng chuyển khoản trong vòng <strong id="countdown">15:00</strong></p>
+          
+          <div class="bank-info">
+            <div class="bank-row">
+              <span>Ngân hàng:</span>
+              <strong>Vietcombank</strong>
+            </div>
+            <div class="bank-row">
+              <span>Số tài khoản:</span>
+              <strong>9988923239</strong>
+            </div>
+            <div class="bank-row">
+              <span>Tên tài khoản:</span>
+              <strong>PHAM TOAN TRUNG</strong>
+            </div>
+            <div class="bank-row highlight">
+              <span>Nội dung chuyển khoản:</span>
+              <strong id="transfer-note">-</strong>
+            </div>
+          </div>
+
+          <div class="qr-section">
+            <p class="small">Quét QR để thanh toán:</p>
+            <img id="qr-image" src="" alt="QR thanh toán" class="qr-image" />
+          </div>
+        </div>
+
+        <!-- Status -->
+        <div class="card status-section" id="status-section">
+          <div class="status-badge" id="status-badge">
+            <span class="status-pending">Chờ thanh toán</span>
+          </div>
+          <p class="small" id="status-text">Đơn đặt vé đang chờ thanh toán. Vui lòng chuyển khoản để xác nhận.</p>
+        </div>
+
+        <!-- Issued / Success -->
+        <div class="card success-section hidden" id="success-section">
+          <h2>✅ Vé đã được xác nhận!</h2>
+          <p>Vé của quý khách đã được xác nhận thành công.</p>
+          <div class="ticket-info">
+            <p><strong>Mã vé:</strong> <span id="kalong-ref">-</span></p>
+          </div>
+          <p class="small">Cảm ơn quý khách đã sử dụng dịch vụ của Đất Mỏ Travel!</p>
+        </div>
+
+        <!-- Expired -->
+        <div class="card expired-section hidden" id="expired-section">
+          <h2>⚠️ Đơn hết hiệu lực</h2>
+          <p>Đơn đặt vé đã hết hiệu lực do quá thời gian thanh toán.</p>
+          <a href="/ve-tau-cao-toc/" class="btn primary">Đặt lại vé</a>
+        </div>
+      </div>
+
+      <div class="error hidden" id="error">
+        <p>Không tìm thấy thông tin đặt vé.</p>
+        <a href="/ve-tau-cao-toc/" class="btn primary">Đặt vé mới</a>
+      </div>
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+  .booking-confirmation {
+    max-width: 600px;
+    margin: 0 auto;
+  }
+
+  .loading, .error {
+    text-align: center;
+    padding: 40px 20px;
+  }
+
+  .hidden {
+    display: none !important;
+  }
+
+  .card {
+    background: #fff;
+    border: 1px solid #eee;
+    border-radius: 8px;
+    padding: 20px;
+    margin-bottom: 16px;
+  }
+
+  .card h2 {
+    margin: 0 0 16px 0;
+    font-size: 1.25rem;
+  }
+
+  .info-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  .info-row {
+    display: flex;
+    justify-content: space-between;
+    padding: 8px 0;
+    border-bottom: 1px solid #f0f0f0;
+  }
+
+  .info-row:last-child {
+    border-bottom: none;
+  }
+
+  .info-label {
+    color: #666;
+  }
+
+  .info-value {
+    font-weight: 500;
+  }
+
+  .booking-id {
+    font-family: monospace;
+    font-size: 1.1rem;
+    color: #0066cc;
+  }
+
+  .total-row {
+    font-size: 1.1rem;
+    padding-top: 12px;
+    margin-top: 4px;
+    border-top: 2px solid #0066cc;
+  }
+
+  .total-row .info-value {
+    color: #0066cc;
+    font-size: 1.25rem;
+  }
+
+  /* Payment Section */
+  .payment-section {
+    background: #f8f9fa;
+  }
+
+  .bank-info {
+    background: #fff;
+    border-radius: 6px;
+    padding: 16px;
+    margin: 16px 0;
+  }
+
+  .bank-row {
+    display: flex;
+    justify-content: space-between;
+    padding: 8px 0;
+  }
+
+  .bank-row.highlight {
+    background: #fff3cd;
+    margin: 8px -16px -16px;
+    padding: 12px 16px;
+    border-radius: 0 0 6px 6px;
+  }
+
+  .qr-section {
+    text-align: center;
+    margin-top: 16px;
+  }
+
+  .qr-image {
+    max-width: 200px;
+    border-radius: 8px;
+    border: 2px solid #ddd;
+  }
+
+  #countdown {
+    font-size: 1.5rem;
+    color: #dc3545;
+    font-weight: bold;
+  }
+
+  /* Status */
+  .status-section {
+    text-align: center;
+  }
+
+  .status-badge {
+    display: inline-block;
+    padding: 8px 16px;
+    border-radius: 20px;
+    font-weight: 500;
+    margin-bottom: 8px;
+  }
+
+  .status-pending {
+    background: #fff3cd;
+    color: #856404;
+  }
+
+  .status-paid {
+    background: #cce5ff;
+    color: #004085;
+  }
+
+  .status-issued {
+    background: #d4edda;
+    color: #155724;
+  }
+
+  .status-expired {
+    background: #f8d7da;
+    color: #721c24;
+  }
+
+  /* Success */
+  .success-section {
+    text-align: center;
+    background: #d4edda;
+    border-color: #c3e6cb;
+  }
+
+  .success-section h2 {
+    color: #155724;
+  }
+
+  .ticket-info {
+    background: #fff;
+    padding: 16px;
+    border-radius: 6px;
+    margin: 16px 0;
+  }
+
+  /* Expired */
+  .expired-section {
+    text-align: center;
+    background: #f8d7da;
+    border-color: #f5c6cb;
+  }
+
+  .expired-section h2 {
+    color: #721c24;
+  }
+
+  .btn {
+    display: inline-block;
+    padding: 12px 24px;
+    background: #0066cc;
+    color: #fff;
+    text-decoration: none;
+    border-radius: 6px;
+    font-weight: 500;
+    border: none;
+    cursor: pointer;
+  }
+
+  .btn:hover {
+    background: #0052a3;
+  }
+</style>
+
+<script is:inline>
+  // Use workers.dev URL - custom domain booking.datmo.io.vn will work after DNS propagates
+  const API_BASE = "https://datmo-booking.phamtoantrung2009.workers.dev";
+  const bookingId = new URLSearchParams(window.location.search).get('id');
+
+  const loadingEl = document.getElementById('loading');
+  const bookingDetailsEl = document.getElementById('booking-details');
+  const errorEl = document.getElementById('error');
+  const successSection = document.getElementById('success-section');
+  const expiredSection = document.getElementById('expired-section');
+  const paymentSection = document.getElementById('payment-section');
+
+  let bookingData = null;
+  let countdownInterval = null;
+
+  async function fetchBooking() {
+    if (!bookingId) {
+      showError();
+      return;
+    }
+
+    try {
+      const res = await fetch(API_BASE + '/api/booking/status?id=' + bookingId);
+      const data = await res.json();
+
+      if (data.success && data.booking) {
+        bookingData = data.booking;
+        displayBooking(bookingData);
+      } else {
+        showError();
+      }
+    } catch (err) {
+      console.error('Error fetching booking:', err);
+      showError();
+    }
+  }
+
+  function displayBooking(booking) {
+    loadingEl.classList.add('hidden');
+    bookingDetailsEl.classList.remove('hidden');
+
+    // Fill in booking details
+    document.getElementById('booking-id').textContent = booking.id;
+    document.getElementById('route-label').textContent = booking.route_label || booking.route;
+    
+    // Format date
+    const date = new Date(booking.travel_date);
+    const dateStr = date.toLocaleDateString('vi-VN', { day: '2-digit', month: '2-digit', year: 'numeric' });
+    document.getElementById('travel-date').textContent = dateStr;
+    
+    document.getElementById('departure-time').textContent = booking.departure_time || 'Theo lịch tàu';
+    document.getElementById('passenger-count').textContent = booking.adults + ' người lớn' + (booking.children > 0 ? ', ' + booking.children + ' trẻ em' : '');
+    document.getElementById('passenger-name').textContent = booking.passenger_name;
+    document.getElementById('passenger-phone').textContent = booking.passenger_phone;
+    document.getElementById('total-amount').textContent = booking.total_amount.toLocaleString('vi-VN') + ' đ';
+    document.getElementById('transfer-note').textContent = booking.id;
+
+    // Show QR if available and status is pending
+    if (booking.status === 'pending_payment') {
+      startCountdown(booking.expires_at);
+    }
+
+    // Update status display
+    const statusBadge = document.getElementById('status-badge');
+    const statusText = document.getElementById('status-text');
+
+    if (booking.status === 'pending_payment') {
+      statusBadge.innerHTML = '<span class="status-pending">Chờ thanh toán</span>';
+      statusText.textContent = 'Đơn đặt vé đang chờ thanh toán. Vui lòng chuyển khoản để xác nhận.';
+    } else if (booking.status === 'paid') {
+      statusBadge.innerHTML = '<span class="status-paid">Đã thanh toán</span>';
+      statusText.textContent = 'Đơn đặt vé đã được thanh toán. Đang chờ xuất vé...';
+      paymentSection.classList.add('hidden');
+    } else if (booking.status === 'issued') {
+      paymentSection.classList.add('hidden');
+      successSection.classList.remove('hidden');
+      document.getElementById('kalong-ref').textContent = booking.kalong_booking_ref || booking.id;
+      statusBadge.innerHTML = '<span class="status-issued">Đã xuất vé</span>';
+      statusText.textContent = 'Vé của quý khách đã được xác nhận!';
+    } else if (booking.status === 'expired') {
+      paymentSection.classList.add('hidden');
+      expiredSection.classList.remove('hidden');
+      statusBadge.innerHTML = '<span class="status-expired">Hết hạn</span>';
+    }
+  }
+
+  function startCountdown(expiresAt) {
+    const countdownEl = document.getElementById('countdown');
+    
+    function update() {
+      const now = new Date();
+      const expires = new Date(expiresAt);
+      const diff = expires - now;
+
+      if (diff <= 0) {
+        countdownEl.textContent = '00:00';
+        clearInterval(countdownInterval);
+        // Refresh to check status
+        fetchBooking();
+        return;
+      }
+
+      const minutes = Math.floor(diff / 60000);
+      const seconds = Math.floor((diff % 60000) / 1000);
+      countdownEl.textContent = 
+        String(minutes).padStart(2, '0') + ':' + 
+        String(seconds).padStart(2, '0');
+    }
+
+    update();
+    countdownInterval = setInterval(update, 1000);
+  }
+
+  function showError() {
+    loadingEl.classList.add('hidden');
+    errorEl.classList.remove('hidden');
+  }
+
+  // Auto-refresh every 30 seconds
+  setInterval(fetchBooking, 30000);
+
+  // Initial fetch
+  fetchBooking();
+</script>
