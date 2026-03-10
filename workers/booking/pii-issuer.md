@@ -187,8 +187,18 @@ Cảm ơn quý khách đã tin tưởng Đất Mỏ Travel!
 
 ## Environment Variables
 
-Store these securely:
-- `PII_TOKEN` - Token for Pii automation
+The PII_TOKEN is stored in: `C:\Users\Admin\.openclaw\workspace\.env`
+
+For API calls, use:
+```powershell
+# Read token from .env file
+$envContent = Get-Content "C:\Users\Admin\.openclaw\workspace\.env"
+$token = ($envContent -split "PII_TOKEN=")[1]
+Invoke-RestMethod -Uri "https://booking.datmo.io.vn/api/bookings/pending-issue" -Headers @{"X-Pii-Token"=$token}
+```
+
+Or hardcoded (for cron jobs):
+- `PII_TOKEN` = "74sHp8zBotmQVvOGdDKZajgub5MRrlPS"
 - `ADMIN_TOKEN` - Token for Boss manual confirmations
 - `KALONG_USERNAME` = "dl.datmotravel"
 - `KALONG_PASSWORD` = "Datmo@2024"

@@ -5,13 +5,14 @@
 // Custom domain booking.datmo.io.vn is now working
 const API_BASE = "https://booking.datmo.io.vn";
 
-// Available routes
+// Available routes with prices
 const routes = [
-  { value: "ao-tien-co-to", label: "Ao Tiên → Cô Tô", price: 280000, childPrice: 140000 },
-  { value: "co-to-ao-tien", label: "Cô Tô → Ao Tiên", price: 280000, childPrice: 140000 },
-  { value: "ao-tien-quan-lan", label: "Ao Tiên → Quan Lạn", price: 250000, childPrice: 125000 },
-  { value: "ao-tien-minh-chau", label: "Ao Tiên → Minh Châu", price: 250000, childPrice: 125000 },
-  { value: "minh-chau-ao-tien", label: "Minh Châu → Ao Tiên", price: 250000, childPrice: 125000 },
+  { value: "ao-tien-co-to", label: "Ao Tiên → Cô Tô", price: 280000, childPrice: 140000, reverse: "co-to-ao-tien" },
+  { value: "co-to-ao-tien", label: "Cô Tô → Ao Tiên", price: 280000, childPrice: 140000, reverse: "ao-tien-co-to" },
+  { value: "ao-tien-quan-lan", label: "Ao Tiên → Quan Lạn", price: 250000, childPrice: 125000, reverse: "quan-lan-ao-tien" },
+  { value: "quan-lan-ao-tien", label: "Quan Lạn → Ao Tiên", price: 250000, childPrice: 125000, reverse: "ao-tien-quan-lan" },
+  { value: "ao-tien-minh-chau", label: "Ao Tiên → Minh Châu", price: 250000, childPrice: 125000, reverse: "minh-chau-ao-tien" },
+  { value: "minh-chau-ao-tien", label: "Minh Châu → Ao Tiên", price: 250000, childPrice: 125000, reverse: "ao-tien-minh-chau" },
 ];
 
 // Get route prop if passed
@@ -23,20 +24,35 @@ const { route: selectedRoute } = Astro.props;
   <p class="small" style="margin-bottom: 16px;">Điền thông tin để đặt vé. Vé sẽ được xác nhận sau khi thanh toán.</p>
   
   <form id="booking-form" class="booking-grid" data-preselected-route={selectedRoute || ''}>
+    <!-- Trip Type Selection -->
+    <div class="form-field full-width trip-type-selector">
+      <label class="trip-type-label">Loại chuyến đi:</label>
+      <div class="trip-type-options">
+        <label class="trip-type-option">
+          <input type="radio" name="trip_type" value="one-way" checked />
+          <span class="trip-type-text">Một chiều</span>
+        </label>
+        <label class="trip-type-option">
+          <input type="radio" name="trip_type" value="round-trip" />
+          <span class="trip-type-text">Khứ hồi</span>
+        </label>
+      </div>
+    </div>
+
     <!-- Route Selection -->
     <div class="form-field full-width">
       <label for="route">Tuyến đi *</label>
       <select id="route" name="route" required>
         <option value="">-- Chọn tuyến --</option>
         {routes.map(r => (
-          <option value={r.value} data-adult-price={r.price} data-child-price={r.childPrice}>
+          <option value={r.value} data-adult-price={r.price} data-child-price={r.childPrice} data-reverse={r.reverse}>
             {r.label} ({r.price.toLocaleString('vi-VN')}đ/người lớn)
           </option>
         ))}
       </select>
     </div>
 
-    <!-- Travel Date -->
+    <!-- Outbound Date -->
     <div class="form-field">
       <label for="travel_date">Ngày đi *</label>
       <input 
@@ -48,7 +64,7 @@ const { route: selectedRoute } = Astro.props;
       />
     </div>
 
-    <!-- Departure Time -->
+    <!-- Outbound Departure Time -->
     <div class="form-field">
       <label for="departure_time">Giờ khởi hành</label>
       <select id="departure_time" name="departure_time">
@@ -62,13 +78,42 @@ const { route: selectedRoute } = Astro.props;
       </select>
     </div>
 
-    <!-- Adults -->
+    <!-- Return Section (hidden by default) -->
+    <div class="return-section full-width" id="return-section" style="display: none;">
+      <div class="return-divider">
+        <span>Chiều về</span>
+      </div>
+      
+      <div class="form-field">
+        <label for="return_date">Ngày về *</label>
+        <input 
+          type="date" 
+          id="return_date" 
+          name="return_date"
+          min={new Date().toISOString().split('T')[0]}
+        />
+      </div>
+
+      <div class="form-field">
+        <label for="return_departure_time">Giờ khởi hành (về)</label>
+        <select id="return_departure_time" name="return_departure_time">
+          <option value="">-- Chọn giờ --</option>
+          <option value="07:30">07:30</option>
+          <option value="08:00">08:00</option>
+          <option value="08:30">08:30</option>
+          <option value="13:00">13:00</option>
+          <option value="13:30">13:30</option>
+          <option value="14:00">14:00</option>
+        </select>
+      </div>
+    </div>
+
+    <!-- Passengers -->
     <div class="form-field">
       <label for="adults">Người lớn *</label>
       <input type="number" id="adults" name="adults" min="1" max="20" value="1" required />
     </div>
 
-    <!-- Children -->
     <div class="form-field">
       <label for="children">Trẻ em</label>
       <input type="number" id="children" name="children" min="0" max="10" value="0" />
@@ -96,6 +141,7 @@ const { route: selectedRoute } = Astro.props;
     <div class="price-display full-width">
       <span class="price-label">Tổng cộng:</span>
       <span class="price-amount" id="total-amount">0 đ</span>
+      <span class="price-breakdown" id="price-breakdown" style="display: none; font-size: 0.8rem; color: #666; font-weight: normal;"></span>
     </div>
 
     <button type="submit" class="btn primary full-width">Tiếp tục thanh toán</button>
@@ -145,10 +191,84 @@ const { route: selectedRoute } = Astro.props;
     box-shadow: 0 0 0 2px rgba(0, 102, 204, 0.1);
   }
 
+  /* Trip Type Selector */
+  .trip-type-selector {
+    margin-bottom: 4px;
+  }
+
+  .trip-type-label {
+    font-weight: 500;
+    font-size: 0.9rem;
+    display: block;
+    margin-bottom: 8px;
+  }
+
+  .trip-type-options {
+    display: flex;
+    gap: 16px;
+  }
+
+  .trip-type-option {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    cursor: pointer;
+  }
+
+  .trip-type-option input {
+    width: 18px;
+    height: 18px;
+  }
+
+  .trip-type-text {
+    font-weight: normal;
+  }
+
+  /* Return Section */
+  .return-section {
+    border-top: 2px dashed #ddd;
+    padding-top: 16px;
+    margin-top: 8px;
+  }
+
+  .return-divider {
+    text-align: center;
+    margin-bottom: 16px;
+    position: relative;
+  }
+
+  .return-divider::before,
+  .return-divider::after {
+    content: "";
+    position: absolute;
+    top: 50%;
+    width: 30%;
+    height: 1px;
+    background: #ddd;
+  }
+
+  .return-divider::before {
+    left: 0;
+  }
+
+  .return-divider::after {
+    right: 0;
+  }
+
+  .return-divider span {
+    background: white;
+    padding: 0 12px;
+    color: #666;
+    font-size: 0.9rem;
+    font-weight: 500;
+  }
+
+  /* Price Display */
   .price-display {
     display: flex;
-    justify-content: space-between;
+    flex-direction: column;
     align-items: center;
+    gap: 4px;
     padding: 12px 16px;
     background: #f8f9fa;
     border-radius: 6px;
@@ -158,6 +278,10 @@ const { route: selectedRoute } = Astro.props;
   .price-amount {
     font-size: 1.25rem;
     color: #0066cc;
+  }
+
+  .price-breakdown {
+    font-weight: normal;
   }
 
   .form-status {
@@ -184,9 +308,10 @@ const { route: selectedRoute } = Astro.props;
       grid-template-columns: repeat(2, 1fr);
     }
 
-    .booking-grid .form-field:nth-child(1),
-    .booking-grid .form-field:nth-child(5),
-    .booking-grid .form-field:nth-child(6),
+    .booking-grid .form-field:nth-child(3),
+    .booking-grid .form-field:nth-child(4),
+    .booking-grid .form-field:nth-child(9),
+    .booking-grid .form-field:nth-child(10),
     .booking-grid .form-field.full-width,
     .booking-grid .price-display,
     .booking-grid .btn,
@@ -201,11 +326,16 @@ const { route: selectedRoute } = Astro.props;
   const API_BASE = "https://booking.datmo.io.vn";
   
   const form = document.getElementById('booking-form');
+  const tripTypeInputs = document.querySelectorAll('input[name="trip_type"]');
   const routeSelect = document.getElementById('route');
   const adultsInput = document.getElementById('adults');
   const childrenInput = document.getElementById('children');
   const totalAmountEl = document.getElementById('total-amount');
+  const priceBreakdownEl = document.getElementById('price-breakdown');
   const statusEl = document.getElementById('booking-status');
+  const returnSection = document.getElementById('return-section');
+  const returnDateInput = document.getElementById('return_date');
+  const returnTimeSelect = document.getElementById('return_departure_time');
 
   // Pre-select route if passed via data attribute
   const preselectedRoute = form?.dataset.preselectedRoute;
@@ -213,6 +343,43 @@ const { route: selectedRoute } = Astro.props;
     routeSelect.value = preselectedRoute;
     // Trigger price calculation after setting route
     setTimeout(calculateTotal, 0);
+  }
+
+  // Trip type toggle
+  tripTypeInputs.forEach(input => {
+    input.addEventListener('change', (e) => {
+      const isRoundTrip = e.target.value === 'round-trip';
+      if (returnSection) {
+        returnSection.style.display = isRoundTrip ? 'block' : 'none';
+      }
+      // Make return fields required if round-trip
+      if (returnDateInput) {
+        returnDateInput.required = isRoundTrip;
+      }
+      calculateTotal();
+    });
+  });
+
+  // Get return route based on selected outbound route
+  function getReturnRoute(outboundRoute) {
+    const selectedOption = routeSelect?.selectedOptions[0];
+    return selectedOption?.dataset?.reverse || '';
+  }
+
+  // Get price for a route
+  function getRoutePrice(routeValue) {
+    const options = routeSelect?.options;
+    if (!options) return { adult: 0, child: 0 };
+    
+    for (let i = 0; i < options.length; i++) {
+      if (options[i].value === routeValue) {
+        return {
+          adult: parseInt(options[i].dataset.adultPrice) || 0,
+          child: parseInt(options[i].dataset.childPrice) || 0
+        };
+      }
+    }
+    return { adult: 0, child: 0 };
   }
 
   // Calculate total price
@@ -223,10 +390,34 @@ const { route: selectedRoute } = Astro.props;
     const adults = parseInt(adultsInput?.value) || 1;
     const children = parseInt(childrenInput?.value) || 0;
     
-    const total = (adults * adultPrice) + (children * childPrice);
+    const outboundTotal = (adults * adultPrice) + (children * childPrice);
+    
+    // Check if round-trip
+    const isRoundTrip = document.querySelector('input[name="trip_type"]:checked')?.value === 'round-trip';
+    let returnTotal = 0;
+    
+    if (isRoundTrip) {
+      const returnRoute = getReturnRoute(routeSelect?.value);
+      const returnPrices = getRoutePrice(returnRoute);
+      returnTotal = (adults * returnPrices.adult) + (children * returnPrices.child);
+    }
+    
+    const total = outboundTotal + returnTotal;
+    
     if (totalAmountEl) {
       totalAmountEl.textContent = total.toLocaleString('vi-VN') + ' đ';
     }
+    
+    // Show breakdown
+    if (priceBreakdownEl) {
+      if (isRoundTrip) {
+        priceBreakdownEl.style.display = 'block';
+        priceBreakdownEl.textContent = `Chiều đi: ${outboundTotal.toLocaleString('vi-VN')}đ + Chiều về: ${returnTotal.toLocaleString('vi-VN')}đ`;
+      } else {
+        priceBreakdownEl.style.display = 'none';
+      }
+    }
+    
     return total;
   }
 
@@ -246,7 +437,10 @@ const { route: selectedRoute } = Astro.props;
       }
 
       const formData = new FormData(form);
+      const isRoundTrip = formData.get('trip_type') === 'round-trip';
+      
       const data = {
+        trip_type: isRoundTrip ? 'round-trip' : 'one-way',
         route: formData.get('route'),
         travel_date: formData.get('travel_date'),
         departure_time: formData.get('departure_time') || null,
@@ -256,6 +450,12 @@ const { route: selectedRoute } = Astro.props;
         passenger_phone: formData.get('passenger_phone'),
         passenger_email: formData.get('passenger_email') || null
       };
+
+      // Add return info if round-trip
+      if (isRoundTrip) {
+        data.return_date = formData.get('return_date');
+        data.return_departure_time = formData.get('return_departure_time') || null;
+      }
 
       try {
         const res = await fetch(API_BASE + '/api/booking/create', {
@@ -269,8 +469,9 @@ const { route: selectedRoute } = Astro.props;
         const result = await res.json();
 
         if (result.success) {
-          // Redirect to confirmation page
-          window.location.href = '/dat-ve/xac-nhan?id=' + result.booking_id;
+          // Redirect to confirmation page - use outbound booking ID
+          const bookingId = result.booking_id || result.booking_ids?.[0];
+          window.location.href = '/dat-ve/xac-nhan?id=' + bookingId;
         } else {
           if (statusEl) {
             statusEl.textContent = result.error || 'Có lỗi xảy ra. Vui lòng thử lại.';
