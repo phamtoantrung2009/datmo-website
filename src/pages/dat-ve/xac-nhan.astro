@@ -321,8 +321,8 @@ const title = bookingId ? `Xác nhận đặt vé ${bookingId}` : "Xác nhận �
 </style>
 
 <script is:inline>
-  // Use workers.dev URL - custom domain booking.datmo.io.vn will work after DNS propagates
-  const API_BASE = "https://datmo-booking.phamtoantrung2009.workers.dev";
+  // Use custom domain - booking.datmo.io.vn is now working
+  const API_BASE = "https://booking.datmo.io.vn";
   const bookingId = new URLSearchParams(window.location.search).get('id');
 
   const loadingEl = document.getElementById('loading');

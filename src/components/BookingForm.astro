@@ -2,8 +2,8 @@
 // BookingForm.astro - Speedboat booking form component
 // Accepts optional route prop to pre-select a specific route
 
-// Try to use custom domain first, fall back to workers.dev
-const API_BASE = "https://datmo-booking.phamtoantrung2009.workers.dev";
+// Custom domain booking.datmo.io.vn is now working
+const API_BASE = "https://booking.datmo.io.vn";
 
 // Available routes
 const routes = [
@@ -197,8 +197,8 @@ const { route: selectedRoute } = Astro.props;
 </style>
 
 <script is:inline>
-  // Use workers.dev URL - custom domain booking.datmo.io.vn will work after DNS propagates
-  const API_BASE = "https://datmo-booking.phamtoantrung2009.workers.dev";
+  // Use custom domain - booking.datmo.io.vn is now working
+  const API_BASE = "https://booking.datmo.io.vn";
   
   const form = document.getElementById('booking-form');
   const routeSelect = document.getElementById('route');
