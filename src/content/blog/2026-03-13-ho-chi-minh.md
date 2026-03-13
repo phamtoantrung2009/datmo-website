@@ -6,7 +6,7 @@ category: "kinh-nghiem-du-lich"
 tags: ["du-lich-2026","ho-chi-minh"]
 ---
 
-## Cost of living in HCMC for a family (couple + toddler) – 65M VND/month offer
+## The Unwritten Quirks of Different U.S. Embassies (K-1 & CR-1 Visas)
 
 Điểm đến này đang có những điều thú vị đang chờ bạn khám phá.
 
