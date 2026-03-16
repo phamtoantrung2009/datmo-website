@@ -6,7 +6,7 @@ category: "kinh-nghiem-du-lich"
 tags: ["du-lich-2026","ho-chi-minh"]
 ---
 
-## Too much empathy is shown to the US side of the Vietnam conflict and too little 
+## hanoi and Ho Chi Minh City in July
 
 Điểm đến này đang có những điều thú vị đang chờ bạn khám phá.
 
