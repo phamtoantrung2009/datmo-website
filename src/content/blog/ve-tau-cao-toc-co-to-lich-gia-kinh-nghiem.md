@@ -36,8 +36,8 @@ Lịch tàu thay đổi theo mùa:
 
 ## Giá vé tàu cao tốc Cô Tô tham khảo
 
-- **Người lớn:** 220.000 – 280.000 đ/lượt
-- **Trẻ em (6–11 tuổi):** 150.000 – 180.000 đ/lượt
+- **Người lớn:** 350.000 đ/lượt
+- **Trẻ em (6–11 tuổi):** 200.000 đ/lượt
 - **Trẻ dưới 6 tuổi:** Miễn phí (ngồi cùng người lớn)
 - **Phí bảo hiểm:** ~10.000 đ/người
 
