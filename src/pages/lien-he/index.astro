@@ -13,10 +13,18 @@ const crumbs = [
 ---
 
 <BaseLayout title={title} description={description} breadcrumb={crumbs}>
-  <Breadcrumbs items={crumbs} />
-  <section class="container section">
-    <h1>Liên hệ đặt dịch vụ</h1>
-    <p class="lead">Gọi/Zalo để chốt lịch, nhận báo giá và xác nhận dịch vụ.</p>
+  <div class="page-hero">
+    <div class="page-hero-bg">
+      <img src="/images/hero-quang-ninh.png" alt="Liên hệ Datmo" />
+    </div>
+    <div class="page-hero-overlay"></div>
+    <div class="container page-hero-content" style="color: #fff;">
+      <Breadcrumbs items={crumbs} />
+      <h1 style="color: #fff;">Liên hệ đặt dịch vụ</h1>
+      <p class="lead" style="color: rgba(255,255,255,.9);">Gọi/Zalo để chốt lịch, nhận báo giá và xác nhận dịch vụ.</p>
+    </div>
+  </div>
+  <section class="container section reveal">
 
     <div class="grid-2">
       <div class="card">

@@ -47,14 +47,24 @@ const serviceJsonLd = {
   canonical={canonical}
   breadcrumb={crumbs}
 >
-  <Breadcrumbs items={crumbs} />
+  <div class="page-hero">
+    <div class="page-hero-bg">
+      <img src="/images/tau-cao-toc.png" alt="Tàu cao tốc Ao Tiên" />
+    </div>
+    <div class="page-hero-overlay"></div>
+    <div class="container page-hero-content" style="color: #fff;">
+      <Breadcrumbs items={crumbs} />
+      <h1 style="color: #fff;">Đặt vé tàu cao tốc đi Cô Tô – Quan Lạn</h1>
+      <p class="lead" style="color: rgba(255,255,255,.9);">
+        Tư vấn tuyến đi phù hợp, giờ tàu theo ngày và hỗ trợ đặt vé nhanh.
+      </p>
+    </div>
+  </div>
 
-  <section class="container section">
-    <h1>Đặt vé tàu cao tốc đi Cô Tô – Quan Lạn</h1>
-    <p class="lead">
-      Tư vấn tuyến đi phù hợp, giờ tàu theo ngày và hỗ trợ đặt vé nhanh.
-    </p>
-
+  <section class="container section reveal">
+    <div class="section-header text-center">
+      <h2>Các tuyến tàu chạy</h2>
+    </div>
     <div class="grid-3">
       <a class="card" href="/ve-tau-cao-toc/ao-tien-quan-lan/"
         ><h3>Ao Tiên ↔ Quan Lạn</h3><p>Kiểm tra lịch tàu & giá vé theo ngày</p>

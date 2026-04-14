@@ -53,14 +53,21 @@ const serviceJsonLd = {
   canonical={canonical}
   breadcrumb={crumbs}
 >
-  <Breadcrumbs items={crumbs} />
+  <div class="page-hero">
+    <div class="page-hero-bg">
+      <img src="/images/thue-xe-du-lich.png" alt="Thuê xe 45 chỗ tại Cẩm Phả" />
+    </div>
+    <div class="page-hero-overlay"></div>
+    <div class="container page-hero-content" style="color: #fff;">
+      <Breadcrumbs items={crumbs} />
+      <h1 style="color: #fff;">Thuê xe 45 chỗ tại Cẩm Phả</h1>
+      <p class="lead" style="color: rgba(255,255,255,.9);">
+        Dịch vụ phù hợp nhóm đi theo tuyến, theo ngày hoặc theo lịch trình tour. Báo giá nhanh qua hotline/Zalo.
+      </p>
+    </div>
+  </div>
 
-  <header class="container section">
-    <h1>Thuê xe 45 chỗ tại Cẩm Phả</h1>
-    <p class="lead">
-      Dịch vụ phù hợp nhóm đi theo tuyến, theo ngày hoặc theo lịch trình tour.
-      Báo giá nhanh qua hotline/Zalo.
-    </p>
+  <section class="container section reveal">
     <QuoteForm />
     <div class="btn-row">
       <a class="btn primary" href="/lien-he/">Đặt dịch vụ</a>

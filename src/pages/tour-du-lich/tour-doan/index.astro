@@ -31,10 +31,18 @@ const serviceJsonLd = {
 };
 ---
 <BaseLayout title={title} description={description} canonical={canonical} breadcrumb={crumbs}>
-  <Breadcrumbs items={crumbs} />
-  <section class="container section">
-    <h1>Tour đoàn – công ty xuất phát từ Cẩm Phả</h1>
-    <p class="lead">Tổ chức tour đoàn công ty/team building: lên plan, thuê xe 29–45 chỗ, đặt khách sạn và hỗ trợ thủ tục liên quan.</p>
+  <div class="page-hero">
+    <div class="page-hero-bg">
+      <img src="/images/tour-du-lich.png" alt="Tour đoàn" />
+    </div>
+    <div class="page-hero-overlay"></div>
+    <div class="container page-hero-content" style="color: #fff;">
+      <Breadcrumbs items={crumbs} />
+      <h1 style="color: #fff;">Tour đoàn – công ty xuất phát từ Cẩm Phả</h1>
+      <p class="lead" style="color: rgba(255,255,255,.9);">Tổ chức tour đoàn công ty/team building: lên plan, thuê xe 29–45 chỗ, đặt khách sạn và hỗ trợ thủ tục liên quan.</p>
+    </div>
+  </div>
+  <section class="container section reveal">
 
     <div class="card">
       <h2>Gợi ý gói dịch vụ</h2>

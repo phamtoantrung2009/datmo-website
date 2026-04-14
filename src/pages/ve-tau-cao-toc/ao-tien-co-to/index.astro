@@ -32,11 +32,19 @@ const serviceJsonLd = {
 };
 ---
 <BaseLayout title={title} description={description} canonical={canonical} breadcrumb={crumbs}>
-  <Breadcrumbs items={crumbs} />
+  <div class="page-hero">
+    <div class="page-hero-bg">
+      <img src="/images/tau-cao-toc.png" alt="Ao Tiên Cô Tô" />
+    </div>
+    <div class="page-hero-overlay"></div>
+    <div class="container page-hero-content" style="color: #fff;">
+      <Breadcrumbs items={crumbs} />
+      <h1 style="color: #fff;">Vé tàu cao tốc Ao Tiên ↔ Cô Tô</h1>
+      <p class="lead" style="color: rgba(255,255,255,.9);">Đặt vé tàu cao tốc tuyến Ao Tiên ↔ Cô Tô. Phù hợp khách đi từ Vân Đồn/Ao Tiên ra đảo, hỗ trợ kiểm tra lịch tàu theo ngày.</p>
+    </div>
+  </div>
 
-  <section class="container section">
-    <h1>Vé tàu cao tốc Ao Tiên ↔ Cô Tô</h1>
-    <p class="lead">Đặt vé tàu cao tốc tuyến Ao Tiên ↔ Cô Tô. Phù hợp khách đi từ Vân Đồn/Ao Tiên ra đảo, hỗ trợ kiểm tra lịch tàu theo ngày.</p>
+  <section class="container section reveal">
 
     <BookingForm route="ao-tien-co-to" />
 

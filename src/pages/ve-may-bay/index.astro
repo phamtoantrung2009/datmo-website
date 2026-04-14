@@ -48,13 +48,20 @@ const serviceJsonLd = {
   canonical={canonical}
   breadcrumb={crumbs}
 >
-  <Breadcrumbs items={crumbs} />
-  <section class="container section">
-    <h1>Đặt vé máy bay tại Cẩm Phả</h1>
-    <p class="lead">
-      Nhận đặt vé máy bay cho khách tại Cẩm Phả – Quảng Ninh: tư vấn hành trình,
-      báo giá nhanh, hỗ trợ đổi vé theo điều kiện hãng.
-    </p>
+  <div class="page-hero">
+    <div class="page-hero-bg">
+      <img src="/images/ve-may-bay.png" alt="Đặt vé máy bay" />
+    </div>
+    <div class="page-hero-overlay"></div>
+    <div class="container page-hero-content" style="color: #fff;">
+      <Breadcrumbs items={crumbs} />
+      <h1 style="color: #fff;">Đặt vé máy bay tại Cẩm Phả</h1>
+      <p class="lead" style="color: rgba(255,255,255,.9);">
+        Nhận đặt vé máy bay cho khách tại Cẩm Phả – Quảng Ninh: tư vấn hành trình, báo giá nhanh, hỗ trợ đổi vé theo điều kiện hãng.
+      </p>
+    </div>
+  </div>
+  <section class="container section reveal">
     <ContactForm />
     <div class="card">
       <h2>Liên kết cùng SILO</h2>
