@@ -10,20 +10,78 @@ const crumbs = [
 ];
 ---
 <BaseLayout title={title} description={description} breadcrumb={crumbs}>
-  <Breadcrumbs items={crumbs} />
-  <section class="container section">
-    <h1>Giới thiệu Datmo.io.vn</h1>
-    <p class="lead">Website nội dung – dịch vụ địa phương cho khách tại Cẩm Phả, Quảng Ninh.</p>
+  <div class="page-hero">
+    <div class="page-hero-bg">
+      <img src="/images/hero-quang-ninh.png" alt="Vịnh Hạ Long" />
+    </div>
+    <div class="page-hero-overlay"></div>
+    <div class="container page-hero-content">
+      <Breadcrumbs items={crumbs} />
+      <h1>Giới thiệu Datmo.io.vn</h1>
+      <p class="lead">Đơn vị cung cấp giải pháp du lịch và vận chuyển uy tín hàng đầu cho khách hàng tại Cẩm Phả, Quảng Ninh.</p>
+    </div>
+  </div>
+
+  <section class="container section reveal">
     <div class="grid-2">
-      <div class="card">
-        <h2>Mục tiêu</h2>
-        <p class="small">Cung cấp giải pháp đặt dịch vụ nhanh: thuê xe, tour, vé tàu, vé máy bay, khách sạn, visa – hộ chiếu.</p>
+      <div class="card" style="box-shadow:none;border-color:transparent;background:transparent;padding:0">
+        <h2 style="font-size:28px;margin-top:0">Về chúng tôi</h2>
+        <p><strong>CÔNG TY CP THƯƠNG MẠI VÀ DU LỊCH ĐẤT MỎ</strong> (Thương hiệu Datmo) ra đời với mục tiêu mang đến những trải nghiệm di chuyển và du lịch trọn vẹn, an toàn cho người dân TP Cẩm Phả, cũng như du khách đến với Quảng Ninh.</p>
+        <p>Với lợi thế là doanh nghiệp địa phương, chúng tôi hiểu rõ đặc thù từng cung đường, tuyến điểm, giờ tàu chạy tại các cảng như Ao Tiên, Vũng Đục, cái Bầu... từ đó thiết kế lịch trình tối ưu và tiết kiệm nhất cho khách hàng.</p>
+        
+        <div style="margin-top:24px;border-left:4px solid var(--brand);padding-left:16px">
+          <h3 style="font-size:18px;margin-bottom:8px">Tầm nhìn</h3>
+          <p>Trở thành đơn vị tổ chức lữ hành và vận chuyển hành khách đáng tin cậy nhất không chỉ riêng Cẩm Phả mà mở rộng toàn tỉnh Quảng Ninh.</p>
+        </div>
       </div>
-      <div class="card">
-        <h2>Phạm vi</h2>
-        <p class="small">Tập trung Cẩm Phả và các tuyến phổ biến trong tỉnh Quảng Ninh, kết nối cảng Ao Tiên/Vũng Đục.</p>
+      <div>
+        <img src="/images/tour-du-lich.png" alt="Du lịch uy tín" style="border-radius:var(--radius);box-shadow:var(--shadow-lg)" />
       </div>
     </div>
   </section>
-</BaseLayout>
 
+  <section class="container section reveal" style="background:var(--card);border-radius:var(--radius);padding:40px;box-shadow:var(--shadow)">
+    <div class="section-header text-center">
+      <h2>Giá trị cốt lõi của Datmo</h2>
+    </div>
+    <div class="grid-3">
+      <div class="why-card" style="border:none;box-shadow:none">
+        <div class="why-card-icon">
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4zm-2 16l-4-4 1.41-1.41L10 14.17l6.59-6.59L18 9l-8 8z"/></svg>
+        </div>
+        <h3>Uy tín & An toàn</h3>
+        <p>Là công ty cổ phần có pháp lý rõ ràng. Đảm bảo an toàn tuyệt đối trên mọi chuyến hành trình với dàn xe đời mới và bảo hiểm đầy đủ.</p>
+      </div>
+      <div class="why-card" style="border:none;box-shadow:none">
+        <div class="why-card-icon">
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M22 9.24l-7.19-.62L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21 12 17.27 18.18 21l-1.63-7.03L22 9.24zM12 15.4l-3.76 2.27 1-4.28-3.32-2.88 4.38-.38L12 6.1l1.71 4.04 4.38.38-3.32 2.88 1 4.28L12 15.4z"/></svg>
+        </div>
+        <h3>Chất lượng cao</h3>
+        <p>Cam kết dịch vụ đúng thỏa thuận, hỗ trợ khách hàng tận tâm bằng sự chuyên nghiệp, chuẩn mực trong từng quy trình nhỏ nhất.</p>
+      </div>
+      <div class="why-card" style="border:none;box-shadow:none">
+        <div class="why-card-icon">
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M11.99 2C6.47 2 2 6.48 2 12s4.47 10 9.99 10C17.52 22 22 17.52 22 12S17.52 2 11.99 2zM12 20c-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8-3.58 8-8 8zm.5-13H11v6l5.25 3.15.75-1.23-4.5-2.67z"/></svg>
+        </div>
+        <h3>Tiết kiệm thời gian</h3>
+        <p>Quy trình đặt vé, báo giá nhanh chóng. Mạng lưới dịch vụ tích hợp toàn diện: từ phương tiện, khách sạn cho đến visa.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="container section reveal">
+    <div class="card" style="max-width:800px;margin:10px auto">
+      <h2>Thông tin pháp lý doanh nghiệp</h2>
+      <ul class="link-list" style="margin-top:16px">
+        <li><strong>Tên đầy đủ:</strong> CÔNG TY CỔ PHẦN THƯƠNG MẠI VÀ DU LỊCH ĐẤT MỎ</li>
+        <li><strong>Tên tiếng Anh:</strong> DAT MO TRADING AND TOURISM JOINT STOCK COMPANY</li>
+        <li><strong>Tên viết tắt:</strong> DAT MOTOUR.,JSC</li>
+        <li><strong>Mã số doanh nghiệp (MST):</strong> 5702169493</li>
+        <li><strong>Địa chỉ trụ sở:</strong> Số nhà 22, tổ 33, khu 4A2, Phường Cửa Ông, Thành phố Cẩm Phả, Tỉnh Quảng Ninh, Việt Nam</li>
+        <li><strong>Địa chỉ văn phòng / bãi xe:</strong> Số nhà 56, tổ 51, khu 4B2, Phường Cửa Ông, Thành phố Cẩm Phả, Tỉnh Quảng Ninh</li>
+        <li><strong>Điện thoại:</strong> 0911 321 578</li>
+        <li><strong>Email:</strong> ctcpdulich.datmo@gmail.com</li>
+      </ul>
+    </div>
+  </section>
+</BaseLayout>

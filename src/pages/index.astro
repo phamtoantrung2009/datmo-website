@@ -1,6 +1,7 @@
 ---
 import BaseLayout from "../layouts/BaseLayout.astro";
 import Hero from "../components/Hero.astro";
+import TrustSection from "../components/TrustSection.astro";
 import ServiceCards from "../components/ServiceCards.astro";
 import CallToActions from "../components/CallToActions.astro";
 import QuoteForm from "../components/QuoteForm.astro";
@@ -14,55 +15,57 @@ const description =
 <BaseLayout title={title} description={description}>
   <Hero
     h1="Dịch vụ du lịch & vận chuyển tại Cẩm Phả – Quảng Ninh"
-    sub="Thuê xe 16–45 chỗ • Tour xuất phát từ Cẩm Phả • Vé tàu cao tốc • Vé máy bay • Visa"
+    sub="Thuê xe 16–45 chỗ • Tour xuất phát từ Cẩm Phả • Vé tàu cao tốc Ao Tiên/Vũng Đục • Vé máy bay • Khách sạn • Visa – hộ chiếu"
   />
-  <section class="container section">
-    <QuoteForm />
-  </section>
-  <section class="container section">
-    <h2>Dịch vụ nổi bật</h2>
+  
+  <TrustSection />
+
+  <section class="container section reveal">
+    <div class="section-header text-center">
+      <div class="kicker">Dịch Vụ Của Chúng Tôi</div>
+      <h2>Dịch vụ nổi bật</h2>
+      <p>Giải pháp toàn diện cho mọi nhu cầu di chuyển và du lịch của bạn</p>
+    </div>
     <ServiceCards />
   </section>
-    <section class="container section">
-    <h2>Vì sao khách tại Cẩm Phả chọn Datmo?</h2>
-    <div class="grid-3">
-      <div class="card">
-        <h3>Tập trung địa phương</h3><p>
-          Ưu tiên khách Cẩm Phả & Quảng Ninh, tư vấn giờ tàu/điểm đón thực tế.
-        </p>
-      </div>
-      <div class="card">
-        <h3>Hỗ trợ nhanh</h3><p>
-          Hotline & Zalo phản hồi nhanh, xác nhận dịch vụ rõ ràng, minh bạch.
-        </p>
-      </div>
-      <div class="card">
-        <h3>Lịch trình tối ưu</h3><p>
-          Gợi ý tuyến đi phù hợp: Hạ Long, Vân Đồn/Ao Tiên, Móng Cái, sân bay.
-        </p>
-      </div>
+
+  <section class="container section reveal">
+    <div class="section-header text-center">
+      <div class="kicker">Báo Giá Nhanh</div>
+      <h2>Nhận báo giá di chuyển</h2>
+      <p>Cung cấp lộ trình để Datmo tính toán chi phí minh bạch</p>
     </div>
+    <QuoteForm />
   </section>
 
-  <section class="container section">
-    <h2>Danh mục dịch vụ</h2>
-    <ul class="link-list">
-      <li>
-        <a href="/thue-xe-du-lich/">Thuê xe du lịch (16–45 chỗ) tại Cẩm Phả</a>
-      </li>
-      <li><a href="/tour-du-lich/">Tour du lịch xuất phát từ Cẩm Phả</a></li>
-      <li>
-        <a href="/ve-tau-cao-toc/"
-          >Vé tàu cao tốc Ao Tiên/Vũng Đục đi Cô Tô – Quan Lạn</a>
-      </li>
-      <li><a href="/ve-may-bay/">Đặt vé máy bay</a></li>
-      <li><a href="/khach-san/">Đặt phòng khách sạn</a></li>
-      <li><a href="/visa-ho-chieu/">Dịch vụ visa – hộ chiếu</a></li>
-      <li><a href="/blog/">Blog: lịch tàu, giá vé, kinh nghiệm</a></li>
-      <li>
-        <a href="/gioi-thieu/">Giới thiệu</a> • <a href="/lien-he/">Liên hệ</a>
-      </li>
-    </ul>
+  <section class="container section reveal">
+    <div class="section-header text-center">
+      <div class="kicker">Tại sao chọn Datmo?</div>
+      <h2>Vì sao khách tại Cẩm Phả chọn chúng tôi?</h2>
+    </div>
+    <div class="grid-3">
+      <div class="why-card">
+        <div class="why-card-icon">
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-6h2v6zm0-8h-2V7h2v2z"/></svg>
+        </div>
+        <h3>Tập trung địa phương</h3>
+        <p>Ưu tiên khách Cẩm Phả & Quảng Ninh, tư vấn giờ tàu/điểm đón thực tế, rõ từng tuyến đường.</p>
+      </div>
+      <div class="why-card">
+        <div class="why-card-icon">
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M11.99 2C6.47 2 2 6.48 2 12s4.47 10 9.99 10C17.52 22 22 17.52 22 12S17.52 2 11.99 2zM12 20c-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8-3.58 8-8 8z"/><path d="M12.5 7H11v6l5.25 3.15.75-1.23-4.5-2.67z"/></svg>
+        </div>
+        <h3>Hỗ trợ nhanh chóng</h3>
+        <p>Hotline & Zalo phản hồi cực nhanh, xác nhận dịch vụ rõ ràng, minh bạch, xử lý sự cố kịp thời.</p>
+      </div>
+      <div class="why-card">
+        <div class="why-card-icon">
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M20.5 3l-.16.03L15 5.1 9 3 3.36 4.9c-.21.07-.36.25-.36.48V20.5c0 .28.22.5.5.5l.16-.03L9 18.9l6 2.1 5.64-1.9c.21-.07.36-.25.36-.48V3.5c0-.28-.22-.5-.5-.5zM15 19l-6-2.11V5l6 2.11V19z"/></svg>
+        </div>
+        <h3>Lịch trình tối ưu</h3>
+        <p>Gợi ý tuyến đi khoa học và tiết kiệm: Hạ Long, Vân Đồn/Ao Tiên, Móng Cái, sân bay Nội Bài/Cát Bi.</p>
+      </div>
+    </div>
   </section>
 
   <CallToActions />

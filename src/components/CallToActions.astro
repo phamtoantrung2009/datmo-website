@@ -1,14 +1,18 @@
 ---
 import { SITE } from '../config/site';
 ---
-<section class="container section" aria-label="CTA">
-  <div class="card">
-    <h2 style="margin-top:0">Cần đặt dịch vụ nhanh?</h2>
-    <p class="small">Gọi để được tư vấn tuyến đi, báo giá và giữ lịch xe/tour/vé tàu theo ngày bạn đi.</p>
+<section class="cta-section reveal" aria-label="CTA">
+  <div class="container">
+    <h2>Bạn cần tư vấn dịch vụ ngay?</h2>
+    <p>Hãy liên hệ với chúng tôi để được giải đáp thắc mắc và nhận báo giá tốt nhất.</p>
     <div class="btn-row">
-      <a class="btn primary" href={`tel:${SITE.phone}`}>Gọi ngay</a>
-      <a class="btn" href={SITE.zaloUrl} rel="nofollow">Zalo</a>
-      <a class="btn" href="/lien-he/">Đặt dịch vụ</a>
+      <a class="btn primary" href={`tel:${SITE.phone}`}>
+        <svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor"><path d="M21 16.5v3.25a1.25 1.25 0 0 1-1.37 1.24A18.8 18.8 0 0 1 3 4.37 1.25 1.25 0 0 1 4.24 3H7.5A1.25 1.25 0 0 1 8.75 4.1c.1.9.3 1.78.6 2.63a1.25 1.25 0 0 1-.28 1.31L7.9 9.2a15.5 15.5 0 0 0 6.9 6.9l1.16-1.17a1.25 1.25 0 0 1 1.31-.28c.85.3 1.73.5 2.63.6A1.25 1.25 0 0 1 21 16.5z"/></svg>
+        Gọi {SITE.phoneDisplay}
+      </a>
+      <a class="btn" href={SITE.zaloUrl} rel="nofollow">
+        Nhắn tin qua Zalo
+      </a>
     </div>
   </div>
 </section>
